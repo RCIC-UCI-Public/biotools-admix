@@ -1,0 +1,1 @@
+/opt/rocks/yaml2rpm/samples/Makefile
