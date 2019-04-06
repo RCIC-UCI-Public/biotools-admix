@@ -4,8 +4,8 @@
   versions: !include biotools_versions.yaml
   version: "{{ versions.SPAdes }}"
   extension: tar.gz
-  pkgname: "{{ name }}"
-  vendor_source: http://cab.spbu.ru/files/release3.13.0/SPAdes-3.13.0.tar.gz 
+  pkgname: "{{ name }}_{{ version }}"
+  vendor_source: http://cab.spbu.ru/files/release{{ version }}/SPAdes-{{ version}}.tar.gz 
   description: >
     SPAdes version {{ version }}. St. Petersburg Assembler
   root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
@@ -24,15 +24,6 @@
      installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
   files:
     -  "{{ root }}"
-    -  "{{ module.path }}/{{ module.name }} "
   requires:
     - gcc_{{ versions.gcc }} 
-    - rcic-module-support
-  module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.path }}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
-    prereq: 
-      - gcc/{{ versions.gcc }}
   rpm: !include rpm.extras.yaml
