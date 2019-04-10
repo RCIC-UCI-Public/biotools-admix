@@ -1,0 +1,28 @@
+---
+- package: High-Throughput Sequencing Lib from Samtools
+  name: htslib 
+  versions: !include biotools_versions.yaml
+  version: "{{ versions.htslib }}"
+  extension: tar.gz
+  vendor_source: https://github.com/samtools/htslib/archive/{{ version }}.tar.gz
+  description: >
+    HTSLIB {{ version }}.  HTSlib implements a generalized BAM index, 
+    with file extension csi (coordinate-sorted index). 
+  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
+  build:
+    configure: ./configure 
+    configure_args: --prefix={{ root }}
+    modules: 
+      - gcc/{{ versions.gcc }}
+    pkgmake: make 
+    target: 
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{ root }};
+       make install DESTDIR=$(ROOT)
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
+  files:
+    -  "{{ root }}"
+  requires:
+    - gcc_{{ versions.gcc }} 
+  rpm: !include rpm.extras.yaml

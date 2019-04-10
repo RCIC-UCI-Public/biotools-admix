@@ -1,0 +1,17 @@
+# Builds the module for htslib. It first includes all the definitions
+# for the htslib build and then overwrites specific keys
+!include htslib.yaml
+!include /opt/rcic/include/rcic-module.yaml
+---
+- package: HTSLIB Module
+  pkgname: "{{ name }}_{{version}}-module"
+  module:
+    name: "{{ version }}"
+    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    prepend_path:
+      - "{{ pkg_defaults.module.prepend_path }}"
+    prereq: 
+      - gcc/{{ versions.gcc }}
+  requires:
+    - "{{ name }}_{{ version }}"
+    - rcic-module-support
