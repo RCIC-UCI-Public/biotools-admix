@@ -1,1 +1,8 @@
+autoconf
+bzip2-devel
+libcurl-devel
+ncurses-devel
+openssl-devel
+xz-devel
 zlib-devel
+
