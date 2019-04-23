@@ -1,0 +1,18 @@
+# Builds the module for bcftools. It first includes all the definitions
+# for the bcftools build and then overwrites specific keys
+!include bcftools.yaml
+!include /opt/rcic/include/rcic-module.yaml
+---
+- package: bcftools Module
+  pkgname: "{{ name }}_{{version}}-module"
+  module:
+    name: "{{ version }}"
+    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    prepend_path:
+      - "{{ pkg_defaults.module.prepend_path }}"
+    prereq: 
+      - gcc/{{ versions.gcc }}
+      - htslib/{{ versions.htslib }}
+  requires:
+    - "{{ name }}_{{ version }}"
+    - rcic-module-support

@@ -2,3 +2,9 @@ bwa
 bwa-module
 SPAdes
 SPAdes-module
+htslib
+htslib-module
+samtools
+samtools-module
+bcftools
+bcftools-module

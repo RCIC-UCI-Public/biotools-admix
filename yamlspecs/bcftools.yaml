@@ -1,0 +1,29 @@
+---
+- package: BCFtools are meant as a faster replacement for most of the perl VCFtools 
+  name: bcftools 
+  versions: !include biotools_versions.yaml
+  version: "{{ versions.bcftools }}"
+  extension: tar.bz2
+  vendor_source: https://github.com/samtools/bcftools/releases/download/{{ version }}bcftools-{{version}}.tar.bz2 
+  description: >
+    bcftools {{ version }}.  
+    BCFtools are meant as a faster replacement for most of the perl VCFtools
+  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
+  build:
+    configure: echo
+    modules: 
+      - gcc/{{ versions.gcc }}
+      - htslib/{{ versions.htslib }}
+    pkgmake: HTSDIR={{pkg_defaults.app_path}}/htslib/{{versions.htslib}} make
+    target: 
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{ root }};
+       make prefix={{ root }} DESTDIR=$(ROOT) install
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
+  files:
+    -  "{{ root }}"
+  requires:
+    - gcc_{{ versions.gcc }} 
+    - htslib_{{ versions.htslib }} 
+  rpm: !include rpm.extras.yaml
