@@ -8,3 +8,7 @@ samtools
 samtools-module
 bcftools
 bcftools-module
+tophat
+tophat-module
+bowtie2
+bowtie2-module

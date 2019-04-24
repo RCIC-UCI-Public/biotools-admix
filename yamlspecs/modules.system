@@ -1,4 +1,5 @@
 autoconf
+boost-devel
 bzip2-devel
 libcurl-devel
 ncurses-devel
