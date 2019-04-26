@@ -19,13 +19,13 @@
      makeinstall: >
        mkdir -p $(ROOT){{ root }};
        make install DESTDIR=$(ROOT) prefix={{ root }};
-       $(TAR) cf - example/reads example/index scripts |
+       $(TAR) cf - example doc scripts |
        $(TAR) -x -C $(ROOT){{ root }};
-       chmod -R a+rX $ $(ROOT){{ root }}{example,scripts}
+       chmod -R a+rX $ $(ROOT){{ root }}{doc,example,scripts}
      installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
   files:
     -  "{{ root }}"
   requires:
     - gcc_{{ versions.gcc }} 
     - python_{{ versions.python }} 
-  rpm: !include rpm.extras.yaml
+  rpm: !include rpm.extras.filter.yaml
