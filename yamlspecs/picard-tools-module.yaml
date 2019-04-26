@@ -1,0 +1,17 @@
+# Builds the module for picard-tools. It first includes all the definitions
+# for the picard-tools build and then overwrites specific keys
+!include picard-tools.yaml
+!include /opt/rcic/include/rcic-module.yaml
+---
+- package: picard-tools Module
+  pkgname: "{{ name }}_{{version}}-module"
+  module:
+    name: "{{ version }}"
+    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    setenv: 
+      - PICARDTOOLS "{{ root }}"
+    prereq: 
+      - java/{{ versions.java }}
+  requires:
+    - "{{ name }}_{{ version }}"
+    - rcic-module-support
