@@ -10,7 +10,7 @@
     with file extension csi (coordinate-sorted index). 
   root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   addfile: 
-    - filter-requires-{{ name }}.sh 
+    - filter-requires-{{ name }}.sh
   build:
     configure: ./configure 
     configure_args: --prefix={{ root }}
