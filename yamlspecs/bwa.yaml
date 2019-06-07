@@ -4,7 +4,7 @@
   versions: !include biotools_versions.yaml
   version: "{{ versions.bwa }}"
   extension: tar.gz
-  vendor_source: https://github.com/lh3/bwa/archive/0.7.8.tar.gz
+  vendor_source: https://github.com/lh3/bwa/archive/{{ version }}.tar.gz
   description: >
     Burrow-Wheeler Aligner {{ version }}. 
   root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"

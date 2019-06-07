@@ -1,0 +1,20 @@
+# Builds the module for bwa. It first includes all the definitions
+# for the bwa build and then overwrites specific keys
+!include bwa.yaml
+!include /opt/rcic/include/rcic-module.yaml
+---
+- package: BWA Burrows-Wheeler Aligner Module
+  keys: !include bwa-latest-keys.yaml
+  version: "{{ keys.version }}" 
+  vendor_source: "{{ keys.vendor_source }}" 
+  pkgname: "{{ name }}_{{version}}-module"
+  module:
+    name: "{{ version }}"
+    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    prepend_path:
+      - "{{ pkg_defaults.module.prepend_path }}"
+    prereq: 
+      - gcc/{{ versions.gcc }}
+  requires:
+    - "{{ name }}_{{ version }}"
+    - rcic-module-support

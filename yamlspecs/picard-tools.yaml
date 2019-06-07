@@ -21,5 +21,5 @@
   files:
     -  "{{ root }}"
   requires:
-    - java_{{ versions.java }} 
+    - jre = {{ versions.java }} 
   rpm: !include rpm.extras.yaml

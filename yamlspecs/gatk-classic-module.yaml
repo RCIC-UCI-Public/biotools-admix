@@ -1,6 +1,6 @@
 # Builds the module for gatk. It first includes all the definitions
 # for the gatk build and then overwrites specific keys
-!include gatk.yaml
+!include gatk-classic.yaml
 !include /opt/rcic/include/rcic-module.yaml
 ---
 - package: gatk Module

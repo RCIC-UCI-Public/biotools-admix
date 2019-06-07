@@ -2,14 +2,15 @@
 - package: Genome Analysis Toolkit
   name: gatk 
   versions: !include biotools_versions.yaml
-  version: "{{ versions.gatk }}"
-  extension: zip
-  gatkdir: GenomeAnalysisTK-{{ version }}
+  version: "{{ versions.gatk_classic }}"
+  gatkhash: "{{ versions.gatkhash_classic }}" 
+  extension: tar.bz2
+  gatkdir: GenomeAnalysisTK-{{ version }}-{{ gatkhash }}
   src_tarball: "{{ gatkdir }}.{{ extension }}"
   src_dir: "{{ gatkdir }}"
-  vendor_source: https://github.com/broadinstitute/gatk/releases/download/{{ version }}/gatk-{{ version }}.zip
+  vendor_source: https://software.broadinstitute.org/gatk/download/auth?package=GATK-archive&version={{version}}-{{ gatkhash }}
   description: >
-    GATK {{ version }}.  Genome Analysis Toolkit 
+    GATK {{ version }} (Hash: {{ gatkhash }}.  Genome Analysis Toolkit 
   root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   build:
     configure: echo
