@@ -1,5 +1,7 @@
 bwa
 bwa-module
+bwa-latest
+bwa-module-latest
 SPAdes
 SPAdes-module
 htslib
@@ -12,3 +14,10 @@ tophat
 tophat-module
 bowtie2
 bowtie2-module
+gatk-classic
+gatk-classic-module
+picard-tools
+picard-tools-module
+edirect
+edirect-module
+fastp
