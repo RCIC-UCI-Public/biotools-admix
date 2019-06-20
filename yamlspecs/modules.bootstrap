@@ -1,0 +1,4 @@
+# This packages need to be built and installed to build the rest of this
+# admix
+htslib
+htslib-module
