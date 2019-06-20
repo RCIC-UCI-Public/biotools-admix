@@ -1,0 +1,33 @@
+---
+- package: VG variation graph data structures 
+  name: vg 
+  versions: !include biotools_versions.yaml
+  version: "{{ versions.vg }}"
+  extension: tar.gz
+  vendor_source: https://github.com/vgteam/vg/releases/download/v{{ version }}/vg-v{{ version }}.tar.gz 
+  description: >
+    variation graph data structures, interchange formats, alignment, genotyping, and variant calling methods vg {{ version }}. 
+  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
+  src_dir: "{{ name }}-v{{ version }}" 
+  build:
+    configure: echo 
+    modules: 
+      - gcc/{{ versions.gcc }}
+      - cmake/{{ versions.cmake }}
+    pkgmake: make 
+    target: 
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT)/{{ root }}/bin;
+       mkdir -p $(ROOT)/{{ root }}/lib;
+       $(INSTALL) bin/* $(ROOT)//{{ root }}/bin;
+       $(INSTALL) lib/libboost* $(ROOT)//{{ root }}/lib;
+       $(INSTALL) lib/libprotoc* $(ROOT)//{{ root }}/lib;
+       $(INSTALL) lib/libprotobuf* $(ROOT)//{{ root }}/lib;
+       $(INSTALL) lib/libtcmalloc* $(ROOT)//{{ root }}/lib
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
+  files:
+    -  "{{ root }}"
+  requires:
+    - gcc_{{ versions.gcc }} 
+  rpm: !include rpm.extras.yaml

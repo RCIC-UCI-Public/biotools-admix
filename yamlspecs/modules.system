@@ -6,4 +6,10 @@ ncurses-devel
 openssl-devel
 xz-devel
 zlib-devel
+protobuf-devel
+protobuf-compiler
+jansson-devel
+libffi-devel
+lz4-devel
+cairo-devel
 
