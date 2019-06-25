@@ -1,0 +1,18 @@
+# Builds the module for htslib. It first includes all the definitions
+# for the htslib build and then overwrites specific keys
+!include salmon.yaml
+!include /opt/rcic/include/rcic-module.yaml
+---
+- package: Salmon Module
+  pkgname: "{{ name }}_{{version}}-module"
+  module:
+    name: "{{ version }}"
+    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    prepend_path:
+      - "{{ pkg_defaults.module.prepend_path }}"
+    prereq: 
+      - gcc/{{ versions.gcc }}
+      - boost/gcc/{{versions.gcc}}/{{ versions.boost }}
+  requires:
+    - "{{ name }}_{{ version }}"
+    - rcic-module-support
