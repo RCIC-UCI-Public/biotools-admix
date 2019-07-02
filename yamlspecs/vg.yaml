@@ -22,6 +22,7 @@
        mkdir -p $(ROOT)/{{ root }}/lib;
        $(INSTALL) bin/* $(ROOT)//{{ root }}/bin;
        $(INSTALL) lib/libboost* $(ROOT)//{{ root }}/lib;
+       $(INSTALL) lib/libdeflate* $(ROOT)//{{ root }}/lib;
        $(INSTALL) lib/libprotoc* $(ROOT)//{{ root }}/lib;
        $(INSTALL) lib/libprotobuf* $(ROOT)//{{ root }}/lib;
        $(INSTALL) lib/libtcmalloc* $(ROOT)//{{ root }}/lib
