@@ -4,7 +4,7 @@
   versions: !include biotools_versions.yaml
   version: "{{ versions.bcftools }}"
   extension: tar.bz2
-  vendor_source: https://github.com/samtools/bcftools/releases/download/{{ version }}bcftools-{{version}}.tar.bz2 
+  vendor_source: https://github.com/samtools/bcftools/releases/download/{{ version }}/{{ name }}-{{version}}.{{ extension }}
   description: >
     bcftools {{ version }}.  
     BCFtools are meant as a faster replacement for most of the perl VCFtools
@@ -14,7 +14,7 @@
     modules: 
       - gcc/{{ versions.gcc }}
       - htslib/{{ versions.htslib }}
-    pkgmake: HTSDIR={{pkg_defaults.app_path}}/htslib/{{versions.htslib}} make
+    pkgmake: HTSDIR=$$HTSLIB_HOME make
     target: 
   install:
      makeinstall: >

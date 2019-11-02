@@ -3,6 +3,7 @@
   name: fastp 
   versions: !include biotools_versions.yaml
   version: "{{ versions.fastp }}"
+  category: BIOTOOLS
   extension: tar.gz
   vendor_source: https://github.com/OpenGene/fastp/archive/v0.20.0.tar.gz 
   description: >
@@ -18,7 +19,7 @@
     target: 
   module:
     name: "{{ version }}"
-    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    path: "{{ pkg_defaults.module.RCICmpath }}/{{ category }}/{{ name }}"
     prepend_path:
       - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 

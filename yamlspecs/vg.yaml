@@ -13,7 +13,7 @@
     configure: echo 
     modules: 
       - gcc/{{ versions.gcc }}
-      - cmake/{{ versions.cmake }}
+      - foundation
     pkgmake: make 
     target: 
   install:

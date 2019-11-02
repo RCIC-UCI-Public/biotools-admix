@@ -5,11 +5,12 @@
 ---
 - package: vg Module
   pkgname: "{{ name }}_{{version}}-module"
+  category: BIOTOOLS
   no_src_dir: True
   src_tarball: None
   module:
     name: "{{ version }}"
-    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
     prepend_path:
       - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 

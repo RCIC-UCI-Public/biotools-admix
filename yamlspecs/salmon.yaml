@@ -21,8 +21,8 @@
   build:
     configure: "echo no configure. uses cmake" 
     modules: 
+      - foundation
       - gcc/{{ versions.gcc }}
-      - cmake/{{ versions.cmake }}
       - boost/gcc/{{ versions.gcc }}/{{ versions.boost }}
     pkgmake: > 
       mkdir {{ builddir }};

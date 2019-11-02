@@ -10,8 +10,10 @@
     generic format for storing large nucleotide sequence alignments
   root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   build:
-    configure_args: >
-      --with-htslib=system --mandir=/usr/share/man
+    configure: ./configure 
+    configure_args: > 
+      --prefix={{ root }}
+      --with-htslib=$$HTSLIB_HOME --mandir=/usr/share/man
     modules: 
       - gcc/{{ versions.gcc }}
       - htslib/{{ versions.htslib }}

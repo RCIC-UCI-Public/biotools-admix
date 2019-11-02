@@ -5,9 +5,10 @@
 ---
 - package: picard-tools Module
   pkgname: "{{ name }}_{{version}}-module"
+  category: BIOTOOLS
   module:
     name: "{{ version }}"
-    path: "{{ pkg_defaults.module.path }}/{{ name }}"
+    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
     setenv: 
       - PICARDTOOLS "{{ root }}"
     prereq: 
