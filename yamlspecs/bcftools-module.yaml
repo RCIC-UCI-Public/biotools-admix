@@ -1,19 +1,16 @@
 # Builds the module for bcftools. It first includes all the definitions
 # for the bcftools build and then overwrites specific keys
 !include bcftools.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: bcftools Module
-  pkgname: "{{ name }}_{{version}}-module"
   category: BIOTOOLS
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{ category }}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 
-      - gcc/{{ versions.gcc }}
-      - htslib/{{ versions.htslib }}
+      - gcc/{{versions.gcc}}
+      - gsl/{{versions.gsl}}/gcc.{{versions.gcc}}
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
     - rcic-module-support
+    - gcc_{{versions.gcc}}-module
+    - gsl_{{versions.gsl}}_gcc_{{versions.gcc}}-module

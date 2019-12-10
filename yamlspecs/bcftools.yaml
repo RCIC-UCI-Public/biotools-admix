@@ -1,29 +1,28 @@
+!include rcic-package.yaml
 ---
 - package: BCFtools are meant as a faster replacement for most of the perl VCFtools 
   name: bcftools 
-  versions: !include biotools_versions.yaml
-  version: "{{ versions.bcftools }}"
+  versions: !include versions.yaml
+  version: "{{versions.bcftools}}"
   extension: tar.bz2
-  vendor_source: https://github.com/samtools/bcftools/releases/download/{{ version }}/{{ name }}-{{version}}.{{ extension }}
+  vendor_source: https://github.com/samtools/bcftools/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
   description: >
-    bcftools {{ version }}.  
+    bcftools {{version}}.  
     BCFtools are meant as a faster replacement for most of the perl VCFtools
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   build:
+    patchfile: "{{name}}-{{version}}.patch"
     configure: echo
     modules: 
-      - gcc/{{ versions.gcc }}
-      - htslib/{{ versions.htslib }}
-    pkgmake: HTSDIR=$$HTSLIB_HOME make
+      - gcc/{{versions.gcc}}
+      - gsl/{{versions.gsl}}/gcc.{{versions.gcc}}
+    pkgmake: make USE_GPL=1 prefix={{root}} 
     target: 
   install:
      makeinstall: >
-       mkdir -p $(ROOT){{ root }};
-       make prefix={{ root }} DESTDIR=$(ROOT) install
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
-  files:
-    -  "{{ root }}"
+       mkdir -p $(ROOT){{root}};
+       make prefix={{root}} DESTDIR=$(ROOT) install
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
   requires:
     - gcc_{{ versions.gcc }} 
-    - htslib_{{ versions.htslib }} 
+    - gsl_{{versions.gsl}}_gcc_{{versions.gcc}} 
   rpm: !include rpm.extras.yaml
