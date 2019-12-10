@@ -1,9 +1,9 @@
+!include rcic-package.yaml
 ---
 - package: bowtie2 
   name: bowtie2 
-  versions: !include biotools_versions.yaml
-  version: "{{ versions.bowtie2 }}"
-  extension: tar.gz
+  versions: !include versions.yaml
+  version: "{{versions.bowtie2}}"
   vendor_source: https://github.com/BenLangmead/bowtie2/archive/v{{ version }}.tar.gz
   description: >
     bowtie2 {{ version }}.  
@@ -11,21 +11,19 @@
   build:
     configure: echo no configure script.
     modules: 
-      - gcc/{{ versions.gcc }}
-      - python/{{ versions.python }}
+      - gcc/{{versions.gcc}}
+      - python/{{versions.python}}
     pkgmake: make 
     target: 
   install:
      makeinstall: >
-       mkdir -p $(ROOT){{ root }};
-       make install DESTDIR=$(ROOT) prefix={{ root }};
+       mkdir -p $(ROOT){{root}};
+       make install DESTDIR=$(ROOT) prefix={{root}};
        $(TAR) cf - example doc scripts |
-       $(TAR) -x -C $(ROOT){{ root }};
-       chmod -R a+rX $ $(ROOT){{ root }}{doc,example,scripts}
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
-  files:
-    -  "{{ root }}"
+       $(TAR) -x -C $(ROOT){{root}};
+       chmod -R a+rX $ $(ROOT){{root}}{doc,example,scripts}
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
   requires:
-    - gcc_{{ versions.gcc }} 
-    - python_{{ versions.python }} 
+    - gcc_{{versions.gcc}} 
+    - python_{{versions.python}} 
   rpm: !include rpm.extras.filter.yaml
