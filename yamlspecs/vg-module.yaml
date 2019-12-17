@@ -1,20 +1,15 @@
 # Builds the module for vg. It first includes all the definitions
 # for the vg build and then overwrites specific keys
 !include vg.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: vg Module
   pkgname: "{{ name }}_{{version}}-module"
   category: BIOTOOLS
-  no_src_dir: True
-  src_tarball: None
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 
-      - gcc/{{ versions.gcc }}
+      - gcc/{{versions.gcc}}
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
+    - gcc_{{versions.gcc}}
     - rcic-module-support

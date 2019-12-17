@@ -1,15 +1,10 @@
 # Builds the module for edirect. It first includes all the definitions
 # for the edirect build and then overwrites specific keys
 !include edirect.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: edirect Module
-  pkgname: "{{ name }}_{{version}}-module"
   category: BIOTOOLS
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
     prepend_path:
-      - "PATH {{ root }}"
-  requires:
-    - "{{ name }}_{{ version }}"
+       - PATH {{root}}

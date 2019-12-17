@@ -1,10 +1,10 @@
+!include rcic-package.yaml
 ---
 - package: Entrez edirect toolkit 
   name: edirect 
-  versions: !include biotools_versions.yaml
+  versions: !include versions.yaml
   version: "1.0" 
-  extension: tar.gz
-  vendor_source: ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/edirect.tar.gz
+  vendor_source: ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/{{name}}.{{extension}}
   other_sources:
     - ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/rchive.Linux.gz
     - ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/xtract.Linux.gz
@@ -12,13 +12,12 @@
     - rchive.Linux.gz
     - xtract.Linux.gz
 
-  src_tarball: "{{ name }}.{{ extension }}"
+  src_tarball: "{{name}}.{{extension}}"
   src_dir: "{{ name }}"
 
   description: >
     Edirect are commandline tools to Entrez tools. 
     https://www.ncbi.nlm.nih.gov/books/NBK179288/
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
 
   build:
     configure: echo no configure needed
@@ -32,7 +31,5 @@
        mkdir -p $(ROOT){{ root }};
        $(TAR) cf - --exclude=setup-deps.pl . | (cd $(ROOT){{ root }}; $(TAR) xf -);
        (cd $(ROOT){{ root }}; $(TAR) xzf Mozilla-CA.tar.gz) 
-  files:
-    -  "{{ root }}"
   requires: perl(LWP::Protocol::https)
     
