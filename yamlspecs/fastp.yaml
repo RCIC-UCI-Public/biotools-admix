@@ -1,38 +1,25 @@
+!include rcic-package.yaml
 ---
 - package: FastP  
   name: fastp 
-  versions: !include biotools_versions.yaml
-  version: "{{ versions.fastp }}"
-  category: BIOTOOLS
-  extension: tar.gz
-  vendor_source: https://github.com/OpenGene/fastp/archive/v0.20.0.tar.gz 
+  versions: !include versions.yaml
+  version: "{{versions.fastp}}"
+  vendor_source: https://github.com/OpenGene/fastp/archive/v{{version}}.{{extension}}
   description: >
     fastp {{ version }}.  
     An ultra-fast all-in-one FASTQ preprocessor 
     (QC/adapters/trimming/filtering/splitting/merging...)
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   build:
     configure: echo
     modules: 
       - gcc/{{ versions.gcc }}
     pkgmake: make 
     target: 
-  module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{ category }}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
-    prereq: 
-      - gcc/{{ versions.gcc }}
   install:
      makeinstall: >
        mkdir -p $(ROOT){{ root }}/bin;
        $(INSTALL) {{ name }} $(ROOT){{ root }}/bin
      installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
-  files:
-    - "{{ root }}"
-    - "{{ module.path }}/{{ module.name }} "
   requires:
     - gcc_{{ versions.gcc }} 
-    - rcic-module-support
   rpm: !include rpm.extras.yaml

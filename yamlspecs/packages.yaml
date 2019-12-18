@@ -41,6 +41,7 @@ build:
   - edirect
   - edirect-module
   - fastp
+  - fastp-module
   - salmon
   - salmon-module
   - vg
