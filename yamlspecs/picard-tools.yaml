@@ -1,25 +1,23 @@
+!include rcic-package.yaml
 ---
 - package: picard tools  
   name: picard-tools 
-  versions: !include biotools_versions.yaml
-  version: "{{ versions.picard_tools }}"
-  extension: tar.gz 
-  vendor_source: https://sourceforge.net/projects/picard/files/picard-tools/1.87/picard-tools-{{ version }}.zip/download
+  versions: !include versions.yaml
+  version: "{{versions.picard_tools}}"
+  extension: zip
+  vendor_source: https://sourceforge.net/projects/picard/files/picard-tools/1.87/picard-tools-{{version}}.{{extension}}/download
   description: >
-    picard-tools {{ version }}.  
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
+    picard-tools {{version}}.  
   build:
     configure: echo
     modules: 
-      - java/{{ versions.java }}
+      - java/{{versions.java}}
     pkgmake: echo 
     target: 
   install:
      makeinstall: >
-       mkdir -p $(ROOT){{ root }};
-       $(INSTALL) *.jar  $(ROOT){{ root }}
-  files:
-    -  "{{ root }}"
+       mkdir -p $(ROOT){{root}};
+       $(INSTALL) *.jar  $(ROOT){{root}}
   requires:
-    - jre = {{ versions.java }} 
+    - jre = {{versions.java}} 
   rpm: !include rpm.extras.yaml
