@@ -1,17 +1,14 @@
 # Builds the module for SPAdes. It first includes all the definitions
 # for the SPAdes build and then overwrites specific keys
 !include SPAdes.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: SPAdes Genome Assember Module
-  pkgname: "{{ name }}_{{ version }}-module"
   category: BIOTOOLS
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 
+      -  gcc/{{versions.gcc}}
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
     - rcic-module-support
+    - gcc_{{versions.gcc}}-module

@@ -21,7 +21,7 @@ build:
   - bwa
   - bwa-module
   - bwa-latest
-  - bwa-module-latest
+  - bwa-latest-module
   - SPAdes
   - SPAdes-module
   - htslib

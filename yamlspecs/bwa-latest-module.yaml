@@ -1,0 +1,18 @@
+# Builds the module for bwa. It first includes all the definitions
+# for the bwa build and then overwrites specific keys
+!include bwa.yaml
+!include rcic-module.yaml
+---
+- package: BWA Burrows-Wheeler Aligner Module
+  keys: !include bwa-latest-keys.yaml
+  version: "{{keys.version}}" 
+  vendor_source: "{{keys.vendor_source}}" 
+  pkgname: "{{name}}_{{version}}-module"
+  category: BIOTOOLS
+  module:
+    prereq: 
+      - gcc/{{versions.gcc}}
+  requires:
+    - "{{name}}_{{version}}"
+    - gcc_{{versions.gcc}}
+    - rcic-module-support
