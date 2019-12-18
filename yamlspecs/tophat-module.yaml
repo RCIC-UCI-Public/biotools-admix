@@ -1,18 +1,14 @@
 # Builds the module for tophat. It first includes all the definitions
 # for the tophat build and then overwrites specific keys
 !include tophat.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: tophat Module
-  pkgname: "{{ name }}_{{version}}-module"
   category: BIOTOOLS
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 
-      - gcc/{{ versions.gcc }}
+      - gcc/{{versions.gcc}}
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
     - rcic-module-support
+    - gcc_{{versions.gcc}}-module

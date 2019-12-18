@@ -1,33 +1,30 @@
+!include rcic-package.yaml
 ---
 - package: samtools for storing large nucleotide sequence alignments
   name: samtools 
-  versions: !include biotools_versions.yaml
-  version: "{{ versions.samtools }}"
+  versions: !include versions.yaml
+  version: "{{versions.samtools}}"
   extension: tar.bz2
-  vendor_source: https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
+  vendor_source: https://github.com/samtools/samtools/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
   description: >
-    SAMtools {{ version }}.  SAM (Sequence Alignment/Map) format is a 
+    SAMtools {{version}}.  SAM (Sequence Alignment/Map) format is a 
     generic format for storing large nucleotide sequence alignments
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   build:
-    configure: ./configure 
     configure_args: > 
       --prefix={{ root }}
       --with-htslib=$$HTSLIB_HOME --mandir=/usr/share/man
     modules: 
-      - gcc/{{ versions.gcc }}
-      - htslib/{{ versions.htslib }}
-    pkgmake: make 
-    target: 
+      - gcc/{{versions.gcc}}
+      - htslib/{{versions.htslib}}
   install:
      makeinstall: >
        mkdir -p $(ROOT){{ root }};
        make install DESTDIR=$(ROOT)
      installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
   files:
-    -  "{{ root }}"
+    -  "{{parent}}"
     -  "/usr/share/man/man1/*"
   requires:
-    - gcc_{{ versions.gcc }} 
-    - htslib_{{ versions.htslib }}
+    - gcc_{{versions.gcc}} 
+    - htslib_{{versions.htslib}}
   rpm: !include rpm.extras.yaml

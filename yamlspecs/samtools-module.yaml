@@ -1,19 +1,16 @@
-# Builds the module for htslib. It first includes all the definitions
-# for the htslib build and then overwrites specific keys
+# Builds the module for samtools. It first includes all the definitions
+# for the samtools build and then overwrites specific keys
 !include samtools.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: SAMTools Module
-  pkgname: "{{ name }}_{{version}}-module"
   category: BIOTOOLS
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 
       - gcc/{{ versions.gcc }}
-      - htslib/{{ versions.htslib }}
+      - htslib/{{versions.htslib}}
   requires:
     - "{{ name }}_{{ version }}"
     - rcic-module-support
+    - gcc_{{versions.gcc}}-module
+    - htslib_{{versions.htslib}}-module
