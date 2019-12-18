@@ -5,7 +5,6 @@
 ---
 - package: BWA Burrows-Wheeler Aligner Module
   pkgname: "{{name }}_{{version}}-module"
-  category: BIOTOOLS
   module:
     prereq: 
       - gcc/{{versions.gcc}}

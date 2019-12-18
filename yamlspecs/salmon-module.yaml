@@ -1,19 +1,16 @@
-# Builds the module for htslib. It first includes all the definitions
-# for the htslib build and then overwrites specific keys
+# Builds the module for salmon. It first includes all the definitions
+# for the salmon build and then overwrites specific keys
 !include salmon.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: Salmon Module
-  pkgname: "{{ name }}_{{version}}-module"
+  release: 3
   category: BIOTOOLS
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
-    prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
     prereq: 
-      - gcc/{{ versions.gcc }}
-      - boost/gcc/{{versions.gcc}}/{{ versions.boost }}
+      - gcc/{{versions.gcc}}
+      - boost/{{versions.boost}}/gcc.{{versions.gcc}}
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
+    - gcc_{{versions.gcc}}-module
     - rcic-module-support

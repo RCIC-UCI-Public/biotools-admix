@@ -1,7 +1,7 @@
 ---
 - package: High-Throughput Sequencing Lib from Samtools
   name: htslib 
-  versions: !include biotools_versions.yaml
+  versions: !include versions.yaml
   version: "{{ versions.htslib }}"
   extension: tar.bz2
   vendor_source: https://github.com/samtools/htslib/releases/download/{{ version }}/htslib-{{ version }}.tar.bz2 
@@ -22,7 +22,7 @@
      makeinstall: >
        mkdir -p $(ROOT){{ root }};
        make install DESTDIR=$(ROOT)
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS htslib.mk htslib_vars.mk $(ROOT){{ root }} 
   files:
     -  "{{ root }}"
   requires:

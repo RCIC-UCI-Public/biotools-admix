@@ -11,6 +11,7 @@
     path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
     prepend_path:
       - "{{ pkg_defaults.module.prepend_path }}"
+      - -d " " CPPFLAGS -I{{root}}/include
     prereq: 
       - gcc/{{ versions.gcc }}
     setenv:
