@@ -1,20 +1,20 @@
+!include rcic-package.yaml
 ---
 - package: Genome Analysis Toolkit
   name: gatk 
-  versions: !include biotools_versions.yaml
-  version: "{{ versions.gatk }}"
+  versions: !include versions.yaml
+  version: "{{versions.gatk}}"
   extension: zip
-  gatkdir: GenomeAnalysisTK-{{ version }}
-  src_tarball: "{{ gatkdir }}.{{ extension }}"
-  src_dir: "{{ gatkdir }}"
-  vendor_source: https://github.com/broadinstitute/gatk/releases/download/{{ version }}/gatk-{{ version }}.zip
+  gatkdir: GenomeAnalysisTK-{{version}}
+  src_tarball: "{{gatkdir}}.{{ extension }}"
+  src_dir: "{{gatkdir}}"
+  vendor_source: https://github.com/broadinstitute/gatk/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
   description: >
     GATK {{ version }}.  Genome Analysis Toolkit 
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   build:
     configure: echo
     modules: 
-      - java/{{ versions.java }}
+      - java/{{versions.java}}
     pkgmake: echo 
     target: 
   install:
@@ -22,8 +22,6 @@
        mkdir -p $(ROOT){{ root }};
        $(INSTALL) GenomeAnalysisTK.jar  $(ROOT){{ root }};
        $(TAR) cf - resources | (cd $(ROOT){{ root }}; tar xf -)
-  files:
-    -  "{{ root }}"
   requires:
     - jre = {{ versions.java }} 
   rpm: !include rpm.extras.yaml
