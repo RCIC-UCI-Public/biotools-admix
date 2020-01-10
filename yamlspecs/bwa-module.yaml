@@ -4,11 +4,12 @@
 !include rcic-module.yaml
 ---
 - package: BWA Burrows-Wheeler Aligner Module
+  category: BIOTOOLS
   pkgname: "{{name }}_{{version}}-module"
   module:
     prereq: 
       - gcc/{{versions.gcc}}
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
     - rcic-module-support
     - gcc_{{versions.gcc}}-module 

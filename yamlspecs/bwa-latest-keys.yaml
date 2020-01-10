@@ -1,4 +1,0 @@
-## Information for latest version of bwa
-version: 0.7.17
-vendor_source: https://github.com/lh3/bwa/archive/v{{ version }}.tar.gz
-

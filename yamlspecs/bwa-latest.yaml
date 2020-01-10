@@ -1,5 +1,4 @@
 !include bwa.yaml
-  keys: !include bwa-latest-keys.yaml
-  version: "{{ keys.version }}" 
-  vendor_source: "{{ keys.vendor_source }}" 
-
+---
+- version: "{{versions.bwa_latest}}"
+  distro: "v{{version}}"

@@ -4,20 +4,21 @@
   name: bwa 
   versions: !include versions.yaml
   version: "{{versions.bwa}}"
-  vendor_source: https://github.com/lh3/bwa/archive/{{ version }}.tar.gz
+  distro: "{{version}}"
+  vendor_source: https://github.com/lh3/bwa/archive/{{distro}}.{{extension}}
   description: >
-    Burrow-Wheeler Aligner {{ version }}. 
+    Burrow-Wheeler Aligner {{version}}. 
   build:
     configure: echo 
     modules: 
-      - gcc/{{ versions.gcc }}
+      - gcc/{{versions.gcc}}
   install:
      makeinstall: >
-       mkdir -p $(ROOT){{ root }}/bin;
-       $(INSTALL) -m 755 bwa *pl $(ROOT){{ root }}/bin;
+       mkdir -p $(ROOT){{root}}/bin;
+       $(INSTALL) -m 755 bwa *pl $(ROOT){{root}}/bin;
        mkdir -p $(ROOT)/usr/share/man/man1;
        $(INSTALL) -m 755 bwa.1 $(ROOT)/usr/share/man/man1/bwa-{{version}}.1 
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
   files:
     -  "{{parent}}"
     -  "/usr/share/man/man1/*"
