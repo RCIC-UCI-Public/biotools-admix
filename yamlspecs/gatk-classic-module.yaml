@@ -15,4 +15,4 @@
   requires:
     - "{{ name }}_{{ version }}"
     - rcic-module-support
-    - java{{versions.javamajor}}_{{versions.java}}-module
+    - java{{versions.javamajor}}-module
