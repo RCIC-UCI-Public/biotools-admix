@@ -1,25 +1,18 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: SPAdes Genome Assember 
   name: SPAdes 
-  versions: !include versions.yaml
   version: "{{versions.SPAdes}}"
   vendor_source: http://cab.spbu.ru/files/release{{version}}/SPAdes-{{version}}.{{extension}}
   description: >
     SPAdes version {{version}}. St. Petersburg Assembler
   build:
-    configure: echo 
     modules: 
-      - gcc/{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
       - foundation
     pkgmake: ./spades_compile.sh 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{ root }}/bin;
        $(INSTALL) -m 755 bin/* $(ROOT){{ root }}/bin;
        $(TAR) cf - share test* configs | (cd $(ROOT)/{{ root }}; $(TAR) xvf - --owner=root --group=root)
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
-  requires:
-    - gcc_{{ versions.gcc }} 
-  rpm: !include rpm.extras.yaml

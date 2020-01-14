@@ -1,14 +1,10 @@
-# Builds the module for htslib. It first includes all the definitions
-# for the htslib build and then overwrites specific keys
+# Builds the module for htslib.
 !include htslib.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: HTSLIB Module
-  pkgname: "{{ name }}_{{version}}-module"
   category: BIOTOOLS
   module:
-    name: "{{ version }}"
-    path: "{{ pkg_defaults.module.RCICmpath }}/{{category}}/{{ name }}"
     prepend_path:
       - "{{ pkg_defaults.module.prepend_path }}"
       - -d " " CPPFLAGS -I{{root}}/include
@@ -16,7 +12,3 @@
       - gcc/{{ versions.gcc }}
     setenv:
       -  HTSLIB_HOME {{ root }}
-    
-  requires:
-    - "{{ name }}_{{ version }}"
-    - rcic-module-support

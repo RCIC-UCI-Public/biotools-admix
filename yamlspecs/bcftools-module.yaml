@@ -1,5 +1,4 @@
-# Builds the module for bcftools. It first includes all the definitions
-# for the bcftools build and then overwrites specific keys
+# Builds the module for bcftools.
 !include bcftools.yaml
 !include rcic-module.yaml
 ---
@@ -7,10 +6,10 @@
   category: BIOTOOLS
   module:
     prereq: 
-      - gcc/{{versions.gcc}}
-      - gsl/{{versions.gsl}}/gcc.{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
+      - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
   requires:
     - "{{name}}_{{version}}"
     - rcic-module-support
-    - gcc_{{versions.gcc}}-module
-    - gsl_{{versions.gsl}}_gcc_{{versions.gcc}}-module
+    - "{{compiler}}_{{compiler_version}}-module"
+    - "gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}-module"

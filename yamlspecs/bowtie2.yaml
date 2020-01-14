@@ -1,20 +1,16 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: bowtie2 
   name: bowtie2 
-  versions: !include versions.yaml
   version: "{{versions.bowtie2}}"
-  vendor_source: https://github.com/BenLangmead/bowtie2/archive/v{{ version }}.tar.gz
+  vendor_source: https://github.com/BenLangmead/bowtie2/archive/v{{version}}.tar.gz
   description: >
-    bowtie2 {{ version }}.  
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
+    bowtie2 {{version}}  
   build:
-    configure: echo no configure script.
     modules: 
-      - gcc/{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
       - python/{{versions.python}}
     pkgmake: make 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
@@ -24,6 +20,5 @@
        chmod -R a+rX $ $(ROOT){{root}}{doc,example,scripts}
      installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
   requires:
-    - gcc_{{versions.gcc}} 
+    - "{{compiler}}_{{compiler_version}}"
     - python_{{versions.python}} 
-  rpm: !include rpm.extras.filter.yaml

@@ -1,0 +1,29 @@
+!include rcic-package.yaml
+---
+- extension: tar.gz
+  versions: !include versions.yaml
+  compiler: gcc
+  compiler_version: "{{versions.gcc}}"
+  build:
+    configure: echo
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+    pkgmake:
+    target: 
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}};
+       make prefix={{root}} DESTDIR=$(ROOT) install
+     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+  rpm: !include rpm.extras.yaml
+
+#######
+#  extension: tar.gz
+#  src_tarball: "{{ name }}-{{ version}}.{{ extension }}"
+#  src_dir: "{{ name }}-{{ version }}"
+#  parent: "{{ pkg_defaults.app_path }}/{{ name }}"
+#  root: "{{ parent }}/{{ version }}"
+#  files:
+#    - "{{ parent }}"

@@ -1,28 +1,22 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: BCFtools are meant as a faster replacement for most of the perl VCFtools 
   name: bcftools 
-  versions: !include versions.yaml
   version: "{{versions.bcftools}}"
   extension: tar.bz2
   vendor_source: https://github.com/samtools/bcftools/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
-  description: >
-    bcftools {{version}}.  
-    BCFtools are meant as a faster replacement for most of the perl VCFtools
+  description: |
+    BCFtools {{version}} are meant as a faster replacement for most of the perl VCFtools
   build:
     patchfile: "{{name}}-{{version}}.patch"
-    configure: echo
     modules: 
-      - gcc/{{versions.gcc}}
-      - gsl/{{versions.gsl}}/gcc.{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
+      - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
     pkgmake: make USE_GPL=1 prefix={{root}} 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        make prefix={{root}} DESTDIR=$(ROOT) install
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
   requires:
-    - gcc_{{ versions.gcc }} 
-    - gsl_{{versions.gsl}}_gcc_{{versions.gcc}} 
-  rpm: !include rpm.extras.yaml
+    - "{{compiler}}_{{compiler_version}}"
+    - "gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}"
