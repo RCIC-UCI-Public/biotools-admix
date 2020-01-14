@@ -1,14 +1,15 @@
-# Builds the module for fastp. It first includes all the definitions
-# for the fastp build and then overwrites specific keys
+# Builds the module for fastp.
 !include fastp.yaml
 !include rcic-module.yaml
 ---
 - package: fastp Module
   category: BIOTOOLS
   module:
+    prepend_path:
+       - PATH {{root}}/bin
     prereq: 
-      - gcc/{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
   requires:
     - "{{name}}_{{version}}"
-    - gcc_{{versions.gcc}}
+    - "{{compiler}}_{{compiler_version}}-module"
     - rcic-module-support

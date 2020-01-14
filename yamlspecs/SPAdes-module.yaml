@@ -1,5 +1,4 @@
-# Builds the module for SPAdes. It first includes all the definitions
-# for the SPAdes build and then overwrites specific keys
+# Builds the module for SPAdes.
 !include SPAdes.yaml
 !include rcic-module.yaml
 ---
@@ -7,8 +6,8 @@
   category: BIOTOOLS
   module:
     prereq: 
-      -  gcc/{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
   requires:
     - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}-module"
     - rcic-module-support
-    - gcc_{{versions.gcc}}-module

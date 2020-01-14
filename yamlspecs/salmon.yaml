@@ -1,13 +1,12 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: Salmon transcript-level quantification from RNA-seq reads 
   name: salmon 
-  versions: !include versions.yaml
   version: "{{versions.salmon}}"
   release: 2
   builddir: build
-  vendor_source: https://github.com/COMBINE-lab/salmon/archive/v{{version}}.tar.gz 
-  description: >
+  vendor_source: https://github.com/COMBINE-lab/salmon/archive/v{{version}}.{{extension}}
+  description: |
     Salmon version {{version}} is a wicked-fast program to produce a highly-accurate, transcript-level 
     quantification estimates from RNA-seq data. Salmon achieves its accuracy and speed via a number of 
     different innovations, including the use of quasi-mapping (accurate but fast-to-compute proxies for 
@@ -16,13 +15,12 @@
     choose to make use of our quasi-mapping algorithm by providing Salmon with raw sequencing reads, or, 
     if it is more convenient, you can provide Salmon with regular alignments (e.g. an unsorted BAM file 
     produced with your favorite aligner), and it will use the same wicked-fast, state-of-the-art 
-    inference algorithm to estimate transcript-level abundances for your experiment. 
+    inference algorithm to estimate transcript-level abundances for your experiment
   build:
-    configure: "echo no configure. uses cmake" 
     modules: 
       - foundation
-      - gcc/{{versions.gcc}}
-      - boost/{{versions.boost}}/gcc.{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
+      - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
     pkgmake: > 
       mkdir {{builddir}};
       cd {{builddir}};
@@ -33,8 +31,6 @@
      makeinstall: >
        cd {{builddir}};
        make DESTDIR=$(ROOT) install
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
   requires:
-    - gcc_{{ versions.gcc }} 
-    - boost_{{versions.boost}}_gcc_{{versions.gcc}}
-  rpm: !include rpm.extras.yaml
+    - "{{compiler}}_{{compiler_version}}"
+    - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"

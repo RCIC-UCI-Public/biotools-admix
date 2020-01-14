@@ -1,16 +1,17 @@
-# Builds the module for bowtie2. It first includes all the definitions
-# for the bowtie2 build and then overwrites specific keys
+# Builds the module for bowtie2.
 !include bowtie2.yaml
 !include rcic-module.yaml
 ---
 - package: bowtie2 module
   category: BIOTOOLS
   module:
+    prepend_path:
+      - PATH {{root}}/bin
     prereq: 
-      - gcc/{{versions.gcc}}
-      - python/{{versions.python}}
+      - "{{compiler}}/{{compiler_version}}"
+      - "python/{{versions.python}}"
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
     - rcic-module-support
-    - gcc_{{versions.gcc}}-module 
-    - python_{{versions.python}}-module 
+    - "{{compiler}}_{{compiler_version}}-module"
+    - "python_{{versions.python}}-module"

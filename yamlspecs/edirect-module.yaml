@@ -1,5 +1,4 @@
-# Builds the module for edirect. It first includes all the definitions
-# for the edirect build and then overwrites specific keys
+# Builds the module for edirect. 
 !include edirect.yaml
 !include rcic-module.yaml
 ---

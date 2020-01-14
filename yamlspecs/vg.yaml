@@ -1,20 +1,18 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: VG variation graph data structures 
   name: vg 
-  versions: !include versions.yaml
   version: "{{versions.vg}}"
   vendor_source: https://github.com/vgteam/vg/releases/download/v{{version}}/vg-v{{version}}.{{extension}}
   description: >
-    variation graph data structures, interchange formats, alignment, genotyping, and variant calling methods vg {{version}}. 
+    Variation graph data structures, interchange formats, alignment, 
+    genotyping, and variant calling methods vg {{version}}
   src_dir: "{{name}}-v{{version}}" 
   build:
-    configure: echo 
     modules: 
-      - gcc/{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
       - foundation
     pkgmake: make 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT)/{{ root }}/bin;
@@ -27,5 +25,4 @@
        $(INSTALL) lib/libtcmalloc* $(ROOT)//{{ root }}/lib
      installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
   requires:
-    - gcc_{{ versions.gcc }} 
-  rpm: !include rpm.extras.yaml
+    - "{{compiler}}_{{compiler_version}}"

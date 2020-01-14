@@ -1,15 +1,14 @@
-# Builds the module for vg. It first includes all the definitions
-# for the vg build and then overwrites specific keys
+# Builds the module for vg.
 !include vg.yaml
 !include rcic-module.yaml
 ---
 - package: vg Module
-  pkgname: "{{ name }}_{{version}}-module"
+  pkgname: "{{name}}_{{version}}-module"
   category: BIOTOOLS
   module:
     prereq: 
-      - gcc/{{versions.gcc}}
+      - "{{compiler}}/{{compiler_version}}"
   requires:
     - "{{name}}_{{version}}"
-    - gcc_{{versions.gcc}}
+    - "{{compiler}}_{{compiler_version}}"
     - rcic-module-support

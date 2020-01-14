@@ -34,6 +34,8 @@ build:
   - tophat-module
   - bowtie2
   - bowtie2-module
+  - gatk
+  - gatk-module
   - gatk-classic
   - gatk-classic-module
   - picard-tools

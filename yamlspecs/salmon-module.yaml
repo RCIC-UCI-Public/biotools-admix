@@ -1,5 +1,4 @@
-# Builds the module for salmon. It first includes all the definitions
-# for the salmon build and then overwrites specific keys
+# Builds the module for salmon.
 !include salmon.yaml
 !include rcic-module.yaml
 ---
@@ -8,9 +7,9 @@
   category: BIOTOOLS
   module:
     prereq: 
-      - gcc/{{versions.gcc}}
-      - boost/{{versions.boost}}/gcc.{{versions.gcc}}
+      - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
   requires:
     - "{{name}}_{{version}}"
-    - gcc_{{versions.gcc}}-module
+    - "{{compiler}}_{{compiler_version}}"
+    - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"
     - rcic-module-support

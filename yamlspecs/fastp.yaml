@@ -1,25 +1,13 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: FastP  
   name: fastp 
-  versions: !include versions.yaml
   version: "{{versions.fastp}}"
   vendor_source: https://github.com/OpenGene/fastp/archive/v{{version}}.{{extension}}
-  description: >
-    fastp {{ version }}.  
-    An ultra-fast all-in-one FASTQ preprocessor 
+  description: |
+    FastP {{version}}. An ultra-fast all-in-one FASTQ preprocessor 
     (QC/adapters/trimming/filtering/splitting/merging...)
-  build:
-    configure: echo
-    modules: 
-      - gcc/{{ versions.gcc }}
-    pkgmake: make 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{ root }}/bin;
-       $(INSTALL) {{ name }} $(ROOT){{ root }}/bin
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
-  requires:
-    - gcc_{{ versions.gcc }} 
-  rpm: !include rpm.extras.yaml
+       $(INSTALL) {{name}} $(ROOT){{root}}/bin
