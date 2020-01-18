@@ -1,5 +1,4 @@
-# Builds the module for picard-tools. It first includes all the definitions
-# for the picard-tools build and then overwrites specific keys
+# Builds the module for picard-tools.
 !include picard-tools.yaml
 !include rcic-module.yaml
 ---
@@ -9,7 +8,7 @@
     setenv: 
       - PICARDTOOLS "{{root}}"
     prepend_path:
+      - PATH {{root}}
       - CLASSPATH {{root}}/*
     prereq: 
       - java/{{versions.java}}
-      
