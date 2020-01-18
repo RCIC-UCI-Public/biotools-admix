@@ -4,8 +4,8 @@
   name: picard-tools 
   versions: !include versions.yaml
   version: "{{versions.picard_tools}}"
-#  vendor_source: https://sourceforge.net/projects/picard/files/picard-tools/1.87/picard-tools-{{version}}.{{extension}}/download
-  vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}
+  extension: zip
+  vendor_source: https://sourceforge.net/projects/picard/files/picard-tools/1.87/picard-tools-{{version}}.{{extension}}
   description: >
     Picard-tools {{version}}  
   build:
@@ -21,3 +21,6 @@
   requires:
     - jre = {{versions.java}} 
   rpm: !include rpm.extras.java.yaml
+
+#  this is for new picard tools 
+#  vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}
