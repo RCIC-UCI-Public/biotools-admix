@@ -1,18 +1,18 @@
-# Builds the module for gatk. It first includes all the definitions
-# for the gatk build and then overwrites specific keys
+# Builds the module for gatk.
 !include gatk-classic.yaml
 !include rcic-module.yaml
 ---
-- package: gatk Module
-  pkgname: "{{ name }}_{{version}}-module"
+- package: gatk classic Module
+  pkgname: "{{name}}_{{version}}-module"
   category: BIOTOOLS
-  no_src_dir: true
   module:
+    prepend_path:
+      - PATH {{root}}
     alias: 
-      - gatk "java -jar $ROOT/GenomeAnalysisTK.jar"
+      - gatk "java -jar {{root}}/GenomeAnalysisTK.jar"
     prereq: 
-      - java/{{ versions.java }}
+      - java/{{versions.java_classic}}
   requires:
-    - "{{ name }}_{{ version }}"
+    - "{{name}}_{{version}}"
     - rcic-module-support
-    - java{{versions.javamajor}}-module
+    - java{{versions.javamajor_classic}}-module
