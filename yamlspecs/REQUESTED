@@ -12,7 +12,7 @@ _ kallisto
 _ minimap2
 _ Pbsuite
 O Picard
-_ pysam
+O pysam
 _ repeatmasker
 _ rsem
 O salmon

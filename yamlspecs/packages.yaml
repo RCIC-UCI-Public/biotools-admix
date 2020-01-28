@@ -50,6 +50,7 @@ build:
   - salmon-module
   - vg
   - vg-module
+  - pysam
 manifest:
   - "{{ build }}"
 
