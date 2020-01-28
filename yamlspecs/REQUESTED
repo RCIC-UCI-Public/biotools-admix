@@ -1,0 +1,25 @@
+These are tools requested by the Mortazavi Group
+O - means done
+_ - means todo
+
+O Bamtools
+O Bcftools
+O bedtools
+_ blast
+O Bwa
+_ homer
+_ kallisto
+_ minimap2
+_ Pbsuite
+O Picard
+_ pysam
+_ repeatmasker
+_ rsem
+O salmon
+O samtools
+_ scanty
+_ Seurat
+_ sratoolkit
+_ star
+_ transdecoder
+_ ucsc-tools

@@ -18,6 +18,8 @@ bootstrap:
   - htslib
   - htslib-module
 build:
+  - bedtools2
+  - bedtools2-module
   - bwa
   - bwa-module
   - bwa-latest
