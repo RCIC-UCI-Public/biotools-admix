@@ -1,0 +1,19 @@
+# Builds the module for ncbi blast.
+!include blast.yaml
+!include rcic-module.yaml
+---
+- package: blast Module
+  shortname: ncbiblast
+  category: BIOTOOLS
+  module:
+    prepend_path:
+      - PATH {{root}}/bin
+      - LD_LIBRARY_PATH {{root}}/lib
+      - "{{mod_defaults.flagspath}}"
+    prereq: 
+      - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}"
+    - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"
+    - rcic-module-support
