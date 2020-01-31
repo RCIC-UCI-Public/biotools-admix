@@ -5,10 +5,11 @@ _ - means todo
 O Bamtools
 O Bcftools
 O bedtools
-_ blast
+O bustools
+O blast
 O Bwa
 _ homer
-_ kallisto
+O kallisto
 _ minimap2
 _ Pbsuite
 O Picard

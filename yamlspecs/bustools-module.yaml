@@ -1,0 +1,13 @@
+# Builds the module for bustools.
+!include bustools.yaml
+!include rcic-module.yaml
+---
+- package: bustools Module
+  category: BIOTOOLS
+  module:
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+  requires:
+    - "{{name}}_{{version}}"
+    - rcic-module-support
+    - "{{compiler}}_{{compiler_version}}-module"
