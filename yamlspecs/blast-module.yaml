@@ -11,9 +11,11 @@
       - LD_LIBRARY_PATH {{root}}/lib
       - "{{mod_defaults.flagspath}}"
     prereq: 
-      - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
+      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+      - edirect/{{versions.edirect}}
   requires:
     - "{{name}}_{{version}}"
     - "{{compiler}}_{{compiler_version}}"
-    - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"
+    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module
+    - edirect_{{versions.edirect}}-module
     - rcic-module-support

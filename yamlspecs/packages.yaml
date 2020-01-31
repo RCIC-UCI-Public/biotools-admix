@@ -17,6 +17,10 @@ system:
   - perl-Archive-Tar
   - perl-IO-Zlib
   - perl-Package-Constants
+  - perl-LWP-Protocol-https
+  - perl-XML-Simple 
+  - qt5-qtbase-devel
+  - qt5-qtsvg-devel
 bootstrap:
   - htslib
   - htslib-module
@@ -66,6 +70,8 @@ build:
   - pilon-module
   - blast
   - blast-module
+  - bandage
+  - bandage-module
 manifest:
   - "{{ build }}"
 

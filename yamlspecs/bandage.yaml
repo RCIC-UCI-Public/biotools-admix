@@ -1,0 +1,25 @@
+!include common.yaml
+---
+- package: Bandage
+  name: bandage 
+  version: "{{versions.bandage}}"
+  vendor_source: https://github.com/rrwick/Bandage/archive/v{{version}}.{{extension}}
+  src_dir: Bandage-{{version}}
+  description: |
+    Bandage is a GUI program that allows users to interact with the assembly graphs 
+    made by de novo assemblers such as Velvet, SPAdes, MEGAHIT and others.
+  build:
+    configure: echo
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+    pkgmake: >
+      export QT_SELECT=5;
+      /usr/lib64/qt5/bin/qmake -o Makefile  Bandage.pro;
+      sed -i 's/-isystem /-I/g' Makefile;
+      make
+    target: 
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}}/bin;
+       $(INSTALL) Bandage $(ROOT){{root}}/bin
+     installextra: 
