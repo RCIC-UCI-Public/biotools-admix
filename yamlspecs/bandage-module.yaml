@@ -1,0 +1,15 @@
+# Builds the module for Bandage
+!include bandage.yaml
+!include rcic-module.yaml
+---
+- package: Bandage Module
+  category: BIOTOOLS
+  module:
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+    prepend_path:
+      - PATH {{root}}/bin
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}-module"
+    - rcic-module-support
