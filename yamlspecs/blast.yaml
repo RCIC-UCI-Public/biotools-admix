@@ -1,0 +1,64 @@
+!include common.yaml
+---
+- package: ncbi blast
+  name: ncbi-blast
+  version: "{{versions.blast}}"
+  suffix: "+-src"
+  vendor_source: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/{{name}}-{{version}}{{suffix}}.{{extension}}
+  src_dir: "{{name}}-{{version}}{{suffix}}"
+  src_tarball: "{{src_dir}}.{{extension}}"
+  description: |
+    BLAST (Basic Local Alignment Search Tool) command line applications developed 
+    at the National Center for Biotechnology Information (NCBI).
+    https://www.ncbi.nlm.nih.gov/books/NBK279690/
+  build:
+    modules: 
+      - "python/{{versions.python3}}"
+      - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
+    pkgmake: >
+      cd c++; 
+      ./configure --prefix={{root}} --with-boost=$$BOOST_HOME --with-mt --with-openmp --with-lfs --with-optimization --with-dll;
+      make
+  install:
+    makeinstall: >
+      cd c++; 
+      mkdir -p $(ROOT){{root}};
+      make prefix=$(ROOT){{root}} install
+    installextra:
+  rpm:
+    extras: | 
+      %define _python_bytecompile_errors_terminate_build 0\n\
+      %define __python `module load {{build.modules}}; which python; module unload {{build.modules}}`\n\
+      %define __spec_install_post \
+      %{?__debug_package:%{__debug_install_post}}\
+      module load {{ build.modules }};\
+      %{__arch_install_post}\
+      %{__os_install_post}\
+      module unload {{ build.modules }}\
+      %{nil} \n\
+      %global privlibs libblast.* \n\
+      %global privlibs %{privlibs}|libalign.* \n\
+      %global privlibs %{privlibs}|libbiblio.* \n\
+      %global privlibs %{privlibs}|libcomposition.* \n\
+      %global privlibs %{privlibs}|libconnect.* \n\
+      %global privlibs %{privlibs}|libdbapi.* \n\
+      %global privlibs %{privlibs}|libent.* \n\
+      %global privlibs %{privlibs}|lib.*seq.* \n\
+      %global privlibs %{privlibs}|libgen.* \n\
+      %global privlibs %{privlibs}|libid.* \n\
+      %global privlibs %{privlibs}|libm.* \n\
+      %global privlibs %{privlibs}|libncbi.* \n\
+      %global privlibs %{privlibs}|libpub.* \n\
+      %global privlibs %{privlibs}|libx.* \n\
+      %global privlibs %{privlibs}|liblmdb.* \n\
+      %global privlibs %{privlibs}|libpro.* \n\
+      %global privlibs %{privlibs}|lib.*client.* \n\
+      %global privlibs %{privlibs}|libs.* \n\
+      %global privlibs %{privlibs}|libt.* \n\
+      %global privlibs %{privlibs}|libva.* \n\
+      %global privlibs %{privlibs}|libwrite.* \n\
+      %global __requires_exclude ^(%{privlibs})\\.so
+
+# not working
+#%global __requires_exclude_from %{_libdir}/.*\\.so$|%{_bindir}
+#%global __requires_exclude_from ^%{buildroot}%{_libdir}/.*.so$

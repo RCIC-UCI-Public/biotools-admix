@@ -18,12 +18,3 @@
   requires:
     - "{{compiler}}_{{compiler_version}}"
   rpm: !include rpm.extras.yaml
-
-#######
-#  extension: tar.gz
-#  src_tarball: "{{ name }}-{{ version}}.{{ extension }}"
-#  src_dir: "{{ name }}-{{ version }}"
-#  parent: "{{ pkg_defaults.app_path }}/{{ name }}"
-#  root: "{{ parent }}/{{ version }}"
-#  files:
-#    - "{{ parent }}"
