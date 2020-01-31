@@ -27,6 +27,8 @@ build:
   - bwa-module
   - bwa-latest
   - bwa-latest-module
+  - bustools
+  - bustools-module 
   - SPAdes
   - SPAdes-module
   - htslib

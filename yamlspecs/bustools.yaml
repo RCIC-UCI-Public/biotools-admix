@@ -1,0 +1,31 @@
+!include common.yaml
+---
+- package: bustools
+  name: bustools 
+  version: "{{versions.bustools}}"
+  vendor_source: https://github.com/BUStools/bustools/archive/v{{version}}.{{extension}}
+
+  description: |
+    bustools {{version}} is a program for manipulating BUS files for single cell RNA-Seq datasets. It 
+    can be used to error correct barcodes, collapse UMIs, produce gene count or transcript compatibility 
+    count matrices, and is useful for many other tasks. See the kallisto | bustools website for examples 
+    and instructions on how to use bustools as part of a single-cell RNA-seq workflow.
+  builddir: builddir
+  build:
+    # autoheader and autoconf failing, so preapply
+    pkgmake: >
+      mkdir {{builddir}};
+      cd {{builddir}};
+      cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
+      make
+    target:
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - foundation
+  install:
+    makeinstall: >
+      cd {{builddir}};
+      make DESTDIR=$(ROOT) install
+
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
