@@ -40,6 +40,8 @@ build:
   - gatk-module
   - gatk-classic
   - gatk-classic-module
+  - kallisto
+  - kallisto-module
   - picard-tools
   - picard-tools-module
   - edirect

@@ -1,0 +1,35 @@
+!include common.yaml
+---
+- package: kallisto quantifier  
+  name: kallisto 
+  version: "{{versions.kallisto}}"
+  vendor_source: https://github.com/pachterlab/kallisto/archive/v{{version}}.{{extension}}
+
+  description: |
+    kallisto {{version}} is a program for quantifying abundances of transcripts from RNA-Seq data, or more 
+    generally of target sequences using high-throughput sequencing reads. It is based on 
+    the novel idea of pseudoalignment for rapidly determining the compatibility of reads with 
+    targets, without the need for alignment.
+  builddir: builddir
+  build:
+    # autoheader and autoconf failing, so preapply
+    patchfile: "{{name}}-{{version}}.patch"
+    pkgmake: >
+      chmod u+x ext/htslib/configure;
+      mkdir {{builddir}};
+      cd {{builddir}};
+      cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
+      make
+    target:
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
+      - foundation
+  install:
+    makeinstall: >
+      cd {{builddir}};
+      make DESTDIR=$(ROOT) install
+
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+    - hdf5_{{versions.hdf5}}_{{compiler}}_{{compiler_version}}
