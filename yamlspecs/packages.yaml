@@ -17,6 +17,8 @@ system:
   - perl-Archive-Tar
   - perl-IO-Zlib
   - perl-Package-Constants
+  - perl-LWP-Protocol-https
+  - perl-XML-Simple 
 bootstrap:
   - htslib
   - htslib-module
