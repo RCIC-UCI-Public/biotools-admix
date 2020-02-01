@@ -1,5 +1,8 @@
+1485c2c1c3362f4fa6fb9e19cbde0993102e84d0  sources/bandage-0.8.1.tar.gz 1FO2RgdmpX0mbSvtlex1lx7QzqzUnSLwq
 2330193f565dfbd88fb1a2066a831c9b94a5af6c  sources/bcftools-1.3.1.tar.bz2 1wTPeoozerqiIIY2uoyD2OHbZcSeXQQ7U
+51f03e1cac60f99c062d9babb6385800c89c78f6  sources/bedtools2-2.29.2.tar.gz 1e2lGwbkmyLp1IICZKlLbxdO-iKTrexnX
 001784d8a9e9fa06d705b2171af1309c30cf13e9  sources/bowtie2-2.2.7.tar.gz 15Z0QGWmHD4Iz_Z5OhL0UAjJg5VcpEyuQ
+9952e5ddb46e6fc9ee3f395023a59e702e7487b9  sources/bustools-0.40.0.tar.gz 1cNi9lLfVOZ21HVT7lVgW8nyEC6nr5wNR
 77f9aac723110227ea51cb42011336d291d03723  sources/bwa-0.7.17.tar.gz 1nCZzmSnpxJD7wWIOgyRnn-Abnyt69H7g
 9e92c2aa6eb8498981b7366464b954a096c0c302  sources/bwa-0.7.8.tar.gz 1QDCASLaSTmlsQ0KebQJ3plf_vxMFnI3D
 be4e235ceb1a9789c4fe9960a6c10a06179be0d1  sources/edirect.tar.gz 1JxDurhoL0HNiAuy_hXBh5WAgYE4X2Gc_
@@ -8,7 +11,13 @@ be4e235ceb1a9789c4fe9960a6c10a06179be0d1  sources/edirect.tar.gz 1JxDurhoL0HNiAu
 ec6b16c132d180fb10754864df3cd140bd465b94  sources/GenomeAnalysisTK-2.4-9-g532efad.tar.bz2 1UNUSCgQBdO2QD71SHQeE0EeIdSl-aBqV
 3b23e4f1e9d5d9664a9146abfae08fcccc218bdc  sources/GenomeAnalysisTK-4.1.2.0.zip 1RQcmLU18zi1_WbvmZJNMZN5uxSt3lS3i
 03fa57f09b7a8fb137a65eb73c6d00190c028337  sources/htslib-1.3.2.tar.bz2 1MR89tgnDSiyCeBFYHQ3LAe2iMcncBbRN
+e39adb9801049836dcd7ac52e775f64af4d0a51b  sources/kallisto-0.46.1.tar.gz 1gTxP0rFFxXsMbP746EgoLb8Zz2CHD5k0
+6c9a6c6dffa701143314763fc7df6719539b7470  sources/minimap2-2.17.tar.gz 1pKJc96iyT625aUbrxPxg9Zv786rq4Ptg
+20f283b84973c43b2f2cba2c8bda7cccd4bc3a2b  sources/ncbi-blast-2.10.0+-src.tar.gz 14LgTX74HMp1tY9ejKeB4pFapT3fVE1Lg
 37aaea73bdc38edc9b19cfb14983b6232186f99d  sources/picard-tools-1.87.zip 1rLm64qkmyJmJ0mf6h0MryQ6u8c1hSkYA
+f7372086a6f6ca38bcfedc62e6aef611a6a06935  sources/pilon-1.23.jar 17eAaVhjLtdCNcQ1XCPUchfYNbX6wDXC9
+04ed4d8088989d8d068453bfa73626be3df6f3db  sources/pysam-0.15.4.tar.gz 1ZCD06_Fqa_glYzYOTnbTrptYDE6YuoH_
+6a2a8b778672d6a72a6173dcd46456fb61d93473  sources/racon-1.4.10.tar.gz 1G8HlQ6l00Gctiq0mDImuCaZ8vloE6er2
 e3efe3bfbe940368b1de90f12b258a6bc746f1f2  sources/salmon-0.14.0.tar.gz 1VcihjUCDtWbiGtXyREBeIWXLq_YFwYPu
 abf80b2cf3264ed600e367b293ca2561aa25ec87  sources/samtools-1.3.1.tar.bz2 1o4nHostdXq_-XprXL6Y6Bdj6pG74Fnrk
 4fa8aeec4f91372f64132ea1d68614384e60276f  sources/SPAdes-3.13.0.tar.gz 1BbloWoW7sqqS__zhy9mZpwKrnOmzMY__
