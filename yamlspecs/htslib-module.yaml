@@ -6,9 +6,10 @@
   category: BIOTOOLS
   module:
     prepend_path:
-      - "{{ pkg_defaults.module.prepend_path }}"
-      - -d " " CPPFLAGS -I{{root}}/include
+      - "{{ mod_defaults.prepend_path }}"
+      - "{{ mod_defaults.flagspath }}"
     prereq: 
-      - gcc/{{ versions.gcc }}
+      - gcc/{{versions.gcc}}
     setenv:
-      -  HTSLIB_HOME {{ root }}
+      - "{{mod_defaults.setenv}}"
+      -  HTSLIB_HOME {{root}}

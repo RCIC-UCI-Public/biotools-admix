@@ -8,18 +8,14 @@
   description: >
     GATK {{version}}. Genome Analysis Toolkit 
   build:
-    configure: echo
     modules: 
       - java/{{versions.java}}
-    pkgmake: echo 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        $(INSTALL) gatk $(ROOT){{root}};
        $(INSTALL) -m 0644 gatk*.* GATK* README.md $(ROOT){{root}};
        $(TAR) cf - gatkdoc scripts | (cd $(ROOT){{root}}; tar xf -)
-     installextra: 
   requires:
     - jre = {{versions.java}} 
   rpm: !include rpm.extras.java.yaml

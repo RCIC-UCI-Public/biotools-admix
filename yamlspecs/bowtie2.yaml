@@ -11,6 +11,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - python/{{versions.python}}
     pkgmake: make 
+  extras: AUTHORS README
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
@@ -18,7 +19,6 @@
        $(TAR) cf - example doc scripts |
        $(TAR) -x -C $(ROOT){{root}};
        chmod -R a+rX $ $(ROOT){{root}}{doc,example,scripts}
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - python_{{versions.python}} 

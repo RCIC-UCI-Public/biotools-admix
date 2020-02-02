@@ -9,11 +9,8 @@
   description: >
     Picard-tools {{version}}  
   build:
-    configure: echo
     modules: 
       - java/{{versions.java}}
-    pkgmake: echo 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
@@ -22,5 +19,5 @@
     - jre = {{versions.java}} 
   rpm: !include rpm.extras.java.yaml
 
-#  this is for new picard tools 
+#  this is for new picard tools:
 #  vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}

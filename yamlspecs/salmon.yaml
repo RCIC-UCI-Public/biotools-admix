@@ -26,7 +26,7 @@
       cd {{builddir}};
       cmake -DBOOST_ROOT=$$BOOST_HOME -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make
-    target: 
+  extras: LICENSE README*
   install:
      makeinstall: >
        cd {{builddir}};

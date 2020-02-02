@@ -20,7 +20,6 @@
       cd {{builddir}};
       cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make
-    target:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
@@ -29,7 +28,6 @@
     makeinstall: >
       cd {{builddir}};
       make DESTDIR=$(ROOT) install
-
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - hdf5_{{versions.hdf5}}_{{compiler}}_{{compiler_version}}

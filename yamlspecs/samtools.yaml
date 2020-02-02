@@ -17,13 +17,11 @@
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - htslib/{{versions.htslib}}
+  extras: AUTHORS README LICENSE
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        make install DESTDIR=$(ROOT)
-#  files:
-#    -  "{{parent}}"
-#    -  "/usr/share/man/man1/*"
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - htslib_{{versions.htslib}}

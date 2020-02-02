@@ -7,6 +7,7 @@
   description: |
     FastP {{version}}. An ultra-fast all-in-one FASTQ preprocessor 
     (QC/adapters/trimming/filtering/splitting/merging...)
+  extras: LICENSE README*
   install:
      makeinstall: >
        mkdir -p $(ROOT){{ root }}/bin;

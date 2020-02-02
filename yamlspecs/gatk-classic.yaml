@@ -10,19 +10,15 @@
   src_dir: "{{gatkdir}}"
   vendor_source: https://software.broadinstitute.org/gatk/download/auth?package=GATK-archive&version={{version}}-{{gatkhash}}
   description: >
-    GATK {{version}} (Hash: {{gatkhash}}.  Genome Analysis Toolkit 
+    GATK {{version}} (Hash: {{gatkhash}}. Genome Analysis Toolkit 
   build:
-    configure: echo
     modules: 
       - java/{{versions.java_classic}}
-    pkgmake: echo 
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        $(INSTALL) GenomeAnalysisTK.jar  $(ROOT){{root}};
        $(TAR) cf - resources | (cd $(ROOT){{root}}; tar xf -)
-     installextra: 
   requires:
     - jre = {{versions.java_classic}} 
   rpm: !include rpm.extras.java.yaml

@@ -6,6 +6,7 @@
 - package: SAMTools Module
   category: BIOTOOLS
   module:
+    setenv: ""
     prereq: 
       - "{{compiler}}/{{compiler_version}}"
       - htslib/{{versions.htslib}}

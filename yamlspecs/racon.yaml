@@ -23,7 +23,6 @@
       cd {{builddir}};
       cmake -DCMAKE_BUILD_TYPE=Release -Dracon_build_tests=ON -Dracon_build_wrapper=ON -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make
-    target: 
   install:
      makeinstall: >
        cd {{builddir}};

@@ -14,10 +14,10 @@
     configure: ./configure 
     configure_args: --prefix={{root}}
     pkgmake: make 
+  extras: LICENSE README htslib.mk htslib_vars.mk
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        make install DESTDIR=$(ROOT)
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS htslib.mk htslib_vars.mk $(ROOT){{root}} 
   provides:
     - libhts.so.1()(64bit)

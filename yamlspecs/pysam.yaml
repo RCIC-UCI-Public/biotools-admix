@@ -6,11 +6,10 @@
   pkgname: python_{{versions.python3}}-{{name}}
   version: "{{versions.pysam}}"
   vendor_source: https://github.com/pysam-developers/pysam/archive/v{{version}}.{{extension}}
-  description: >
-    pysam {{version}} is a python module that makes it easy to read and manipulate mapped short read sequence data stored in SAM/BAM files. 
-    It is a lightweight wrapper of the htslib C-API.  
+  description: |
+    Pysam {{version}} is a python module that makes it easy to read and manipulate mapped short 
+    read sequence data stored in SAM/BAM files. It is a lightweight wrapper of the htslib C-API.  
   build:
-    configure: echo no configure required
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - python/{{versions.python3}}
@@ -19,7 +18,6 @@
      makeinstall: >
        python setup.py install --root $(ROOT)
   files:
-      - "{{parent}}"
       - "{{pkg_defaults.app_path}}/python/{{versions.python3}}/lib/python{{versions.python3_major}}/site-packages/*"
   requires:
     - "{{compiler}}_{{compiler_version}}"

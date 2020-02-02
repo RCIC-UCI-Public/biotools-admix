@@ -24,7 +24,6 @@
       cd c++; 
       mkdir -p $(ROOT){{root}};
       make prefix=$(ROOT){{root}} install
-    installextra:
   rpm:
     extras: | 
       %define _python_bytecompile_errors_terminate_build 0\n\

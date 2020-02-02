@@ -5,8 +5,9 @@
 - package: tophat Module
   category: BIOTOOLS
   module:
+    setenv: ""
     prepend_path:
-      - PATH {{ root }}/bin
+      - PATH {{root}}/bin
     prereq: 
       - "{{compiler}}/{{compiler_version}}"
   requires:

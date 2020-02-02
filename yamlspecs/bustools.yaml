@@ -4,7 +4,6 @@
   name: bustools 
   version: "{{versions.bustools}}"
   vendor_source: https://github.com/BUStools/bustools/archive/v{{version}}.{{extension}}
-
   description: |
     bustools {{version}} is a program for manipulating BUS files for single cell RNA-Seq datasets. It 
     can be used to error correct barcodes, collapse UMIs, produce gene count or transcript compatibility 
@@ -18,7 +17,6 @@
       cd {{builddir}};
       cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make
-    target:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - foundation
@@ -26,6 +24,5 @@
     makeinstall: >
       cd {{builddir}};
       make DESTDIR=$(ROOT) install
-
   requires:
     - "{{compiler}}_{{compiler_version}}"

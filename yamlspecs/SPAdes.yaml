@@ -4,13 +4,15 @@
   name: SPAdes 
   version: "{{versions.SPAdes}}"
   vendor_source: http://cab.spbu.ru/files/release{{version}}/SPAdes-{{version}}.{{extension}}
-  description: >
+  description: |
     SPAdes version {{version}}. St. Petersburg Assembler
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - foundation
+      - python/{{versions.python3}}
     pkgmake: ./spades_compile.sh 
+  extras: README
   install:
      makeinstall: >
        mkdir -p $(ROOT){{ root }}/bin;

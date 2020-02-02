@@ -6,6 +6,7 @@
   pkgname: "{{name}}_{{version}}-module"
   category: BIOTOOLS
   module:
+    setenv: ""
     prepend_path:
       - PATH {{root}}
     alias: 

@@ -13,6 +13,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
     pkgmake: make USE_GPL=1 prefix={{root}} 
+  extras: AUTHORS LICENSE README*
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};

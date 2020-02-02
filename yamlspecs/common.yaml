@@ -10,11 +10,12 @@
       - "{{compiler}}/{{compiler_version}}"
     pkgmake:
     target: 
+  extras:
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        make prefix={{root}} DESTDIR=$(ROOT) install
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{root}} 
+     installextra: for x in {{extras}}; do  $(INSTALL) -m 644 $$x $(ROOT){{root}}; done
   requires:
     - "{{compiler}}_{{compiler_version}}"
   rpm: !include rpm.extras.yaml
