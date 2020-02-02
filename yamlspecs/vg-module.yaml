@@ -10,5 +10,5 @@
       - "{{compiler}}/{{compiler_version}}"
   requires:
     - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}"
+    - "{{compiler}}_{{compiler_version}}-module"
     - rcic-module-support
