@@ -15,7 +15,7 @@ _ Pbsuite
 O Picard
 O pysam
 _ repeatmasker
-_ rsem
+O rsem
 O salmon
 O samtools
 _ scanty

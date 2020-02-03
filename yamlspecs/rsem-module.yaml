@@ -1,0 +1,19 @@
+# Builds the module for rsem.
+!include rsem.yaml
+!include rcic-module.yaml
+---
+- package: rsem Module
+  category: BIOTOOLS
+  module:
+    setenv: ""
+    prepend_path:
+      - PATH {{root}}/bin
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+      - perl/{{versions.perl}}
+      - python/{{versions.python3}}
+      - R/{{versions.R}}
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}"
+    - rcic-module-support

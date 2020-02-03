@@ -1,0 +1,24 @@
+!include common.yaml
+---
+- package: rsem 
+  name: rsem 
+  version: "{{versions.rsem}}"
+  src_dir: RSEM-{{version}}
+  vendor_source: https://github.com/deweylab/RSEM/archive/v{{version}}.{{extension}}
+  description: |
+    RSEM is a software package for estimating gene and isoform expression 
+    levels from RNA-Seq data. The RSEM package provides an user-friendly 
+    interface, supports threads for parallel computation of the EM algorithm,
+    single-end and paired-end read data, quality scores, variable-length 
+    reads and RSPD estimation. 
+  build:
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - perl/{{versions.perl}}
+      - python/{{versions.python3}}
+      - R/{{versions.R}}
+    pkgmake: > 
+      make;
+      make ebseq
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
