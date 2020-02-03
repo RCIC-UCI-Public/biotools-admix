@@ -1,0 +1,16 @@
+# Builds the module for star.
+!include star.yaml
+!include rcic-module.yaml
+---
+- package: star Module
+  category: BIOTOOLS
+  module:
+    setenv: ""
+    prepend_path:
+      - PATH {{root}}/bin
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}"
+    - rcic-module-support
