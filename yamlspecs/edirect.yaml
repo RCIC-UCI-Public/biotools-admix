@@ -16,7 +16,6 @@
     Edirect are commandline tools to Entrez tools. 
     https://www.ncbi.nlm.nih.gov/books/NBK179288/
   build:
-    modules: ""
     pkgmake: >
       $(INSTALL) ../rchive.Linux.gz .; gunzip rchive.Linux.gz;
       $(INSTALL) ../xtract.Linux.gz .; gunzip xtract.Linux.gz
