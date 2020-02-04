@@ -14,7 +14,7 @@
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - intel-tbb
+      - intel-tbb/{{versions.intel_tbb}}
     pkgmake: >
       sed -i "s/EXTRA_FLAGS =/EXTRA_FLAGS +=/" Makefile;
       export EXTRA_FLAGS=$$CPPFLAGS;
@@ -22,4 +22,5 @@
   extras: AUTHORS LICENSE MANUAL*
   requires:
     - "{{compiler}}_{{compiler_version}}"
+    - intel-tbb_{{versions.intel_tbb}}
     - python_{{versions.python}} 
