@@ -1,0 +1,14 @@
+# Builds the module for transdecoder.
+!include transdecoder.yaml
+!include rcic-module.yaml
+---
+- package: transdecoder Module
+  category: BIOTOOLS
+  module:
+    prepend_path:
+      - PATH {{root}}
+      - PATH {{root}}/util
+    prereq: 
+      - perl/{{versions.perl}}
+    setenv:
+      -  TRANSDECODER_HOME {{root}}
