@@ -6,6 +6,8 @@
   vendor_source: https://github.com/BenLangmead/bowtie2/archive/v{{version}}.tar.gz
   description: >
     bowtie2 {{version}}  
+  addfile: 
+    - filter-requires-{{name}}.sh
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
@@ -22,3 +24,4 @@
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - python_{{versions.python}} 
+  rpm: !include rpm.extras.filter.yaml
