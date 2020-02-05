@@ -1,0 +1,22 @@
+!include common.yaml
+---
+- package: hmmer for storing large nucleotide sequence alignments
+  name: hmmer 
+  version: "{{versions.hmmer}}"
+  vendor_source: http://eddylab.org/software/hmmer/{{name}}-{{version}}.{{extension}}
+  description: |
+    HMMER {{version}} is used for searching sequence databases for sequence homologs, and for making 
+    sequence alignments. It implements methods using probabilistic models called profile 
+    hidden Markov models (profile HMMs)    
+  build:
+    configure: ./configure --prefix={{root}}
+    pkgmake: make 
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}};
+       make prefix={{root}} DESTDIR=$(ROOT) install;
+       (cd easel; make install)
+  requires:
+    - "{{compiler}}_{{compiler_version}}"

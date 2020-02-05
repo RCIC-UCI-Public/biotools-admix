@@ -1,0 +1,17 @@
+!include common.yaml
+---
+- package: TRF
+  name: trf 
+  version: "{{versions.trf}}"
+  vendor_source: ""
+  description: |
+    Tandem Repeats Finder (TRF) is a program to analyze DNA sequences
+    http://tandem.bu.edu/trf/trf.html. Prerequisite for RepeateMasker
+    See LICENSE at http://tandem.bu.edu/trf/trf.license.html
+  build:
+    modules: ""
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT)/{{root}}/bin;
+       $(INSTALL) -m 755 trf* $(ROOT)/{{root}}/bin
+  requires: ""

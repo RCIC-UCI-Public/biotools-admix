@@ -1,0 +1,18 @@
+# Builds the module for hmmer
+!include hmmer.yaml
+!include rcic-module.yaml
+---
+- package: hmmer Module
+  category: BIOTOOLS
+  module:
+    setenv: 
+      -  HMMER_HOME {{root}}
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+    prepend_path:
+      - PATH {{root}}/bin
+      - MANPATH {{root}}/share/man
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}-module"
+    - rcic-module-support

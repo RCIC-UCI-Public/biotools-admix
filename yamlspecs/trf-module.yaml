@@ -1,0 +1,16 @@
+# Builds the module for trf.
+!include trf.yaml
+!include rcic-module.yaml
+---
+- package: trf Module
+  category: BIOTOOLS
+  module:
+    setenv: 
+      - TRF_HOME {{root}}
+    prepend_path:
+      - PATH {{root}}/bin
+    alias: 
+      - trf "{{root}}/bin/trf409.linux64"
+  requires:
+    - "{{name}}_{{version}}"
+    - rcic-module-support
