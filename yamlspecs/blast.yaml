@@ -5,6 +5,9 @@
   version: "{{versions.blast}}"
   suffix: "+-src"
   vendor_source: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/{{name}}-{{version}}{{suffix}}.{{extension}}
+  rmblastpatch: isb-{{versions.blast}}+-rmblast.patch
+  other_sources: 
+    - http://www.repeatmasker.org/{{rmblastpatch}}.gz
   src_dir: "{{name}}-{{version}}{{suffix}}"
   src_tarball: "{{src_dir}}.{{extension}}"
   description: |
@@ -12,12 +15,13 @@
     at the National Center for Biotechnology Information (NCBI).
     https://www.ncbi.nlm.nih.gov/books/NBK279690/
   build:
+    patchfile: "{{rmblastpatch}}"
     modules: 
       - "python/{{versions.python3}}"
       - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
     pkgmake: >
       cd c++; 
-      ./configure --prefix={{root}} --with-boost=$$BOOST_HOME --with-mt --with-openmp --with-lfs --with-optimization --with-dll;
+      ./configure --prefix={{root}} --with-boost=$$BOOST_HOME --with-mt --with-openmp --with-lfs --with-optimization --with-dll --with-projects=scripts/projects/rmblastn/project.lst;
       make
   install:
     makeinstall: >
@@ -58,6 +62,11 @@
       %global privlibs %{privlibs}|libwrite.* \n\
       %global __requires_exclude ^(%{privlibs})\\.so
 
-# not working
+# requires exclude NOT working
 #%global __requires_exclude_from %{_libdir}/.*\\.so$|%{_bindir}
 #%global __requires_exclude_from ^%{buildroot}%{_libdir}/.*.so$
+#
+# see http://www.repeatmasker.org/RMBlast.html for rmblast  config line below:
+#./configure --with-mt --without-debug --without-krb5 --without-openssl \
+#            --with-projects=scripts/projects/rmblastn/project.lst \
+#            --prefix=/usr/local/rmblast
