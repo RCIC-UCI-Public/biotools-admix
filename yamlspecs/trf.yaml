@@ -13,5 +13,6 @@
   install:
      makeinstall: >
        mkdir -p $(ROOT)/{{root}}/bin;
-       $(INSTALL) -m 755 trf* $(ROOT)/{{root}}/bin
+       $(INSTALL) -m 755 trf* $(ROOT)/{{root}}/bin;
+       (cd $(ROOT)/{{root}}/bin; ln -s trf*linux64 trf)
   requires: ""
