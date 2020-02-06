@@ -14,7 +14,7 @@ O minimap2
 _ Pbsuite
 O Picard
 O pysam
-_ repeatmasker
+O repeatmasker
 O rsem
 O salmon
 O samtools

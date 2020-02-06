@@ -1,0 +1,24 @@
+# Builds the module for RepeatMasker
+!include repeatmasker.yaml
+!include rcic-module.yaml
+---
+- package: repeatmasker Module
+  category: BIOTOOLS
+  module:
+    setenv: ""
+    prereq: 
+      - perl/{{versions.perl}}
+      - python/{{versions.python3}}
+      - trf_{{versions.trf}}
+      - ncbi-blast/{{versions.blast}}
+      - hmmer/{{versions.hmmer}}
+    prepend_path:
+      - PATH {{root}}
+  requires:
+    - "{{name}}_{{version}}"
+    - perl_{{versions.perl}}-module
+    - python_{{versions.python3}}-module
+    - trf_{{versions.trf}}-module
+    - ncbi-blast_{{versions.blast}}-module
+    - hmmer_{{versions.hmmer}}-module
+    - rcic-module-support
