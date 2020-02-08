@@ -21,6 +21,7 @@ system:
   - perl-XML-Simple 
   - qt5-qtbase-devel
   - qt5-qtsvg-devel
+  - file-devel
 bootstrap:
   - htslib
   - htslib-module
