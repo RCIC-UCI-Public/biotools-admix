@@ -1,0 +1,15 @@
+# Builds the module for ncbi-vdb
+!include ncbi-vdb.yaml
+!include rcic-module.yaml
+---
+- package: ncbi-vdb module
+  category: BIOTOOLS
+  module:
+    setenv:
+      - VDB_HOME {{root}}
+      - VDB_LIBDIR {{root}}/lib64
+    prepend_path: 
+      - LD_LIBRARY_PATH {{root}}/lib64
+  requires:
+    - "{{name}}_{{version}}"
+    - rcic-module-support

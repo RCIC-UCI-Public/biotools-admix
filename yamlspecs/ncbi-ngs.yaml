@@ -1,0 +1,67 @@
+!include common.yaml
+---
+- package: NGS sdk bindings
+  name: ncbi-ngs
+  version: "{{versions.ngs}}"
+  ngs_major: "{{versions.ngs_major}}"
+  vendor_source: https://github.com/ncbi/ngs/archive/{{version}}.{{extension}}
+  description: |
+    NGS is a new, domain-specific API for accessing reads, alignments and pileups produced 
+    from Next Generation Sequencing. The API itself is independent from any particular 
+    back-end implementation, and supports use of multiple back-ends simultaneously. It 
+    also provides a library for building new back-end engines. The engine for accessing 
+    SRA data is contained within the sister repository https://github.com/ncbi/ncbi-vdb
+  src_dir: ngs-{{version}}
+  build:
+    configure: ./configure --prefix={{root}} --build-prefix=./builddir
+    pkgmake: >
+      make -C ngs-sdk;
+      make -C ngs-java;
+      make -C ngs-python
+    modules: 
+      - python/{{versions.python3}}
+      - java/{{versions.java}}
+  libs_dynamic: libngs-sdk.so
+  libs_static: libngs-c++.a libngs-adapt-c++.a
+  libs_java: ngs-java.jar
+  install:
+    makeinstall: >
+      echo Installing in ngs-sdk;
+      mkdir -p $(ROOT)/{{root}}/lib64;
+      for x in {{libs_dynamic}}; do \
+          $(INSTALL) -m 755 ngs-sdk/builddir/ngs-sdk/linux/gcc/x86_64/rel/lib/$$x.{{version}} $(ROOT)/{{root}}/lib64;\
+          (cd $(ROOT)/{{root}}/lib64; \
+              ln -s $$x.{{version}} $$x.{{ngs_major}}; \
+              ln -s $$x.{{ngs_major}} $$x); \
+      done;
+      for x in {{libs_static}}; do \
+          $(INSTALL) -m 644 ngs-sdk/builddir/ngs-sdk/linux/gcc/x86_64/rel/lib/$$x.{{version}} $(ROOT)/{{root}}/lib64;\
+          (cd $(ROOT)/{{root}}/lib64; \
+              ln -s $$x.{{version}} $$x.{{ngs_major}}; \
+              ln -s $$x.{{ngs_major}} $$x); \
+      done;
+      mkdir -p $(ROOT)/{{root}}/include;
+      cp -r ngs-sdk/ngs $(ROOT)/{{root}}/include;
+      mkdir -p $(ROOT)/{{root}}/share/examples-sdk;
+      cp ngs-sdk/examples/* $(ROOT)/{{root}}/share/examples-sdk;
+      echo Installing in ngs-java;
+      mkdir -p $(ROOT)/{{root}}/jar;
+      for x in {{libs_java}}; do \
+          $(INSTALL) -m 644 ngs-java/builddir/ngs-java/jar/$$x.{{version}} $(ROOT)/{{root}}/jar;\
+          (cd $(ROOT)/{{root}}/lib64; \
+              ln -s $$x.{{version}} $$x.{{ngs_major}}; \
+              ln -s $$x.{{ngs_major}} $$x); \
+      done;
+      mkdir -p $(ROOT)/{{root}}/share/doc;
+      cp -r ngs-java/builddir/ngs-java/jar/javadoc/* $(ROOT)/{{root}}/share/doc/;
+      mkdir -p $(ROOT)/{{root}}/share/examples-java;
+      cp -r ngs-java/examples/* $(ROOT)/{{root}}/share/examples-java;
+      echo Installing in ngs-python;
+      mkdir -p $(ROOT)/{{root}}/share/examples-python;
+      cp ngs-python/examples/* $(ROOT)/{{root}}/share/examples-python;
+      (cd ngs-python; python setup.py install --root $(ROOT))
+  requires: ""
+  files:
+    - "{{parent}}"
+    - "{{pkg_defaults.app_path}}/python/{{versions.python3}}/lib/python{{versions.python3_major}}/site-packages/*"
+  rpm: !include rpm.extras.java.yaml

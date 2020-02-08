@@ -1,0 +1,19 @@
+# Builds the module for ncbi-ngs
+!include ncbi-ngs.yaml
+!include rcic-module.yaml
+---
+- package: ncbi-ngs module
+  category: BIOTOOLS
+  module:
+    setenv:
+      - NGS_HOME {{root}}
+      - NGS_LIBDIR {{root}}/lib64
+    prepend_path: 
+      - LD_LIBRARY_PATH {{root}}/lib64
+      - CLASSPATH {{root}}/jar/ngs-java.jar
+    prereq: 
+      - python/{{versions.python3}}
+      - java/{{versions.java}}
+  requires:
+    - "{{name}}_{{version}}"
+    - rcic-module-support
