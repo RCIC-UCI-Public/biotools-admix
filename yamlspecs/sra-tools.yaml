@@ -1,0 +1,41 @@
+# This package has to be built after ncbi-vdb, it requires
+# ncbi-vdb  source distro and already built libraries which
+# it expects to find in the source tree, really?
+# what on earth were they thinking?
+!include common.yaml
+---
+- package: NCBI SRA toolkit
+  name: sra-tools
+  version: "{{versions.sra}}"
+  vendor_source: https://github.com/ncbi/sra-tools/archive/{{version}}.{{extension}}
+  description: |
+    The SRA Toolkit and SDK from NCBI is a collection of tools and 
+    libraries for using data in the INSDC Sequence Read Archives.
+  builddir: builddir
+  opt_prefix: --prefix={{root}} --build-prefix=./{{builddir}}
+  opt_prereq: --with-ngs-sdk-prefix=$$NGS_HOME --with-hdf5-prefix=$$HDF5_HOME
+  opt_source: --with-ncbi-vdb-build=../../ncbi-vdb_2.10.2-2.10.2/ncbi-vdb-2.10.2/builddir --with-ncbi-vdb-sources=../../ncbi-vdb_2.10.2-2.10.2/ncbi-vdb-2.10.2
+  build:
+    configure: ./configure  {{opt_prefix}} {{opt_prereq}} {{opt_source}}
+    pkgmake: (cd tools/driver-tool/utf8proc/; make); make 
+    modules: 
+      - ncbi-ngs/{{versions.ngs}}
+      - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
+  symlinks: fasterq-dump fastq-dump sam-dump prefetch srapath sra-pileup vdb-dump
+  install:
+    installextra: ""
+    makeinstall: >
+      echo Installing binaries;
+      mkdir -p $(ROOT){{root}};
+      cp -P -r  builddir/sra-tools/linux/gcc/x86_64/rel/bin $(ROOT){{root}};
+      echo Relinking binaries;
+      for x in {{symlinks}}; do \
+         (cd $(ROOT)/{{root}}/bin; \
+          mv $$x.{{version}} $$x.{{version}}.orig; \
+          ln -s sratools.{{version}} $$x.{{version}}); \
+      done;
+      echo Installing configs;
+      mkdir -p $(ROOT){{root}}/etc;
+      mv $(ROOT)/{{root}}/bin/ncbi/ $(ROOT)/{{root}}/etc;
+      $(INSTALL) -m 644  shared/kfgsums $(ROOT)/{{root}}/etc/ncbi
+  requires: ""

@@ -1,0 +1,14 @@
+# Builds the module for sra-tools
+!include sra-tools.yaml
+!include rcic-module.yaml
+---
+- package: sra-tools module
+  category: BIOTOOLS
+  module:
+    setenv:
+      - SRATOOLS_HOME {{root}}
+    prepend_path: 
+      - PATH {{root}}/bin
+  requires:
+    - "{{name}}_{{version}}"
+    - rcic-module-support
