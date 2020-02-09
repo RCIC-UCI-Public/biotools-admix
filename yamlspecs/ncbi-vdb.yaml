@@ -8,8 +8,10 @@
   description: |
     NCBI vdb package
   builddir: builddir
+  opt_prefix: --prefix={{root}} --build-prefix=./{{builddir}}
+  opt_prereq: --with-ngs-sdk-prefix=$$NGS_HOME --with-ngs-java-prefix=$$NGS_HOME/jar/ngs-java.jar --with-hdf5-prefix=$$HDF5_HOME 
   build:
-    configure: ./configure --prefix={{root}} --build-prefix=./{{builddir}} --with-ngs-sdk-prefix=$$NGS_HOME --with-ngs-java-prefix=$$NGS_HOME/jar/ngs-java.jar --with-hdf5-prefix=$$HDF5_HOME 
+    configure: ./configure {{opt_prefix}} {{opt_prereq}}
     modules:
       - ncbi-ngs/{{versions.ngs}}
       - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
@@ -38,6 +40,6 @@
       mkdir -p $(ROOT)/{{root}}/include/ncbi-vdb;
       $(INSTALL) -m 644 interfaces/ngs/ncbi/NGS.hpp $(ROOT)/{{root}}/include/ncbi-vdb;
       echo Installing configuration files;
-      mkdir -p $(ROOT)/{{root}}/etc;
-      $(INSTALL) -m 644  libs/kfg/*.kfg libs/kfg/kfgsums $(ROOT)/{{root}}/etc
+      mkdir -p $(ROOT)/{{root}}/etc/ncbi;
+      $(INSTALL) -m 644  libs/kfg/*.kfg libs/kfg/kfgsums $(ROOT)/{{root}}/etc/ncbi
   requires: ""
