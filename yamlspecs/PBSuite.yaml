@@ -1,0 +1,20 @@
+!include common.yaml
+---
+- package: PBSuite 
+  name: PBSuite 
+  extension: tgz
+  version: "{{versions.PBSuite}}"
+  vendor_source: https://sourceforge.net/projects/pb-jelly/files/{{name}}_{{version}}.{{extension}}
+  src_dir: "{{name}}_{{version}}"
+  description: |
+    PBSuite code contains
+    PBJelly - the genome upgrading tool. 
+    PBHoney - the structural variation discovery tool 
+  build:
+    modules:
+      - python/{{versions.python}}
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}};
+       /bin/rm bin/MergeTail.sh bin/reQuick.sh setup.sh;
+       $(TAR) cf - bin docs pbsuite CHANGE* LICENSE* | (cd $(ROOT)/{{root}}; $(TAR) xvf - --owner=root --group=root)

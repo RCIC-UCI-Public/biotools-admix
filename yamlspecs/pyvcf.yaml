@@ -1,15 +1,15 @@
 !include common.yaml
 ---
-- package: pysam 
-  name: pysam 
+- package: pyvcf 
+  name: PyVCF 
   pyversion: "{{versions.python}}"
   pymajor: "{{versions.python_major}}"
   pkgname: python_{{pyversion}}-{{name}}
-  version: "{{versions.pysam}}"
-  vendor_source: https://github.com/pysam-developers/pysam/archive/v{{version}}.{{extension}}
+  version: "{{versions.pyvcf}}"
+  vendor_source: https://files.pythonhosted.org/packages/20/b6/36bfb1760f6983788d916096193fc14c83cce512c7787c93380e09458c09/{{name}}-{{version}}.{{extension}}
   description: |
-    Pysam {{version}} is a python module that makes it easy to read and manipulate mapped short 
-    read sequence data stored in SAM/BAM files. It is a lightweight wrapper of the htslib C-API.  
+    A VCFv parser for Python. Online version of PyVCF 
+    documentation is available at http://pyvcf.rtfd.org/
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
@@ -19,6 +19,7 @@
      makeinstall: >
        python setup.py install --root $(ROOT)
   files:
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin"
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
   requires:
     - "{{compiler}}_{{compiler_version}}"

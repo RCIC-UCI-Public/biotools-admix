@@ -1,0 +1,4 @@
+!include pysam.yaml
+---
+- pyversion: "{{versions.python3}}"
+  pymajor: "{{versions.python3_major}}"
