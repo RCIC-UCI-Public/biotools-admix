@@ -1,0 +1,29 @@
+!include common.yaml
+---
+- package: scanpy 
+  name: scanpy 
+  pyversion: "{{versions.python3}}"
+  pymajor: "{{versions.python3_major}}"
+  pkgname: python_{{pyversion}}-{{name}}
+  version: "{{versions.scanpy}}"
+  vendor_source: https://files.pythonhosted.org/packages/0b/aa/353d733a4c38e4fe8cfefc665747453ff15e0d18b9bcf196ddfaddaf8640/{{name}}-{{version}}.{{extension}}
+  description: |
+    Scanpy is a scalable toolkit for analyzing single-cell gene expression 
+    data built jointly with anndata. It includes preprocessing, visualization, 
+    clustering, trajectory inference and differential expression testing. 
+    The Python-based implementation efficiently deals with datasets of more 
+    than one million cells.
+  build:
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin"
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+    - python_{{pyversion}} 
