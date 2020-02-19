@@ -11,7 +11,8 @@
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - python/{{versions.python}}
+      - python/{{versions.python3}}
+      - perl/{{versions.perl}}
     pkgmake: make 
   extras: AUTHORS README
   install:
@@ -23,5 +24,7 @@
        chmod -R a+rX $ $(ROOT){{root}}{doc,example,scripts}
   requires:
     - "{{compiler}}_{{compiler_version}}"
-    - python_{{versions.python}} 
+    - python_{{versions.python3}}
+    - perl_{{versions.perl}}
+    - perl_{{versions.perl}}-Math-Random
   rpm: !include rpm.extras.filter.yaml

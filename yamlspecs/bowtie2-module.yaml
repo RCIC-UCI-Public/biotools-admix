@@ -9,9 +9,11 @@
       - PATH {{root}}/bin
     prereq: 
       - "{{compiler}}/{{compiler_version}}"
-      - "python/{{versions.python}}"
+      - python/{{versions.python}}
+      - perl/{{versions.perl}}
   requires:
     - "{{name}}_{{version}}"
     - rcic-module-support
     - "{{compiler}}_{{compiler_version}}-module"
     - "python_{{versions.python}}-module"
+    - "perl_{{versions.perl}}-module"
