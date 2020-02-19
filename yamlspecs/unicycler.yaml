@@ -1,0 +1,35 @@
+!include common.yaml
+---
+- package: unicycler 
+  name: unicycler 
+  pyversion: "{{versions.python3}}"
+  pymajor: "{{versions.python3_major}}"
+  version: "{{versions.unicycler}}"
+  vendor_source: https://github.com/rrwick/Unicycler/archive/v{{version}}.tar.{{extension}}
+  src_dir: Unicycler-{{version}}
+  description: |
+    Unicycler {{version}} is an assembly pipeline for bacterial genomes. It can assemble
+    Illumina-only read sets where it functions as a SPAdes-optimiser. It can also assembly
+    long-read-only sets (PacBio or Nanopore) where it runs a miniasm+Racon pipeline. For
+    the best possible assemblies, give it both Illumina reads and long reads, and it will
+    conduct a hybrid assembly
+  build:
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - python/{{pyversion}}
+      - SPAdes/{{versions.SPAdes}}
+      - racon/{{versions.racon}}
+      - pilon/{{versions.pilon}}
+      - java/{{versions.java}}
+      - bowtie2/{{versions.bowtie2}}
+      - ncbi-blast/{{versions.blast}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin"
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+    - python_{{pyversion}} 

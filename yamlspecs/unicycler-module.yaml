@@ -1,0 +1,24 @@
+# Builds the module for unicycler.
+!include unicycler.yaml
+!include rcic-module.yaml
+---
+- package: unicycler Module
+  category: BIOTOOLS
+  module:
+    setenv: ""
+    prepend_path:
+      - PATH {{root}}/bin
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+      - python/{{pyversion}}
+      - SPAdes/{{versions.SPAdes}}
+      - racon/{{versions.racon}}
+      - pilon/{{versions.pilon}}
+      - java/{{versions.java}}
+      - bowtie2/{{versions.bowtie2}}
+      - ncbi-blast/{{versions.blast}}
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}-module"
+    - python_{{pyversion}}-module
+    - rcic-module-support
