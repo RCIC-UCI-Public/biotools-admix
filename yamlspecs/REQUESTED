@@ -1,7 +1,7 @@
 These are tools requested by the Mortazavi Group
 O - means done
 _ - means todo
-
+--------------------------------------------
 O Bamtools
 O Bcftools
 O bedtools
@@ -11,7 +11,7 @@ O Bwa
 _ homer
 O kallisto
 O minimap2
-_ Pbsuite
+O Pbsuite see bioconda-admix
 O Picard
 O pysam
 O repeatmasker
@@ -23,4 +23,4 @@ _ Seurat
 O sratoolkit
 O star
 O transdecoder
-_ ucsc-tools
+O ucsc-tools
