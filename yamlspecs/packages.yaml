@@ -22,6 +22,11 @@ system:
   - qt5-qtbase-devel
   - qt5-qtsvg-devel
   - file-devel
+  - mariadb-libs
+  - mariadb-devel
+  - libpng-devel
+  - libuuid-devel
+  - openssl-devel
 bootstrap:
   - htslib
   - htslib-module
