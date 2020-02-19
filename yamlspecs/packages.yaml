@@ -38,7 +38,7 @@ build:
   - bwa-latest
   - bwa-latest-module
   - bustools
-  - bustools-module 
+  - bustools-module
   - SPAdes
   - SPAdes-module
   - htslib
@@ -69,15 +69,42 @@ build:
   - salmon-module
   - vg
   - vg-module
+  - ncbi-ngs
+  - ncbi-ngs-module
+  - ncbi-vdb
+  - ncbi-vdb-module
+  - pyvcf
+  - pyvcf-py3
   - pysam
+  - pysam-py3
   - racon
   - racon-module
   - pilon
   - pilon-module
   - blast
   - blast-module
+  - bowtie
+  - bowtie-module
+  - transdecoder
+  - transdecoder-module
+  - rsem
+  - rsem-module
+  - star
+  - star-module
+  - sra-tools
+  - sra-tools-module
+  - trf
+  - trf-module
+  - hmmer
+  - hmmer-module
+  - repeatmasker
+  - repeatmasker-module
   - bandage
   - bandage-module
+  - scanpy
+  - ucsc-tools
+  - ucsc-tools-module
+  - unicycler
+  - unicycler-module
 manifest:
   - "{{ build }}"
-
