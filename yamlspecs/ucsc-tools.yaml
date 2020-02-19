@@ -10,7 +10,6 @@
     The UCSC tools including Blat, LiftOver and command-line utilities
   build:
     patchfile: Makefile.ucsctools.patch
-#    modules: ""
     modules: 
       - "{{compiler}}/{{compiler_version}}"
     pkgmake: make 
@@ -20,6 +19,5 @@
       mkdir -p $(ROOT){{root}};
       cp -p -r bin/ $(ROOT){{root}}
     installextra: for x in {{extras}}; do  $(INSTALL) -m 644 $$x $(ROOT){{root}}; done
-#  requires: ""
   requires:
     - "{{compiler}}_{{compiler_version}}"
