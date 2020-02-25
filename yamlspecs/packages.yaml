@@ -106,5 +106,7 @@ build:
   - ucsc-tools-module
   - unicycler
   - unicycler-module
+  - vcftools
+  - vcftools-module
 manifest:
   - "{{ build }}"
