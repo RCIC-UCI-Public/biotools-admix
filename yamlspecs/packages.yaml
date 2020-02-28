@@ -30,6 +30,23 @@ system:
 bootstrap:
   - htslib
   - htslib-module
+  - trf
+  - trf-module
+  - blast
+  - blast-module
+  - hmmer
+  - hmmer-module
+  - SPAdes
+  - SPAdes-module
+  - racon
+  - racon-module
+  - pilon
+  - pilon-module
+  - bowtie2
+  - bowtie2-module
+  - ncbi-ngs
+  - ncbi-ngs-module
+
 build:
   - bedtools2
   - bedtools2-module
@@ -97,8 +114,8 @@ build:
   - trf-module
   - hmmer
   - hmmer-module
-  - repeatmasker
-  - repeatmasker-module
+#  - repeatmasker
+#  - repeatmasker-module
   - bandage
   - bandage-module
   - scanpy

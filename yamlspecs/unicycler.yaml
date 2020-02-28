@@ -26,7 +26,7 @@
     pkgmake: python setup.py build
   install:
      makeinstall: >
-       python setup.py install --root $(ROOT)
+       python3 setup.py install --root $(ROOT)
   files:
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin"
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
