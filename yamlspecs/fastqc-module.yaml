@@ -1,0 +1,14 @@
+# Builds the module for fastqc
+!include fastqc.yaml
+!include rcic-module.yaml
+---
+- package: fastqc Module
+  category: BIOTOOLS
+  module:
+    setenv:
+      - FASTQC_HOME {{root}}
+    prepend_path:
+      - PATH {{root}}
+      - CLASSPATH {{root}}/*
+    prereq: 
+      - java/{{versions.java}}

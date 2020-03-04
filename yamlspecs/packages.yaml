@@ -27,6 +27,7 @@ system:
   - libpng-devel
   - libuuid-devel
   - openssl-devel
+  - ant
 bootstrap:
   - htslib
   - htslib-module
@@ -125,5 +126,7 @@ build:
   - unicycler-module
   - vcftools
   - vcftools-module
+  - fastqc
+  - fastqc-module
 manifest:
   - "{{ build }}"
