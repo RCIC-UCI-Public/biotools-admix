@@ -12,7 +12,7 @@
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - foundation
-    pkgmake: make 
+    pkgmake: make -j 8
   install:
      makeinstall: >
        mkdir -p $(ROOT)/{{ root }}/bin;
