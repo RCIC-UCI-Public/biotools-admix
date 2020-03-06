@@ -26,7 +26,7 @@
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        sed -i '/\.*maskFile.pl/d' configure;
-       perl ./configure -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer -libdir "{{root}}/Libraries";
+       perl ./configure -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer;
        sed -i 's%/usr/local/bin/perl%/usr/bin/env perl%' *.pm util/*;
        /bin/rm *.pm.bak;
        $(TAR) cf - . | (cd $(ROOT){{root}}; tar xf -)
