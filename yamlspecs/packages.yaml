@@ -128,5 +128,9 @@ build:
   - vcftools-module
   - fastqc
   - fastqc-module
+  - freebayes
+  - freebayes-module
+  - vcflib
+  - vcflib-module
 manifest:
   - "{{ build }}"

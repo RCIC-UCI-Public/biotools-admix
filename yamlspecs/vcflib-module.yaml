@@ -1,0 +1,16 @@
+# Builds the module for vcflib.
+!include vcflib.yaml
+!include rcic-module.yaml
+---
+- package: vcflib Module
+  category: BIOTOOLS
+  module:
+    prepend_path:
+      - PATH {{root}}/bin
+      - LD_LIBRARY_PATH {{root}}/lib
+      - "{{ mod_defaults.flagspath }}"
+    prereq: 
+      - gcc/{{versions.gcc}}
+    setenv:
+      - "{{mod_defaults.setenv}}"
+      -  VCFLIB_DIR {{root}}
