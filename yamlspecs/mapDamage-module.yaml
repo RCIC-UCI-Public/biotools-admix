@@ -1,0 +1,22 @@
+# Builds the module for mapDamage.
+!include mapDamage.yaml
+!include rcic-module.yaml
+---
+- package: mapDamage Module
+  category: BIOTOOLS
+  module:
+    prepend_path:
+      - PATH {{root}}/bin
+      - PYTHONPATH {{root}}/lib/python{{versions.python3_major}}/site-packages
+    prereq: 
+      - gcc/{{versions.gcc}}
+      - R/{{versions.R}}
+    setenv:
+      - MAPDAMAGE_HOME {{root}}
+
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}-module"
+    - python_{{pyversion}}-module
+    - R_{{versions.R}}-module
+    - rcic-module-support

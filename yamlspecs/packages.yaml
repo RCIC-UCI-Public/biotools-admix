@@ -132,5 +132,7 @@ build:
   - freebayes-module
   - vcflib
   - vcflib-module
+  - mapDamage
+  - mapDamage-module
 manifest:
   - "{{ build }}"
