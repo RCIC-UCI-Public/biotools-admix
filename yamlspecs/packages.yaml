@@ -113,8 +113,8 @@ build:
   - trf-module
   - hmmer
   - hmmer-module
-#  - repeatmasker
-#  - repeatmasker-module
+  - repeatmasker
+  - repeatmasker-module
   - bandage
   - bandage-module
   - scanpy
