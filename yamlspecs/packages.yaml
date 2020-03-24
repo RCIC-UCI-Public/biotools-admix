@@ -87,8 +87,6 @@ build:
   - salmon-module
   - vg
   - vg-module
-  - ncbi-ngs
-  - ncbi-ngs-module
   - ncbi-vdb
   - ncbi-vdb-module
   - pyvcf
