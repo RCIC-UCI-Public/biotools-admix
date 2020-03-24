@@ -31,10 +31,10 @@
               ln -s $$x.so.{{vdb_major}} $$x.so); \
       done;
       for x in {{libs_static}}; do \
-          $(INSTALL) -m 644 {{compiledir}}/$$x.a.{{version}} $(ROOT)/{{root}}/lib64;\
+          $(INSTALL) -m 644 {{compiledir}}/$$x-static.a.{{version}} $(ROOT)/{{root}}/lib64;\
           (cd $(ROOT)/{{root}}/lib64; \
-              ln -s $$x.a.{{version}} $$x.a.{{vdb_major}}; \
-              ln -s $$x.a.{{vdb_major}} $$x.a); \
+              ln -s $$x-static.a.{{version}} $$x-static.a.{{vdb_major}}; \
+              ln -s $$x-static.a.{{vdb_major}} $$x-static.a); \
       done;
       echo Installing includes;
       mkdir -p $(ROOT)/{{root}}/include/ncbi-vdb;
