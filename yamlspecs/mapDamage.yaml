@@ -4,7 +4,7 @@
   name: mapDamage 
   version: "{{versions.mapDamage}}"
   pyversion: "{{versions.python3}}"
-  vendor_source: https://github.com/ginolhac/mapDamage/archive/2.2.0.tar.gz
+  vendor_source: https://github.com/ginolhac/mapDamage/archive/{{version}}.{{extension}}
   description: |
     mapDamage2 {{version}} is a computational framework written in Python3 and R,
     which tracks and quantifies DNA damage patterns among ancient DNA sequencing
