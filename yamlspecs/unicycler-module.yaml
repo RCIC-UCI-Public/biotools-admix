@@ -16,7 +16,7 @@
       - pilon/{{versions.pilon}}
       - java/{{versions.java}}
       - bowtie2/{{versions.bowtie2}}
-      - ncbi-blast/{{versions.blast}}
+      - ncbi-blast/{{versions.ncbiblast}}
   requires:
     - "{{name}}_{{version}}"
     - "{{compiler}}_{{compiler_version}}-module"

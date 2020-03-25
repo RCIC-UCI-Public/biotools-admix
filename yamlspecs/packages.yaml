@@ -33,8 +33,8 @@ bootstrap:
   - htslib-module
   - trf
   - trf-module
-  - blast
-  - blast-module
+  - ncbi-blast
+  - ncbi-blast-module
   - hmmer
   - hmmer-module
   - SPAdes
@@ -97,8 +97,6 @@ build:
   - racon-module
   - pilon
   - pilon-module
-  - blast
-  - blast-module
   - bowtie
   - bowtie-module
   - transdecoder

@@ -19,7 +19,7 @@
       - perl/{{versions.perl}}
       - python/{{versions.python3}}
       - trf/{{versions.trf}}
-      - ncbi-blast/{{versions.blast}}
+      - ncbi-blast/{{versions.ncbiblast}}
       - hmmer/{{versions.hmmer}}
     pkgmake: echo 
   install:

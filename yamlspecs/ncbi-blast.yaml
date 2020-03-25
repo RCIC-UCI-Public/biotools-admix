@@ -2,10 +2,10 @@
 ---
 - package: ncbi blast
   name: ncbi-blast
-  version: "{{versions.blast}}"
+  version: "{{versions.ncbiblast}}"
   suffix: "+-src"
   vendor_source: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/{{name}}-{{version}}{{suffix}}.{{extension}}
-  rmblastpatch: isb-{{versions.blast}}+-rmblast.patch
+  rmblastpatch: isb-{{versions.ncbiblast}}+-rmblast.patch
   other_sources: 
     - http://www.repeatmasker.org/{{rmblastpatch}}.gz
   src_dir: "{{name}}-{{version}}{{suffix}}"

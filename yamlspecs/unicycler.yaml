@@ -22,7 +22,7 @@
       - pilon/{{versions.pilon}}
       - java/{{versions.java}}
       - bowtie2/{{versions.bowtie2}}
-      - ncbi-blast/{{versions.blast}}
+      - ncbi-blast/{{versions.ncbiblast}}
     pkgmake: python setup.py build
   install:
      makeinstall: >

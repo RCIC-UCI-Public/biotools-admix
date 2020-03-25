@@ -10,7 +10,7 @@
       - perl/{{versions.perl}}
       - python/{{versions.python3}}
       - trf_{{versions.trf}}
-      - ncbi-blast/{{versions.blast}}
+      - ncbi-blast/{{versions.ncbiblast}}
       - hmmer/{{versions.hmmer}}
     prepend_path:
       - PATH {{root}}
@@ -19,6 +19,6 @@
     - perl_{{versions.perl}}-module
     - python_{{versions.python3}}-module
     - trf_{{versions.trf}}-module
-    - ncbi-blast_{{versions.blast}}-module
+    - ncbi-blast_{{versions.ncbiblast}}-module
     - hmmer_{{versions.hmmer}}-module
     - rcic-module-support
