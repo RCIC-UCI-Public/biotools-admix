@@ -3,16 +3,18 @@
 - package: BCFtools are meant as a faster replacement for most of the perl VCFtools 
   name: bcftools 
   version: "{{versions.bcftools}}"
-  extension: tar.bz2
-  vendor_source: https://github.com/samtools/bcftools/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
+  vendor_source: https://github.com/samtools/bcftools/archive/{{version}}.{{extension}}
   description: |
     BCFtools {{version}} are meant as a faster replacement for most of the perl VCFtools
   build:
-    patchfile: "{{name}}-{{version}}.patch"
+    preconfigure: autoreconf
+    configure: ./configure 
+    configure_args: --prefix={{root}} --enable-libgsl --enable-perl-filters 
     modules: 
       - "{{compiler}}/{{compiler_version}}"
+      - "htslib/{{versions.htslib}}"
       - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
-    pkgmake: make USE_GPL=1 prefix={{root}} 
+    pkgmake: make USE_GPL=1 prefix={{root}}; env | sort -d > jj
   extras: AUTHORS LICENSE README*
   install:
      makeinstall: >
@@ -20,4 +22,5 @@
        make prefix={{root}} DESTDIR=$(ROOT) install
   requires:
     - "{{compiler}}_{{compiler_version}}"
-    - "gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}"
+    - gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}
+    - htslib_{{versions.htslib}}

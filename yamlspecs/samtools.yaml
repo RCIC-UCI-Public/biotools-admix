@@ -9,6 +9,7 @@
     SAMtools {{version}}.  SAM (Sequence Alignment/Map) format is a 
     generic format for storing large nucleotide sequence alignments
   build:
+#    preconfigure: sed -i 's/VERSION =/COVERAGE_VERSION =/' coverage.c
     configure: ./configure
     configure_args: > 
       --prefix={{root}}

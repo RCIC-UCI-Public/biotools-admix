@@ -4,7 +4,6 @@
   name: kallisto 
   version: "{{versions.kallisto}}"
   vendor_source: https://github.com/pachterlab/kallisto/archive/v{{version}}.{{extension}}
-
   description: |
     kallisto {{version}} is a program for quantifying abundances of transcripts from RNA-Seq data, or more 
     generally of target sequences using high-throughput sequencing reads. It is based on 
@@ -12,17 +11,15 @@
     targets, without the need for alignment.
   builddir: builddir
   build:
-    # autoheader and autoconf failing, so preapply
-    patchfile: "{{name}}-{{version}}.patch"
     pkgmake: >
-      chmod u+x ext/htslib/configure;
+      (cd ext/htslib; make print-version | grep -v make > version; sed -i 's/make print-version/cat version/' configure.ac);
       mkdir {{builddir}};
       cd {{builddir}};
-      cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
-      make
+      cmake -DCMAKE_INSTALL_PREFIX={{root}} -DUSE_HDF5=ON ..;
+      make VERBOSE=1
     modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
+      - "hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}"
       - foundation
   install:
     makeinstall: >

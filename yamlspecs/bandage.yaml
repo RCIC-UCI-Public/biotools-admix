@@ -18,4 +18,3 @@
      makeinstall: >
        mkdir -p $(ROOT){{root}}/bin;
        $(INSTALL) Bandage $(ROOT){{root}}/bin
-     installextra: 

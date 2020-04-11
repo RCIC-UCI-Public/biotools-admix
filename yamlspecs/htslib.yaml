@@ -3,14 +3,12 @@
 - package: High-Throughput Sequencing Lib from Samtools
   name: htslib 
   version: "{{versions.htslib}}"
-  extension: tar.bz2
-  vendor_source: https://github.com/samtools/htslib/releases/download/{{version}}/htslib-{{version}}.tar.bz2 
+  vendor_source: https://github.com/samtools/htslib/archive/{{version}}.{{extension}}
   description: |
     HTSLIB {{version}} implements a generalized BAM index, 
     with file extension csi (coordinate-sorted index)
-  addfile: 
-    - filter-requires-{{name}}.sh
   build:
+    preconfigure: autoreconf
     configure: ./configure 
     configure_args: --prefix={{root}}
     pkgmake: make 
@@ -20,4 +18,4 @@
        mkdir -p $(ROOT){{root}};
        make install DESTDIR=$(ROOT)
   provides:
-    - libhts.so.1()(64bit)
+    - libhts.so.3()(64bit)

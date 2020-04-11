@@ -4,25 +4,28 @@
   name: vg 
   version: "{{versions.vg}}"
   vendor_source: https://github.com/vgteam/vg/releases/download/v{{version}}/vg-v{{version}}.{{extension}}
-  description: >
-    Variation graph data structures, interchange formats, alignment, 
-    genotyping, and variant calling methods vg {{version}}
+  description: |
+    VG {{version}} is a Variation graph data structures, interchange 
+    formats, alignment, genotyping, and variant calling methods 
   src_dir: "{{name}}-v{{version}}" 
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
+      - protobuf/{{versions.protobuf}}
       - foundation
-    pkgmake: make -j 8
+    pkgmake: >
+      sed -i 's/-lprotobuf/$$(protobuf__LDFLAGS) -lprotobuf/' Makefile;
+      sed -i 's/-lvcflib//' deps/vcflib/Makefile;
+      export CXXFLAGS=$$CPPFLAGS;
+      make -j 8
   install:
      makeinstall: >
        mkdir -p $(ROOT)/{{ root }}/bin;
        mkdir -p $(ROOT)/{{ root }}/lib;
+       mkdir -p $(ROOT)/{{ root }}/share;
        $(INSTALL) bin/* $(ROOT)//{{ root }}/bin;
-       $(INSTALL) lib/libboost* $(ROOT)//{{ root }}/lib;
-       $(INSTALL) lib/libdeflate* $(ROOT)//{{ root }}/lib;
-       $(INSTALL) lib/libprotoc* $(ROOT)//{{ root }}/lib;
-       $(INSTALL) lib/libprotobuf* $(ROOT)//{{ root }}/lib;
-       $(INSTALL) lib/libtcmalloc* $(ROOT)//{{ root }}/lib
-     installextra: $(INSTALL) -m 644  README* COPYING AUTHORS $(ROOT){{ root }} 
+       $(INSTALL) lib/lib* $(ROOT)//{{ root }}/lib;
+       $(INSTALL) share/man $(ROOT)/{{ root }}/share
+     installextra: $(INSTALL) -m 644  README* LICENSE COPYING AUTHORS $(ROOT){{ root }} 
   requires:
     - "{{compiler}}_{{compiler_version}}"
