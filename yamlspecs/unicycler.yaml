@@ -33,3 +33,10 @@
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - python_{{pyversion}} 
+    - SPAdes_{{versions.SPAdes}}
+    - racon_{{versions.racon}}
+    - pilon_{{versions.pilon}}
+    - java-{{versions.java}}-openjdk
+    - bowtie2_{{versions.bowtie2}}
+    - ncbi-blast_{{versions.ncbiblast}}
+

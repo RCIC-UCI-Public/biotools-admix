@@ -87,6 +87,8 @@ build:
   - salmon-module
   - vg
   - vg-module
+  - ncbi-blast
+  - ncbi-blast-module
   - ncbi-vdb
   - ncbi-vdb-module
   - pyvcf
@@ -130,5 +132,6 @@ build:
   - vcflib-module
   - mapDamage
   - mapDamage-module
+
 manifest:
   - "{{ build }}"

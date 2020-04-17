@@ -8,17 +8,20 @@
     bowtie2 {{version}}  
   addfile: 
     - filter-requires-{{name}}.sh
+    - filter-provides-{{name}}.sh
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - python/{{versions.python3}}
       - perl/{{versions.perl}}
-    pkgmake: make 
+      - intel-tbb/{{versions.intel_tbb}}
+    pkgmake: make -j 8 
   extras: AUTHORS README
   install:
      makeinstall: >
+       echo "{{versions.perl}}" > ../PERLVERSION;
        mkdir -p $(ROOT){{root}};
-       make install DESTDIR=$(ROOT) prefix={{root}};
+       make -e install DESTDIR=$(ROOT) PREFIX={{root}};
        $(TAR) cf - example doc scripts |
        $(TAR) -x -C $(ROOT){{root}};
        chmod -R a+rX $ $(ROOT){{root}}{doc,example,scripts}
@@ -27,4 +30,7 @@
     - python_{{versions.python3}}
     - perl_{{versions.perl}}
     - perl_{{versions.perl}}-Math-Random
-  rpm: !include rpm.extras.filter.yaml
+    - intel-tbb_{{versions.intel_tbb}}
+  files:
+    - "{{parent}}"
+  rpm: !include rpm.extras.filter.provreq.yaml
