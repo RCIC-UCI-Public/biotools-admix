@@ -19,6 +19,7 @@ system:
   - perl-Package-Constants
   - perl-LWP-Protocol-https
   - perl-XML-Simple 
+  - perl-ExtUtils-Embed
   - qt5-qtbase-devel
   - qt5-qtsvg-devel
   - file-devel

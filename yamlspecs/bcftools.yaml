@@ -4,6 +4,7 @@
   name: bcftools 
   version: "{{versions.bcftools}}"
   vendor_source: https://github.com/samtools/bcftools/archive/{{version}}.{{extension}}
+  release: 2
   description: |
     BCFtools {{version}} are meant as a faster replacement for most of the perl VCFtools
   build:
