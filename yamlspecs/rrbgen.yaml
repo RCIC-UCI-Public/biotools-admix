@@ -1,0 +1,7 @@
+!include stitch.yaml
+---
+- package: rrbgen
+  name: rrbgen
+  version: "{{versions.rrbgen}}"
+  vendor_source: https://github.com/rwdavies/rrbgen/releases/download/{{version}}/{{src_tarball}}
+

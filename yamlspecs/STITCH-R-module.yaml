@@ -1,0 +1,19 @@
+# Builds the module for stitch.
+!include STITCH-R.yaml
+!include rcic-module.yaml
+---
+- package: stitch Module
+  category: BIOTOOLS
+  module:
+    prepend_path:
+      - PATH {{root}}
+    prereq: 
+      - R/{{versions.R}}
+      - htslib/{{versions.htslib}}
+  requires:
+    - "{{name}}_{{version}}"
+    - "R_{{versions.R}}-STITCH"
+    - "R_{{versions.R}}-module"
+    - "R_{{versions.R}}-optparse"
+    - htslib_{{versions.htslib}}
+    - rcic-module-support

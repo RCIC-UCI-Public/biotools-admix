@@ -1,0 +1,16 @@
+!include rcic-package.yaml
+---
+- package:  STITCH Rscript
+  name: STITCH_R
+  description: This is a wrapper Script for running STITCH from the command line
+  versions: !include versions.yaml
+  version: "{{versions.stitch}}"
+  addfile: STITCH.R
+  no_src_dir: True
+  build:
+    configure: echo no configure needed
+    pkgmake: echo no make required
+  install:
+    makeinstall: >
+      install -m 755 STITCH.R $(ROOT)/{{root}}
+     

@@ -48,7 +48,7 @@ bootstrap:
   - bowtie2-module
   - ncbi-ngs
   - ncbi-ngs-module
-
+  - rrbgen
 build:
   - bedtools2
   - bedtools2-module
@@ -133,6 +133,9 @@ build:
   - vcflib-module
   - mapDamage
   - mapDamage-module
-
+  - rrbgen
+  - stitch
+  - STITCH-R
+  - STITCH-R-module
 manifest:
   - "{{ build }}"

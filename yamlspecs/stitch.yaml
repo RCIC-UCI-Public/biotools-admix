@@ -1,0 +1,38 @@
+!include rcic-package.yaml
+---
+- package: R module Stitch
+  name: STITCH
+  versions: !include versions.yaml
+  version: "{{versions.stitch}}"
+  rpkgname: "{{name}}"
+  extension: tar.gz
+  pkgname: "R_{{versions.R}}-{{name}}"
+  vendor_source: https://github.com/rwdavies/stitch/releases/download/{{version}}/{{src_tarball}}
+  src_tarball: "{{name}}_{{version}}.{{extension}}"
+  no_src_dir: true
+  description: >
+    {{rpkgname}} version {{version}} for R version {{versions.R}}. 
+  libpath: "{{pkg_defaults.app_path}}/R/{{versions.R}}/lib64/R/library"
+  root: "{{libpath}}/{{rpkgname}}"
+  build:
+    modules:
+      - R/{{versions.R}}
+      - htslib/{{versions.htslib}}
+    configure: echo no configure required
+    pkgmake: echo installed with R CMD INSTALL
+    target: 
+  install:
+    makeinstall: >
+      mkdir -p $(ROOT)/{{libpath}};
+      R CMD INSTALL -l $(ROOT)/{{libpath}} {{src_tarball}}
+
+  files:
+    -  "{{root}}"
+  rpm: !include rpm.extras.yaml
+  requires: 
+     - R_{{versions.R}}
+     - R_{{versions.R}}-RcppArmadillo
+     - R_{{versions.R}}-Rcpp
+     - R_{{versions.R}}-rrbgen
+     - htslib_{{versions.htslib}}
+    
