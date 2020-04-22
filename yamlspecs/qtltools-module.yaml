@@ -1,0 +1,22 @@
+# Builds the module for qtltools
+!include qtltools.yaml
+!include rcic-module.yaml
+---
+- package: qtltools Module
+  category: BIOTOOLS
+  module:
+    setenv: ""
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+      - htslib/{{versions.htslib}}
+      - R/{{versions.R}}
+      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+    prepend_path:
+      - PATH {{root}}/bin
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}-module"
+    - "htslib_{{versions.htslib}}-module"
+    - R_{{versions.R}}-module
+    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module
+    - rcic-module-support

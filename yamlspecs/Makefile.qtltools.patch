@@ -1,0 +1,38 @@
+--- qtltools-1.3/Makefile.orig	2020-04-22 11:21:06.575000000 -0700
++++ qtltools-1.3/Makefile	2020-04-22 15:16:52.772000000 -0700
+@@ -1,12 +1,13 @@
+ ##########################################
+ # SET THESE 6 PATHS CORRECTLY TO COMPILE #
+ ##########################################
+-BOOST_INC=
+-BOOST_LIB=
+-RMATH_INC=
+-RMATH_LIB=
+-HTSLD_INC=
+-HTSLD_LIB=
++BOOST_INC=$(BOOST_HOME)/include
++BOOST_LIB=$(BOOST_HOME)/lib
++RMATH_INC=$(R__PREFIX)/include 
++RMATH_LIB= $(R__PREFIX)/lib64
++HTSLD_INC=$(HTSLIB_HOME)/include
++HTSLD_LIB=$(HTSLIB_HOME)/lib
++
+ #########################################################
+ # EXAMPLES:                                             #
+ # BOOST_INC=/usr/include/                               #
+@@ -30,7 +31,7 @@
+ CXXFLAG_WRN=-Wall -Wextra -Wno-sign-compare -Wno-unused-local-typedefs -Wno-deprecated -Wno-unused-parameter
+ 
+ #BASE LIBRARIES
+-LIB_FLAGS=-lz -lgsl -lbz2 -llzma -lgslcblas -lm -lpthread
++LIB_FLAGS=-lz -lgsl -lbz2 -llzma -lgslcblas -lm -lpthread -lcurl -lcrypto
+ 
+ #FILE LISTS
+ BFILE=bin/QTLtools
+@@ -231,4 +232,4 @@
+ clean-gwas:
+ 	rm -f obj/gwas_*.o $(BFILE)
+ 		
+-		
+\ No newline at end of file
++		

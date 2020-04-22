@@ -1,0 +1,21 @@
+!include common.yaml
+---
+- package: QTLtools
+  name: qtltools 
+  version: "{{versions.qtltools}}"
+  vendor_source: https://github.com/qtltools/qtltools/archive/{{version}}.{{extension}}
+  description: |
+    QTLtools {{version}} a tool set for molecular QTL discovery and analysis
+  build:
+    patchfile: Makefile.qtltools.patch
+    configure: echo no configure required
+    pkgmake: make 
+    modules: 
+      - htslib/{{versions.htslib}}
+      - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
+      - R/{{versions.R}}
+  extras: README LICENSE
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}}/bin;
+       $(INSTALL) bin/QTLtools $(ROOT)/{{root}}/bin
