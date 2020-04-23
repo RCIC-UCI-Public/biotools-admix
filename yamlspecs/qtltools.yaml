@@ -19,3 +19,7 @@
      makeinstall: >
        mkdir -p $(ROOT){{root}}/bin;
        $(INSTALL) bin/QTLtools $(ROOT)/{{root}}/bin
+  requires:
+    - htslib_{{versions.htslib}}
+    - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"
+    - R/{{versions.R}}
