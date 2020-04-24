@@ -1,0 +1,103 @@
+diff -C 3 -r cufflinks-2.2.1/src/GHash.hh cufflinks-2.2.1.new/src/GHash.hh
+*** cufflinks-2.2.1/src/GHash.hh	2014-05-05 17:54:03.000000000 -0700
+--- cufflinks-2.2.1.new/src/GHash.hh	2020-04-23 17:03:09.302000000 -0700
+***************
+*** 88,94 ****
+                                  //nextkey is SET to the corresponding key
+    GHashEntry* NextEntry() { //returns a pointer to a GHashEntry
+    	 register int pos=fCurrentEntry;
+!   	 while (pos<fCapacity && hash[pos].hash<0) pos++;
+    	 if (pos==fCapacity) {
+    	                 fCurrentEntry=fCapacity;
+    	                 return NULL;
+--- 88,94 ----
+                                  //nextkey is SET to the corresponding key
+    GHashEntry* NextEntry() { //returns a pointer to a GHashEntry
+    	 register int pos=fCurrentEntry;
+!   	 while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+    	 if (pos==fCapacity) {
+    	                 fCurrentEntry=fCapacity;
+    	                 return NULL;
+***************
+*** 412,418 ****
+  
+  template <class OBJ> char* GHash<OBJ>::NextKey() {
+   register int pos=fCurrentEntry;
+!  while (pos<fCapacity && hash[pos].hash<0) pos++;
+   if (pos==fCapacity) {
+                   fCurrentEntry=fCapacity;
+                   return NULL;
+--- 412,418 ----
+  
+  template <class OBJ> char* GHash<OBJ>::NextKey() {
+   register int pos=fCurrentEntry;
+!  while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+   if (pos==fCapacity) {
+                   fCurrentEntry=fCapacity;
+                   return NULL;
+***************
+*** 425,431 ****
+  
+  template <class OBJ> OBJ* GHash<OBJ>::NextData() {
+   register int pos=fCurrentEntry;
+!  while (pos<fCapacity && hash[pos].hash<0) pos++;
+   if (pos==fCapacity) {
+                   fCurrentEntry=fCapacity;
+                   return NULL;
+--- 425,431 ----
+  
+  template <class OBJ> OBJ* GHash<OBJ>::NextData() {
+   register int pos=fCurrentEntry;
+!  while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+   if (pos==fCapacity) {
+                   fCurrentEntry=fCapacity;
+                   return NULL;
+***************
+*** 439,449 ****
+  
+  template <class OBJ> OBJ* GHash<OBJ>::NextData(char* &nextkey) {
+   register int pos=fCurrentEntry;
+!  while (pos<fCapacity && hash[pos].hash<0) pos++;
+   if (pos==fCapacity) {
+                   fCurrentEntry=fCapacity;
+                   nextkey=NULL;
+!                  return NULL;
+                   }
+                else {
+                   fCurrentEntry=pos+1;
+--- 439,449 ----
+  
+  template <class OBJ> OBJ* GHash<OBJ>::NextData(char* &nextkey) {
+   register int pos=fCurrentEntry;
+!  while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+   if (pos==fCapacity) {
+                   fCurrentEntry=fCapacity;
+                   nextkey=NULL;
+!                  return (OBJ*) NULL;
+                   }
+                else {
+                   fCurrentEntry=pos+1;
+diff -C 3 -r cufflinks-2.2.1/src/lemon/error.h cufflinks-2.2.1.new/src/lemon/error.h
+*** cufflinks-2.2.1/src/lemon/error.h	2014-05-05 17:54:03.000000000 -0700
+--- cufflinks-2.2.1.new/src/lemon/error.h	2020-04-23 17:07:21.089000000 -0700
+***************
+*** 67,75 ****
+      }
+  
+      ExceptionMember& operator=(const ExceptionMember& copy) {
+!       if (ptr.get() == 0) return;
+        try {
+! 	if (!copy.valid()) return;
+   	*ptr = copy.get();
+        } catch (...) {}
+      }
+--- 67,75 ----
+      }
+  
+      ExceptionMember& operator=(const ExceptionMember& copy) {
+!       if (ptr.get() == 0) return NULL;
+        try {
+! 	if (!copy.valid()) return NULL;
+   	*ptr = copy.get();
+        } catch (...) {}
+      }

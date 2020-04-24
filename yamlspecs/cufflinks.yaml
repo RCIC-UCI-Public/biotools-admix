@@ -1,0 +1,44 @@
+!include common.yaml
+---
+- package: cufflinks 
+  name: cufflinks 
+  version: "{{versions.cufflinks}}"
+  vendor_source: https://github.com/cole-trapnell-lab/{{name}}/archive/v{{version}}.{{extension}}
+  description: |
+    Cufflinks {{version}} assembles transcripts, estimates their abundances, 
+    and tests for differential expression and regulation in RNA-Seq samples. 
+    It accepts aligned RNA-Seq reads and assembles the alignments into a 
+    parsimonious set of transcripts. Cufflinks then estimates the relative 
+    abundances of these transcripts based on how many reads support each one, 
+    taking into account biases in library preparation protocols.
+
+  addfile: cufflinks-configure.sh
+  build:
+    patchfile: "{{name}}-{{version}}.patch"
+    preconfigure: autoreconf --install 
+
+    configure: ../cufflinks-configure.sh 
+    configure_args: >
+       --with-boost=$$BOOST_HOME 
+       --with-bam=$$samtools__PREFIX 
+       --with-eigen=$$EIGEN_HOME       
+
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+      - eigen/{{versions.eigen}}
+      - htslib/{{versions.htslib}}
+      - samtools/{{versions.samtools}}
+
+    pkgmake: export LDFLAGS=\"-L$$samtools__PREFIX/lib -L$$BOOST_HOME/lib $$htslib__LDFLAGS -lbam -lboost_system -lst -lhts\"; make -j 8 
+
+    pkgmake: make -j 8
+
+  extras: AUTHORS LICENSE MANUAL* ../cufflinks-configure.sh
+
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}
+    - eigen_{{versions.eigen}}
+    - htslib_{{versions.htslib}}
+    - samtools_{{versions.samtools}}

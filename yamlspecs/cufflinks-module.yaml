@@ -1,0 +1,24 @@
+# Builds the module for cufflinks.
+!include cufflinks.yaml
+!include rcic-module.yaml
+---
+- package: cufflinks Module
+  category: BIOTOOLS
+  module:
+    setenv: ""
+    prepend_path:
+      - PATH {{root}}/bin
+    prereq: 
+      - "{{compiler}}/{{compiler_version}}"
+      - samtools/{{versions.samtools}}
+      - eigen/{{versions.eigen}}
+      - htslib/{{versions.htslib}}
+      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+  requires:
+    - "{{name}}_{{version}}"
+    - "{{compiler}}_{{compiler_version}}"
+    - samtools_{{versions.samtools}}
+    - eigen_{{versions.eigen}}
+    - htslib_{{versions.htslib}}
+    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}
+    - rcic-module-support

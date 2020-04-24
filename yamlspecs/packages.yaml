@@ -49,6 +49,8 @@ bootstrap:
   - ncbi-ngs
   - ncbi-ngs-module
   - rrbgen
+  - samtools
+  - samtools_module
 build:
   - bedtools2
   - bedtools2-module
@@ -137,5 +139,7 @@ build:
   - stitch
   - STITCH-R
   - STITCH-R-module
+  - cufflinks
+  - cufflinks-module
 manifest:
   - "{{ build }}"
