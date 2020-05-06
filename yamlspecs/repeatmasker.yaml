@@ -2,6 +2,7 @@
 ---
 - package: 
   name: repeatmasker 
+  release: "2"
   version: "{{versions.repeatmasker}}"
   vendor_source: http://www.repeatmasker.org/RepeatMasker-{{version}}.{{extension}}
   src_dir: RepeatMasker

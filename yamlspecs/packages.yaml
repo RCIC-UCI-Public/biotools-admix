@@ -141,5 +141,8 @@ build:
   - STITCH-R-module
   - cufflinks
   - cufflinks-module
+  - qtltools
+  - qtltools-module
+  - macs 
 manifest:
   - "{{ build }}"

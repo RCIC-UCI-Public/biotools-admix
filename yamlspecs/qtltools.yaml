@@ -9,7 +9,7 @@
   build:
     patchfile: Makefile.qtltools.patch
     configure: echo no configure required
-    pkgmake: make 
+    pkgmake: make -j 8
     modules: 
       - htslib/{{versions.htslib}}
       - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
@@ -22,4 +22,4 @@
   requires:
     - htslib_{{versions.htslib}}
     - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"
-    - R/{{versions.R}}
+    - R_{{versions.R}}

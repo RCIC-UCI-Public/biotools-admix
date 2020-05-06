@@ -16,9 +16,9 @@
       - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
   requires:
     - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}"
-    - samtools_{{versions.samtools}}
-    - eigen_{{versions.eigen}}
-    - htslib_{{versions.htslib}}
-    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}
+    - "{{compiler}}_{{compiler_version}}-module"
+    - samtools_{{versions.samtools}}-module
+    - eigen_{{versions.eigen}}-module
+    - htslib_{{versions.htslib}}-module
+    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module
     - rcic-module-support

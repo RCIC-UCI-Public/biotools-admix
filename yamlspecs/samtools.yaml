@@ -4,6 +4,7 @@
   name: samtools 
   version: "{{versions.samtools}}"
   extension: tar.bz2
+  release: 2
   vendor_source: https://github.com/samtools/samtools/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
   description: |
     SAMtools {{version}}.  SAM (Sequence Alignment/Map) format is a 
@@ -14,15 +15,19 @@
     configure_args: > 
       --prefix={{root}}
       --with-htslib=$$HTSLIB_HOME --mandir={{root}}/share/man
-    pkgmake: make 
+    pkgmake: make -j 8
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - htslib/{{versions.htslib}}
   extras: AUTHORS README LICENSE
   install:
      makeinstall: >
-       mkdir -p $(ROOT){{root}};
-       make install DESTDIR=$(ROOT)
+       make install DESTDIR=$(ROOT);
+       mkdir -p $(ROOT){{root}}/lib;
+       install *a $(ROOT){{root}}/lib;
+       mkdir -p $(ROOT){{root}}/include/bam;
+       install *h $(ROOT){{root}}/include/bam
+
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - htslib_{{versions.htslib}}

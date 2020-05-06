@@ -6,13 +6,9 @@
 - package: SAMTools Module
   category: BIOTOOLS
   module:
-    setenv: ""
     prereq: 
       - "{{compiler}}/{{compiler_version}}"
       - htslib/{{versions.htslib}}
-    prepend_path:
-      - PATH {{root}}/bin
-      - MANPATH {{root}}/share/man
   requires:
     - "{{name}}_{{version}}"
     - "{{compiler}}_{{compiler_version}}-module"
