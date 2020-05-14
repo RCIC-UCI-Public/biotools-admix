@@ -21,3 +21,4 @@
     installextra: for x in {{extras}}; do  $(INSTALL) -m 644 $$x $(ROOT){{root}}; done
   requires:
     - "{{compiler}}_{{compiler_version}}"
+    - "{{compiler}}_{{compiler_version}}-libiconv"
