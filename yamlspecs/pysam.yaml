@@ -4,7 +4,7 @@
   name: pysam 
   pyversion: "{{versions.python}}"
   pymajor: "{{versions.python_major}}"
-  pkgname: python_{{pyversion}}-{{name}}
+  baserpm: python_{{pyversion}}-{{name}}
   version: "{{versions.pysam}}"
   vendor_source: https://github.com/pysam-developers/pysam/archive/v{{version}}.{{extension}}
   description: |

@@ -10,14 +10,10 @@
   build:
     configure: ./autogen.sh; ./configure --prefix={{root}}
     configure_args: ""
-    pkgmake: make 
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
+    pkgmake: make
   extras: README* LICENSE
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        make install DESTDIR=$(ROOT);
        cp -p -r examples/ $(ROOT){{root}}
-  requires:
-    - "{{compiler}}_{{compiler_version}}"

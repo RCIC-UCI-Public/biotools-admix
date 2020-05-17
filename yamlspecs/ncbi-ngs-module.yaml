@@ -14,6 +14,7 @@
     prereq: 
       - python/{{versions.python3}}
       - java/{{versions.java}}
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support
+    requires:
+      - *Requires
+      - python_{{versions.python3}}-module
+      - java{{versions.javamajor}}-module

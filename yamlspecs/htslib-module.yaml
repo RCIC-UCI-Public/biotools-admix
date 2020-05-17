@@ -5,11 +5,10 @@
 - package: HTSLIB Module
   category: BIOTOOLS
   module:
-    prepend_path:
-      - "{{ mod_defaults.prepend_path }}"
-      - "{{ mod_defaults.flagspath }}"
-    prereq: 
-      - gcc/{{versions.gcc}}
     setenv:
-      - "{{mod_defaults.setenv}}"
+      - *Setenv
       -  HTSLIB_HOME {{root}}
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

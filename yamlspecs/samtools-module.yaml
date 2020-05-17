@@ -1,5 +1,4 @@
-# Builds the module for samtools. It first includes all the definitions
-# for the samtools build and then overwrites specific keys
+# Builds the module for samtools.
 !include samtools.yaml
 !include rcic-module.yaml
 ---
@@ -7,10 +6,8 @@
   category: BIOTOOLS
   module:
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - htslib/{{versions.htslib}}
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}-module"
-    - "htslib_{{versions.htslib}}-module"
-    - rcic-module-support
+    requires:
+      - *ModuleCompiler_requires
+      - "htslib_{{versions.htslib}}-module"

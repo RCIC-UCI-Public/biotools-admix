@@ -15,8 +15,6 @@
       --prefix={{root}}
     pkgmake: make 
     patchfile: tophat_reports.cpp.patch
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};

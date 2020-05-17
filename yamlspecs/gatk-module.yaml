@@ -9,7 +9,6 @@
       - PATH {{root}}
     prereq: 
       - java/{{versions.java}}
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support
-    - java{{versions.javamajor}}-module 
+    requires:
+      - *Requires
+      - java{{versions.javamajor}}-module 

@@ -10,8 +10,6 @@
     Copyright Alexander Dobin, 2009-2019 https://www.ncbi.nlm.nih.gov/pubmed/23104886
   builddir: source
   build:
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
     pkgmake: > 
       cd {{builddir}};
       make STAR
@@ -19,5 +17,3 @@
      makeinstall: >
        mkdir -p $(ROOT)/{{root}}/bin;
        $(INSTALL) {{builddir}}/STAR $(ROOT)/{{root}}/bin
-  requires:
-    - "{{compiler}}_{{compiler_version}}"

@@ -50,7 +50,7 @@ bootstrap:
   - ncbi-ngs-module
   - rrbgen
   - samtools
-  - samtools_module
+  - samtools-module
 build:
   - bedtools2
   - bedtools2-module

@@ -9,7 +9,7 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - python/{{pyversion}}
       - SPAdes/{{versions.SPAdes}}
       - racon/{{versions.racon}}
@@ -17,14 +17,12 @@
       - java/{{versions.java}}
       - bowtie2/{{versions.bowtie2}}
       - ncbi-blast/{{versions.ncbiblast}}
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}-module"
-    - python_{{pyversion}}-module
-    - rcic-module-support
-    - SPAdes_{{versions.SPAdes}}-module
-    - racon_{{versions.racon}}-module
-    - pilon_{{versions.pilon}}-module
-    - java{{versions.javamajor}}-module
-    - bowtie2_{{versions.bowtie2}}-module
-    - ncbi-blast_{{versions.ncbiblast}}-module
+    requires:
+      - *ModuleCompiler_requires
+      - python_{{pyversion}}-module
+      - SPAdes_{{versions.SPAdes}}-module
+      - racon_{{versions.racon}}-module
+      - pilon_{{versions.pilon}}-module
+      - java{{versions.javamajor}}-module
+      - bowtie2_{{versions.bowtie2}}-module
+      - ncbi-blast_{{versions.ncbiblast}}-module

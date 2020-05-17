@@ -12,3 +12,6 @@
       - CLASSPATH {{root}}/*
     prereq: 
       - java/{{versions.java}}
+    requires: 
+      - *Requires
+      - java{{versions.javamajor}}-module

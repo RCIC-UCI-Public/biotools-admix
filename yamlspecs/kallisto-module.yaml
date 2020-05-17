@@ -6,11 +6,10 @@
   category: BIOTOOLS
   module:
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
       - java/{{versions.java}}
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support
-    - "{{compiler}}_{{compiler_version}}-module"
-    - hdf5_{{versions.hdf5}}_{{compiler}}_{{compiler_version}}
+    requires:
+      - *ModuleCompiler_requires
+      - hdf5_{{versions.hdf5}}_{{compiler}}_{{compiler_version}}-module
+      - java{{versions.javamajor}}-module

@@ -12,7 +12,6 @@
       - gatk "java -jar {{root}}/GenomeAnalysisTK.jar"
     prereq: 
       - java/{{versions.java_classic}}
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support
-    - java{{versions.javamajor_classic}}-module
+    requires:
+      - *Requires
+      - java{{versions.javamajor_classic}}-module

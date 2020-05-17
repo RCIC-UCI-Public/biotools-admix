@@ -6,10 +6,8 @@
   category: BIOTOOLS
   module:
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - python/{{versions.python3}}
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support
-    - "{{compiler}}_{{compiler_version}}-module"
-    - python_{{versions.python3}}-module
+    requires:
+      - *ModuleCompiler_requires
+      - python_{{versions.python3}}-module

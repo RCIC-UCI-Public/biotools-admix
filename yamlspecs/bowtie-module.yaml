@@ -9,10 +9,8 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - intel-tbb_{{versions.intel_tbb}}
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}"
-    - intel-tbb_{{versions.intel_tbb}}-module
-    - rcic-module-support
+    requires:
+      - *ModuleCompiler_requires
+      - intel-tbb_{{versions.intel_tbb}}-module

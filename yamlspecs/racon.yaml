@@ -28,5 +28,3 @@
        cd {{builddir}};
        make DESTDIR=$(ROOT) install;
        $(INSTALL) bin/racon_* $(ROOT)/{{root}}/bin
-  requires:
-    - "{{compiler}}_{{compiler_version}}"

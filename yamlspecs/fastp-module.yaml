@@ -7,9 +7,7 @@
   module:
     prepend_path:
        - PATH {{root}}/bin
-    prereq: 
-      - "{{compiler}}/{{compiler_version}}"
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}-module"
-    - rcic-module-support
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

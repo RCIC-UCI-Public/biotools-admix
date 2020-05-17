@@ -7,12 +7,10 @@
   module:
     setenv: 
       -  HMMER_HOME {{root}}
-    prereq: 
-      - "{{compiler}}/{{compiler_version}}"
     prepend_path:
       - PATH {{root}}/bin
       - MANPATH {{root}}/share/man
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}-module"
-    - rcic-module-support
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

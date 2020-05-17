@@ -63,5 +63,5 @@
   requires: ""
   files:
     - "{{parent}}"
-    - "{{pkg_defaults.app_path}}/python/{{versions.python3}}/lib/python{{versions.python3_major}}/site-packages/*"
+    - "{{pkg_defaults.app_path}}/python/{{versions.python3}}"
   rpm: !include rpm.extras.java.yaml

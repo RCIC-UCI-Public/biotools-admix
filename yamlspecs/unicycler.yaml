@@ -28,8 +28,7 @@
      makeinstall: >
        python3 setup.py install --root $(ROOT)
   files:
-      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin"
-      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - python_{{pyversion}} 
@@ -39,4 +38,3 @@
     - java-{{versions.java}}-openjdk
     - bowtie2_{{versions.bowtie2}}
     - ncbi-blast_{{versions.ncbiblast}}
-

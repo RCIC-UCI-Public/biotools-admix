@@ -8,7 +8,10 @@
     prepend_path:
       - PATH {{root}}
       - PATH {{root}}/util
-    prereq: 
-      - perl/{{versions.perl}}
     setenv:
       -  TRANSDECODER_HOME {{root}}
+    prereq: 
+      - perl/{{versions.perl}}
+    requires: 
+      - *Requires
+      - perl_{{versions.perl}}-module
