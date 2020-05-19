@@ -60,18 +60,10 @@ build:
   - bwa-latest-module
   - bustools
   - bustools-module
-  - SPAdes
-  - SPAdes-module
-  - htslib
-  - htslib-module
-  - samtools
-  - samtools-module
   - bcftools
   - bcftools-module
   - tophat
   - tophat-module
-  - bowtie2
-  - bowtie2-module
   - gatk
   - gatk-module
   - gatk-classic
@@ -90,18 +82,12 @@ build:
   - salmon-module
   - vg
   - vg-module
-  - ncbi-blast
-  - ncbi-blast-module
   - ncbi-vdb
   - ncbi-vdb-module
   - pyvcf
   - pyvcf-py3
   - pysam
   - pysam-py3
-  - racon
-  - racon-module
-  - pilon
-  - pilon-module
   - bowtie
   - bowtie-module
   - transdecoder
@@ -112,10 +98,6 @@ build:
   - star-module
   - sra-tools
   - sra-tools-module
-  - trf
-  - trf-module
-  - hmmer
-  - hmmer-module
   - repeatmasker
   - repeatmasker-module
   - bandage
@@ -135,14 +117,13 @@ build:
   - vcflib-module
   - mapDamage
   - mapDamage-module
-  - rrbgen
   - stitch
-  - STITCH-R
-  - STITCH-R-module
+  - stitch-module
   - cufflinks
   - cufflinks-module
   - qtltools
   - qtltools-module
-  - macs 
+  - macs
 manifest:
-  - "{{ build }}"
+  - "{{bootstrap}}"
+  - "{{build}}"
