@@ -1,9 +1,8 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: R module Stitch
   name: stitch
   rpkgname: STITCH
-  versions: !include versions.yaml
   version: "{{versions.stitch}}"
   vendor_source: https://github.com/rwdavies/stitch/releases/download/{{version}}/{{src_tarball}}
   src_tarball: "{{rpkgname}}_{{version}}.{{extension}}"
@@ -28,7 +27,6 @@
   files:
     - "{{root}}"
     - "{{libpath}}"
-  rpm: !include rpm.extras.yaml
   requires: 
      - R_{{versions.R}}
      - R_{{versions.R}}-RcppArmadillo

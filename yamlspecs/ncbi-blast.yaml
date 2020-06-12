@@ -28,17 +28,7 @@
       cd c++; 
       mkdir -p $(ROOT){{root}};
       make prefix=$(ROOT){{root}} install
-  rpm:
-    extras: | 
-      %define _python_bytecompile_errors_terminate_build 0\n\
-      %define __python `module load {{build.modules}}; which python; module unload {{build.modules}}`\n\
-      %define __spec_install_post \
-      %{?__debug_package:%{__debug_install_post}}\
-      module load {{ build.modules }};\
-      %{__arch_install_post}\
-      %{__os_install_post}\
-      module unload {{ build.modules }}\
-      %{nil} \n\
+  rpmFilters: |
       %global privlibs libblast.* \n\
       %global privlibs %{privlibs}|libalign.* \n\
       %global privlibs %{privlibs}|libbiblio.* \n\

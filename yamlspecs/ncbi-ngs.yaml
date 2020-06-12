@@ -64,4 +64,4 @@
   files:
     - "{{parent}}"
     - "{{pkg_defaults.app_path}}/python/{{versions.python3}}"
-  rpm: !include rpm.extras.java.yaml
+  rpmJarRepack: 0

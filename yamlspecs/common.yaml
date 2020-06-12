@@ -1,4 +1,5 @@
 !include rcic-package.yaml
+!include rpm.yaml
 ---
 - extension: tar.gz
   versions: !include versions.yaml
@@ -18,4 +19,3 @@
      installextra: for x in {{extras}}; do  $(INSTALL) -m 644 $$x $(ROOT){{root}}; done
   requires:
     - "{{compiler}}_{{compiler_version}}"
-  rpm: !include rpm.extras.yaml

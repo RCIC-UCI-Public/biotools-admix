@@ -17,4 +17,4 @@
        $(TAR) cf - gatkdoc scripts | (cd $(ROOT){{root}}; tar xf -)
   requires:
     - jre = {{versions.java}} 
-  rpm: !include rpm.extras.java.yaml
+  rpmJarRepack: 0

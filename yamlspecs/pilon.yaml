@@ -22,6 +22,6 @@
        $(INSTALL) {{src_tarball}} $(ROOT){{root}}
   requires:
     - jre = {{versions.java}} 
-  rpm: !include rpm.extras.java.yaml
+  rpmJarRepack: 0
 
 #java -Xmx16G -jar <pilon.jar>

@@ -1,8 +1,7 @@
-!include rcic-package.yaml
+!include common.yaml
 ---
 - package: R module rrbgen
   name: rrbgen
-  versions: !include versions.yaml
   version: "{{versions.rrbgen}}"
   rpkgname: "{{name}}"
   baserpm: "R_{{versions.R}}-{{name}}"
@@ -14,7 +13,6 @@
   libpath: "{{pkg_defaults.app_path}}/R/{{versions.R}}/lib64/R/library"
   root: "{{libpath}}/{{rpkgname}}"
   build:
-    configure: echo
     modules:
       - R/{{versions.R}}
     pkgmake: echo installed with R CMD INSTALL
@@ -28,4 +26,3 @@
      - R_{{versions.R}}
      - R_{{versions.R}}-RcppArmadillo
      - R_{{versions.R}}-Rcpp
-  rpm: !include rpm.extras.yaml
