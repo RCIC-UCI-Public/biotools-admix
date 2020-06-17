@@ -31,4 +31,4 @@
     - perl_{{versions.perl}}
     - perl_{{versions.perl}}-Math-Random
     - intel-tbb_{{versions.intel_tbb}}
-  rpmFilters: *RequiresProvides
+  rpmFilters: *filterRequiresProvides
