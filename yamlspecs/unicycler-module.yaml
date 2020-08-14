@@ -4,6 +4,7 @@
 ---
 - package: unicycler Module
   category: BIOTOOLS
+  release: 3
   module:
     setenv: ""
     prepend_path:
@@ -17,6 +18,8 @@
       - java/{{versions.java}}
       - bowtie2/{{versions.bowtie2}}
       - ncbi-blast/{{versions.ncbiblast}}
+      - samtools/{{versions.samtools}}
+      - bcftools/{{versions.bcftools}}
     requires:
       - *ModuleCompiler_requires
       - python_{{pyversion}}-module
@@ -26,3 +29,5 @@
       - java{{versions.javamajor}}-module
       - bowtie2_{{versions.bowtie2}}-module
       - ncbi-blast_{{versions.ncbiblast}}-module
+      - samtools_{{versions.samtools}}-module
+      - bcftools_{{versions.bcftools}}-module
