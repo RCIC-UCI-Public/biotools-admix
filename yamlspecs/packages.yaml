@@ -29,6 +29,10 @@ system:
   - libuuid-devel
   - openssl-devel
   - ant
+  - libtiff-devel
+  - freeglut-devel
+  - libXi-devel
+  - libXmu-devel
 bootstrap:
   - htslib
   - htslib-module
