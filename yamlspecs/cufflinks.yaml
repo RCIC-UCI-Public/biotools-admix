@@ -4,6 +4,7 @@
   name: cufflinks 
   version: "{{versions.cufflinks}}"
   vendor_source: https://github.com/cole-trapnell-lab/{{name}}/archive/v{{version}}.{{extension}}
+  release: 2
   description: |
     Cufflinks {{version}} assembles transcripts, estimates their abundances, 
     and tests for differential expression and regulation in RNA-Seq samples. 
