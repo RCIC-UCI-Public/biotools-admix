@@ -8,11 +8,9 @@
     setenv: ""
     prepend_path:
       - PATH {{root}}/bin
-    prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+    prereq:
+      - *ModuleCompiler_prereq
       - python/{{versions.python3}}
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}-module"
-    - python_{{versions.python3}}-module
-    - rcic-module-support
+    requires:
+      - *ModuleCompiler_requires
+      - python_{{versions.python3}}-module

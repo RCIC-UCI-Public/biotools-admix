@@ -6,19 +6,18 @@
   category: BIOTOOLS
   module:
     setenv: ""
+    prepend_path:
+      - PATH {{root}}
     prereq: 
       - perl/{{versions.perl}}
       - python/{{versions.python3}}
       - trf_{{versions.trf}}
       - ncbi-blast/{{versions.ncbiblast}}
       - hmmer/{{versions.hmmer}}
-    prepend_path:
-      - PATH {{root}}
-  requires:
-    - "{{name}}_{{version}}"
-    - perl_{{versions.perl}}-module
-    - python_{{versions.python3}}-module
-    - trf_{{versions.trf}}-module
-    - ncbi-blast_{{versions.ncbiblast}}-module
-    - hmmer_{{versions.hmmer}}-module
-    - rcic-module-support
+    requires:
+      - *Requires
+      - perl_{{versions.perl}}-module
+      - python_{{versions.python3}}-module
+      - trf_{{versions.trf}}-module
+      - ncbi-blast_{{versions.ncbiblast}}-module
+      - hmmer_{{versions.hmmer}}-module

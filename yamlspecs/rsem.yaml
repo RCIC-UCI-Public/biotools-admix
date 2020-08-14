@@ -20,5 +20,3 @@
     pkgmake: > 
       make;
       make ebseq
-  requires:
-    - "{{compiler}}_{{compiler_version}}"

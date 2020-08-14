@@ -1,5 +1,4 @@
-# Builds the module for bwa. It first includes all the definitions
-# for the bwa build and then overwrites specific keys
+# Builds the module for bwa. 
 !include bwa-module.yaml
 ---
 - version: "{{versions.bwa_latest}}"

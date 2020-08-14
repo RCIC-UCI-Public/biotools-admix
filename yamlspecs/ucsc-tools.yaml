@@ -10,8 +10,6 @@
     The UCSC tools including Blat, LiftOver and command-line utilities
   build:
     patchfile: Makefile.ucsctools.patch
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
     pkgmake: make 
   extras: "*.pdf *.txt README"
   install:

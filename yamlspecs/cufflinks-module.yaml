@@ -9,16 +9,14 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - samtools/{{versions.samtools}}
       - eigen/{{versions.eigen}}
       - htslib/{{versions.htslib}}
       - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}-module"
-    - samtools_{{versions.samtools}}-module
-    - eigen_{{versions.eigen}}-module
-    - htslib_{{versions.htslib}}-module
-    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module
-    - rcic-module-support
+    requires:
+      - *ModuleCompiler_requires
+      - samtools_{{versions.samtools}}-module
+      - eigen_{{versions.eigen}}-module
+      - htslib_{{versions.htslib}}-module
+      - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module

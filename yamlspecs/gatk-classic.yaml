@@ -21,4 +21,4 @@
        $(TAR) cf - resources | (cd $(ROOT){{root}}; tar xf -)
   requires:
     - jre = {{versions.java_classic}} 
-  rpm: !include rpm.extras.java.yaml
+  rpmJarRepack: 0

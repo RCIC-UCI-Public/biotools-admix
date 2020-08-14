@@ -22,4 +22,4 @@
        (cd bin; $(TAR) cf - .) | (cd $(ROOT){{root}}; tar xf -)
   requires:
     - jre = {{versions.java}} 
-  rpm: !include rpm.extras.java.yaml
+  rpmJarRepack: 0

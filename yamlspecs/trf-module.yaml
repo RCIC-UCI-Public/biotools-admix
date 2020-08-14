@@ -11,6 +11,3 @@
       - PATH {{root}}/bin
 #    alias: 
 #      - trf "{{root}}/bin/trf409.linux64"
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support

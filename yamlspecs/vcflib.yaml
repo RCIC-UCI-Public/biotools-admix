@@ -19,8 +19,6 @@
   build:
     configure: echo no configure needed
     pkgmake: make 
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
   extras: README* LICENSE
   install:
      makeinstall: >
@@ -30,9 +28,6 @@
        cp -p -r lib/ $(ROOT){{root}};
        cp -p -r samples/ $(ROOT){{root}};
        cp -p -r include/ $(ROOT){{root}}
-  requires:
-    - "{{compiler}}_{{compiler_version}}"
-
 
 #VCFLIB_DIR = /path/to/vcflib
 #VCFLIB_INC = -I $(VCFLIB_DIR)/include -I $(VCFLIB_DIR)/tabixpp/htslib

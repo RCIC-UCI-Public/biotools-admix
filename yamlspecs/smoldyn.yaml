@@ -1,0 +1,34 @@
+!include common.yaml
+---
+- package: Smoldyn
+  name: smoldyn 
+  version: "{{versions.smoldyn}}"
+  extension: tgz
+  vendor_source: http://www.smoldyn.org/{{name}}-{{version}}.{{extension}}
+  description: |
+    Smoldyn {{version}} is a particle-based spatial stochastic simulator. Molecules are 
+    represented by point-like particles in 1-, 2-, or 3-dimensional continuous space.
+    Molecules diffuse by Brownian motion, react when they collide into each other, and
+    interact with surfaces (e.g. membranes) in a variety of realistic ways. Smoldyn is
+    typically used for biophysics research or cell modeling research. 
+    See {{root}}/examples for usage. See http://www.smoldyn.org/index.html
+  builddir: cmake
+  build:
+    pkgmake: >
+      mkdir {{builddir}};
+      mkdir source/wrl2smol/{{builddir}};
+      mkdir source/SmolCrowd/{{builddir}};
+      (cd {{builddir}}; cmake -DCMAKE_INSTALL_PREFIX={{root}} ..; make);
+      (cd source/wrl2smol/{{builddir}}; cmake -DCMAKE_INSTALL_PREFIX={{root}} ..; make);
+      (cd source/SmolCrowd/{{builddir}}; cmake -DCMAKE_INSTALL_PREFIX={{root}} ..; make)
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - foundation
+  extras: License.txt
+  install:
+    makeinstall: >
+      mkdir -p $(ROOT)/{{root}};
+      cp -p -r examples $(ROOT)/{{root}};
+      (cd {{builddir}}; make DESTDIR=$(ROOT) install);
+      (cd source/wrl2smol/{{builddir}}; make DESTDIR=$(ROOT) install);
+      (cd source/SmolCrowd/{{builddir}}; make DESTDIR=$(ROOT) install)

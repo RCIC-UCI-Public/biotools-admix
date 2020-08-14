@@ -11,12 +11,8 @@
   build:
     configure: ./configure --prefix={{root}}
     pkgmake: make 
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        make prefix={{root}} DESTDIR=$(ROOT) install;
        (cd easel; make install)
-  requires:
-    - "{{compiler}}_{{compiler_version}}"

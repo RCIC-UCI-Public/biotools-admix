@@ -11,8 +11,6 @@
       - LD_LIBRARY_PATH {{root}}/lib
     prereq: 
       - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}"
-    - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"
-    - rcic-module-support
+    requires:
+      - *ModuleCompiler_requires
+      - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module"

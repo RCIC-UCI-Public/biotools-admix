@@ -3,7 +3,6 @@
 !include rcic-module.yaml
 ---
 - package: pilon Module
-  pkgname: "{{name}}_{{version}}-module"
   category: BIOTOOLS
   module:
     setenv: ""
@@ -13,7 +12,6 @@
       - pilon "java -jar {{root}}/{{name}}-{{version}}.jar"
     prereq: 
       - java/{{versions.java}}
-  requires:
-    - "{{name}}_{{version}}"
-    - java{{versions.javamajor}}-module
-    - rcic-module-support
+    requires:
+      - *Requires
+      - java{{versions.javamajor}}-module

@@ -22,5 +22,4 @@
        cp -p -r PerlLib $(ROOT)/{{root}};
        cp -p -r util $(ROOT)/{{root}};
        $(INSTALL) -m 755 TransDecoder.LongOrfs TransDecoder.Predict $(ROOT)/{{root}}
-  requires:
-    - "{{compiler}}_{{compiler_version}}"
+  requires: ""

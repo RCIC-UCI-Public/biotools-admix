@@ -4,7 +4,6 @@
   name: minimap2 
   version: "{{versions.minimap2}}"
   vendor_source: https://github.com/lh3/minimap2/archive/v{{version}}.{{extension}}
-
   description: |
     minimap2 {{version}} is a versatile sequence alignment program that aligns DNA or mRNA sequences against a large reference database.
   build:
@@ -12,7 +11,6 @@
     pkgmake: >
       make;
       python setup.py build
-    target:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - python/{{versions.python3}}
@@ -28,5 +26,4 @@
     - "python_{{versions.python3}}"
   files:
     - "{{parent}}"
-    - "{{pkg_defaults.app_path}}/python/{{versions.python3}}/lib/python{{versions.python3_major}}/site-packages/*"
-    - "{{pkg_defaults.app_path}}/python/{{versions.python3}}/bin/*"
+    - "{{pkg_defaults.app_path}}/python/{{versions.python3}}"

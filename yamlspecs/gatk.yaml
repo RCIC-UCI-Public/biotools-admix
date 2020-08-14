@@ -2,6 +2,7 @@
 ---
 - package: Genome Analysis Toolkit
   name: gatk 
+  release: 2
   version: "{{versions.gatk}}"
   vendor_source: https://github.com/broadinstitute/gatk/archive/{{version}}.{{extension}}
   description: >
@@ -17,4 +18,4 @@
        $(TAR) cf - gatkdoc scripts | (cd $(ROOT){{root}}; tar xf -)
   requires:
     - jre = {{versions.java}} 
-  rpm: !include rpm.extras.java.yaml
+  rpmJarRepack: 0

@@ -22,7 +22,6 @@
       - trf/{{versions.trf}}
       - ncbi-blast/{{versions.ncbiblast}}
       - hmmer/{{versions.hmmer}}
-    pkgmake: echo 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};

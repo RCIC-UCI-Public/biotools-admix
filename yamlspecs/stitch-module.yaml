@@ -1,5 +1,5 @@
 # Builds the module for stitch.
-!include STITCH-R.yaml
+!include stitch.yaml
 !include rcic-module.yaml
 ---
 - package: stitch Module
@@ -10,10 +10,7 @@
     prereq: 
       - R/{{versions.R}}
       - htslib/{{versions.htslib}}
-  requires:
-    - "{{name}}_{{version}}"
-    - "R_{{versions.R}}-STITCH"
-    - "R_{{versions.R}}-module"
-    - "R_{{versions.R}}-optparse"
-    - htslib_{{versions.htslib}}
-    - rcic-module-support
+    requires:
+      - *Requires
+      - "R_{{versions.R}}-module"
+      - "htslib_{{versions.htslib}}-module"

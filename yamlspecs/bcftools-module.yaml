@@ -6,10 +6,8 @@
   category: BIOTOOLS
   module:
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support
-    - "{{compiler}}_{{compiler_version}}-module"
-    - "gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}-module"
+    requires:
+      - *ModuleCompiler_requires
+      - "gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}-module"

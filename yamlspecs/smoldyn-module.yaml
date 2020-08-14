@@ -1,12 +1,12 @@
-# Builds the module for star.
-!include star.yaml
+# Builds the module for smoldyn
+!include smoldyn.yaml
 !include rcic-module.yaml
 ---
-- package: star Module
+- package: smoldyn module
   category: BIOTOOLS
   module:
     setenv: ""
-    prepend_path:
+    prepend_path: 
       - PATH {{root}}/bin
     prereq:
       - *ModuleCompiler_prereq

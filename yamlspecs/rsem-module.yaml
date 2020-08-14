@@ -9,11 +9,12 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - "{{compiler}}/{{compiler_version}}"
+      - *ModuleCompiler_prereq
       - perl/{{versions.perl}}
       - python/{{versions.python3}}
       - R/{{versions.R}}
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}"
-    - rcic-module-support
+    requires:
+      - *ModuleCompiler_requires
+      - perl_{{versions.perl}}-module
+      - python_{{versions.python3}}-module
+      - R_{{versions.R}}-module

@@ -23,5 +23,3 @@
     makeinstall: >
       cd {{builddir}};
       make DESTDIR=$(ROOT) install
-  requires:
-    - "{{compiler}}_{{compiler_version}}"

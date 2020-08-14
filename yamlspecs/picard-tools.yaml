@@ -17,7 +17,7 @@
        $(INSTALL) -m 0644 *.jar  $(ROOT){{root}}
   requires:
     - jre = {{versions.java}} 
-  rpm: !include rpm.extras.java.yaml
+  rpmJarRepack: 0
 
 #  this is for new picard tools:
 #  vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}

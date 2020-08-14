@@ -5,9 +5,7 @@
 - package: bustools Module
   category: BIOTOOLS
   module:
-    prereq: 
-      - "{{compiler}}/{{compiler_version}}"
-  requires:
-    - "{{name}}_{{version}}"
-    - rcic-module-support
-    - "{{compiler}}_{{compiler_version}}-module"
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

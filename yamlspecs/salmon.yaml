@@ -17,7 +17,7 @@
     produced with your favorite aligner), and it will use the same wicked-fast, state-of-the-art 
     inference algorithm to estimate transcript-level abundances for your experiment
   build:
-    patchfile: "{{name}}-{{version}}.patch"
+    #patchfile: "{{name}}-{{version}}.patch"
     modules: 
       - foundation
       - "{{compiler}}/{{compiler_version}}"
@@ -25,6 +25,7 @@
     pkgmake: > 
       mkdir {{builddir}};
       cd {{builddir}};
+      export CMAKE_LIBRARY_PATH=$$LD_LIBRARY_PATH:$$CMAKE_LIBRARY_PATH;
       cmake -DBOOST_ROOT=$$BOOST_HOME -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make
   extras: LICENSE README*

@@ -5,11 +5,9 @@
 - package: Bandage Module
   category: BIOTOOLS
   module:
-    prereq: 
-      - "{{compiler}}/{{compiler_version}}"
     prepend_path:
       - PATH {{root}}/bin
-  requires:
-    - "{{name}}_{{version}}"
-    - "{{compiler}}_{{compiler_version}}-module"
-    - rcic-module-support
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires
