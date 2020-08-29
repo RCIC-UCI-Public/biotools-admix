@@ -4,6 +4,7 @@
 ---
 - package: bedtools2 Module
   category: BIOTOOLS
+  release: 2
   module:
     prereq:
       - *ModuleCompiler_prereq

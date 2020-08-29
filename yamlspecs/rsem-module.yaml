@@ -4,6 +4,7 @@
 ---
 - package: rsem Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:
@@ -15,6 +16,4 @@
       - R/{{versions.R}}
     requires:
       - *ModuleCompiler_requires
-      - perl_{{versions.perl}}-module
-      - python_{{versions.python3}}-module
-      - R_{{versions.R}}-module
+      - "{{module.prereq}}"

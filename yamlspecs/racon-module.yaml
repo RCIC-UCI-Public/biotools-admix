@@ -4,6 +4,7 @@
 ---
 - package: racon Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:

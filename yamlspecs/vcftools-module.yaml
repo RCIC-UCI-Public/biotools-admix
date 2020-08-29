@@ -4,6 +4,7 @@
 ---
 - package: vcftools module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:

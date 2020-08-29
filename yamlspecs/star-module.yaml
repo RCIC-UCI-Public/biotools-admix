@@ -4,6 +4,7 @@
 ---
 - package: star Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:

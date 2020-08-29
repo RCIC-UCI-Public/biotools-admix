@@ -4,6 +4,7 @@
 ---
 - package: ncbi-ngs module
   category: BIOTOOLS
+  release: 2
   module:
     setenv:
       - NGS_HOME {{root}}
@@ -16,5 +17,4 @@
       - java/{{versions.java}}
     requires:
       - *Requires
-      - python_{{versions.python3}}-module
-      - java{{versions.javamajor}}-module
+      - "{{module.prereq}}"

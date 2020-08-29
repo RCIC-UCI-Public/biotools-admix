@@ -4,10 +4,11 @@
 ---
 - package: bcftools Module
   category: BIOTOOLS
+  release: 2
   module:
     prereq: 
       - *ModuleCompiler_prereq
       - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
     requires:
       - *ModuleCompiler_requires
-      - "gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}-module"
+      - "{{module.prereq}}"

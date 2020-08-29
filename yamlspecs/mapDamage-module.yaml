@@ -4,6 +4,7 @@
 ---
 - package: mapDamage Module
   category: BIOTOOLS
+  release: 2
   module:
     prepend_path:
       - PATH {{root}}/bin
@@ -16,5 +17,4 @@
       - R/{{versions.R}}
     requires:
       - *ModuleCompiler_requires
-      - python_{{pyversion}}-module
-      - R_{{versions.R}}-module
+      - "{{module.prereq}}"

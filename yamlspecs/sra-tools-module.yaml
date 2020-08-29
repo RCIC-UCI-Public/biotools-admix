@@ -4,6 +4,7 @@
 ---
 - package: sra-tools module
   category: BIOTOOLS
+  release: 2
   module:
     setenv:
       - SRATOOLS_HOME {{root}}

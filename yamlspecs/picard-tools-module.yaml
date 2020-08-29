@@ -4,6 +4,7 @@
 ---
 - package: picard-tools Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: 
       - PICARDTOOLS "{{root}}"
@@ -14,4 +15,4 @@
       - java/{{versions.java}}
     requires: 
       - *Requires
-      - java{{versions.javamajor}}-module
+      - "{{module.prereq}}"

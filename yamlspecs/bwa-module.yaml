@@ -4,6 +4,7 @@
 ---
 - package: BWA Burrows-Wheeler Aligner Module
   category: BIOTOOLS
+  release: 2
   module:
     prereq:
       - *ModuleCompiler_prereq

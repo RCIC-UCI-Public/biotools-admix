@@ -5,6 +5,7 @@
 - package: ncbi blast Module
   shortname: ncbiblast
   category: BIOTOOLS
+  release: 2
   module:
     setenv:
       - *Setenv
@@ -18,5 +19,4 @@
       - edirect/{{versions.edirect}}
     requires:
       - *ModuleCompiler_requires
-      - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module
-      - edirect_{{versions.edirect}}-module
+      - "{{module.prereq}}"

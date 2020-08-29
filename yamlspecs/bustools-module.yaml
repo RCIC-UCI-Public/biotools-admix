@@ -4,6 +4,7 @@
 ---
 - package: bustools Module
   category: BIOTOOLS
+  release: 2
   module:
     prereq:
       - *ModuleCompiler_prereq

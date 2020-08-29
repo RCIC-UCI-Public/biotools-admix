@@ -4,6 +4,7 @@
 ---
 - package: SPAdes Genome Assember Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:
@@ -13,4 +14,4 @@
       - python/{{versions.python3}}
     requires:
       - *ModuleCompiler_requires
-      - python_{{versions.python3}}-module
+      - "{{module.prereq}}"

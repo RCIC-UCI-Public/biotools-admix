@@ -4,6 +4,7 @@
 ---
 - package: ncbi-vdb module
   category: BIOTOOLS
+  release: 2
   module:
     setenv:
       - VDB_HOME {{root}}

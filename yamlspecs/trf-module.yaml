@@ -4,6 +4,7 @@
 ---
 - package: trf Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: 
       - TRF_HOME {{root}}

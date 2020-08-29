@@ -3,6 +3,7 @@
 !include rcic-module.yaml
 ---
 - package: edirect Module
+  release: 2
   category: BIOTOOLS
   module:
     prepend_path:

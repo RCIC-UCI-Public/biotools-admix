@@ -4,6 +4,7 @@
 ---
 - package: qtltools Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:
@@ -15,6 +16,4 @@
       - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
     requires:
       - *ModuleCompiler_requires
-      - "htslib_{{versions.htslib}}-module"
-      - R_{{versions.R}}-module
-      - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module
+      - "{{module.prereq}}"

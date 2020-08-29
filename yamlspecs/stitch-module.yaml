@@ -4,6 +4,7 @@
 ---
 - package: stitch Module
   category: BIOTOOLS
+  release: 2
   module:
     prepend_path:
       - PATH {{root}}
@@ -12,5 +13,4 @@
       - htslib/{{versions.htslib}}
     requires:
       - *Requires
-      - "R_{{versions.R}}-module"
-      - "htslib_{{versions.htslib}}-module"
+      - "{{module.prereq}}"

@@ -1,12 +1,12 @@
-# Builds the module for vg.
-!include vg.yaml
+# Builds the module for bamtools.
+!include bamtools.yaml
 !include rcic-module.yaml
 ---
-- package: vg Module
+- package: BAMTools Module
   category: BIOTOOLS
   release: 2
   module:
-    prereq:
+    prereq: 
       - *ModuleCompiler_prereq
     requires:
       - *ModuleCompiler_requires

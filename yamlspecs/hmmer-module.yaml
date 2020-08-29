@@ -4,6 +4,7 @@
 ---
 - package: hmmer Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: 
       -  HMMER_HOME {{root}}

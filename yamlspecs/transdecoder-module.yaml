@@ -4,6 +4,7 @@
 ---
 - package: transdecoder Module
   category: BIOTOOLS
+  release: 2
   module:
     prepend_path:
       - PATH {{root}}
@@ -14,4 +15,4 @@
       - perl/{{versions.perl}}
     requires: 
       - *Requires
-      - perl_{{versions.perl}}-module
+      - "{{module.prereq}}"

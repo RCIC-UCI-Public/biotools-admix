@@ -4,6 +4,7 @@
 ---
 - package: fastqc Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv:
       - FASTQC_HOME {{root}}
@@ -14,4 +15,4 @@
       - java/{{versions.java}}
     requires:
       - *Requires
-      - java{{versions.javamajor}}-module 
+      - "{{module.prereq}}" 

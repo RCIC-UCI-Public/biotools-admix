@@ -4,6 +4,7 @@
 ---
 - package: HTSLIB Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv:
       - *Setenv

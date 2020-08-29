@@ -4,10 +4,11 @@
 ---
 - package: SAMTools Module
   category: BIOTOOLS
+  release: 2
   module:
     prereq: 
       - *ModuleCompiler_prereq
       - htslib/{{versions.htslib}}
     requires:
       - *ModuleCompiler_requires
-      - "htslib_{{versions.htslib}}-module"
+      - "{{module.prereq}}"

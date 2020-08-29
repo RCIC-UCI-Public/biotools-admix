@@ -5,6 +5,7 @@
 - package: gatk classic Module
   pkgname: "{{name}}_{{version}}-module"
   category: BIOTOOLS
+  release: 2
   module:
     prepend_path:
       - PATH {{root}}
@@ -14,4 +15,4 @@
       - java/{{versions.java_classic}}
     requires:
       - *Requires
-      - java{{versions.javamajor_classic}}-module
+      - "{{module.prereq}}" 

@@ -4,10 +4,11 @@
 ---
 - package: minimap2 Module
   category: BIOTOOLS
+  release: 2
   module:
     prereq: 
       - *ModuleCompiler_prereq
       - python/{{versions.python3}}
     requires:
       - *ModuleCompiler_requires
-      - python_{{versions.python3}}-module
+      - "{{module.prereq}}"

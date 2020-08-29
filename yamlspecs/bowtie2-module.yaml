@@ -4,6 +4,7 @@
 ---
 - package: bowtie2 module
   category: BIOTOOLS
+  release: 2
   module:
     prepend_path:
       - PATH {{root}}/bin
@@ -14,6 +15,4 @@
       - intel-tbb/{{versions.intel_tbb}}
     requires:
       - *ModuleCompiler_requires
-      - "python_{{versions.python3}}-module"
-      - "perl_{{versions.perl}}-module"
-      - "intel-tbb_{{versions.intel_tbb}}-module"
+      - "{{module.prereq}}"

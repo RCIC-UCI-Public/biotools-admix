@@ -4,6 +4,7 @@
 ---
 - package: gatk module
   category: BIOTOOLS
+  release: 2
   module:
     setenv:
       - GATK_HOME {{root}}
@@ -13,4 +14,4 @@
       - java/{{versions.java}}
     requires:
       - *Requires
-      - java{{versions.javamajor}}-module 
+      - "{{module.prereq}}" 

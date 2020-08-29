@@ -4,6 +4,7 @@
 ---
 - package: kallisto Module
   category: BIOTOOLS
+  release: 2
   module:
     prereq: 
       - *ModuleCompiler_prereq
@@ -11,5 +12,4 @@
       - java/{{versions.java}}
     requires:
       - *ModuleCompiler_requires
-      - hdf5_{{versions.hdf5}}_{{compiler}}_{{compiler_version}}-module
-      - java{{versions.javamajor}}-module
+      - "{{module.prereq}}"

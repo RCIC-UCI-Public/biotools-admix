@@ -4,6 +4,7 @@
 ---
 - package: repeatmasker Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:
@@ -16,8 +17,4 @@
       - hmmer/{{versions.hmmer}}
     requires:
       - *Requires
-      - perl_{{versions.perl}}-module
-      - python_{{versions.python3}}-module
-      - trf_{{versions.trf}}-module
-      - ncbi-blast_{{versions.ncbiblast}}-module
-      - hmmer_{{versions.hmmer}}-module
+      - "{{module.prereq}}"

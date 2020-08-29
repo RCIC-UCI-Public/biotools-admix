@@ -4,6 +4,7 @@
 ---
 - package: cufflinks Module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: ""
     prepend_path:
@@ -16,7 +17,4 @@
       - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
     requires:
       - *ModuleCompiler_requires
-      - samtools_{{versions.samtools}}-module
-      - eigen_{{versions.eigen}}-module
-      - htslib_{{versions.htslib}}-module
-      - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}-module
+      - "{{module.prereq}}"
