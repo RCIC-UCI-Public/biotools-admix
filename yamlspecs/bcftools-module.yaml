@@ -4,7 +4,7 @@
 ---
 - package: bcftools Module
   category: BIOTOOLS
-  release: 2
+  release: 3
   module:
     prereq: 
       - *ModuleCompiler_prereq
