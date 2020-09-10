@@ -3,13 +3,17 @@
 !include rcic-module.yaml
 ---
 - package: ncbi-vdb module
+  shortname: ncbivdb
   category: BIOTOOLS
   release: 2
   module:
     setenv:
+      - *Setenv
       - VDB_HOME {{root}}
       - VDB_LIBDIR {{root}}/lib64
+      - NCBI_VDB_LIBDIR {{root}}/lib64
     prepend_path: 
+      - *Flagspath
       - LD_LIBRARY_PATH {{root}}/lib64
     prereq:
       - *ModuleCompiler_prereq

@@ -19,10 +19,11 @@
       make -C ngs-java;
       make -C ngs-python
     modules: 
+      - "{{compiler}}/{{compiler_version}}"
       - python/{{versions.python3}}
       - java/{{versions.java}}
   libs_dynamic: libngs-sdk.so
-  libs_static: libngs-c++.a libngs-adapt-c++.a
+  libs_static: libngs-c++ libngs-adapt-c++
   libs_java: ngs-java.jar
   install:
     makeinstall: >
@@ -35,20 +36,22 @@
               ln -s $$x.{{ngs_major}} $$x); \
       done;
       for x in {{libs_static}}; do \
-          $(INSTALL) -m 644 ngs-sdk/builddir/ngs-sdk/linux/gcc/x86_64/rel/lib/$$x.{{version}} $(ROOT)/{{root}}/lib64;\
+          $(INSTALL) -m 644 ngs-sdk/builddir/ngs-sdk/linux/gcc/x86_64/rel/lib/$$x.a.{{version}} $(ROOT)/{{root}}/lib64;\
           (cd $(ROOT)/{{root}}/lib64; \
-              ln -s $$x.{{version}} $$x.{{ngs_major}}; \
-              ln -s $$x.{{ngs_major}} $$x); \
+              ln -s $$x.a.{{version}} $$x.a.{{ngs_major}}; \
+              ln -s $$x.a.{{ngs_major}} $$x.a; \
+              ln -s $$x.a $$x-static.a); \
       done;
       mkdir -p $(ROOT)/{{root}}/include;
       cp -r ngs-sdk/ngs $(ROOT)/{{root}}/include;
       mkdir -p $(ROOT)/{{root}}/share/examples-sdk;
-      cp ngs-sdk/examples/* $(ROOT)/{{root}}/share/examples-sdk;
+      cp ngs-sdk/examples/*.cpp $(ROOT)/{{root}}/share/examples-sdk;
+      cp ngs-sdk/examples/Makefile* $(ROOT)/{{root}}/share/examples-sdk;
       echo Installing in ngs-java;
       mkdir -p $(ROOT)/{{root}}/jar;
       for x in {{libs_java}}; do \
           $(INSTALL) -m 644 ngs-java/builddir/ngs-java/jar/$$x.{{version}} $(ROOT)/{{root}}/jar;\
-          (cd $(ROOT)/{{root}}/lib64; \
+          (cd $(ROOT)/{{root}}/jar; \
               ln -s $$x.{{version}} $$x.{{ngs_major}}; \
               ln -s $$x.{{ngs_major}} $$x); \
       done;
