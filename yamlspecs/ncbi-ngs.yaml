@@ -3,6 +3,7 @@
 - package: NGS sdk bindings
   name: ncbi-ngs
   version: "{{versions.ngs}}"
+  release: 3
   ngs_major: "{{versions.ngs_major}}"
   vendor_source: https://github.com/ncbi/ngs/archive/{{version}}.{{extension}}
   description: |

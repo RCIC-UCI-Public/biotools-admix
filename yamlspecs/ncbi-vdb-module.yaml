@@ -5,7 +5,7 @@
 - package: ncbi-vdb module
   shortname: ncbivdb
   category: BIOTOOLS
-  release: 2
+  release: 3
   module:
     setenv:
       - *Setenv

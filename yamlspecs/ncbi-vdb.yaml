@@ -3,6 +3,7 @@
 - package: NCBI vdb
   name: ncbi-vdb
   version: "{{versions.vdb}}"
+  release: 3
   vdb_major: "{{versions.vdb_major}}"
   vendor_source: https://github.com/ncbi/ncbi-vdb/archive/{{version}}.{{extension}}
   description: |
