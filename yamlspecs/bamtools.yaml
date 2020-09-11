@@ -1,0 +1,27 @@
+!include common.yaml
+---
+- package: bamtools for storing large nucleotide sequence alignments
+  name: bamtools 
+  version: "{{versions.bamtools}}"
+  release: 1
+  vendor_source: https://github.com/pezmaster31/{{name}}/archive/v{{version}}.{{extension}}
+  description: |
+    BamTools {{version}} provides both a programmer's API and an 
+    end-user's toolkit for handling BAM files.
+  builddir: builddir
+  build:
+    configure: echo
+    pkgmake: >
+      mkdir {{builddir}};
+      cd {{builddir}};
+      cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
+      make -j 8
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - foundation
+  install:
+    makeinstall: >
+      cd {{builddir}};
+      make DESTDIR=$(ROOT) install
+  requires:
+    - "{{compiler}}_{{compiler_version}}"

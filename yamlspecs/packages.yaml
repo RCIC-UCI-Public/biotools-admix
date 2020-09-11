@@ -130,6 +130,8 @@ build:
   - macs
   - smoldyn
   - smoldyn-module
+  - bamtools
+  - bamtools-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
