@@ -2,6 +2,7 @@
 ---
 - package: R module Stitch
   name: stitch
+  release: 2
   rpkgname: STITCH
   version: "{{versions.stitch}}"
   vendor_source: https://github.com/rwdavies/stitch/releases/download/{{version}}/{{src_tarball}}
@@ -25,7 +26,7 @@
       mkdir -p $(ROOT){{root}};
       install -m 755 STITCH.R.{{version}} $(ROOT)/{{root}}/STITCH.R
   files:
-    - "{{root}}"
+    - "{{parent}}"
     - "{{libpath}}"
   requires: 
      - R_{{versions.R}}
