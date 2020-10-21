@@ -6,7 +6,7 @@
   pymajor: "{{versions.python3_major}}"
   pkgname: python_{{pyversion}}-{{name}}
   version: "{{versions.macs}}"
-  vendor_source: https://github.com/taoliu/MACS/archive/v{{version}}.{{extension}}
+  vendor_source: https://github.com/macs3-project/MACS/archive/v{{version}}.{{extension}}
   description: |
      Model-based Analysis of ChIP-Seq (MACS) {{version}}, for identifying 
      transcript factor binding sites. MACS captures the influence of genome 
@@ -16,7 +16,6 @@
   build:
     modules: 
       - python/{{pyversion}}
-#      - "{{compiler}}/{{compiler_version}}"
     pkgmake: python setup.py build
   install:
      makeinstall: >
@@ -26,4 +25,3 @@
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
   requires:
     - python_{{pyversion}} 
-#    - "{{compiler}}_{{compiler_version}}"
