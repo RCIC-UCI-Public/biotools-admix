@@ -1,0 +1,27 @@
+!include common.yaml
+---
+- package: cutadapt 
+  name: cutadapt 
+  version: "{{versions.cutadapt}}"
+  pyversion: "{{versions.python3}}"
+  vendor_url: https://files.pythonhosted.org/packages/4b/9d/3f98c2619206430ad11e485a2a2f6b3e37f792f11523fee372739abdc1cd
+  vendor_source: "{{vendor_url}}/{{name}}-{{version}}.{{extension}}"
+  description: |
+    Cutadapt {{version}} finds and removes adapter sequences, primers, poly-A tails
+    and other types of unwanted sequence from your high-throughput sequencing reads. 
+  builddir: source
+  build:
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       mkdir $(ROOT){{root}};
+       python setup.py install --prefix $(ROOT){{root}}
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+    - python_{{pyversion}} 
+
+#  files:
+#      - "{{pkg_defaults.app_path}}/python/{{pyversion}}"

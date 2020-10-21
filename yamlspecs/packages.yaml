@@ -132,6 +132,8 @@ build:
   - smoldyn-module
   - bamtools
   - bamtools-module
+  - cutadapt
+  - cutadapt-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

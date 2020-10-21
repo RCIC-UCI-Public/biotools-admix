@@ -7,8 +7,7 @@
   release: 2
   module:
     prereq: 
-      - *ModuleCompiler_prereq
-      - python/{{versions.python3}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
+      - *Requires
       - "{{module.prereq}}"
