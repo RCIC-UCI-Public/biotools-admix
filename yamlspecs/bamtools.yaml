@@ -3,7 +3,7 @@
 - package: bamtools for storing large nucleotide sequence alignments
   name: bamtools 
   version: "{{versions.bamtools}}"
-  release: 1
+  release: 2
   vendor_source: https://github.com/pezmaster31/{{name}}/archive/v{{version}}.{{extension}}
   description: |
     BamTools {{version}} provides both a programmer's API and an 
