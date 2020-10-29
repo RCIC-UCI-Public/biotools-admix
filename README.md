@@ -30,16 +30,16 @@ A collection of bio related tools built into RPMS using yaml2rpm
 
 1. ncbi-blast
 
-  Includes RMBlast program rmblastn for use with RepeatMasker and RepeatModeler.
-  See ihttp://www.repeatmasker.org/RMBlast.html for additionl info on config options.
+   Includes RMBlast program rmblastn for use with RepeatMasker and RepeatModeler.
+   See ihttp://www.repeatmasker.org/RMBlast.html for additionl info on config options.
 
-  The following requires_exclude shortcurts did not work in rpmFilters:
+   The following requires_exclude shortcurts did not work in rpmFilters:
 
-  ```bash
-  #%global __requires_exclude_from %{_libdir}/.*\\.so$|%{_bindir}
-  #%global __requires_exclude_from ^%{buildroot}%{_libdir}/.*.so$
-  ```
-  As a workaround list all libraries in yaml file.
+   ```bash
+   #%global __requires_exclude_from %{_libdir}/.*\\.so$|%{_bindir}
+   #%global __requires_exclude_from ^%{buildroot}%{_libdir}/.*.so$
+   ```
+   As a workaround list all libraries in yaml file.
 
 1. picard-tools
 
@@ -56,4 +56,3 @@ A collection of bio related tools built into RPMS using yaml2rpm
    Above specifies the maximum size, 16G of the memory allocation pool.
    This value must be x 1024 greater than 2MB. Append the letter K for Kbs, M for Mbs, G for Gbs.
    The default value is 64MB. 
-
