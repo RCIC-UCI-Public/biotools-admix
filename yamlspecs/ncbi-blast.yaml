@@ -51,12 +51,3 @@
       %global privlibs %{privlibs}|libva.* \n\
       %global privlibs %{privlibs}|libwrite.* \n\
       %global __requires_exclude ^(%{privlibs})\\.so
-
-# requires exclude NOT working
-#%global __requires_exclude_from %{_libdir}/.*\\.so$|%{_bindir}
-#%global __requires_exclude_from ^%{buildroot}%{_libdir}/.*.so$
-#
-# see http://www.repeatmasker.org/RMBlast.html for rmblast  config line below:
-#./configure --with-mt --without-debug --without-krb5 --without-openssl \
-#            --with-projects=scripts/projects/rmblastn/project.lst \
-#            --prefix=/usr/local/rmblast

@@ -7,7 +7,6 @@
   baserpm: python_{{pyversion}}-{{name}}
   version: "{{versions.scanpy}}"
   vendor_source: https://files.pythonhosted.org/packages/88/9d/24e22d2d4573db192e4c85933cfcb0480dce934066d1138aa162f1db3a64/{{name}}-{{version}}.{{extension}}
-#https://files.pythonhosted.org/packages/0b/aa/353d733a4c38e4fe8cfefc665747453ff15e0d18b9bcf196ddfaddaf8640/{{name}}-{{version}}.{{extension}}
   description: |
     Scanpy is a scalable toolkit for analyzing single-cell gene expression 
     data built jointly with anndata. It includes preprocessing, visualization, 

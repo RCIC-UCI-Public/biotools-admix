@@ -18,6 +18,3 @@
   requires:
     - jre = {{versions.java}} 
   rpmJarRepack: 0
-
-#  this is for new picard tools:
-#  vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}
