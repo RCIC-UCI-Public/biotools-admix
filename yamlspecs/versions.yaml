@@ -72,3 +72,11 @@ macs: "2.2.7.1"
 smoldyn: "2.61"
 k8: "0.2.5"
 cutadapt: "2.10"
+meme:
+  version: "5.2.0"
+  motifdb: "12.19"
+  gomodb: "3.2"
+  tgenedb: "1.0"
+mpi:
+  name: openmpi
+  version: "4.0.3"

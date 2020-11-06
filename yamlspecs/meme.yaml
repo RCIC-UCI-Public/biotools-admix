@@ -1,0 +1,45 @@
+!include common.yaml
+---
+- package: MEME
+  name: meme 
+  version: "{{versions.meme.version}}"
+  mpi: "{{versions.mpi.name}}"
+  mpi_version: "{{versions.mpi.version}}"
+  vendorurl: "http://meme-suite.org/meme-software"
+  vendor_source: "{{vendorurl}}/{{version}}/{{name}}-{{version}}.{{extension}}"
+  motifdb: "motif_databases.{{versions.meme.motifdb}}.tgz"
+  gomodb: "gomo_databases.{{versions.meme.gomodb}}.tgz"
+  tgenedb: "tgene_databases.{{versions.meme.tgenedb}}.tgz"
+  description: |
+    The MEME Suite {{version}} allows the biologist to discover novel motifs
+    in collections of unaligned nucleotide or protein sequences, and to
+    perform a wide variety of other motif-based analyses
+  addfile: 
+    - filter-requires-{{name}}.sh
+    - filter-provides-{{name}}.sh
+  build:
+    configure: >
+      sed -i 's/= $$(DESTDIR)/= /' scripts/Makefile.in;
+      ./configure
+    configure_args: --prefix={{root}}
+    pkgmake: make
+    modules: 
+      - "{{mpi}}/{{mpi_version}}"
+      - perl/{{versions.perl}}
+  extras: README*
+  install:
+     makeinstall: >
+       echo "{{versions.perl}}" > ../PERLVERSION;
+       sed -i 's%@WHICHPYTHON@%/usr/bin/env python%' scripts/alphabet.py;
+       sed -i 's%@WHICHPYTHON@%/usr/bin/env python%' scripts/hypergeometric.py;
+       sed -i 's%@WHICHPYTHON@%/usr/bin/env python%' scripts/hypergeometric_py3.py;
+       sed -i 's%@WHICHPYTHON@%/usr/bin/env python%' scripts/sequence.py;
+       make DESTDIR=$(ROOT) install;
+       if [ ! -f $(REDHAT.ROOT)/sources/{{motifdb}} ]; then wget -O $(REDHAT.ROOT)/sources/{{motifdb}} {{vendorurl}}/Databases/motifs/{{motifdb}}; fi;
+       if [ ! -f $(REDHAT.ROOT)/sources/{{gomodb}} ]; then wget -O $(REDHAT.ROOT)/sources/{{gomodb}} {{vendorurl}}/Databases/gomo/{{gomodb}}; fi;
+       if [ ! -f $(REDHAT.ROOT)/sources/{{tgenedb}} ]; then wget -O $(REDHAT.ROOT)/sources/{{tgenedb}} {{vendorurl}}/Databases/tgene/{{tgenedb}}; fi;
+       mkdir -p $(ROOT){{root}}/db;
+       tar xzf $(REDHAT.ROOT)/sources/{{motifdb}} -C $(ROOT){{root}}/db;
+       tar xzf $(REDHAT.ROOT)/sources/{{gomodb}} -C $(ROOT){{root}}/db;
+       tar xzf $(REDHAT.ROOT)/sources/{{tgenedb}} -C $(ROOT){{root}}/db
+  rpmFilters: *filterRequiresProvides
