@@ -23,5 +23,3 @@
   requires:
     - jre = {{versions.java}} 
   rpmJarRepack: 0
-
-#java -Xmx16G -jar <pilon.jar>

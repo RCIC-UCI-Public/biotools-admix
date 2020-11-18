@@ -135,6 +135,8 @@ build:
   - bamtools-module
   - cutadapt
   - cutadapt-module
+  - meme
+  - meme-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

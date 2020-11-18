@@ -22,6 +22,3 @@
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - python_{{pyversion}} 
-
-#  files:
-#      - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
