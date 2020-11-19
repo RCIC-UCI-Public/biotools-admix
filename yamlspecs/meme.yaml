@@ -24,7 +24,7 @@
     configure_args: --prefix={{root}}
     pkgmake: make
     modules: 
-      - "{{mpi}}/{{mpi_version}}"
+      - "{{mpi}}/{{mpi_version}}/{{compiler}}.{{compiler_version}}"
       - perl/{{versions.perl}}
   extras: README*
   install:

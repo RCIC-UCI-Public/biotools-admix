@@ -10,7 +10,7 @@
       - PATH {{root}}/bin
       - LD_LIBRARY_PATH {{root}}/lib
     prereq: 
-      - "{{mpi}}/{{mpi_version}}"
+      - "{{mpi}}/{{mpi_version}}/{{compiler}}.{{compiler_version}}"
       - perl/{{versions.perl}}
     requires:
       - *ModuleCompiler_requires
