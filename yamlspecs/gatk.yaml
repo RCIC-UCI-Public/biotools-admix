@@ -2,9 +2,10 @@
 ---
 - package: Genome Analysis Toolkit
   name: gatk 
-  release: 2
+  release: 3
   version: "{{versions.gatk}}"
-  vendor_source: https://github.com/broadinstitute/gatk/archive/{{version}}.{{extension}}
+  extension: zip
+  vendor_source: https://github.com/broadinstitute/gatk/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
   description: >
     GATK {{version}}. Genome Analysis Toolkit 
   build:

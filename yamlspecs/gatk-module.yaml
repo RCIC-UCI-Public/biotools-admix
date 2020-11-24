@@ -4,7 +4,6 @@
 ---
 - package: gatk module
   category: BIOTOOLS
-  release: 2
   module:
     setenv:
       - GATK_HOME {{root}}
