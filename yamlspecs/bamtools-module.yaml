@@ -4,9 +4,10 @@
 ---
 - package: BAMTools Module
   category: BIOTOOLS
-  release: 2
   module:
+    lib: lib64
     prereq: 
       - *ModuleCompiler_prereq
+      - jsoncpp/{{versions.jsoncpp}}
     requires:
       - *ModuleCompiler_requires
