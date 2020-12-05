@@ -1,0 +1,25 @@
+!include common.yaml
+---
+- package: jsoncpp
+  name: jsoncpp 
+  version: "{{versions.jsoncpp}}"
+  builddir: build
+  vendor_source: https://github.com/open-source-parsers/{{name}}/archive/{{version}}.{{extension}}
+  description: |
+    JsonCpp {{version}} is a C++ library that allows manipulating JSON values,
+    including serialization and deserialization to and from strings. It can
+    also preserve existing comment in unserialization/serialization steps,
+    making it a convenient format to store user input files
+  build:
+    modules: 
+      - foundation
+      - "{{compiler}}/{{compiler_version}}"
+    pkgmake: > 
+      mkdir {{builddir}};
+      cd {{builddir}};
+      cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_INCLUDEDIR=include/jsoncpp -DCMAKE_INSTALL_PREFIX={{root}} -G "Unix Makefiles" ..;
+      make
+  install:
+     makeinstall: >
+       cd {{builddir}};
+       make DESTDIR=$(ROOT) install

@@ -55,6 +55,8 @@ bootstrap:
   - rrbgen
   - samtools
   - samtools-module
+  - jsoncpp
+  - jsoncpp-module
 build:
   - bedtools2
   - bedtools2-module
