@@ -81,3 +81,8 @@ mpi:
   name: openmpi
   version: "4.0.3"
 jsoncpp: "1.9.4"
+relion: "3.1.0"
+mkl: "2019.5.281"
+trinityrnaseq: "2.8.6"
+yaggo: "1.5.10"
+jellyfish: "2.3.0"

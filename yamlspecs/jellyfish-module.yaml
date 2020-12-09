@@ -1,0 +1,17 @@
+# Builds the module for relion
+!include jellyfish.yaml
+!include rcic-module.yaml
+---
+- package: jellyfish Module
+  category: BIOTOOLS
+  module:
+    setenv: ""
+    prereq: 
+      - "{{build.modules}}" 
+    prepend_path: 
+      -  *Prepend_path
+      -  PYTHONPATH {{root}}/lib/python{{versions.python3_major}}/site-packages
+
+    requires:
+      - *Requires
+      - "{{module.prereq}}" 
