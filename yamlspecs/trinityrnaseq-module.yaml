@@ -1,0 +1,33 @@
+# Builds the module for relion
+!include trinityrnaseq.yaml
+!include rcic-module.yaml
+---
+- package: trinityrnaseq Module
+  category: BIOTOOLS
+# Set the name to trinity for user friendliness
+  vanityname: trinity
+  module:
+    logname: "{{vanityname}}/{{version}}"
+    path: "{{pkg_defaults.RCICmpath}}/{{category}}/{{vanityname}}"
+
+    setenv: 
+      - TRINITY_HOME {{root}}
+    prepend_path:
+      - PATH {{root}}
+      - PATH {{root}}/util
+      - PATH {{root}}/trinity-plugins
+    prereq: 
+      - "{{build.modules}}" 
+      - java/{{versions.java}}
+      - python/{{versions.python3}}
+      - bowtie/{{versions.bowtie}}
+      - bowtie2/{{versions.bowtie2}}
+      - gatk/{{versions.gatk}}
+      - Jellyfish/{{versions.jellyfish}}
+      - kallisto/{{versions.kallisto}}
+      - salmon/{{versions.salmon}}
+      - samtools/{{versions.samtools}}
+
+    requires:
+      - *Requires
+      - "{{module.prereq}}" 
