@@ -4,14 +4,14 @@
 ---
 - package: bowtie Module
   category: BIOTOOLS
-  release: 2
+  release: 3
   module:
     setenv: ""
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
       - *ModuleCompiler_prereq
-      - intel-tbb_{{versions.intel_tbb}}
+      - intel-tbb/{{versions.intel_tbb}}
     requires:
       - *ModuleCompiler_requires
       - "{{module.prereq}}"
