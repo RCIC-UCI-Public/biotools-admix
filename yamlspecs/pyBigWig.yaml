@@ -1,0 +1,24 @@
+!include common.yaml
+---
+- package: pyBigWig 
+  name: pyBigWig 
+  pyversion: "{{versions.python3}}"
+  pymajor: "{{versions.python3_major}}"
+  baserpm: python_{{pyversion}}-{{name}}
+  version: "{{versions.pyBigWig}}"
+  vendor_source: https://github.com/deeptools/pyBigWig/archive/{{version}}.{{extension}}
+  description: |
+    PyBigWig {{version}} A python extension, written in C, for quick access to 
+    bigBed files and access to and creation of bigWig files. This extension 
+    uses libBigWig for local and remote file access. 
+  build:
+    modules: 
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
+  requires:
+    - python_{{pyversion}} 

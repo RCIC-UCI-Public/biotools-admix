@@ -1,0 +1,40 @@
+!include common.yaml
+---
+- package: deeptools 
+  name: deeptools 
+  pyversion: "{{versions.python3}}"
+  pymajor: "{{versions.python3_major}}"
+  baserpm: python_{{pyversion}}-{{name}}
+  version: "{{versions.deeptools}}"
+  vendor_source: https://github.com/deeptools/deeptools/archive/{{version}}.{{extension}}
+  src_dir:  deepTools-{{version}}
+  description: |
+    Deeptools {{version}} addresses the challenge of handling the large 
+    amounts of data that are now routinely generated from DNA sequencing centers. 
+    deepTools contains useful modules to process the mapped reads data for multiple 
+    quality checks, creating normalized coverage files in standard bedGraph and 
+    bigWig file formats, that allow comparison between different files 
+    (for example, treatment and control). Finally, using such normalized and 
+    standardized files, deeptools can create many publication-ready visualizations 
+    to identify enrichments and for functional annotations of the genome
+
+  build:
+    modules: 
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin/*"
+
+  requires:
+    - python_{{pyversion}} 
+    - python_{{pyversion}}-pyBigWig
+    - python_{{pyversion}}-py2bit
+    - python_{{pyversion}}-pysam
+    - python_{{pyversion}}-numpy
+    - python_{{pyversion}}-scipy
+    - python_{{pyversion}}-matplotlib
+   

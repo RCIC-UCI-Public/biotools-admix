@@ -62,6 +62,9 @@ bootstrap:
   - yaggo
   - jellyfish
   - jellyfish-module
+  - pysam-py3
+  - py2bit
+  - pyBigWig
 build:
   - bedtools2
   - bedtools2-module
@@ -98,7 +101,6 @@ build:
   - pyvcf
   - pyvcf-py3
   - pysam
-  - pysam-py3
   - bowtie
   - bowtie-module
   - transdecoder
@@ -146,6 +148,11 @@ build:
   - meme-module
   - relion
   - relion-module
+  - trinityrnaseq
+  - trinityrnaseq-module
+  - deeptools
+  - deeptools-module
+
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

@@ -1,0 +1,23 @@
+!include common.yaml
+---
+- package: py2bit 
+  name: py2bit 
+  pyversion: "{{versions.python3}}"
+  pymajor: "{{versions.python3_major}}"
+  baserpm: python_{{pyversion}}-{{name}}
+  version: "{{versions.py2bit}}"
+  vendor_source: https://github.com/deeptools/py2bit/archive/{{version}}.{{extension}}
+  description: |
+    Py2bit {{version}} A python extension, written in C, for quick access to 
+    2bit files. The extension uses lib2bit for file access. 
+  build:
+    modules: 
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
+  requires:
+    - python_{{pyversion}} 
