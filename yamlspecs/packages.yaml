@@ -52,6 +52,8 @@ bootstrap:
   - pilon-module
   - bowtie2
   - bowtie2-module
+  - bowtie2-python2
+  - bowtie2-python2-module
   - ncbi-ngs
   - ncbi-ngs-module
   - rrbgen
