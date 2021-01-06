@@ -1,0 +1,23 @@
+!include common.yaml
+---
+- package: sphinx 
+  name: sphinx 
+  pyversion: "{{versions.python3}}"
+  baserpm: python_{{pyversion}}-{{name}}
+  version: "{{versions.sphinx}}"
+  vendor_source: https://github.com/sphinx-doc/sphinx/archive/v{{version}}.{{extension}}
+  description: |
+    Sphinx {{version}} is a tool that makes it easy to create intelligent
+    and beautiful documentation for Python projects (or other documents
+    consisting of multiple reStructuredText sources)
+  build:
+    modules: 
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+    - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
+  requires:
+    - python_{{pyversion}} 

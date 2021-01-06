@@ -52,8 +52,6 @@ bootstrap:
   - pilon-module
   - bowtie2
   - bowtie2-module
-  - bowtie2-python2
-  - bowtie2-python2-module
   - ncbi-ngs
   - ncbi-ngs-module
   - rrbgen
@@ -67,6 +65,10 @@ bootstrap:
   - pysam-py3
   - py2bit
   - pyBigWig
+  - sphinx
+  - numpydoc
+  - plotly
+  - deeptoolsintervals
 build:
   - bedtools2
   - bedtools2-module
@@ -78,6 +80,8 @@ build:
   - bustools-module
   - bcftools
   - bcftools-module
+  - bowtie2-python2
+  - bowtie2-python2-module
   - tophat
   - tophat-module
   - gatk

@@ -37,4 +37,6 @@
     - python_{{pyversion}}-numpy
     - python_{{pyversion}}-scipy
     - python_{{pyversion}}-matplotlib
-   
+    - python_{{pyversion}}-numpydoc
+    - python_{{pyversion}}-plotly
+    - python_{{pyversion}}-deeptoolsintervals

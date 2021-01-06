@@ -1,0 +1,22 @@
+!include common.yaml
+---
+- package: numpydoc 
+  name: numpydoc 
+  pyversion: "{{versions.python3}}"
+  baserpm: python_{{pyversion}}-{{name}}
+  version: "{{versions.numpydoc}}"
+  vendor_source: https://files.pythonhosted.org/packages/3d/fb/a70f636102045fc646656f2221c7fcdf92f7a9d71ba7c9875a949a58b3e8/{{name}}-{{version}}.{{extension}}
+  description: |
+    Numpydoc {{version}} is a Sphinx extension to support docstrings in Numpy format
+  build:
+    modules: 
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+    - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
+  requires:
+    - python_{{pyversion}} 
+    - python_{{pyversion}}-sphinx 

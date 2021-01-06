@@ -1,0 +1,24 @@
+!include common.yaml
+---
+- package: deeptoolsintervals 
+  name: deeptoolsintervals 
+  pyversion: "{{versions.python3}}"
+  baserpm: python_{{pyversion}}-{{name}}
+  version: "{{versions.deeptoolsintervals}}"
+  src_dir: deeptools_intervals-{{version}}
+  vendor_source: https://github.com/deeptools/deeptools_intervals/archive/{{version}}.{{extension}}
+  description: |
+    Deeptoolsintervals {{version}} is a python library for constructing 
+    interval trees with associated exon/annotation information. 
+    Prerequisite for deepTools
+  build:
+    modules: 
+      - python/{{pyversion}}
+    pkgmake: python setup.py build
+  install:
+     makeinstall: >
+       python setup.py install --root $(ROOT)
+  files:
+    - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
+  requires:
+    - python_{{pyversion}} 

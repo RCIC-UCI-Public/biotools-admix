@@ -1,0 +1,22 @@
+!include common.yaml
+---
+- package: plotly 
+  name: plotly 
+  pyversion: "{{versions.python3}}"
+  baserpm: python_{{pyversion}}-{{name}}
+  version: "{{versions.plotly}}"
+  vendor_source: https://github.com/plotly/plotly.py/archive/v{{version}}.{{extension}}
+  src_dir: "{{name}}.py-{{version}}"
+  description: |
+    Plotly {{version}} is an interactive, open-source, and browser-based graphing library for Python
+  build:
+    modules: 
+      - python/{{pyversion}}
+    pkgmake: cd ./packages/python/plotly; python setup.py build
+  install:
+     makeinstall: >
+       cd ./packages/python/plotly; python setup.py install --root $(ROOT)
+  files:
+    - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
+  requires:
+    - python_{{pyversion}} 
