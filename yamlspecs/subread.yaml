@@ -1,0 +1,22 @@
+!include common.yaml
+---
+- package: subread 
+  name: subread 
+  version: "{{versions.subread}}"
+  src_dir: "{{name}}-{{version}}-source"
+  vendor_source: https://sourceforge.net/projects/subread/files/subread-2.0.1/{{name}}-{{version}}-source.{{extension}}
+  description: |
+    The Subread {{version}} is a toolkit for processing next-gen sequencing data.
+    The Subread is developed in The Walter and Eliza Hall Institute of Medical
+    Research, Melbourne, Australia. See http://bioinf.wehi.edu.au/subread-package
+  build:
+    pkgmake: > 
+      cd src;
+      make -f Makefile.Linux -j 8
+  extras: LICENSE README*
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT)/{{root}}/bin;
+       cp -p bin/utilities/* $(ROOT)/{{root}}/bin;
+       cp -p bin/* $(ROOT)/{{root}}/bin;
+       cp -p -r annotation/ $(ROOT)/{{root}}

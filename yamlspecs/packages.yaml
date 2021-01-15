@@ -158,7 +158,8 @@ build:
   - trinityrnaseq-module
   - deeptools
   - deeptools-module
-
+  - subread
+  - subread-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

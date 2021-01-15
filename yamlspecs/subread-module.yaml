@@ -1,0 +1,14 @@
+# Builds the module for subread.
+!include subread.yaml
+!include rcic-module.yaml
+---
+- package: subread Module
+  category: BIOTOOLS
+  module:
+    prepend_path:
+      - PATH {{root}}/bin
+    setenv: ""
+#    prereq:
+#      - *ModuleCompiler_prereq
+#    requires:
+#      - *ModuleCompiler_requires
