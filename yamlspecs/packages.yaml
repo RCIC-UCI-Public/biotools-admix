@@ -160,6 +160,8 @@ build:
   - deeptools-module
   - subread
   - subread-module
+  - gffread
+  - gffread-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

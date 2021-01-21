@@ -1,0 +1,25 @@
+!include common.yaml
+---
+- package: gffread
+  name: gffread 
+  version: "{{versions.gffread}}"
+  vendor_source: https://github.com/gpertea/gffread/archive/v{{version}}.{{extension}}
+  gclib_vendor: https://github.com/gpertea/gclib/archive/v{{versions.gclib}}.{{extension}}
+  gclibdist: "gclib-{{versions.gclib}}.{{extension}}"
+  description: |
+    Gffread {{version}} is GFF/GTF utility providing format
+    conversions, filtering, FASTA sequence extraction and more. 
+    See http://ccb.jhu.edu/software/stringtie/gff.shtml#gffread
+  build:
+    preconfigure: >
+      if [ ! -f $(REDHAT.ROOT)/sources/{{gclibdist}} ]; then git clone https://github.com/gpertea/gclib.git; cd gclib; git checkout 32c3527b6b5606d5f45e6ac5c862e8a20e334a6e; fi;
+      tar xzvf $(REDHAT.ROOT)/sources/{{gclibdist}}
+    pkgmake: export GCLDIR=./gclib; make gffread
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+  extras: README* LICENSE
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}}/bin;
+       $(INSTALL) -m755 {{name}} $(ROOT){{root}}/bin;
+       cp -p -r examples $(ROOT){{root}}

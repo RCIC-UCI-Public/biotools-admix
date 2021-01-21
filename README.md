@@ -56,3 +56,17 @@ A collection of bio related tools built into RPMS using yaml2rpm
    Above specifies the maximum size, 16G of the memory allocation pool.
    This value must be x 1024 greater than 2MB. Append the letter K for Kbs, M for Mbs, G for Gbs.
    The default value is 64MB. 
+
+1. gclib
+
+  Gffread requires source for gclib. Gclib currently avilable version 0.12.1 does not have all the 
+  updates needed, hence create a special distro per git commit that works.  The commit as of 2020-12-07.
+  Use resulting tar.gz.
+
+  ```bash
+  git clone https://github.com/gpertea/gclib.git
+  cd gclib
+  git checkout 32c3527b6b5606d5f45e6ac5c862e8a20e334a6e
+  cd ..
+  tar czvf gclib-20201207.tar.gz gclib
+  ```
