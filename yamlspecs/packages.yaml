@@ -94,6 +94,8 @@ build:
   - minimap2-module
   - picard-tools
   - picard-tools-module
+  - picard-tools-latest
+  - picard-tools-latest-module
   - edirect
   - edirect-module
   - fastp

@@ -35,7 +35,6 @@ aa293c0ab656ae528914989ca5d656cfa9348af3  sources/ucsc-tools-v393.tgz 1lU2cLPOvB
 4a5215618bf2eaeff80ccd583d920eed37eff11b  sources/unicycler-0.4.8.tar.gz 1WL52byXHBPSWAZ-Vnk_-gXaLs0AKTT9w
 89cd02cc4c5472d26e498fff8e8f68ba94dd5664  sources/bowtie-1.2.3.zip 1182AvLFVqo9CoSjH4yw24d1CvG8QN7hb
 d50bd97ef696e2adf52fe8721f54cc99fb21344f  sources/hmmer-3.2.1.tar.gz 1cSGHzOsUhz9b0Yc-2O3vwBtRHscfpPmQ
-4b610ceef94a2a43401e921d3e3e64bd7762e3b7  sources/picard-tools-2.21.6.tar.gz 1ZIpm5vZsPM02zN7038f5z1Ysl7qh2JvE
 af2a897223fa73eed967f7c5f882b5691da24fc3  sources/PyVCF-0.6.8.tar.gz 1ttOSoxYUIcVS0db2-lGm8swBlE4rR740
 2b45e3967c510b753ba6aefe871ab95da0d33456  sources/repeatmasker-4.1.0.tar.gz 1YrAe2vgy6fwbJvFaKPZ50UFBYsqZU5ga
 12065495c9b67cac3b6a4c9f299c7a10b2578923  sources/mapDamage-2.2.0.tar.gz 180MIEtMq2_41JFooC6WDKYoht7vrHFzE
@@ -82,3 +81,4 @@ c457449566f908808bcb36d10fd0bea49fcf2c62  sources/deeptools-3.5.0.tar.gz 1dTzb26
 866af33c2dfdc192bc7018abf564476a28563d99  sources/subread-2.0.1.tar.gz 1v598G75RIHpWd-giAsFxkF0la0L6frV2
 bf5d0ccb408b10acbc7390ff7b492459cadd89ad  sources/gclib-20201207.tar.gz 1dm8gwbgjpOfUgnu5PakhAxjjYIGsz1BM
 39e9cb64932c513a548a6e4a98f438ae60a0a375  sources/gffread-0.12.4.tar.gz 1PW6ujB3UF7ettPA7qXkNFaJ4TVyKZv6l
+046aa6c3b5f29a598acdc5faf9d037e40db3c251  sources/picard-tools-2.24.1.tar.gz 1nFIkvLdcYEKdqCKTeIDEpCZDLl-afugO

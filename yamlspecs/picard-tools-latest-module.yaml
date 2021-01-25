@@ -1,0 +1,18 @@
+# Builds the module for picard-tools.
+!include picard-tools-latest.yaml
+!include rcic-module.yaml
+---
+- package: picard-tools Module
+  category: BIOTOOLS
+  module:
+    setenv: 
+      - PICARDTOOLS "{{root}}"
+    alias: 
+      - picard "java -jar {{root}}/picard.jar"
+    prepend_path:
+      - CLASSPATH {{root}}/*
+    prereq: 
+      - java/{{versions.java}}
+    requires: 
+      - *Requires
+      - "{{module.prereq}}"

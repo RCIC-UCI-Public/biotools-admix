@@ -1,0 +1,26 @@
+!include common.yaml
+---
+- package: picard tools  
+  name: picard-tools 
+  versions: !include versions.yaml
+  version: "{{versions.picard_tools_latest}}"
+  vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}
+  src_dir: picard-{{version}}
+  description: |
+    Picard-tools {{version}} is a set of Java command line tools for
+    manipulating high-throughput sequencing (HTS) data and formats.
+    To run these tools use an alias 'picard'
+  build:
+    modules: 
+      - java/{{versions.java}}
+  extras: README* LICENSE*
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}};
+       export GRADLE_USER_HOME=`pwd`/.gradle;
+       mkdir .git;
+       ./gradlew --no-daemon shadowJar;
+       $(INSTALL) -m 0644 build/libs/picard.jar  $(ROOT){{root}}
+  requires:
+    - jre = {{versions.java}} 
+  rpmJarRepack: 0
