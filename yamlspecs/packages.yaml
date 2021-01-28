@@ -164,6 +164,8 @@ build:
   - subread-module
   - gffread
   - gffread-module
+  - trimgalore
+  - trimgalore-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

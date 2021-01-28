@@ -1,0 +1,17 @@
+!include common.yaml
+---
+- package: TrimGalore 
+  name: trimgalore 
+  version: "{{versions.trimgalore}}"
+  src_dir: "{{package}}-{{version}}"
+  vendor_source: https://github.com/FelixKrueger/TrimGalore/archive/{{version}}.{{extension}}
+  description: |
+    TrimGalore {{version}} is a a Perl wrapper around tools Cutadapt and FastQC
+  build:
+    pkgmake: echo "NONE" 
+    modules: ""
+  extras: LICENSE README*
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT)/{{root}}/bin;
+       $(INSTALL) -m 755 trim_galore $(ROOT)/{{root}}/bin
