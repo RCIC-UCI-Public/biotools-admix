@@ -1,0 +1,21 @@
+# This package is form binary distro
+!include common.yaml
+---
+- package: NCBI SRA toolkit
+  name: sra-tools
+  version: "{{versions.sra_latest}}"
+  platform: "centos_linux64"
+  vendor_source: https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/{{version}}/sratoolkit.{{version}}-{{platform}}.{{extension}}
+  description: |
+    The SRA Toolkit and SDK from NCBI is a collection of tools and 
+    libraries for using data in the INSDC Sequence Read Archives.
+    Binary distribution precompiled by NCBI.
+  src_dir: sratoolkit.{{version}}-{{platform}}
+  build:
+    modules: ""
+  install:
+    installextra: CHANGES README*
+    makeinstall: >
+      mkdir -p $(ROOT){{root}};
+      cp -P -r  bin example schema $(ROOT){{root}}
+  requires: ""

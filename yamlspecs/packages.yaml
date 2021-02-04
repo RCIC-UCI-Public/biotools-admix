@@ -166,6 +166,8 @@ build:
   - gffread-module
   - trimgalore
   - trimgalore-module
+  - sra-tools-latest
+  - sra-tools-latest-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
