@@ -2,6 +2,7 @@
 ---
 - package: deeptools 
   name: deeptools 
+  release: "2"
   pyversion: "{{versions.python3}}"
   pymajor: "{{versions.python3_major}}"
   baserpm: python_{{pyversion}}-{{name}}
