@@ -1,5 +1,5 @@
 # Builds the module for bowtie2.
-!include bowtie2-py2.yaml
+!include bowtie2-python2.yaml
 !include rcic-module.yaml
 ---
 - package: bowtie2 module
