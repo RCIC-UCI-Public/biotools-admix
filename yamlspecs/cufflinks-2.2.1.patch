@@ -14,7 +14,7 @@ diff -C 3 -r cufflinks-2.2.1/src/GHash.hh cufflinks-2.2.1.new/src/GHash.hh
                                   //nextkey is SET to the corresponding key
     GHashEntry* NextEntry() { //returns a pointer to a GHashEntry
     	 register int pos=fCurrentEntry;
-!   	 while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+!   	 while (pos<fCapacity && 0 > hash[pos].hash) pos++;
     	 if (pos==fCapacity) {
     	                 fCurrentEntry=fCapacity;
     	                 return NULL;
@@ -31,7 +31,7 @@ diff -C 3 -r cufflinks-2.2.1/src/GHash.hh cufflinks-2.2.1.new/src/GHash.hh
   
   template <class OBJ> char* GHash<OBJ>::NextKey() {
    register int pos=fCurrentEntry;
-!  while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+!  while (pos<fCapacity && 0 > hash[pos].hash) pos++;
    if (pos==fCapacity) {
                    fCurrentEntry=fCapacity;
                    return NULL;
@@ -42,13 +42,13 @@ diff -C 3 -r cufflinks-2.2.1/src/GHash.hh cufflinks-2.2.1.new/src/GHash.hh
    register int pos=fCurrentEntry;
 !  while (pos<fCapacity && hash[pos].hash<0) pos++;
    if (pos==fCapacity) {
-                   fCurrentEntry=fCapacity;
+                   fCurrentEnty=fCapacity;
                    return NULL;
 --- 425,431 ----
   
   template <class OBJ> OBJ* GHash<OBJ>::NextData() {
    register int pos=fCurrentEntry;
-!  while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+!  while (pos<fCapacity && 0 > hash[pos].hash) pos++;
    if (pos==fCapacity) {
                    fCurrentEntry=fCapacity;
                    return NULL;
@@ -69,7 +69,7 @@ diff -C 3 -r cufflinks-2.2.1/src/GHash.hh cufflinks-2.2.1.new/src/GHash.hh
   
   template <class OBJ> OBJ* GHash<OBJ>::NextData(char* &nextkey) {
    register int pos=fCurrentEntry;
-!  while (pos<fCapacity && 0 >= hash[pos].hash) pos++;
+!  while (pos<fCapacity && 0 > hash[pos].hash) pos++;
    if (pos==fCapacity) {
                    fCurrentEntry=fCapacity;
                    nextkey=NULL;

@@ -4,7 +4,7 @@
   name: cufflinks 
   version: "{{versions.cufflinks}}"
   vendor_source: https://github.com/cole-trapnell-lab/{{name}}/archive/v{{version}}.{{extension}}
-  release: 2
+  release: 3
   description: |
     Cufflinks {{version}} assembles transcripts, estimates their abundances, 
     and tests for differential expression and regulation in RNA-Seq samples. 
@@ -21,9 +21,10 @@
        --with-boost=$$BOOST_HOME 
        --with-bam=$$samtools__PREFIX 
        --with-eigen=$$EIGEN_HOME       
+       --with-zlib=/usr/lib64
     modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+      - boost/{{versions.boost_archaic}}/{{compiler}}.{{compiler_version}}
       - eigen/{{versions.eigen}}
       - htslib/{{versions.htslib}}
       - samtools/{{versions.samtools}}
@@ -31,7 +32,7 @@
   extras: AUTHORS LICENSE MANUAL* ../cufflinks-configure.sh
   requires:
     - "{{compiler}}_{{compiler_version}}"
-    - boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}
+    - boost_{{versions.boost_archaic}}_{{compiler}}_{{compiler_version}}
     - eigen_{{versions.eigen}}
     - htslib_{{versions.htslib}}
     - samtools_{{versions.samtools}}

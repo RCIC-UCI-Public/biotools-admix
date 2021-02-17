@@ -14,7 +14,7 @@
       - samtools/{{versions.samtools}}
       - eigen/{{versions.eigen}}
       - htslib/{{versions.htslib}}
-      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+      - boost/{{versions.boost_archaic}}/{{compiler}}.{{compiler_version}}
     requires:
       - *ModuleCompiler_requires
       - "{{module.prereq}}"
