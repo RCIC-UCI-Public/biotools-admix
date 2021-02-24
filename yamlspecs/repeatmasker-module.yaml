@@ -4,7 +4,7 @@
 ---
 - package: repeatmasker Module
   category: BIOTOOLS
-  release: 2
+  release: 3
   module:
     setenv: ""
     prepend_path:
@@ -12,7 +12,7 @@
     prereq: 
       - perl/{{versions.perl}}
       - python/{{versions.python3}}
-      - trf_{{versions.trf}}
+      - trf/{{versions.trf}}
       - ncbi-blast/{{versions.ncbiblast}}
       - hmmer/{{versions.hmmer}}
     requires:
