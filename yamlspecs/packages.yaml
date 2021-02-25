@@ -69,6 +69,7 @@ bootstrap:
   - numpydoc
   - plotly
   - deeptoolsintervals
+  - Text-Soundex
 build:
   - bedtools2
   - bedtools2-module

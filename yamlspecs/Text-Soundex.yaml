@@ -1,0 +1,29 @@
+!include common.yaml
+---
+- package: Text::Soundex Perl module 
+  name: Text-Soundex
+  version: "{{versions.text_soundex}}"
+  baserpm: "perl_{{versions.perl}}-{{name}}"
+  root: "{{pkg_defaults.app_path}}/perl/{{versions.perl}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  addfile: 
+    - filter-requires-{{name}}.sh
+    - filter-provides-{{name}}.sh
+  description: |
+    Text::Soundex perl module {{version}} provides implementation of the soundex algorithm.  
+  build:
+    configure: >
+      export PERL_MM_USE_DEFAULT=true; 
+      perl Makefile.PL;
+      unset PERL_MM_USE_DEFAULT
+    configure_args: ""
+    modules: 
+      - "perl/{{versions.perl}}"
+    target: 
+  install:
+    makeinstall: >
+      $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install
+  files: "{{root}}"
+  requires:
+     - perl_{{versions.perl}}
+  rpmFilters: *filterPerl
