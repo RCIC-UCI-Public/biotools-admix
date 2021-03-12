@@ -2,19 +2,16 @@
 ---
 - package: 
   name: repeatmasker 
-  release: "2"
+  release: "3"
   version: "{{versions.repeatmasker}}"
   vendor_source: http://www.repeatmasker.org/RepeatMasker-{{version}}.{{extension}}
   src_dir: RepeatMasker
+  addfile: 
+    - filter-requires-{{name}}.sh
+    - filter-provides-{{name}}.sh
   description: |
-    RepeatMasker is a program that screens DNA sequences for interspersed repeats and low 
-    complexity DNA sequences. The output of the program is a detailed annotation of the 
-    repeats that are present in the query sequence as well as a modified version of the 
-    query sequence in which all the annotated repeats have been masked. Sequence comparisons 
-    in RepeatMasker are performed by one of several popular search engines including nhmmer, 
-    cross_match, ABBlast/WUBlast, RMBlast and Decypher. RepeatMasker makes use of curated 
-    libraries of repeats and currently supports Dfam (profile HMM library derived from 
-    Repbase sequences) and Repbase, a service of the Genetic Information Research Institute
+    RepeatMasker {{version}} is a program that screens DNA sequences for interspersed
+    repeats and low complexity DNA sequences. See http://www.repeatmasker.org
   build:
     modules: 
       - perl/{{versions.perl}}
@@ -24,11 +21,14 @@
       - hmmer/{{versions.hmmer}}
   install:
      makeinstall: >
+       echo "{{versions.perl}}" > ../PERLVERSION;
        mkdir -p $(ROOT){{root}};
        sed -i '/\.*maskFile.pl/d' configure;
        perl ./configure -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer;
        sed -i 's%/usr/local/bin/perl%/usr/bin/env perl%' *.pm util/*;
-       /bin/rm *.pm.bak;
+       /bin/rm *.pm.bak *.jpg configure *.html INSTALL;
        $(TAR) cf - . | (cd $(ROOT){{root}}; tar xf -)
   requires:
-      - perl_{{versions.perl}}
+     - perl_{{versions.perl}}
+     - perl_{{versions.perl}}-Text-Soundex
+  rpmFilters: *filterRequiresProvides

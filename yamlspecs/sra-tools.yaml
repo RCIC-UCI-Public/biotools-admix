@@ -38,4 +38,3 @@
       mkdir -p $(ROOT){{root}}/etc;
       mv $(ROOT)/{{root}}/bin/ncbi/ $(ROOT)/{{root}}/etc;
       $(INSTALL) -m 644  shared/kfgsums $(ROOT)/{{root}}/etc/ncbi
-  requires: ""
