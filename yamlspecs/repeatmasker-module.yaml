@@ -4,12 +4,12 @@
 ---
 - package: repeatmasker Module
   category: BIOTOOLS
-  release: 4
   module:
     setenv: ""
     prepend_path:
       - PATH {{root}}/util
       - PATH {{root}}
+      - PERL5LIB {{root}}/Libraries
     prereq: 
       - perl/{{versions.perl}}
       - python/{{versions.python3}}
