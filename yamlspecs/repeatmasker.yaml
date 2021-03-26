@@ -2,7 +2,7 @@
 ---
 - package: 
   name: repeatmasker 
-  release: "3"
+  release: "5"
   version: "{{versions.repeatmasker}}"
   vendor_source: http://www.repeatmasker.org/RepeatMasker-{{version}}.{{extension}}
   src_dir: RepeatMasker
@@ -24,7 +24,7 @@
        echo "{{versions.perl}}" > ../PERLVERSION;
        mkdir -p $(ROOT){{root}};
        sed -i '/\.*maskFile.pl/d' configure;
-       perl ./configure -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer;
+       perl ./configure -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer -libdir {{root}}/Libraries;
        sed -i 's%/usr/local/bin/perl%/usr/bin/env perl%' *.pm util/*;
        /bin/rm *.pm.bak *.jpg configure *.html INSTALL;
        $(TAR) cf - . | (cd $(ROOT){{root}}; tar xf -)
