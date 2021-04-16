@@ -2,7 +2,7 @@
 ---
 - package: 
   name: repeatmasker 
-  release: "5"
+  release: "6"
   version: "{{versions.repeatmasker}}"
   vendor_source: http://www.repeatmasker.org/RepeatMasker-{{version}}.{{extension}}
   src_dir: RepeatMasker
@@ -19,15 +19,20 @@
       - trf/{{versions.trf}}
       - ncbi-blast/{{versions.ncbiblast}}
       - hmmer/{{versions.hmmer}}
+  rmConfigOpt: -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer
   install:
-     makeinstall: >
-       echo "{{versions.perl}}" > ../PERLVERSION;
-       mkdir -p $(ROOT){{root}};
-       sed -i '/\.*maskFile.pl/d' configure;
-       perl ./configure -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer -libdir {{root}}/Libraries;
-       sed -i 's%/usr/local/bin/perl%/usr/bin/env perl%' *.pm util/*;
-       /bin/rm *.pm.bak *.jpg configure *.html INSTALL;
-       $(TAR) cf - . | (cd $(ROOT){{root}}; tar xf -)
+    makeinstall: >
+      echo "{{versions.perl}}" > ../PERLVERSION;
+      mkdir -p $(ROOT){{root}};
+      mkdir -p {{root}};
+      sed -i '/\.*maskFile.pl/d' configure;
+      sed -i 's%/usr/local/bin/perl%/usr/bin/env perl%' *.pm util/*;
+      $(TAR) cf - . | (cd $(ROOT){{root}}; tar xf -);
+      mount --bind $(ROOT){{root}} {{root}};
+      (pushd {{root}}; perl ./configure {{rmConfigOpt}}; popd);
+      umount {{root}};
+      rm -rf {{root}};
+      (cd $(ROOT){{root}}; /bin/rm *.pm.bak *.jpg configure *.html INSTALL;)
   requires:
      - perl_{{versions.perl}}
      - perl_{{versions.perl}}-Text-Soundex
