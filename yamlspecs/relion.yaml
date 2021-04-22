@@ -1,0 +1,33 @@
+!include common.yaml
+---
+- package: relion
+  name: relion 
+  version: "{{versions.relion}}"
+  vendor_source: https://github.com/3dem/{{name}}/archive/{{version}}.{{extension}}
+  description: |
+    RELION {{version}} (for REgularised LIkelihood OptimisatioN) is a stand-alone computer program for 
+    Maximum A Posteriori refinement of (multiple) 3D reconstructions or 2D class averages in 
+    cryo-electron microscopy. It is developed in the research group of Sjors Scheres at the 
+    MRC Laboratory of Molecular Biology.
+  builddir: builddir
+  mpi: "{{versions.mpi.name}}"
+  mpi_version: "{{versions.mpi.version}}"
+  build:
+    configure_args: -DCMAKE_INSTALL_PREFIX={{root}} -DMKLFFT=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON ..
+    pkgmake: >
+      mkdir {{builddir}};
+      cd {{builddir}};
+      export CPATH="$${CPATH:+$$CPATH:}$${MKLROOT}/include/fftw";
+      cmake {{build.configure_args}}; 
+      make -j 8
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - "{{mpi}}/{{mpi_version}}/{{compiler}}.{{compiler_version}}"
+      - "mkl/{{versions.mkl}}" 
+      - foundation
+  install:
+    makeinstall: >
+      cd {{builddir}};
+      make DESTDIR=$(ROOT) install;
+      mkdir -p $(ROOT){{root}}/lib;
+      install -m755 lib/* $(ROOT){{root}}/lib
