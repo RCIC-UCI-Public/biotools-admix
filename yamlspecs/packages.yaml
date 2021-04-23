@@ -40,6 +40,8 @@ bootstrap:
   - htslib-module
   - trf
   - trf-module
+  - edirect
+  - edirect-module
   - ncbi-blast
   - ncbi-blast-module
   - hmmer
@@ -97,8 +99,6 @@ build:
   - picard-tools-module
   - picard-tools-latest
   - picard-tools-latest-module
-  - edirect
-  - edirect-module
   - fastp
   - fastp-module
   - salmon
