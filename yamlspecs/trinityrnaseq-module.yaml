@@ -1,15 +1,15 @@
-# Builds the module for relion
+# Builds the module for trinity
 !include trinityrnaseq.yaml
 !include rcic-module.yaml
 ---
 - package: trinityrnaseq Module
   category: BIOTOOLS
-# Set the name to trinity for user friendliness
-  vanityname: trinity
+  # set next 3 variables so that short name is used by th users
+  # while referring to install dir by fullname as before.
+  baserpm: trinityrnaseq
+  name: trinity
+  parent: "{{pkg_defaults.app_path}}/{{baserpm}}"
   module:
-    logname: "{{vanityname}}/{{version}}"
-    path: "{{pkg_defaults.RCICmpath}}/{{category}}/{{vanityname}}"
-
     setenv: 
       - TRINITY_HOME {{root}}
     prepend_path:
@@ -27,7 +27,6 @@
       - kallisto/{{versions.kallisto}}
       - salmon/{{versions.salmon}}
       - samtools/{{versions.samtools}}
-
     requires:
-      - *Requires
       - "{{module.prereq}}" 
+      - *Requires
