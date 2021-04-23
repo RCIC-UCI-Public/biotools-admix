@@ -19,7 +19,8 @@
       - python/{{pyversion}}
       - SPAdes/{{versions.SPAdes}}
       - racon/{{versions.racon}}
-      - pilon/{{versions.pilon}}
+      - samtools/{{versions.samtools}}
+      - bcftools/{{versions.bcftools}}
       - java/{{versions.java}}
       - bowtie2/{{versions.bowtie2}}
       - ncbi-blast/{{versions.ncbiblast}}
@@ -34,7 +35,9 @@
     - python_{{pyversion}} 
     - SPAdes_{{versions.SPAdes}}
     - racon_{{versions.racon}}
-    - pilon_{{versions.pilon}}
+    - samtools_{{versions.samtools}}
+    - bcftools_{{versions.bcftools}}
     - java-{{versions.java}}-openjdk
     - bowtie2_{{versions.bowtie2}}
     - ncbi-blast_{{versions.ncbiblast}}
+    - pilon_{{versions.pilon}}

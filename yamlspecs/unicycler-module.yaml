@@ -10,16 +10,8 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - *ModuleCompiler_prereq
-      - python/{{pyversion}}
-      - SPAdes/{{versions.SPAdes}}
-      - racon/{{versions.racon}}
+      - "{{build.modules}}"
       - pilon/{{versions.pilon}}
-      - java/{{versions.java}}
-      - bowtie2/{{versions.bowtie2}}
-      - ncbi-blast/{{versions.ncbiblast}}
-      - samtools/{{versions.samtools}}
-      - bcftools/{{versions.bcftools}}
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires
