@@ -4,11 +4,8 @@
 ---
 - package: trinityrnaseq Module
   category: BIOTOOLS
-  # set next 3 variables so that short name is used by th users
-  # while referring to install dir by fullname as before.
-  baserpm: trinityrnaseq
-  name: trinity
-  parent: "{{pkg_defaults.app_path}}/{{baserpm}}"
+  baserpm: "{{longname}}_{{version}}"
+  parent: "{{pkg_defaults.app_path}}/{{longname}}"
   module:
     setenv: 
       - TRINITY_HOME {{root}}
@@ -17,7 +14,7 @@
       - PATH {{root}}/util
       - PATH {{root}}/trinity-plugins
     prereq: 
-      - "{{build.modules}}" 
+      - "{{build.base_modules}}" 
       - java/{{versions.java}}
       - python/{{versions.python3}}
       - bowtie/{{versions.bowtie}}

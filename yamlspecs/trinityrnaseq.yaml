@@ -1,10 +1,10 @@
 !include common.yaml
 ---
 - package: trinityrnaseq
-  name: trinityrnaseq 
-  shortname: trinity
+  longname: trinityrnaseq 
+  name: trinity
   version: "{{versions.trinityrnaseq}}"
-  vendor_source: https://github.com/{{name}}/{{name}}/archive/v{{version}}.{{extension}}
+  vendor_source: https://github.com/{{longname}}/{{longname}}/archive/v{{version}}.{{extension}}
   description: |
     Trinity {{version}}, developed at the Broad Institute and the Hebrew University 
     of Jerusalem, represents a novel method for the efficient and robust de novo 
@@ -15,21 +15,24 @@
     the transcriptional complexity at a given gene or locus, and then processes 
     each graph independently to extract full-length splicing isoforms and to tease 
     apart transcripts derived from paralogous genes.
+  src_dir: "{{longname}}-{{version}}"
+  src_tarball: "{{longname}}-{{version}}.{{extension}}"
+  baserpm: "{{longname}}_{{version}}"
+  parent: "{{pkg_defaults.app_path}}/{{longname}}"
   addfile:
     - filter-requires-{{name}}.sh
     - filter-provides-{{name}}.sh
   build:
     pkgmake: make -j 8
-    modules:
+    base_modules:
       - "{{compiler}}/{{compiler_version}}"
       - "perl/{{versions.perl}}"
+    modules:
       - foundation
-
+      - "{{build.base_modules}}"
   install:
     makeinstall: >
       echo "{{versions.perl}}" > ../PERLVERSION;
       mkdir -p DESTDIR=$(ROOT){{root}};
       $(TAR) cf - * | (cd $(ROOT){{root}}; tar xvfBp -)
-
   rpmFilters: *filterRequiresProvides
-
