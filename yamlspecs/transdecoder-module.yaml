@@ -12,7 +12,7 @@
     setenv:
       -  TRANSDECODER_HOME {{root}}
     prereq: 
-      - perl/{{versions.perl}}
+      - "{{build.modules}}"
     requires: 
-      - *Requires
       - "{{module.prereq}}"
+      - *Requires

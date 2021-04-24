@@ -12,5 +12,5 @@
     prereq: 
       - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

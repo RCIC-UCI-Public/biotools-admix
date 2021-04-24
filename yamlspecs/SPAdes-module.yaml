@@ -13,5 +13,5 @@
       - *ModuleCompiler_prereq
       - python/{{versions.python3}}
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

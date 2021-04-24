@@ -9,10 +9,7 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - *ModuleCompiler_prereq
-      - python/{{versions.python3}}
-      - perl/{{versions.perl}}
-      - intel-tbb/{{versions.intel_tbb}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

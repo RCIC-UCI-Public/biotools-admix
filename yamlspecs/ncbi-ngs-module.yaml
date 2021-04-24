@@ -18,9 +18,7 @@
       - LD_LIBRARY_PATH {{ncbi_vdb}}/lib64
       - CLASSPATH {{root}}/jar/ngs-java.jar
     prereq: 
-      - *ModuleCompiler_prereq
-      - python/{{versions.python3}}
-      - java/{{versions.java}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

@@ -12,7 +12,7 @@
     alias: 
       - pilon "java -jar {{root}}/{{name}}-{{version}}.jar"
     prereq: 
-      - java/{{versions.java}}
+      - "{{build.modules}}"
     requires:
-      - *Requires
       - "{{module.prereq}}"
+      - *Requires

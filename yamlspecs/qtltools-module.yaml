@@ -10,10 +10,7 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - *ModuleCompiler_prereq
-      - htslib/{{versions.htslib}}
-      - R/{{versions.R}}
-      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

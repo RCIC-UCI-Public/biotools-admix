@@ -7,8 +7,7 @@
   release: 3
   module:
     prereq: 
-      - *ModuleCompiler_prereq
-      - htslib/{{versions.htslib}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

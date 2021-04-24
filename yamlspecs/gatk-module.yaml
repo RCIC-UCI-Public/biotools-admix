@@ -10,7 +10,7 @@
     prepend_path:
       - PATH {{root}}
     prereq: 
-      - java/{{versions.java}}
+      - "{{build.modules}}"
     requires:
-      - *Requires
       - "{{module.prereq}}" 
+      - *Requires

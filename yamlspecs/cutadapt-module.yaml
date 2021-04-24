@@ -12,5 +12,5 @@
     prereq: 
       - "{{build.modules}}"
     requires:
-      - *Requires
       - "{{module.prereq}}"
+      - *Requires

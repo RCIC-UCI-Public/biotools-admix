@@ -9,11 +9,7 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - *ModuleCompiler_prereq
-      - samtools/{{versions.samtools}}
-      - eigen/{{versions.eigen}}
-      - htslib/{{versions.htslib}}
-      - boost/{{versions.boost_archaic}}/{{compiler}}.{{compiler_version}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

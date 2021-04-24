@@ -15,8 +15,8 @@
       - PATH {{root}}/bin
       - LD_LIBRARY_PATH {{root}}/lib
     prereq: 
-      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
+      - "{{build.modules}}"
       - edirect/{{versions.edirect}}
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *ModuleCompiler_requires

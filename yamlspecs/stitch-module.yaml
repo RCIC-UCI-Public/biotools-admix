@@ -9,8 +9,7 @@
     prepend_path:
       - PATH {{root}}
     prereq: 
-      - R/{{versions.R}}
-      - htslib/{{versions.htslib}}
+      - "{{build.modules}}"
     requires:
-      - *Requires
       - "{{module.prereq}}"
+      - *Requires

@@ -12,7 +12,7 @@
     alias: 
       - gatk "java -jar {{root}}/GenomeAnalysisTK.jar"
     prereq: 
-      - java/{{versions.java_classic}}
+      - "{{build.modules}}"
     requires:
-      - *Requires
       - "{{module.prereq}}" 
+      - *Requires

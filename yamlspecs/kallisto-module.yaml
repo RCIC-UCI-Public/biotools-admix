@@ -9,7 +9,6 @@
     prereq: 
       - *ModuleCompiler_prereq
       - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
-      - java/{{versions.java}}
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

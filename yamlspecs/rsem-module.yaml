@@ -10,10 +10,7 @@
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
-      - *ModuleCompiler_prereq
-      - perl/{{versions.perl}}
-      - python/{{versions.python3}}
-      - R/{{versions.R}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

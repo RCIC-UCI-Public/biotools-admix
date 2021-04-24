@@ -11,11 +11,7 @@
       - PATH {{root}}
       - PERL5LIB {{root}}/Libraries
     prereq: 
-      - perl/{{versions.perl}}
-      - python/{{versions.python3}}
-      - trf/{{versions.trf}}
-      - ncbi-blast/{{versions.ncbiblast}}
-      - hmmer/{{versions.hmmer}}
+      - "{{build.modules}}"
     requires:
-      - *Requires
       - "{{module.prereq}}"
+      - *Requires

@@ -12,5 +12,5 @@
       - fastqc/{{versions.fastqc}}
       - cutadapt/{{versions.cutadapt}}
     requires:
-      - *Requires
       - "{{module.prereq}}"
+      - *Requires

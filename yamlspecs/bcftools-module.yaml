@@ -7,8 +7,7 @@
   release: 3
   module:
     prereq: 
-      - *ModuleCompiler_prereq
-      - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires

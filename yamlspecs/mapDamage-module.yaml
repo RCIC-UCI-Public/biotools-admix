@@ -12,9 +12,7 @@
     setenv:
       - MAPDAMAGE_HOME {{root}}
     prereq: 
-      - *ModuleCompiler_prereq
-      - python/{{pyversion}}
-      - R/{{versions.R}}
+      - "{{build.modules}}"
     requires:
-      - *ModuleCompiler_requires
       - "{{module.prereq}}"
+      - *Requires
