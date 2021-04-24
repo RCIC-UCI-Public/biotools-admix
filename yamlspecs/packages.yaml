@@ -118,6 +118,8 @@ build:
   - rsem-module
   - star
   - star-module
+  - star-latest
+  - star-latest-module
   - sra-tools
   - sra-tools-module
   - repeatmasker

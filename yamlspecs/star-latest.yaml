@@ -1,0 +1,4 @@
+!include star.yaml
+---
+- version: "{{versions.star_latest}}"
+  src_dir: STAR-{{version}}

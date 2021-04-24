@@ -1,0 +1,4 @@
+# Builds the module for star.
+!include star-module.yaml
+---
+- version: "{{versions.star_latest}}"
