@@ -6,7 +6,7 @@
   src_dir: STAR-{{version}}
   vendor_source: https://github.com/alexdobin/STAR/archive/{{version}}.{{extension}}
   description: |
-    Spliced Transcripts Alignment to a Reference 
+    STAR {{version}} - Spliced Transcripts Alignment to a Reference 
     Copyright Alexander Dobin, 2009-2019 https://www.ncbi.nlm.nih.gov/pubmed/23104886
   builddir: source
   build:
