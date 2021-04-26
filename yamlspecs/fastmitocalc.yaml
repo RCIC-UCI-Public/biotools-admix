@@ -1,0 +1,21 @@
+!include common.yaml
+---
+- package: fastmitocalc 
+  name: fastmitocalc 
+  version: "{{versions.fastmitocalc}}"
+  extension: zip
+  vendor_source: https://lgsun.irp.nia.nih.gov/hsgu/software/mitoAnalyzer/download/fastMitoCalc.{{extension}}
+  no_src_dir: True
+  description: |
+    fastMitoCalc is a program that can estimate mtDNA copy number highly 
+    accurately but is more than 100 times faster than mitoCalc. 
+    See https://lgsun.irp.nia.nih.gov/hsgu/software/mitoAnalyzer/index.html
+  builddir: source
+  progs: BaseCoverage fastMitoCalc.pl
+  build:
+    pkgmake: > 
+      g++ BaseCoverage.cpp -o BaseCoverage
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT)/{{root}}/bin;
+       $(INSTALL) {{progs}} $(ROOT)/{{root}}/bin

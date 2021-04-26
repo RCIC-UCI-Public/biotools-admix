@@ -1,3 +1,4 @@
+9a4d90576b341c1fe46e176a71b3a33596e40951  sources/bamtools-2.5.1.tar.gz 1nXhrgc7Mjjl-XLbDtdH3kwLd0rouk8Uy
 1485c2c1c3362f4fa6fb9e19cbde0993102e84d0  sources/bandage-0.8.1.tar.gz 1FO2RgdmpX0mbSvtlex1lx7QzqzUnSLwq
 b19c9ba06b1c8e8f135c1e0ab0e4ff713a291bf4  sources/bcftools-1.10.2.tar.gz 11oJASV7JC1POTSOTzWc4wazZNFhu889j
 51f03e1cac60f99c062d9babb6385800c89c78f6  sources/bedtools2-2.29.2.tar.gz 1e2lGwbkmyLp1IICZKlLbxdO-iKTrexnX
@@ -13,6 +14,7 @@ c457449566f908808bcb36d10fd0bea49fcf2c62  sources/deeptools-3.5.0.tar.gz 1dTzb26
 be4e235ceb1a9789c4fe9960a6c10a06179be0d1  sources/edirect.tar.gz 1JxDurhoL0HNiAuy_hXBh5WAgYE4X2Gc_
 657888d18b40aa18aa6d68e31a5e930ae8cf1606  sources/fastp-0.20.0.tar.gz 1kwTb9U-e6kA2duIXNl4y5poXXcatZ5f8
 28e827fce4a3ee15819376fdcdce07ff6c477a78  sources/fastqc-0.11.9.tar.gz 1vC2zeaqNAx6P0lSHftcra0twZ0-3eLFz
+3146575959c1bd7896a76e27ee351a56a65bd249  sources/fastmitocalc-1.0.zip 1DL6bz3DFq_2kS6Ld22ItMl9bpPNe4n7x
 3764f0807c5fb3e8eeeb1b9d8fed296a6920770e  sources/freebayes-1.3.2.tar.gz 1CJgfVMo7xNyZ3mCseCCQZ5ytG48pCdrv
 580e509f41b3c8eb8fb26832aed9bd422e2d16f1  sources/gatk-4.1.9.0.zip 1weJSRDO8aBHQGc9JAYqfn04KLB0mcH1r
 bf5d0ccb408b10acbc7390ff7b492459cadd89ad  sources/gclib-20201207.tar.gz 1dm8gwbgjpOfUgnu5PakhAxjjYIGsz1BM
@@ -57,6 +59,7 @@ a44b2ff389f9caf943fd97d9fda6ba34a40ab583  sources/SPAdes-3.14.0.tar.gz 1xmTfQgG8
 cc6fbe8f23b5f8ea94a186711d976c984b9cc07f  sources/sra-tools-2.10.4.tar.gz 1RYejkuA91X_--gAmBerxkr9ZSb7d7n4I
 fdd195c11aa3d14d1e1955ae78d64d82a0891986  sources/sra-tools-2.10.9.tar.gz 1Ib6V9q9oGnI2TWwhoseUs08VsJwFQU8-
 14b77c2d08c368f814224bd1dfd6eee4d23d05ce  sources/star-2.7.3a.tar.gz 1UraGMzeQMVKWMqhBgYIAmFDo2GQu-eq_
+d75d79d649e847b72786b9220c9660d5d3582304  sources/star-2.7.8a.tar.gz 156VGsKAOHvsYySh7180oaRtrfq31LFtP
 1569cc2dd65f29287fc50d21ba270d0edb4dd731  sources/STITCH_1.6.3.tar.gz 1e1Dgdt6EOKkMs52QUoa5UvNGhQ1TVtF0
 866af33c2dfdc192bc7018abf564476a28563d99  sources/subread-2.0.1.tar.gz 1v598G75RIHpWd-giAsFxkF0la0L6frV2
 aa846efe4da6f84dc33088f186b7984271334f5e  sources/Text-Soundex-3.05.tar.gz 1T7KgQkdEfSZoSOTLikR1BM5Pi3MFTsFG
@@ -72,4 +75,3 @@ aa293c0ab656ae528914989ca5d656cfa9348af3  sources/ucsc-tools-v393.tgz 1lU2cLPOvB
 6bfc91253ac662cc3b5f31a51f88857673ea2032  sources/vcftools-0.1.16.tar.gz 1nkvvJ88pnfqBF5FKTZNxY0UFr8ifAU3G
 14b82e7f505bc10ade6ccea849caf2494edd8bed  sources/vg-1.23.0.tar.gz 1VMxAqPy-8hl9K5vwrl8xSiDPeyVSatLl
 63876bc3122fc2372d1fe9cf390859cc4423496e  sources/yaggo-1.5.10.tar.gz 1pdmAauH0VF0_b7tzT84l85f_yv6_zkD9
-9a4d90576b341c1fe46e176a71b3a33596e40951  sources/bamtools-2.5.1.tar.gz 1nXhrgc7Mjjl-XLbDtdH3kwLd0rouk8Uy

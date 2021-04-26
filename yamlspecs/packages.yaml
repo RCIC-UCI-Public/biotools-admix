@@ -171,6 +171,8 @@ build:
   - trimgalore-module
   - sra-tools-latest
   - sra-tools-latest-module
+  - fastmitocalc
+  - fastmitocalc-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
