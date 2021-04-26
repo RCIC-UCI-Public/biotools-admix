@@ -1,0 +1,27 @@
+!include common.yaml
+---
+- package: sambamba
+  name: sambamba 
+  version: "{{versions.sambamba}}"
+  suffix: "linux-amd64-static"
+  extension: gz
+  vendor_source: https://github.com/biod/sambamba/releases/download/v{{version}}/{{name}}-{{version}}-{{suffix}}.{{extension}}
+  description: |
+    Sambamba {{version}} is a high performance highly parallel robust and fast
+    tool (and library), written in the D programming language, for  working
+    with SAM and BAM files. This package is  built from binary distro.
+    See https://github.com/biod/sambamba
+  src_dir: "{{name}}"
+  binary_name: "{{name}}-{{version}}-{{suffix}}"
+  src_tarball: "{{binary_name}}.{{extension}}"
+  build:
+    preconfigure: >
+      mkdir {{name}};
+      gunzip {{src_tarball}}; 
+      mv {{binary_name}} {{name}}
+    modules: ""
+    pkgmake: echo
+  install:
+    makeinstall:
+      mkdir -p $(ROOT)/{{root}}/bin;
+      $(INSTALL) {{binary_name}} $(ROOT)/{{root}}/bin/{{name}}

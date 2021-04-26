@@ -173,6 +173,8 @@ build:
   - sra-tools-latest-module
   - fastmitocalc
   - fastmitocalc-module
+  - sambamba
+  - sambamba-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
