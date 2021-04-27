@@ -13,6 +13,7 @@ system:
   - jansson-devel
   - libffi-devel
   - lz4-devel
+  - lz4-static
   - cairo-devel
   - perl-Archive-Tar
   - perl-IO-Zlib
