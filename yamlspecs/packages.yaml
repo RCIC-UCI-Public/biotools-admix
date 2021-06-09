@@ -129,7 +129,6 @@ build:
   - repeatmasker-module
   - bandage
   - bandage-module
-  - scanpy
   - ucsc-tools
   - ucsc-tools-module
   - unicycler
