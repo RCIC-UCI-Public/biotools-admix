@@ -13,15 +13,17 @@
   opt_prereq: --with-ngs-sdk-prefix=$$NGS_HOME --with-ngs-java-prefix=$$NGS_HOME/jar/ngs-java.jar --with-hdf5-prefix=$$HDF5_HOME 
   build:
     configure: ./configure {{opt_prefix}} {{opt_prereq}}
-    modules:
-      - ncbi-ngs/{{versions.ngs}}
+    base_modules:
+      - "{{compiler}}/{{compiler_version}}"
       - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
+    modules:
+      - "{{build.base_modules}}"
+      - ncbi-ngs/{{versions.ngs}}
     pkgmake: make 
   compiledir: "{{builddir}}/ncbi-vdb/linux/gcc/x86_64/rel/lib/"
   libs_dynamic: libdiagnose libkdf5 libncbi-vdb libncbi-wvdb libvdb-sqlite
   libs_static: libncbi-ngs-c++ {{libs_dynamic}}
   install:
-    installextra: ""
     makeinstall: >
       echo Installing libraries;
       mkdir -p $(ROOT)/{{root}}/lib64;
@@ -44,4 +46,3 @@
       echo Installing configuration files;
       mkdir -p $(ROOT)/{{root}}/etc/ncbi;
       $(INSTALL) -m 644  libs/kfg/*.kfg libs/kfg/kfgsums $(ROOT)/{{root}}/etc/ncbi
-  requires: ""

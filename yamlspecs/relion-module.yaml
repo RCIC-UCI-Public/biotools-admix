@@ -1,14 +1,10 @@
-# Builds the module for relion
 !include relion.yaml
 !include rcic-module.yaml
 ---
-- package: relion Module
+- package: relion module
   category: BIOTOOLS
   module:
     setenv: ""
     prereq: 
-      - "{{mpi}}/{{mpi_version}}/{{compiler}}.{{compiler_version}}"
-      - mkl/{{versions.mkl}}
-    requires:
-      - "{{module.prereq}}"
-      - *Requires
+      - "{{build.base_modules}}"
+# NOTE removing "" breaks in old style

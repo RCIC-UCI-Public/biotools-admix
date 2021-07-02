@@ -1,4 +1,3 @@
-# Builds the module for smoldyn
 !include smoldyn.yaml
 !include rcic-module.yaml
 ---
@@ -10,6 +9,5 @@
     prepend_path: 
       - PATH {{root}}/bin
     prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"
+# NOTE removing "" breaks in old style

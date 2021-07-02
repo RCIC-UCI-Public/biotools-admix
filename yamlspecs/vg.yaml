@@ -9,8 +9,10 @@
     formats, alignment, genotyping, and variant calling methods 
   src_dir: "{{name}}-v{{version}}" 
   build:
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
+    modules: 
+      - "{{build.base_modules}}"
       - protobuf/{{versions.protobuf}}
       - foundation
     pkgmake: >
@@ -20,10 +22,10 @@
       make -j 8
   install:
      makeinstall: >
-       mkdir -p $(ROOT)/{{ root }}/bin;
-       mkdir -p $(ROOT)/{{ root }}/lib;
-       mkdir -p $(ROOT)/{{ root }}/share;
-       $(INSTALL) bin/* $(ROOT)//{{ root }}/bin;
-       $(INSTALL) lib/lib* $(ROOT)//{{ root }}/lib;
-       $(INSTALL) share/man $(ROOT)/{{ root }}/share
-     installextra: $(INSTALL) -m 644  README* LICENSE COPYING AUTHORS $(ROOT){{ root }} 
+       mkdir -p $(ROOT)/{{root}}/bin;
+       mkdir -p $(ROOT)/{{root}}/lib;
+       mkdir -p $(ROOT)/{{root}}/share;
+       $(INSTALL) bin/* $(ROOT)//{{root}}/bin;
+       $(INSTALL) lib/lib* $(ROOT)//{{root}}/lib;
+       $(INSTALL) share/man $(ROOT)/{{root}}/share
+     installextra: $(INSTALL) -m 644  README* LICENSE COPYING AUTHORS $(ROOT){{root}} 

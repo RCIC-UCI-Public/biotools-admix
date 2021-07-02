@@ -1,8 +1,7 @@
-# Builds the module for hmmer
 !include hmmer.yaml
 !include rcic-module.yaml
 ---
-- package: hmmer Module
+- package: hmmer module
   category: BIOTOOLS
   release: 2
   module:
@@ -11,7 +10,3 @@
     prepend_path:
       - PATH {{root}}/bin
       - MANPATH {{root}}/share/man
-    prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires

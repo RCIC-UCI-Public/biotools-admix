@@ -1,14 +1,9 @@
-# Builds the module for deeptools
 !include deeptools.yaml
 !include rcic-module.yaml
 ---
-- package: deeptools Module
+- package: deeptools module
   category: BIOTOOLS
   module:
     setenv: ""
     prepend_path: ""
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires
+# NOTE removing "" breaks in old style

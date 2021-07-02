@@ -1,10 +1,11 @@
-# Builds the module for edirect. 
 !include edirect.yaml
 !include rcic-module.yaml
 ---
-- package: edirect Module
+- package: edirect module
   release: 2
   category: BIOTOOLS
   module:
     prepend_path:
        - PATH {{root}}
+    prereq: 
+#NOTE prereq is new style. breaks in old

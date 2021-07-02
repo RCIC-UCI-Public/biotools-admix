@@ -1,15 +1,10 @@
-# Builds the module for htslib.
 !include htslib.yaml
 !include rcic-module.yaml
 ---
-- package: HTSLIB Module
+- package: HTSLIB module
   category: BIOTOOLS
   release: 2
   module:
     setenv:
       - *Setenv
       -  HTSLIB_HOME {{root}}
-    prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires

@@ -1,3 +1,4 @@
+# common definitions to include in package yaml files
 !include rcic-package.yaml
 !include rpm.yaml
 ---
@@ -6,11 +7,8 @@
   compiler: gcc
   compiler_version: "{{versions.gcc}}"
   build:
-    configure: echo
-    modules: 
+    modules:
       - "{{compiler}}/{{compiler_version}}"
-    pkgmake:
-    target: 
   extras:
   install:
      makeinstall: >

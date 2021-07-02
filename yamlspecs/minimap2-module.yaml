@@ -1,13 +1,6 @@
-# Builds the module for minimap2.
 !include minimap2.yaml
 !include rcic-module.yaml
 ---
-- package: minimap2 Module
+- package: minimap2 module
   category: BIOTOOLS
   release: 2
-  module:
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

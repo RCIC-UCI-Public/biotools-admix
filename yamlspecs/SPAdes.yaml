@@ -7,10 +7,12 @@
   description: |
     SPAdes version {{version}}. St. Petersburg Assembler
   build:
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - foundation
       - python/{{versions.python3}}
+    modules: 
+      - foundation
+      - "{{build.base_modules}}"
     pkgmake: ./spades_compile.sh 
   extras: README
   install:

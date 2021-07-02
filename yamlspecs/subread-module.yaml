@@ -1,10 +1,10 @@
-# Builds the module for subread.
 !include subread.yaml
 !include rcic-module.yaml
 ---
-- package: subread Module
+- package: subread module
   category: BIOTOOLS
   module:
     prepend_path:
       - PATH {{root}}/bin
     setenv: ""
+# NOTE removing "" breaks in old style

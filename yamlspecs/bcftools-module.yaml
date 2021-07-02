@@ -1,13 +1,6 @@
-# Builds the module for bcftools.
 !include bcftools.yaml
 !include rcic-module.yaml
 ---
-- package: bcftools Module
+- package: bcftools module
   category: BIOTOOLS
   release: 3
-  module:
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

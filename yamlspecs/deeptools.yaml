@@ -18,7 +18,6 @@
     (for example, treatment and control). Finally, using such normalized and 
     standardized files, deeptools can create many publication-ready visualizations 
     to identify enrichments and for functional annotations of the genome
-
   build:
     modules: 
       - python/{{pyversion}}
@@ -29,7 +28,6 @@
   files:
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin/*"
-
   requires:
     - python_{{pyversion}} 
     - python_{{pyversion}}-pyBigWig

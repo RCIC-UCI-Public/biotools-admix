@@ -64,7 +64,6 @@
       mkdir -p $(ROOT)/{{root}}/share/examples-python;
       cp ngs-python/examples/* $(ROOT)/{{root}}/share/examples-python;
       (cd ngs-python; python setup.py install --root $(ROOT))
-  requires: ""
   files:
     - "{{parent}}"
     - "{{pkg_defaults.app_path}}/python/{{versions.python3}}"

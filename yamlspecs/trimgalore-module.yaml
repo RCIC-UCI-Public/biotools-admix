@@ -1,8 +1,7 @@
-# Builds the module for trimgalore.
 !include trimgalore.yaml
 !include rcic-module.yaml
 ---
-- package: trimgalore Module
+- package: trimgalore module
   category: BIOTOOLS
   module:
     setenv: ""
@@ -11,6 +10,3 @@
     prereq: 
       - fastqc/{{versions.fastqc}}
       - cutadapt/{{versions.cutadapt}}
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

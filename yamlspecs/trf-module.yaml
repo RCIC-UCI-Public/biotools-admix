@@ -1,8 +1,7 @@
-# Builds the module for trf.
 !include trf.yaml
 !include rcic-module.yaml
 ---
-- package: trf Module
+- package: trf module
   category: BIOTOOLS
   release: 2
   module:

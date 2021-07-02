@@ -1,8 +1,7 @@
-# Builds the module for RepeatMasker
 !include repeatmasker.yaml
 !include rcic-module.yaml
 ---
-- package: repeatmasker Module
+- package: repeatmasker module
   category: BIOTOOLS
   module:
     setenv: ""
@@ -10,8 +9,4 @@
       - PATH {{root}}/util
       - PATH {{root}}
       - PERL5LIB {{root}}/Libraries
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires
+# NOTE removing "" breaks in old style

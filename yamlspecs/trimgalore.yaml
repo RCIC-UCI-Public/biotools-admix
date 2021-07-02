@@ -8,10 +8,10 @@
   description: |
     TrimGalore {{version}} is a a Perl wrapper around tools Cutadapt and FastQC
   build:
-    pkgmake: echo "NONE" 
-    modules: ""
+    modules:
   extras: LICENSE README*
   install:
      makeinstall: >
        mkdir -p $(ROOT)/{{root}}/bin;
        $(INSTALL) -m 755 trim_galore $(ROOT)/{{root}}/bin
+  requires:

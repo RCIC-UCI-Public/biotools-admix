@@ -1,4 +1,3 @@
-# Builds the module for sra-tools
 !include sra-tools-latest.yaml
 !include rcic-module.yaml
 ---

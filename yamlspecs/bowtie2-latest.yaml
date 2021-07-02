@@ -2,8 +2,7 @@
 ---
 - package: bowtie2 
   version: "{{versions.bowtie2_latest}}"
-
-# latest version of bowtie2 no longer uses the intel tbb 
+  # latest version of bowtie2 no longer uses the intel tbb 
   build:
     modules:
       - "{{compiler}}/{{compiler_version}}"

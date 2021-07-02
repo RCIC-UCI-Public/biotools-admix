@@ -1,14 +1,9 @@
-# Builds the module for kallisto.
 !include kallisto.yaml
 !include rcic-module.yaml
 ---
-- package: kallisto Module
+- package: kallisto module
   category: BIOTOOLS
   release: 2
   module:
     prereq: 
-      - *ModuleCompiler_prereq
-      - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
-    requires:
-      - "{{module.prereq}}"
-      - *Requires
+      - "{{build.base_modules}}"

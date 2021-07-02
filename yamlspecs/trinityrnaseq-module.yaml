@@ -1,8 +1,7 @@
-# Builds the module for trinity
 !include trinityrnaseq.yaml
 !include rcic-module.yaml
 ---
-- package: trinityrnaseq Module
+- package: trinityrnaseq module
   category: BIOTOOLS
   baserpm: "{{longname}}_{{version}}"
   parent: "{{pkg_defaults.app_path}}/{{longname}}"
@@ -24,6 +23,3 @@
       - kallisto/{{versions.kallisto}}
       - salmon/{{versions.salmon}}
       - samtools/{{versions.samtools}}
-    requires:
-      - "{{module.prereq}}" 
-      - *Requires

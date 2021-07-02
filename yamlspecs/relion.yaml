@@ -20,10 +20,11 @@
       export CPATH="$${CPATH:+$$CPATH:}$${MKLROOT}/include/fftw";
       cmake {{build.configure_args}}; 
       make -j 8
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
+    base_modules: 
       - "{{mpi}}/{{mpi_version}}/{{compiler}}.{{compiler_version}}"
       - "mkl/{{versions.mkl}}" 
+    modules: 
+      - "{{build.base_modules}}"
       - foundation
   install:
     makeinstall: >

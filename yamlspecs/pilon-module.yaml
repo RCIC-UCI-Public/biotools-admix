@@ -1,8 +1,7 @@
-# Builds the module for pilon.
 !include pilon.yaml
 !include rcic-module.yaml
 ---
-- package: pilon Module
+- package: pilon module
   category: BIOTOOLS
   release: 2
   module:
@@ -11,8 +10,3 @@
       - PATH {{root}}
     alias: 
       - pilon "java -jar {{root}}/{{name}}-{{version}}.jar"
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

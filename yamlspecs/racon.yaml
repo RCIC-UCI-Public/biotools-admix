@@ -15,9 +15,11 @@
     in FASTA format printed to stdout. A wrapper script is also available to enable easier usage 
     to the end-user for large datasets. 
   build:
+    base_modules: 
+      - "{{compiler}}/{{compiler_version}}"
     modules: 
       - foundation
-      - "{{compiler}}/{{compiler_version}}"
+      - "{{build.base_modules}}"
     pkgmake: > 
       mkdir {{builddir}};
       cd {{builddir}};

@@ -17,10 +17,12 @@
     produced with your favorite aligner), and it will use the same wicked-fast, state-of-the-art 
     inference algorithm to estimate transcript-level abundances for your experiment
   build:
-    modules: 
-      - foundation
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
       - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
+    modules: 
+      - foundation
+      - "{{build.base_modules}}"
     pkgmake: > 
       mkdir {{builddir}};
       cd {{builddir}};

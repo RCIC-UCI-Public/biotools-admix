@@ -14,9 +14,11 @@
     complex events (composite insertion and substitution events) smaller than
     the length of a short-read sequencing alignment.
   build:
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
+    modules: 
       - foundation
+      - "{{build.base_modules}}"
     pkgmake: > 
       make
   extras: README* LICENSE

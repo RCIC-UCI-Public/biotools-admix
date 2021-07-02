@@ -1,8 +1,7 @@
-# Builds the module for fastqc
 !include fastqc.yaml
 !include rcic-module.yaml
 ---
-- package: fastqc Module
+- package: fastqc module
   category: BIOTOOLS
   release: 2
   module:
@@ -11,8 +10,3 @@
     prepend_path:
       - PATH {{root}}
       - CLASSPATH {{root}}/*
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}" 
-      - *Requires

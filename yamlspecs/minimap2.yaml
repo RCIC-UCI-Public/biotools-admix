@@ -12,7 +12,6 @@
     minimap2 {{version}} is a versatile sequence alignment program that aligns DNA or mRNA 
     sequences against a large reference database. Includes paftools.js and k8 javascript shell
   build:
-    configure: echo no configure required
     pkgmake: >
       make;
       python setup.py build

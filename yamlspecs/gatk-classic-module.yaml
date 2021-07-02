@@ -1,8 +1,7 @@
-# Builds the module for gatk.
 !include gatk-classic.yaml
 !include rcic-module.yaml
 ---
-- package: gatk classic Module
+- package: gatk classic module
   pkgname: "{{name}}_{{version}}-module"
   category: BIOTOOLS
   release: 2
@@ -11,8 +10,3 @@
       - PATH {{root}}
     alias: 
       - gatk "java -jar {{root}}/GenomeAnalysisTK.jar"
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}" 
-      - *Requires

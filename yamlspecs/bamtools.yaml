@@ -10,17 +10,18 @@
     end-user's toolkit for handling BAM files.
   builddir: builddir
   build:
-    configure: echo
     pkgmake: >
       mkdir {{builddir}};
       sed -i 's/JSONCPP jsoncpp>=1/JSONCPP jsoncpp/' CMakeLists.txt;
       cd {{builddir}};
       cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make -j 8
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - foundation
       - jsoncpp/{{versions.jsoncpp}}
+    modules: 
+      - foundation
+      - "{{build.base_modules}}"
   install:
     makeinstall: >
       cd {{builddir}};

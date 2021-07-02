@@ -1,15 +1,11 @@
-# Builds the module for tophat. 
 !include tophat.yaml
 !include rcic-module.yaml
 ---
-- package: tophat Module
+- package: tophat module
   category: BIOTOOLS
   release: 2
   module:
     setenv: ""
     prepend_path:
       - PATH {{root}}/bin
-    prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+# NOTE removing "" breaks in old style

@@ -1,4 +1,4 @@
-# This package is form binary distro
+# This package is from binary distro
 !include common.yaml
 ---
 - package: NCBI SRA toolkit

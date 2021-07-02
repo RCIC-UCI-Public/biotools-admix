@@ -1,8 +1,7 @@
-# Builds the module for gffread
 !include gffread.yaml
 !include rcic-module.yaml
 ---
-- package: gffread Module
+- package: gffread module
   category: BIOTOOLS
   module:
     setenv: ""

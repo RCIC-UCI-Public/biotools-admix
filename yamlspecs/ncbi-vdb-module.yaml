@@ -1,4 +1,3 @@
-# Builds the module for ncbi-vdb
 !include ncbi-vdb.yaml
 !include rcic-module.yaml
 ---
@@ -16,6 +15,4 @@
       - *Flagspath
       - LD_LIBRARY_PATH {{root}}/lib64
     prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"
