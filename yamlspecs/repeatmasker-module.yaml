@@ -4,9 +4,8 @@
 - package: repeatmasker module
   category: BIOTOOLS
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}/util
       - PATH {{root}}
       - PERL5LIB {{root}}/Libraries
-# NOTE removing "" breaks in old style

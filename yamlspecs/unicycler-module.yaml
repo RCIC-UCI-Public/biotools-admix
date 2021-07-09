@@ -5,10 +5,9 @@
   category: BIOTOOLS
   release: 4
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
       - "{{build.modules}}"
       - pilon/{{versions.pilon}}
-# NOTE removing "" breaks in old style

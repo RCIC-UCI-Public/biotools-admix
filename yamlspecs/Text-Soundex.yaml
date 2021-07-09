@@ -16,10 +16,8 @@
       export PERL_MM_USE_DEFAULT=true; 
       perl Makefile.PL;
       unset PERL_MM_USE_DEFAULT
-    configure_args: ""
     modules: 
       - "perl/{{versions.perl}}"
-    target: 
   install:
     makeinstall: >
       $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install

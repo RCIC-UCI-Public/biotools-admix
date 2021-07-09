@@ -12,10 +12,10 @@
     Binary distribution precompiled by NCBI.
   src_dir: sratoolkit.{{version}}-{{platform}}
   build:
-    modules: ""
+    modules:
   install:
     installextra: CHANGES README*
     makeinstall: >
       mkdir -p $(ROOT){{root}};
       cp -P -r  bin example schema $(ROOT){{root}}
-  requires: ""
+  requires:

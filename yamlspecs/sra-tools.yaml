@@ -26,7 +26,6 @@
       - "{{build.base_modules}}"
   symlinks: fasterq-dump fastq-dump sam-dump prefetch srapath sra-pileup vdb-dump
   install:
-    installextra: ""
     makeinstall: >
       echo Installing binaries;
       mkdir -p $(ROOT){{root}};

@@ -4,7 +4,6 @@
 - package: relion module
   category: BIOTOOLS
   module:
-    setenv: ""
+    setenv:
     prereq: 
       - "{{build.base_modules}}"
-# NOTE removing "" breaks in old style

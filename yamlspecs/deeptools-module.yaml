@@ -4,6 +4,5 @@
 - package: deeptools module
   category: BIOTOOLS
   module:
-    setenv: ""
-    prepend_path: ""
-# NOTE removing "" breaks in old style
+    setenv:
+    prepend_path:

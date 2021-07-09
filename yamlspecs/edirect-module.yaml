@@ -8,4 +8,3 @@
     prepend_path:
        - PATH {{root}}
     prereq: 
-#NOTE prereq is new style. breaks in old

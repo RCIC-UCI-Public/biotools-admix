@@ -5,6 +5,6 @@
   category: BIOTOOLS
   release: 2
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}/bin

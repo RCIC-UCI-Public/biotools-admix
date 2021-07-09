@@ -6,10 +6,9 @@
   namefull: MACS
   category: BIOTOOLS
   module:
-    setenv: ""
-    prepend_path: ""
+    setenv:
+    prepend_path:
     requires:
       - rcic-module-support
       - python_{{pyversion}}-{{namefull}}
       - "{{module.prereq}}"
-# NOTE removing "" breaks in old style

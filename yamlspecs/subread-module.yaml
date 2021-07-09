@@ -6,5 +6,4 @@
   module:
     prepend_path:
       - PATH {{root}}/bin
-    setenv: ""
-# NOTE removing "" breaks in old style
+    setenv:
