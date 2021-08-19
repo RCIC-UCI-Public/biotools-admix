@@ -177,6 +177,8 @@ build:
   - fastmitocalc-module
   - sambamba
   - sambamba-module
+  - breseq
+  - breseq-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

@@ -1,0 +1,12 @@
+# Builds the module for breseq.
+!include breseq.yaml
+!include rcic-module.yaml
+---
+- package: breseq Module
+  category: BIOTOOLS
+  module:
+    prereq:
+      - "{{build.modules}}"  
+    requires:
+      - "{{name}}_{{version}}" 
+      - "{{build.modules}}" 

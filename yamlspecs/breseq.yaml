@@ -1,0 +1,24 @@
+!include common.yaml
+---
+- package: breseq
+  name: breseq 
+  version: "{{versions.breseq}}"
+  vendor_source: https://github.com/barricklab/{{name}}/archive/refs/tags/v{{version}}.{{extension}}
+
+  description: |
+    breseq version {{version}} is a computational pipeline for the analysis of 
+    short-read re-sequencing data (e.g. Illumina, 454, IonTorrent, etc.). 
+    It uses reference-based alignment approaches to predict mutations in a 
+    sample relative to an already sequenced genome. breseq is intended for microbial 
+    genomes (<10 Mb) and re-sequenced samples that are only slightly diverged from the
+    reference sequence (<1 mutation per 1000 bp).  
+  build:
+    preconfigure: autoreconf -i
+    configure: ./configure
+    pkgmake: make -j 8
+    modules:
+      - "{{compiler}}/{{compiler_version}}"
+      - bowtie2/{{versions.bowtie2}}
+      - R/{{versions.R}}
+  requires:
+      - "{{build.modules}}"
