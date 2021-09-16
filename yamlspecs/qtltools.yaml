@@ -8,7 +8,6 @@
     QTLtools {{version}} a tool set for molecular QTL discovery and analysis
   build:
     patchfile: Makefile.qtltools.patch
-    configure: echo no configure required
     pkgmake: make -j 8
     modules: 
       - htslib/{{versions.htslib}}

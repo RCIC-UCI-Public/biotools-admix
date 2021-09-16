@@ -10,7 +10,6 @@
     sequencing datasets. It runs a set of analyses on one or more raw sequence
     files in fastq or bam format and produces a report which summarises the results.
   build:
-    configure: echo no configure required
     modules: 
       - java/{{versions.java}}
     pkgmake: ant build
