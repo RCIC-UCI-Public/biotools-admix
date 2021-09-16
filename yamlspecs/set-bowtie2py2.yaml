@@ -1,0 +1,8 @@
+!include packages.yaml
+---
+versions: bowtie2py2.versions.yaml
+build:
+  - bowtie2
+  - bowtie2-module
+manifest:
+  - "{{build}}"

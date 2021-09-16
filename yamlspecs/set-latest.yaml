@@ -1,0 +1,12 @@
+!include packages.yaml
+---
+versions: latest.versions.yaml
+build:
+  - bwa
+  - bwa-module
+  - star
+  - star-module
+  - bowtie2
+  - bowtie2-module
+manifest:
+  - "{{build}}"

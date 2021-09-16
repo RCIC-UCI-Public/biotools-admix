@@ -2,7 +2,11 @@
 ---
 - package: bowtie2 
   name: bowtie2 
-  version: "{{versions.bowtie2}}"
+  version: "{{versions.bowtie2.version}}"
+  addname: "{{versions.bowtie2.addname}}"
+  py: "{{versions.bowtie2.python}}"
+  baserpm: "{{name}}{{addname}}_{{version}}"
+  parent: "{{pkg_defaults.app_path}}/{{name}}{{addname}}"
   vendor_source: https://github.com/BenLangmead/bowtie2/archive/v{{version}}.tar.gz
   description: >
     bowtie2 {{version}}  
@@ -12,9 +16,9 @@
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - python/{{versions.python3}}
       - perl/{{versions.perl}}
-      - intel-tbb/{{versions.intel_tbb}}
+      - python/{{py}}
+      - "{{versions.bowtie2.addmod}}"
     pkgmake: make -j 8 
   extras: AUTHORS README
   install:
@@ -27,8 +31,8 @@
        chmod -R a+rX $ $(ROOT){{root}}{doc,example,scripts}
   requires:
     - "{{compiler}}_{{compiler_version}}"
-    - python_{{versions.python3}}
     - perl_{{versions.perl}}
     - perl_{{versions.perl}}-Math-Random
-    - intel-tbb_{{versions.intel_tbb}}
+    - python_{{py}}
+    - "{{versions.bowtie2.addreq}}"
   rpmFilters: *filterRequiresProvides

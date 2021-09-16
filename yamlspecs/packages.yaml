@@ -55,8 +55,6 @@ bootstrap:
   - pilon-module
   - bowtie2
   - bowtie2-module
-  - bowtie2-latest
-  - bowtie2-module-latest
   - ncbi-ngs
   - ncbi-ngs-module
   - rrbgen
@@ -80,14 +78,10 @@ build:
   - bedtools2-module
   - bwa
   - bwa-module
-  - bwa-latest
-  - bwa-latest-module
   - bustools
   - bustools-module
   - bcftools
   - bcftools-module
-  - bowtie2-python2
-  - bowtie2-python2-module
   - tophat
   - tophat-module
   - gatk
@@ -98,10 +92,10 @@ build:
   - kallisto-module
   - minimap2
   - minimap2-module
-  - picard-tools
-  - picard-tools-module
-  - picard-tools-latest
-  - picard-tools-latest-module
+  - picard-tools1
+  - picard-tools1-module
+  - picard-tools2
+  - picard-tools2-module
   - fastp
   - fastp-module
   - salmon
@@ -121,10 +115,10 @@ build:
   - rsem-module
   - star
   - star-module
-  - star-latest
-  - star-latest-module
   - sra-tools
   - sra-tools-module
+  - sra-tools-bin
+  - sra-tools-bin-module
   - repeatmasker
   - repeatmasker-module
   - bandage
@@ -171,8 +165,6 @@ build:
   - gffread-module
   - trimgalore
   - trimgalore-module
-  - sra-tools-latest
-  - sra-tools-latest-module
   - fastmitocalc
   - fastmitocalc-module
   - sambamba
@@ -180,3 +172,6 @@ build:
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
+sets:
+  - latest
+  - bowtie2py2

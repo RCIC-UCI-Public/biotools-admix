@@ -5,5 +5,8 @@
   category: BIOTOOLS
   release: 2
   module:
+    loadname: "{{name}}{{addname}}/{{module.name}}"
+    logname: "{{name}}{{addname}}/{{version}}"
+    path: "{{pkg_defaults.RCICmpath}}/{{category}}/{{name}}{{addname}}"
     prepend_path:
       - PATH {{root}}/bin

@@ -1,12 +1,12 @@
-!include picard-tools-latest.yaml
+!include picard-tools1.yaml
 !include rcic-module.yaml
 ---
 - package: picard-tools module
   category: BIOTOOLS
+  release: 2
   module:
     setenv: 
       - PICARDTOOLS "{{root}}"
-    alias: 
-      - picard "java -jar {{root}}/picard.jar"
     prepend_path:
+      - PATH {{root}}
       - CLASSPATH {{root}}/*

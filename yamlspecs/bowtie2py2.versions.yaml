@@ -1,0 +1,10 @@
+!include versions.yaml
+---
+bowtie2:
+  version: "2.4.1"
+  python: "2.7.17"
+  addname: "-python2"
+  addmod: 
+    - intel-tbb/20190605
+  addreq:
+    - intel-tbb_20190605

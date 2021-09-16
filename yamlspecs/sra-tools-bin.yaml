@@ -3,7 +3,7 @@
 ---
 - package: NCBI SRA toolkit
   name: sra-tools
-  version: "{{versions.sra_latest}}"
+  version: "{{versions.sra_bin}}"
   platform: "centos_linux64"
   vendor_source: https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/{{version}}/sratoolkit.{{version}}-{{platform}}.{{extension}}
   description: |

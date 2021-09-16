@@ -3,7 +3,7 @@
 - package: picard tools  
   name: picard-tools 
   versions: !include versions.yaml
-  version: "{{versions.picard_tools_latest}}"
+  version: "{{versions.picard_tools2}}"
   vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}
   src_dir: picard-{{version}}
   description: |

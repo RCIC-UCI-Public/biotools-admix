@@ -3,9 +3,9 @@
 - package: picard tools  
   name: picard-tools 
   versions: !include versions.yaml
-  version: "{{versions.picard_tools}}"
+  version: "{{versions.picard_tools1}}"
   extension: zip
-  vendor_source: https://sourceforge.net/projects/picard/files/picard-tools/1.87/picard-tools-{{version}}.{{extension}}
+  vendor_source: https://sourceforge.net/projects/picard/files/picard-tools/{{version}}/picard-tools-{{version}}.{{extension}}
   description: >
     Picard-tools {{version}}  
   build:

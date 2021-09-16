@@ -22,7 +22,7 @@
       - samtools/{{versions.samtools}}
       - bcftools/{{versions.bcftools}}
       - java/{{versions.java}}
-      - bowtie2/{{versions.bowtie2}}
+      - bowtie2/{{versions.bowtie2.version}}
       - ncbi-blast/{{versions.ncbiblast}}
     pkgmake: python setup.py build
   install:
@@ -38,6 +38,6 @@
     - samtools_{{versions.samtools}}
     - bcftools_{{versions.bcftools}}
     - java-{{versions.java}}-openjdk
-    - bowtie2_{{versions.bowtie2}}
+    - bowtie2_{{versions.bowtie2.version}}
     - ncbi-blast_{{versions.ncbiblast}}
     - pilon_{{versions.pilon}}

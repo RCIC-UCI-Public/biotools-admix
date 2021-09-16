@@ -1,4 +1,4 @@
-!include sra-tools-latest.yaml
+!include sra-tools-bin.yaml
 !include rcic-module.yaml
 ---
 - package: sra-tools module

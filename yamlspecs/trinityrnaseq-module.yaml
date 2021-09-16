@@ -17,7 +17,7 @@
       - java/{{versions.java}}
       - python/{{versions.python3}}
       - bowtie/{{versions.bowtie}}
-      - bowtie2/{{versions.bowtie2}}
+      - bowtie2/{{versions.bowtie2.version}}
       - gatk/{{versions.gatk}}
       - Jellyfish/{{versions.jellyfish}}
       - kallisto/{{versions.kallisto}}

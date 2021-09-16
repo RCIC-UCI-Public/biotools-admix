@@ -1,4 +1,0 @@
-!include bwa.yaml
----
-- version: "{{versions.bwa_latest}}"
-  distro: "v{{version}}"
