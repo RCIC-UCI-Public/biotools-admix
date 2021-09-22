@@ -1,6 +1,6 @@
 !include packages.yaml
 ---
-versions: bowtie2py2.versions.yaml
+versions: versions-bowtie2py2.yaml
 build:
   - bowtie2
   - bowtie2-module

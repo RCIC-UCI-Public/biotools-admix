@@ -1,6 +1,6 @@
 !include packages.yaml
 ---
-versions: latest.versions.yaml
+versions: versions-latest.yaml
 build:
   - bwa
   - bwa-module
