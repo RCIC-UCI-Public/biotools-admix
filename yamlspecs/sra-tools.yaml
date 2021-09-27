@@ -19,7 +19,7 @@
     configure: ./configure  {{opt_prefix}} {{opt_prereq}} {{opt_source}}
     pkgmake: (cd tools/driver-tool/utf8proc/; make); make 
     base_modules: 
-      - "{{compiler}}.{{compiler_version}}"
+      - "{{compiler}}/{{compiler_version}}"
       - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
     modules: 
       - ncbi-ngs/{{versions.ngs}}

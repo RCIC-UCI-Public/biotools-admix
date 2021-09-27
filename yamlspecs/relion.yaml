@@ -13,7 +13,7 @@
   mpi: "{{versions.mpi.name}}"
   mpi_version: "{{versions.mpi.version}}"
   build:
-    configure_args: -DCMAKE_INSTALL_PREFIX={{root}} -DMKLFFT=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON ..
+    configure_args: -DCMAKE_INSTALL_PREFIX={{root}} -DMKLFFT=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCUDA=OFF ..
     pkgmake: >
       mkdir {{builddir}};
       cd {{builddir}};
