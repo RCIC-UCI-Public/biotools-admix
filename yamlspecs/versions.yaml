@@ -36,7 +36,6 @@ bowtie2:
     - intel-tbb/20190605
   addreq:
     - intel-tbb_20190605
-    - python_3.8.0
 gatk_classic: "2.4" 
 gatkhash_classic: "9-g532efad"
 gatk: "4.1.9.0"

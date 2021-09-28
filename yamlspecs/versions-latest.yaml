@@ -4,7 +4,5 @@ bwa: "0.7.17"
 star: "2.7.8a"
 bowtie2:
   version: "2.4.4"
-  python: 3.8.0
-  addname:
   addmod:
   addreq:
