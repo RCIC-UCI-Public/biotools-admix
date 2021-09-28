@@ -1,10 +1,10 @@
 ---
+# this section will move to site versions file
 cmake: "3.12.3"
-gcc: "8.4.0" 
+compiler:
+  name: gcc
+  version: "8.4.0"
 java: "1.8.0"
-javamajor: "8"
-java_classic: "1.7.0"
-javamajor_classic: "7"
 perl: "5.30.0"
 R: "4.0.4"
 hdf5: "1.10.5"
@@ -12,22 +12,24 @@ python: "2.7.17"
 python_major: "2.7"
 python3: "3.8.0"
 python3_major: "3.8"
-gsl: "2.6"
 boost: "1.66.0"
-boost_archaic: "1.50.0"
 protobuf: "3.11.4"
 mpi:
   name: openmpi
   version: "4.0.3"
 mkl: "2019.5.281"
 eigen: "3.3.7"
+intel_tbb: "20190605"
+# end section
+java_classic: "1.7.0"
+gsl: "2.6"
+boost_archaic: "1.50.0"
 SPAdes: "3.14.0"
 bwa: "0.7.8"
 htslib: "1.10.2"
 samtools: "1.10"
 bcftools: "1.10.2"
 tophat: "2.1.1"
-intel_tbb: "20190605"
 bowtie2:
   version: "2.4.1"
   python: "3.8.0"
@@ -109,5 +111,3 @@ trimgalore: "0.6.6"
 text_soundex: "3.05"
 fastmitocalc: "1.0"
 sambamba: "0.8.0"
-#bowtie2_latest: "2.4.4"
-#bwa_latest: "0.7.17"
