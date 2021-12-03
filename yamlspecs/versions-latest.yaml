@@ -6,3 +6,6 @@ bowtie2:
   version: "2.4.4"
   addmod:
   addreq:
+minimap2:
+  version: "2.23"
+  release: "1"

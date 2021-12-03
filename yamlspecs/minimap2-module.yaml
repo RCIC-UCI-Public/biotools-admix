@@ -3,4 +3,9 @@
 ---
 - package: minimap2 module
   category: BIOTOOLS
-  release: 2
+  module:
+    setenv:
+    prepend_path:
+      - PATH {{root}}/bin
+      - PYTHONPATH {{root}}/lib/python{{versions.python3_major}}/site-packages
+      - MANPATH {{root}}/share/man
