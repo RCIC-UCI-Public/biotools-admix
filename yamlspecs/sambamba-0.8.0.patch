@@ -1,22 +1,45 @@
---- sambamba-0.8.0/Makefile	2020-11-30 06:46:19.000000000 -0800
-+++ sambamba-0.8.0.prev/Makefile	2021-04-27 12:11:21.916524416 -0700
-@@ -32,8 +32,8 @@
- 
- DLIBS       = $(LIBRARY_PATH)/libphobos2-ldc.a $(LIBRARY_PATH)/libdruntime-ldc.a
- DLIBS_DEBUG = $(LIBRARY_PATH)/libphobos2-ldc-debug.a $(LIBRARY_PATH)/libdruntime-ldc-debug.a
--LIBS        = lz4/lib/liblz4.a -L-L$(LIBRARY_PATH) -L-lpthread -L-lm -L-lz
--LIBS_STATIC = $(LIBRARY_PATH)/libc.a $(DLIBS) $(LIBRARY_PATH)/liblz4.a -L-lz
-+LIBS        =  /usr/lib64/liblz4.a -L-L$(LIBRARY_PATH) -L-lpthread -L-lm -L-lz
-+LIBS_STATIC = $(LIBRARY_PATH)/libc.a $(DLIBS) /usr/lib64/liblz4.a  -L-lz
- SRC         = utils/ldc_version_info_.d utils/lz4.d utils/strip_bcf_header.d $(sort $(wildcard BioD/contrib/undead/*.d BioD/contrib/undead/*/*.d)) utils/version_.d $(sort $(wildcard thirdparty/*.d) $(wildcard BioD/bio/*/*.d BioD/bio/*/*/*.d BioD/bio/*/*/*/*.d BioD/bio/*/*/*/*/*.d) $(wildcard sambamba/*.d sambamba/*/*.d sambamba/*/*/*.d))
- OBJ         = $(SRC:.d=.o)
- OUT         = bin/sambamba-$(shell cat VERSION)
-@@ -67,7 +67,7 @@
- 
- ldc_version_info: utils/ldc_version_info_.d
- 
--build-setup: ldc_version_info lz4-static
-+build-setup: ldc_version_info 
- 	mkdir -p bin/
- 
- default debug release static: $(OUT)
+*** sambamba-0.8.0/Makefile	2020-11-30 06:46:19.000000000 -0800
+--- sambamba-0.8.0.new/Makefile	2022-02-18 14:32:34.210609553 -0800
+***************
+*** 32,39 ****
+  
+  DLIBS       = $(LIBRARY_PATH)/libphobos2-ldc.a $(LIBRARY_PATH)/libdruntime-ldc.a
+  DLIBS_DEBUG = $(LIBRARY_PATH)/libphobos2-ldc-debug.a $(LIBRARY_PATH)/libdruntime-ldc-debug.a
+! LIBS        = lz4/lib/liblz4.a -L-L$(LIBRARY_PATH) -L-lpthread -L-lm -L-lz
+! LIBS_STATIC = $(LIBRARY_PATH)/libc.a $(DLIBS) $(LIBRARY_PATH)/liblz4.a -L-lz
+  SRC         = utils/ldc_version_info_.d utils/lz4.d utils/strip_bcf_header.d $(sort $(wildcard BioD/contrib/undead/*.d BioD/contrib/undead/*/*.d)) utils/version_.d $(sort $(wildcard thirdparty/*.d) $(wildcard BioD/bio/*/*.d BioD/bio/*/*/*.d BioD/bio/*/*/*/*.d BioD/bio/*/*/*/*/*.d) $(wildcard sambamba/*.d sambamba/*/*.d sambamba/*/*/*.d))
+  OBJ         = $(SRC:.d=.o)
+  OUT         = bin/sambamba-$(shell cat VERSION)
+--- 32,46 ----
+  
+  DLIBS       = $(LIBRARY_PATH)/libphobos2-ldc.a $(LIBRARY_PATH)/libdruntime-ldc.a
+  DLIBS_DEBUG = $(LIBRARY_PATH)/libphobos2-ldc-debug.a $(LIBRARY_PATH)/libdruntime-ldc-debug.a
+! 
+! LZ4_LIBP    = $(shell pkg-config --libs-only-L liblz4 | sed 's/^-L//')
+! LZ4LIBPATH    = $(strip $(LZ4_LIBP))
+! ifeq ($(LZ4LIBPATH),)
+! LZ4LIBPATH = /usr/lib64
+! endif
+! LIBLZ4 = $(LZ4LIBPATH)/liblz4.a
+! LIBS        =  $(LIBLZ4) -L-L$(LIBRARY_PATH) -L-lpthread -L-lm -L-lz
+! LIBS_STATIC = $(LIBRARY_PATH)/libc.a $(DLIBS) $(LIBLZ4) -L-lz
+  SRC         = utils/ldc_version_info_.d utils/lz4.d utils/strip_bcf_header.d $(sort $(wildcard BioD/contrib/undead/*.d BioD/contrib/undead/*/*.d)) utils/version_.d $(sort $(wildcard thirdparty/*.d) $(wildcard BioD/bio/*/*.d BioD/bio/*/*/*.d BioD/bio/*/*/*/*.d BioD/bio/*/*/*/*/*.d) $(wildcard sambamba/*.d sambamba/*/*.d sambamba/*/*/*.d))
+  OBJ         = $(SRC:.d=.o)
+  OUT         = bin/sambamba-$(shell cat VERSION)
+***************
+*** 67,73 ****
+  
+  ldc_version_info: utils/ldc_version_info_.d
+  
+! build-setup: ldc_version_info lz4-static
+  	mkdir -p bin/
+  
+  default debug release static: $(OUT)
+--- 74,80 ----
+  
+  ldc_version_info: utils/ldc_version_info_.d
+  
+! build-setup: ldc_version_info 
+  	mkdir -p bin/
+  
+  default debug release static: $(OUT)

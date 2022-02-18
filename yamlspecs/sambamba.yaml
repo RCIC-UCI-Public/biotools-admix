@@ -23,6 +23,7 @@
       export PATH=$$PATH:`pwd`/{{ldcbase}}/bin;
       export LIBRARY_PATH=`pwd`/{{ldcbase}}/lib
     modules:
+      - !ifeq "{{versions.os_release}},7,,lz4/{{versions.lz4}}"
     pkgmake: make
   install:
     makeinstall:
