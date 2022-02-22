@@ -3,7 +3,9 @@
 - package: cufflinks 
   name: cufflinks 
   version: "{{versions.cufflinks}}"
-  vendor_source: https://github.com/cole-trapnell-lab/{{name}}/archive/v{{version}}.{{extension}}
+  extension: zip
+  git_commit: dc3b0cb72a4ac2b6bbc887099e71fc0c21e107b7
+  vendor_source: https://github.com/cole-trapnell-lab/{{name}}/archive/{{git_commit}}.{{extension}}
   release: 3
   description: |
     Cufflinks {{version}} assembles transcripts, estimates their abundances, 
@@ -13,8 +15,9 @@
     abundances of these transcripts based on how many reads support each one, 
     taking into account biases in library preparation protocols.
   addfile: cufflinks-configure.sh
+  src_dir: "{{name}}-{{git_commit}}"
   build:
-    patchfile: "{{name}}-{{version}}.patch"
+    # patchfile: "{{name}}-{{version}}.patch"
     preconfigure: autoreconf --install 
     configure: ../cufflinks-configure.sh 
     configure_args: >
@@ -22,13 +25,17 @@
        --with-bam=$$samtools__PREFIX 
        --with-eigen=$$EIGEN_HOME       
        --with-zlib=/usr/lib64
+       --prefix={{root}}
     modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - boost/{{versions.boost_archaic}}/{{compiler}}.{{compiler_version}}
+      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
       - eigen/{{versions.eigen}}
       - htslib/{{versions.htslib}}
       - samtools/{{versions.samtools}}
-    pkgmake: export LDFLAGS=\"-L$$samtools__PREFIX/lib -L$$BOOST_HOME/lib $$htslib__LDFLAGS -lbam -lboost_system -lst -lhts\"; make -j 8 
+    pkgmake: >
+      unset MAKEFLAGS;
+      export LDFLAGS=\"-L$$samtools__PREFIX/lib -L$$BOOST_HOME/lib $$htslib__LDFLAGS -lbam -lboost_system -lst -lhts\"; 
+      make -j 8
   extras: AUTHORS LICENSE MANUAL* ../cufflinks-configure.sh
   requires:
     - "{{compiler}}_{{compiler_version}}"
