@@ -1,3 +1,4 @@
+site: !include site.yaml
 system:
   - autoconf
   - boost-devel
@@ -13,18 +14,17 @@ system:
   - jansson-devel
   - libffi-devel
   - lz4-devel
-  - lz4-static
+  - !ifeq "{{site.os_release}},7,lz4-static,"
   - cairo-devel
   - perl-Archive-Tar
   - perl-IO-Zlib
-  - perl-Package-Constants
+  - !ifeq "{{site.os_release}},7,perl-Package-Constants,"
   - perl-LWP-Protocol-https
   - perl-XML-Simple 
   - perl-ExtUtils-Embed
   - qt5-qtbase-devel
   - qt5-qtsvg-devel
   - file-devel
-  - mariadb-libs
   - mariadb-devel
   - libpng-devel
   - libuuid-devel
@@ -73,6 +73,8 @@ bootstrap:
   - plotly
   - deeptoolsintervals
   - Text-Soundex
+  - ncbi-vdb
+  - ncbi-vdb-module
 build:
   - bedtools2
   - bedtools2-module
@@ -86,8 +88,8 @@ build:
   - tophat-module
   - gatk
   - gatk-module
-  - gatk-classic
-  - gatk-classic-module
+#  - gatk-classic
+#  - gatk-classic-module
   - kallisto
   - kallisto-module
   - minimap2
@@ -102,8 +104,6 @@ build:
   - salmon-module
   - vg
   - vg-module
-  - ncbi-vdb
-  - ncbi-vdb-module
   - pyvcf
   - pyvcf-py3
   - pysam
@@ -125,8 +125,8 @@ build:
   - bandage-module
   - ucsc-tools
   - ucsc-tools-module
-  - unicycler
-  - unicycler-module
+##  - unicycler
+##  - unicycler-module
   - vcftools
   - vcftools-module
   - fastqc
