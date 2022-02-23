@@ -28,7 +28,7 @@
       cd {{builddir}};
       export CMAKE_LIBRARY_PATH=$$LD_LIBRARY_PATH:$$CMAKE_LIBRARY_PATH;
       cmake -DBOOST_ROOT=$$BOOST_HOME -DCMAKE_INSTALL_PREFIX={{root}} ..;
-      make
+      unset MAKEFLAGS; make
   extras: LICENSE README*
   install:
      makeinstall: >

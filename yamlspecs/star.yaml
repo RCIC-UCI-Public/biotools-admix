@@ -12,7 +12,7 @@
   build:
     pkgmake: > 
       cd {{builddir}};
-      make STAR
+      unset MAKEFLAGS; make STAR
   install:
      makeinstall: >
        mkdir -p $(ROOT)/{{root}}/bin;
