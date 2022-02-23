@@ -51,7 +51,7 @@
       echo Installing in ngs-java;
       mkdir -p $(ROOT)/{{root}}/jar;
       for x in {{libs_java}}; do \
-          $(INSTALL) -m 644 ngs-java/builddir/ngs-java/jar/$$x.{{version}} $(ROOT)/{{root}}/jar;\
+          $(INSTALL) -m 644 ngs-java/builddir/ngs-java/jar/$$x $(ROOT)/{{root}}/jar/$$x.{{version}};\
           (cd $(ROOT)/{{root}}/jar; \
               ln -s $$x.{{version}} $$x.{{ngs_major}}; \
               ln -s $$x.{{ngs_major}} $$x); \
