@@ -14,9 +14,9 @@ bowtie2:
   python: "3.8.0"
   addname:
   addmod: 
-    - intel-tbb/{{versions.intel_tbb}}
+    - intel-tbb/20190605
   addreq:
-    - intel-tbb_{{versions.intel_tbb}}
+    - intel-tbb_20190605
 gatk_classic: "2.4" 
 gatkhash_classic: "9-g532efad"
 gatk: "4.1.9.0"
@@ -94,3 +94,4 @@ fastmitocalc: "1.0"
 sambamba: "0.8.0"
 gsl: "2.6"
 lz4: "1.9.3"
+intel_tbb: "20190605"
