@@ -5,6 +5,7 @@
   version: "{{versions.rsem}}"
   src_dir: RSEM-{{version}}
   vendor_source: https://github.com/deweylab/RSEM/archive/v{{version}}.{{extension}}
+  src_tarball: "{{name}}-v{{version}}.{{extension}}"
   description: |
     RSEM is a software package for estimating gene and isoform expression 
     levels from RNA-Seq data. The RSEM package provides an user-friendly 
