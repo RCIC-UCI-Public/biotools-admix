@@ -19,7 +19,7 @@
     modules:
       - "{{build.base_modules}}"
       - ncbi-ngs/{{versions.ngs}}
-    pkgmake: make 
+    pkgmake: unset MAKEFLAGS; make 
   compiledir: "{{builddir}}/ncbi-vdb/linux/gcc/x86_64/rel/lib/"
   libs_dynamic: libdiagnose libkdf5 libncbi-vdb libncbi-wvdb libvdb-sqlite
   libs_static: libncbi-ngs-c++ {{libs_dynamic}}
