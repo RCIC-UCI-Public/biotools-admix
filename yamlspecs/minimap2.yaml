@@ -37,3 +37,4 @@
     - "python_{{versions.python3}}"
   files:
     - "{{parent}}"
+  rpmBuildIdLinks: "none"
