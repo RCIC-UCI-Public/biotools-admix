@@ -36,6 +36,7 @@ system:
   - libXmu-devel
   - fltk-devel
   - ruby
+  - !ifeq "{{site.os_release}},8,java-17-openjdk-devel,"
 bootstrap:
   - htslib
   - htslib-module
@@ -55,8 +56,6 @@ bootstrap:
   - pilon-module
   - bowtie2
   - bowtie2-module
-  - ncbi-ngs
-  - ncbi-ngs-module
   - rrbgen
   - samtools
   - samtools-module
@@ -65,7 +64,7 @@ bootstrap:
   - yaggo
   - jellyfish
   - jellyfish-module
-  - pysam-py3
+  - pysam
   - py2bit
   - pyBigWig
   - sphinx
@@ -73,8 +72,8 @@ bootstrap:
   - plotly
   - deeptoolsintervals
   - Text-Soundex
-  - ncbi-vdb
-  - ncbi-vdb-module
+  - bcftools
+  - bcftools-module
 build:
   - bedtools2
   - bedtools2-module
@@ -82,14 +81,10 @@ build:
   - bwa-module
   - bustools
   - bustools-module
-  - bcftools
-  - bcftools-module
   - tophat
   - tophat-module
   - gatk
   - gatk-module
-#  - gatk-classic
-#  - gatk-classic-module
   - kallisto
   - kallisto-module
   - minimap2
@@ -102,76 +97,67 @@ build:
   - fastp-module
   - salmon
   - salmon-module
-  - vg
-  - vg-module
   - pyvcf
-  - pyvcf-py3
-  - pysam
   - bowtie
   - bowtie-module
-  - transdecoder
-  - transdecoder-module
   - rsem
   - rsem-module
   - star
   - star-module
-  - sra-tools
-  - sra-tools-module
   - sra-tools-bin
   - sra-tools-bin-module
   - repeatmasker
   - repeatmasker-module
-  - bandage
-  - bandage-module
   - ucsc-tools
   - ucsc-tools-module
-##  - unicycler
-##  - unicycler-module
+  - unicycler
+  - unicycler-module
   - vcftools
   - vcftools-module
   - fastqc
   - fastqc-module
   - freebayes
   - freebayes-module
-  - vcflib
-  - vcflib-module
-  - mapDamage
-  - mapDamage-module
-  - stitch
-  - stitch-module
   - cufflinks
   - cufflinks-module
-  - qtltools
-  - qtltools-module
   - macs
   - macs-module
-  - smoldyn
-  - smoldyn-module
   - bamtools
   - bamtools-module
   - cutadapt
   - cutadapt-module
   - meme
   - meme-module
-  - relion
-  - relion-module
   - trinityrnaseq
   - trinityrnaseq-module
   - deeptools
   - deeptools-module
   - subread
   - subread-module
-  - gffread
-  - gffread-module
   - trimgalore
   - trimgalore-module
-  - fastmitocalc
-  - fastmitocalc-module
-  - sambamba
-  - sambamba-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
 sets:
   - latest
-  - bowtie2py2
+  - py2
+  - centos8
+
+# These packages  and their modules were removed as unused. keep for reference
+# - ncbi-ngs (for compiling sra-tools)
+# - ncbi-vdb (for compiling sra-tools)
+# - gatk-classic
+# - vcflib
+# - vg
+# - transdecoder
+# - sra-tools
+# - mapDamage
+# - stitch
+# - qtltools
+# - smoldyn
+# - relion
+# - gffread
+# - fastmitocalc
+# - sambamba
+# - bandage
