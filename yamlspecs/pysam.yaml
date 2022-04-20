@@ -2,10 +2,10 @@
 ---
 - package: pysam 
   name: pysam 
-  pyversion: "{{versions.python}}"
-  pymajor: "{{versions.python_major}}"
+  pyversion: !ifeq "{{versions.pysam.pymajor}},2,{{versions.python}},{{versions.python3}}"
+  pymajor:   !ifeq "{{versions.pysam.pymajor}},2,{{versions.python_major}},{{versions.python3_major}}"
   baserpm: python_{{pyversion}}-{{name}}
-  version: "{{versions.pysam}}"
+  version: "{{versions.pysam.version}}"
   vendor_source: https://github.com/pysam-developers/pysam/archive/v{{version}}.{{extension}}
   description: |
     Pysam {{version}} is a python module that makes it easy to read and manipulate mapped short 

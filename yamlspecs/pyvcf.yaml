@@ -2,11 +2,11 @@
 ---
 - package: pyvcf 
   name: PyVCF 
-  pyversion: "{{versions.python}}"
-  pymajor: "{{versions.python_major}}"
+  pyversion: !ifeq "{{versions.pyvcf.pymajor}},2,{{versions.python}},{{versions.python3}}"
+  pymajor:   !ifeq "{{versions.pyvcf.pymajor}},2,{{versions.python_major}},{{versions.python3_major}}"
   pkgname: python_{{pyversion}}-{{name}}
-  version: "{{versions.pyvcf}}"
-  vendor_source: https://files.pythonhosted.org/packages/20/b6/36bfb1760f6983788d916096193fc14c83cce512c7787c93380e09458c09/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.pyvcf.version}}"
+  vendor_source: https://files.pythonhosted.org/packages/{{versions.pyvcf.hash}}/{{name}}-{{version}}.{{extension}}
   description: |
     A VCFv parser for Python. Online version of PyVCF 
     documentation is available at http://pyvcf.rtfd.org/
