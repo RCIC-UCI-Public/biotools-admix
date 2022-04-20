@@ -8,7 +8,5 @@ build:
   - star-module
   - bowtie2
   - bowtie2-module
-  - minimap2
-  - minimap2-module
 manifest:
   - "{{build}}"
