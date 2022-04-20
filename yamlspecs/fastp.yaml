@@ -8,6 +8,14 @@
     FastP {{version}}. An ultra-fast all-in-one FASTQ preprocessor 
     (QC/adapters/trimming/filtering/splitting/merging...)
   extras: LICENSE README*
+  adddirs: !ifeq "{{version}},0.20.0,,$$isal__PREFIX/lib $$libdeflate__PREFIX/lib"
+  build:
+    modules:
+      - "{{compiler}}/{{compiler_version}}"
+      - !ifeq "{{version}},0.20.0,,isal/{{versions.isal}}"
+      - !ifeq "{{version}},0.20.0,,libdeflate/{{versions.libdeflate}}"
+    pkgmake: >
+       export LIBRARY_DIRS="{{adddirs}}"; make
   install:
      makeinstall: >
        mkdir -p $(ROOT){{ root }}/bin;
