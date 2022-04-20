@@ -5,7 +5,7 @@
   pyversion: "{{versions.python3}}"
   pymajor: "{{versions.python3_major}}"
   version: "{{versions.unicycler}}"
-  vendor_source: https://github.com/rrwick/Unicycler/archive/v{{version}}.tar.{{extension}}
+  vendor_source: https://github.com/rrwick/Unicycler/archive/refs/tags/v{{version}}.{{extension}}
   src_dir: Unicycler-{{version}}
   description: |
     Unicycler {{version}} is an assembly pipeline for bacterial genomes. It can assemble
@@ -27,7 +27,8 @@
     pkgmake: python setup.py build
   install:
      makeinstall: >
-       python3 setup.py install --root $(ROOT)
+       unset MAKEFLAGS;
+       python setup.py install --root $(ROOT)
   files:
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
   requires:
