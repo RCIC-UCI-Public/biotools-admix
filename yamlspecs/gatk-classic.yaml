@@ -20,5 +20,5 @@
        $(INSTALL) GenomeAnalysisTK.jar  $(ROOT){{root}};
        $(TAR) cf - resources | (cd $(ROOT){{root}}; tar xf -)
   requires:
-    - jre = {{versions.java_classic}} 
+    - jre-{{versions.java_classic}}
   rpmJarRepack: 0

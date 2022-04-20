@@ -18,5 +18,5 @@
        $(INSTALL) -m 0644 gatk*.* GATK* README.md $(ROOT){{root}};
        $(TAR) cf - gatkdoc scripts | (cd $(ROOT){{root}}; tar xf -)
   requires:
-    - jre = {{versions.java}} 
+    - jre-{{versions.java}}
   rpmJarRepack: 0

@@ -20,5 +20,5 @@
        (cd bin; rm -rf .classpath build.xml .project .settings);
        (cd bin; $(TAR) cf - .) | (cd $(ROOT){{root}}; tar xf -)
   requires:
-    - jre = {{versions.java}} 
+    - jre-{{versions.java}}
   rpmJarRepack: 0

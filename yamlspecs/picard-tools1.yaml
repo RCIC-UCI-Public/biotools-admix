@@ -10,11 +10,11 @@
     Picard-tools {{version}}  
   build:
     modules: 
-      - java/{{versions.java}}
+      - java/{{versions.picard_java}}
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        $(INSTALL) -m 0644 *.jar  $(ROOT){{root}}
   requires:
-    - jre = {{versions.java}} 
+    - jre-{{versions.picard_java}}
   rpmJarRepack: 0

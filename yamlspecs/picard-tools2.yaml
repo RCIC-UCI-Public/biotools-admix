@@ -12,7 +12,7 @@
     To run these tools use an alias 'picard'
   build:
     modules: 
-      - java/{{versions.java}}
+      - java/{{versions.picard_java}}
   extras: README* LICENSE*
   install:
      makeinstall: >
@@ -22,5 +22,5 @@
        ./gradlew --no-daemon shadowJar;
        $(INSTALL) -m 0644 build/libs/picard.jar  $(ROOT){{root}}
   requires:
-    - jre = {{versions.java}} 
+    - jre-{{versions.picard_java}}
   rpmJarRepack: 0
