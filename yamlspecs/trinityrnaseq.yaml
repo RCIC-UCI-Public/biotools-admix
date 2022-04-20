@@ -28,7 +28,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - "perl/{{versions.perl}}"
     modules:
-      - foundation
+      - foundation/{{versions.foundation}}
       - "{{build.base_modules}}"
   install:
     makeinstall: >

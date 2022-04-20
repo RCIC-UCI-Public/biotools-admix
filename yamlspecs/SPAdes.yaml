@@ -11,7 +11,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - python/{{versions.python3}}
     modules: 
-      - foundation
+      - foundation/{{versions.foundation}}
       - "{{build.base_modules}}"
     pkgmake: ./spades_compile.sh 
   extras: README

@@ -23,4 +23,4 @@
       - python/{{versions.python3}}
     modules:
       - "{{build.base_modules}}"
-      - foundation
+      - foundation/{{versions.foundation}}

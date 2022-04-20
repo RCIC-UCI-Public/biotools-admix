@@ -14,7 +14,7 @@
     modules: 
       - "{{build.base_modules}}"
       - protobuf/{{versions.protobuf}}
-      - foundation
+      - foundation/{{versions.foundation}}
     pkgmake: >
       sed -i 's/-lprotobuf/$$(protobuf__LDFLAGS) -lprotobuf/' Makefile;
       sed -i 's/-lvcflib//' deps/vcflib/Makefile;

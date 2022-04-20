@@ -21,7 +21,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - "hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}"
     modules: 
-      - foundation
+      - foundation/{{versions.foundation}}
       - "{{build.base_modules}}"
   install:
     makeinstall: >

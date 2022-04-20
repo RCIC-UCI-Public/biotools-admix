@@ -25,7 +25,7 @@
       - "mkl/{{versions.mkl}}" 
     modules: 
       - "{{build.base_modules}}"
-      - foundation
+      - foundation/{{versions.foundation}}
   install:
     makeinstall: >
       cd {{builddir}};
