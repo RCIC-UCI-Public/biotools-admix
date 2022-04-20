@@ -7,21 +7,25 @@
   other_sources:
     - ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/rchive.Linux.gz
     - ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/xtract.Linux.gz
+    - !ifeq "{{version}},2020,,ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/transmute.Linux.gz"
   addsource:
-    - rchive.Linux.gz
-    - xtract.Linux.gz
-  src_tarball: "{{name}}.{{extension}}"
+    - rchive-{{version}}.Linux.gz
+    - xtract-{{version}}.Linux.gz
+    - !ifeq "{{version}},2020,,transmute-{{version}}.Linux.gz"
   src_dir: "{{name}}"
   description: |
-    Edirect are commandline tools to Entrez tools. 
+    Edirect {{version}} are commandline tools to Entrez tools. 
+    We assign version based on a time stamp of the newest file in the distro
+    as the NCBI tar.gz files have no versioning. See 
     https://www.ncbi.nlm.nih.gov/books/NBK179288/
   build:
     pkgmake: >
-      $(INSTALL) ../rchive.Linux.gz .; gunzip rchive.Linux.gz;
-      $(INSTALL) ../xtract.Linux.gz .; gunzip xtract.Linux.gz
+      $(INSTALL) ../rchive-{{version}}.Linux.gz rchive.Linux.gz; gunzip rchive.Linux.gz;
+      $(INSTALL) ../xtract-{{version}}.Linux.gz xtract.Linux.gz; gunzip xtract.Linux.gz;
+      if [ -f ../transmute-{{version}}.Linux.gz ]; then $(INSTALL) ../transmute-{{version}}.Linux.gz transmute.Linux.gz; gunzip transmute.Linux.gz; fi 
   install:
      makeinstall: >
-       mkdir -p $(ROOT){{ root }};
-       $(TAR) cf - --exclude=setup-deps.pl . | (cd $(ROOT){{ root }}; $(TAR) xf -);
-       (cd $(ROOT){{ root }}; $(TAR) xzf Mozilla-CA.tar.gz) 
+       mkdir -p $(ROOT){{root}};
+       $(TAR) cf - --exclude=setup-deps.pl . | (cd $(ROOT){{root}}; $(TAR) xf -);
+       (cd $(ROOT){{root}}; $(TAR) xzf Mozilla-CA.tar.gz) 
   requires: perl(LWP::Protocol::https)
