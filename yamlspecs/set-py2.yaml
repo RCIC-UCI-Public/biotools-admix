@@ -1,8 +1,10 @@
 !include packages.yaml
 ---
-versions: versions-bowtie2py2.yaml
+versions: versions-py2.yaml
 build:
   - bowtie2
   - bowtie2-module
+  - pysam
+  - pyvcf
 manifest:
   - "{{build}}"
