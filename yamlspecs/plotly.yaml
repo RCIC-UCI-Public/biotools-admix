@@ -9,14 +9,18 @@
   src_dir: "{{name}}.py-{{version}}"
   description: |
     Plotly {{version}} is an interactive, open-source, and browser-based graphing library for Python
+  opt: !ifeq "{{version}},4.14.1,,--skip-npm"
   build:
     modules: 
       - python/{{pyversion}}
-    pkgmake: cd ./packages/python/plotly; python setup.py build
+    pkgmake: cd ./packages/python/plotly; python setup.py build {{opt}}
   install:
      makeinstall: >
-       cd ./packages/python/plotly; python setup.py install --root $(ROOT)
+       cd ./packages/python/plotly; python setup.py install --root $(ROOT) {{opt}}
   files:
     - "{{pkg_defaults.app_path}}/python/{{pyversion}}"
   requires:
     - python_{{pyversion}} 
+
+# NOTE: later versions build npm-based extensions. This fails as the specific versions and dependecnies are used and
+# the build fails for the latest npm installed on the system. Use flag --skip-npm to build
