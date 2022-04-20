@@ -8,3 +8,7 @@
     setenv:
       - *Setenv
       -  HTSLIB_HOME {{root}}
+    prepend_path:
+      - *Prepend_path
+      - -d " " CPPFLAGS -I{{root}}/include
+      - -d " " LDFLAGS "-L{{root}}/lib -Wl,-rpath,{{root}}/lib"
