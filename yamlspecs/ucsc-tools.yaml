@@ -4,13 +4,13 @@
   name: ucsc-tools 
   version: "{{versions.ucsctools}}"
   extension: tgz
-  vendor_source: http://hgdownload.soe.ucsc.edu/admin/exe/userApps.{{version}}.src.{{extension}}
+  vendor_source: http://hgdownload.soe.ucsc.edu/admin/exe/userApps.archive/userApps.{{version}}.src.{{extension}}
   src_dir: userApps
   description: |
     The UCSC tools including Blat, LiftOver and command-line utilities
   build:
     patchfile: Makefile.ucsctools.patch
-    pkgmake: make 
+    pkgmake: unset MAKEFLAGS; make -j 8
   extras: "*.pdf *.txt README"
   install:
     makeinstall: >
