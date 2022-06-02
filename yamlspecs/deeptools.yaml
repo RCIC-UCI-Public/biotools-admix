@@ -3,9 +3,6 @@
 - package: deeptools 
   name: deeptools 
   release: "2"
-  pyversion: "{{versions.python3}}"
-  pymajor: "{{versions.python3_major}}"
-  baserpm: python_{{pyversion}}-{{name}}
   version: "{{versions.deeptools}}"
   vendor_source: https://github.com/deeptools/deeptools/archive/{{version}}.{{extension}}
   src_dir:  deepTools-{{version}}
@@ -24,10 +21,7 @@
     pkgmake: python setup.py build
   install:
      makeinstall: >
-       python setup.py install --root $(ROOT)
-  files:
-      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
-      - "{{pkg_defaults.app_path}}/python/{{pyversion}}/bin/*"
+       python setup.py install --root $(ROOT) --prefix {{root}}
   requires:
     - python_{{pyversion}} 
     - python_{{pyversion}}-pyBigWig

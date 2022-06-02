@@ -6,3 +6,5 @@
   module:
     setenv:
     prepend_path:
+      - PATH {{root}}/bin
+      - PYTHONPATH {{pypath}}
