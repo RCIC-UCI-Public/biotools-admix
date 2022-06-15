@@ -74,6 +74,8 @@ bootstrap:
   - Text-Soundex
   - bcftools
   - bcftools-module
+  - ncbi-ngs
+  - ncbi-ngs-module 
 build:
   - bedtools2
   - bedtools2-module
@@ -89,6 +91,8 @@ build:
   - kallisto-module
   - minimap2
   - minimap2-module
+  - ncbi-vdb
+  - ncbi-vdb-module
   - picard-tools1
   - picard-tools1-module
   - picard-tools2
@@ -145,8 +149,6 @@ sets:
   - centos8
 
 # These packages  and their modules were removed as unused. keep for reference
-# - ncbi-ngs (for compiling sra-tools)
-# - ncbi-vdb (for compiling sra-tools)
 # - gatk-classic
 # - vcflib
 # - vg
