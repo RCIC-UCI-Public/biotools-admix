@@ -5,7 +5,8 @@
   version: "{{versions.star}}"
   alpha: "{{versions.star_alpha}}"
   src_dir: STAR-{{version}}{{alpha}}
-  src_tarball: "{{name}}_{{version}}{{alpha}}.{{extension}}"
+  src_sep: !ifeq "{{alpha}},,-,_"
+  src_tarball: "{{name}}{{src_sep}}{{version}}{{alpha}}.{{extension}}"
   vendor_source: https://github.com/alexdobin/STAR/archive/{{version}}{{alpha}}.{{extension}}
   description: |
     STAR {{version}} - Spliced Transcripts Alignment to a Reference 
