@@ -16,9 +16,11 @@
       cd {{builddir}};
       cmake -DCMAKE_INSTALL_PREFIX={{root}} ..;
       make
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - foundation
+    modules: 
+      - foundation/{{versions.foundation}}
+      - "{{build.base_modules}}"
   install:
     makeinstall: >
       cd {{builddir}};

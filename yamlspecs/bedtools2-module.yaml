@@ -1,12 +1,6 @@
-# Builds the module for bedtools2.
 !include bedtools2.yaml
 !include rcic-module.yaml
 ---
-- package: bedtools2 Module
+- package: bedtools2 module
   category: BIOTOOLS
   release: 2
-  module:
-    prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires

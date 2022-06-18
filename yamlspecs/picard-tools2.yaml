@@ -3,7 +3,7 @@
 - package: picard tools  
   name: picard-tools 
   versions: !include versions.yaml
-  version: "{{versions.picard_tools_latest}}"
+  version: "{{versions.picard_tools2}}"
   vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}
   src_dir: picard-{{version}}
   description: |
@@ -12,7 +12,7 @@
     To run these tools use an alias 'picard'
   build:
     modules: 
-      - java/{{versions.java}}
+      - java/{{versions.picard_java}}
   extras: README* LICENSE*
   install:
      makeinstall: >
@@ -22,5 +22,5 @@
        ./gradlew --no-daemon shadowJar;
        $(INSTALL) -m 0644 build/libs/picard.jar  $(ROOT){{root}}
   requires:
-    - jre = {{versions.java}} 
+    - jre-{{versions.picard_java}}
   rpmJarRepack: 0

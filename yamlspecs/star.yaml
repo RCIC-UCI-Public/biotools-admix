@@ -3,8 +3,11 @@
 - package: star 
   name: star 
   version: "{{versions.star}}"
-  src_dir: STAR-{{version}}
-  vendor_source: https://github.com/alexdobin/STAR/archive/{{version}}.{{extension}}
+  alpha: "{{versions.star_alpha}}"
+  src_dir: STAR-{{version}}{{alpha}}
+  src_sep: !ifeq "{{alpha}},,-,_"
+  src_tarball: "{{name}}{{src_sep}}{{version}}{{alpha}}.{{extension}}"
+  vendor_source: https://github.com/alexdobin/STAR/archive/{{version}}{{alpha}}.{{extension}}
   description: |
     STAR {{version}} - Spliced Transcripts Alignment to a Reference 
     Copyright Alexander Dobin, 2009-2019 https://www.ncbi.nlm.nih.gov/pubmed/23104886
@@ -12,7 +15,7 @@
   build:
     pkgmake: > 
       cd {{builddir}};
-      make STAR
+      unset MAKEFLAGS; make STAR
   install:
      makeinstall: >
        mkdir -p $(ROOT)/{{root}}/bin;

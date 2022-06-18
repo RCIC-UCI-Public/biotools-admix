@@ -21,9 +21,11 @@
       (cd {{builddir}}; cmake -DCMAKE_INSTALL_PREFIX={{root}} ..; make);
       (cd source/wrl2smol/{{builddir}}; cmake -DCMAKE_INSTALL_PREFIX={{root}} ..; make);
       (cd source/SmolCrowd/{{builddir}}; cmake -DCMAKE_INSTALL_PREFIX={{root}} ..; make)
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - foundation
+    modules: 
+      - foundation/{{versions.foundation}}
+      - "{{build.base_modules}}"
   extras: License.txt
   install:
     makeinstall: >

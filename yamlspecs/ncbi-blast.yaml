@@ -22,7 +22,7 @@
     pkgmake: >
       cd c++; 
       ./configure --prefix={{root}} --with-boost=$$BOOST_HOME --with-mt --with-openmp --with-lfs --with-optimization --with-dll --with-projects=scripts/projects/rmblastn/project.lst;
-      make -j 8
+      unset MAKEFLAGS; make -j 8
   install:
     makeinstall: >
       cd c++; 
@@ -35,7 +35,7 @@
       %global privlibs %{privlibs}|libcomposition.* \n\
       %global privlibs %{privlibs}|libconnect.* \n\
       %global privlibs %{privlibs}|libdbapi.* \n\
-      %global privlibs %{privlibs}|libent.* \n\
+      %global privlibs %{privlibs}|libe.* \n\
       %global privlibs %{privlibs}|lib.*seq.* \n\
       %global privlibs %{privlibs}|libgen.* \n\
       %global privlibs %{privlibs}|libid.* \n\
@@ -48,6 +48,7 @@
       %global privlibs %{privlibs}|lib.*client.* \n\
       %global privlibs %{privlibs}|libs.* \n\
       %global privlibs %{privlibs}|libt.* \n\
+      %global privlibs %{privlibs}|libu.* \n\
       %global privlibs %{privlibs}|libva.* \n\
       %global privlibs %{privlibs}|libwrite.* \n\
       %global __requires_exclude ^(%{privlibs})\\.so

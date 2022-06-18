@@ -1,16 +1,13 @@
-# Builds the module for macs.
 !include macs.yaml
 !include rcic-module.yaml
 ---
-- package: macs Module
+- package: macs module
   name: macs
   namefull: MACS
   category: BIOTOOLS
   module:
-    setenv: ""
-    prepend_path: ""
-    prereq: 
-      - "{{build.modules}}"
+    setenv:
+    prepend_path:
     requires:
       - rcic-module-support
       - python_{{pyversion}}-{{namefull}}

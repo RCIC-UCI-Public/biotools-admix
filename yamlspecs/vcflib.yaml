@@ -16,9 +16,6 @@
     and write VCF files. Extensions and applications of the library provided
     in the included utilities (*.cpp) comprise the vast bulk of the library's
     utility for most users.
-  build:
-    configure: echo no configure needed
-    pkgmake: make 
   extras: README* LICENSE
   install:
      makeinstall: >

@@ -1,0 +1,12 @@
+!include picard-tools1.yaml
+!include rcic-module.yaml
+---
+- package: picard-tools module
+  category: BIOTOOLS
+  release: 2
+  module:
+    setenv: 
+      - PICARDTOOLS "{{root}}"
+    prepend_path:
+      - PATH {{root}}
+      - CLASSPATH {{root}}/*

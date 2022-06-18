@@ -1,12 +1,9 @@
-# Builds the module for vg.
 !include vg.yaml
 !include rcic-module.yaml
 ---
-- package: vg Module
+- package: vg module
   category: BIOTOOLS
   release: 2
   module:
     prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"

@@ -1,4 +1,3 @@
-# Builds the module for ncbi-ngs
 !include ncbi-ngs.yaml
 !include rcic-module.yaml
 ---
@@ -17,8 +16,3 @@
       - LD_LIBRARY_PATH {{root}}/lib64
       - LD_LIBRARY_PATH {{ncbi_vdb}}/lib64
       - CLASSPATH {{root}}/jar/ngs-java.jar
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

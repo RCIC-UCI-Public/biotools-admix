@@ -1,8 +1,7 @@
-# Builds the module for salmon.
 !include salmon.yaml
 !include rcic-module.yaml
 ---
-- package: Salmon Module
+- package: salmon module
   release: 4
   category: BIOTOOLS
   module:
@@ -10,7 +9,4 @@
       - PATH {{root}}/bin
       - LD_LIBRARY_PATH {{root}}/lib
     prereq: 
-      - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires
+      - "{{build.base_modules}}"

@@ -1,16 +1,10 @@
-# Builds the module for cutadapt.
 !include cutadapt.yaml
 !include rcic-module.yaml
 ---
-- package: cutadapt Module
+- package: cutadapt module
   category: BIOTOOLS
   module:
+    setenv:
     prepend_path:
       - PATH {{root}}/bin
-      - PYTHONPATH {{root}}/lib/python{{versions.python3_major}}/site-packages
-    setenv: ""
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires
+      - PYTHONPATH {{pypath}}

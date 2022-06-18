@@ -11,9 +11,11 @@
     also preserve existing comment in unserialization/serialization steps,
     making it a convenient format to store user input files
   build:
-    modules: 
-      - foundation
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
+    modules: 
+      - foundation/{{versions.foundation}}
+      - "{{build.base_modules}}"
     pkgmake: > 
       mkdir {{builddir}};
       cd {{builddir}};

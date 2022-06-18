@@ -9,13 +9,14 @@
     BCFtools {{version}} are meant as a faster replacement for most of the perl VCFtools
   build:
     preconfigure: autoreconf
-    configure: ./configure 
+    config8: export CFLAGS='-fpic -fplugin=annobin -fplugin-arg-annobin-disable'
+    configure: if [ {{versions.os_release}} != 7 ]; then {{build.config8}}; fi; ./configure
     configure_args: --prefix={{root}} --enable-libgsl --enable-perl-filters --with-htslib=$$HTSLIB_HOME 
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - "htslib/{{versions.htslib}}"
       - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
-    pkgmake: make USE_GPL=1 prefix={{root}}; env | sort -d > jj
+    pkgmake: unset MAKEFLAGS; make USE_GPL=1 prefix={{root}}; env | sort -d > jj
   extras: AUTHORS LICENSE README*
   install:
      makeinstall: >
@@ -25,3 +26,7 @@
     - "{{compiler}}_{{compiler_version}}"
     - gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}
     - htslib_{{versions.htslib}}
+  rpm:
+    sysextras: *RpmExtras
+    extras: >
+      %undefine _annotated_build\n{{rpm.sysextras}} 

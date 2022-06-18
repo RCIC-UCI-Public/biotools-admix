@@ -1,3 +1,4 @@
+site: !include site.yaml
 system:
   - autoconf
   - boost-devel
@@ -13,18 +14,17 @@ system:
   - jansson-devel
   - libffi-devel
   - lz4-devel
-  - lz4-static
+  - !ifeq "{{site.os_release}},7,lz4-static,"
   - cairo-devel
   - perl-Archive-Tar
   - perl-IO-Zlib
-  - perl-Package-Constants
+  - !ifeq "{{site.os_release}},7,perl-Package-Constants,"
   - perl-LWP-Protocol-https
   - perl-XML-Simple 
   - perl-ExtUtils-Embed
   - qt5-qtbase-devel
   - qt5-qtsvg-devel
   - file-devel
-  - mariadb-libs
   - mariadb-devel
   - libpng-devel
   - libuuid-devel
@@ -36,6 +36,7 @@ system:
   - libXmu-devel
   - fltk-devel
   - ruby
+  - !ifeq "{{site.os_release}},8,java-17-openjdk-devel,"
 bootstrap:
   - htslib
   - htslib-module
@@ -55,10 +56,6 @@ bootstrap:
   - pilon-module
   - bowtie2
   - bowtie2-module
-  - bowtie2-latest
-  - bowtie2-module-latest
-  - ncbi-ngs
-  - ncbi-ngs-module
   - rrbgen
   - samtools
   - samtools-module
@@ -67,7 +64,7 @@ bootstrap:
   - yaggo
   - jellyfish
   - jellyfish-module
-  - pysam-py3
+  - pysam
   - py2bit
   - pyBigWig
   - sphinx
@@ -75,60 +72,46 @@ bootstrap:
   - plotly
   - deeptoolsintervals
   - Text-Soundex
+  - bcftools
+  - bcftools-module
+  - ncbi-ngs
+  - ncbi-ngs-module 
 build:
   - bedtools2
   - bedtools2-module
   - bwa
   - bwa-module
-  - bwa-latest
-  - bwa-latest-module
   - bustools
   - bustools-module
-  - bcftools
-  - bcftools-module
-  - bowtie2-python2
-  - bowtie2-python2-module
   - tophat
   - tophat-module
   - gatk
   - gatk-module
-  - gatk-classic
-  - gatk-classic-module
   - kallisto
   - kallisto-module
   - minimap2
   - minimap2-module
-  - picard-tools
-  - picard-tools-module
-  - picard-tools-latest
-  - picard-tools-latest-module
+  - ncbi-vdb
+  - ncbi-vdb-module
+  - picard-tools1
+  - picard-tools1-module
+  - picard-tools2
+  - picard-tools2-module
   - fastp
   - fastp-module
   - salmon
   - salmon-module
-  - vg
-  - vg-module
-  - ncbi-vdb
-  - ncbi-vdb-module
   - pyvcf
-  - pyvcf-py3
-  - pysam
   - bowtie
   - bowtie-module
-  - transdecoder
-  - transdecoder-module
   - rsem
   - rsem-module
   - star
   - star-module
-  - star-latest
-  - star-latest-module
-  - sra-tools
-  - sra-tools-module
+  - sra-tools-bin
+  - sra-tools-bin-module
   - repeatmasker
   - repeatmasker-module
-  - bandage
-  - bandage-module
   - ucsc-tools
   - ucsc-tools-module
   - unicycler
@@ -139,46 +122,44 @@ build:
   - fastqc-module
   - freebayes
   - freebayes-module
-  - vcflib
-  - vcflib-module
-  - mapDamage
-  - mapDamage-module
-  - stitch
-  - stitch-module
   - cufflinks
   - cufflinks-module
-  - qtltools
-  - qtltools-module
   - macs
   - macs-module
-  - smoldyn
-  - smoldyn-module
   - bamtools
   - bamtools-module
   - cutadapt
   - cutadapt-module
   - meme
   - meme-module
-  - relion
-  - relion-module
   - trinityrnaseq
   - trinityrnaseq-module
   - deeptools
   - deeptools-module
   - subread
   - subread-module
-  - gffread
-  - gffread-module
   - trimgalore
   - trimgalore-module
-  - sra-tools-latest
-  - sra-tools-latest-module
-  - fastmitocalc
-  - fastmitocalc-module
-  - sambamba
-  - sambamba-module
-  - breseq
-  - breseq-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
+sets:
+  - latest
+  - py2
+  - centos8
+
+# These packages  and their modules were removed as unused. keep for reference
+# - gatk-classic
+# - vcflib
+# - vg
+# - transdecoder
+# - sra-tools
+# - mapDamage
+# - stitch
+# - qtltools
+# - smoldyn
+# - relion
+# - gffread
+# - fastmitocalc
+# - sambamba
+# - bandage

@@ -1,4 +1,3 @@
-# Builds the module for bamtools.
 !include bamtools.yaml
 !include rcic-module.yaml
 ---
@@ -7,7 +6,4 @@
   module:
     lib: lib64
     prereq: 
-      - *ModuleCompiler_prereq
-      - jsoncpp/{{versions.jsoncpp}}
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"

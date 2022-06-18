@@ -17,13 +17,15 @@
   opt_source: --with-ncbi-vdb-build=../../ncbi-vdb_2.10.2-2.10.2/ncbi-vdb-2.10.2/builddir --with-ncbi-vdb-sources=../../ncbi-vdb_2.10.2-2.10.2/ncbi-vdb-2.10.2
   build:
     configure: ./configure  {{opt_prefix}} {{opt_prereq}} {{opt_source}}
-    pkgmake: (cd tools/driver-tool/utf8proc/; make); make 
+    pkgmake: unset MAKEFLAGS; (cd tools/driver-tool/utf8proc/; make); make 
+    base_modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
     modules: 
       - ncbi-ngs/{{versions.ngs}}
-      - hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}
+      - "{{build.base_modules}}"
   symlinks: fasterq-dump fastq-dump sam-dump prefetch srapath sra-pileup vdb-dump
   install:
-    installextra: ""
     makeinstall: >
       echo Installing binaries;
       mkdir -p $(ROOT){{root}};

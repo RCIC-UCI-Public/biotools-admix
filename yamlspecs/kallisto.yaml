@@ -17,10 +17,12 @@
       cd {{builddir}};
       cmake -DCMAKE_INSTALL_PREFIX={{root}} -DUSE_HDF5=ON ..;
       make VERBOSE=1
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
       - "hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}"
-      - foundation
+    modules: 
+      - foundation/{{versions.foundation}}
+      - "{{build.base_modules}}"
   install:
     makeinstall: >
       cd {{builddir}};

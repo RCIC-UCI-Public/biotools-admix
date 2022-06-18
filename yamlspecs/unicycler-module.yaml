@@ -1,17 +1,13 @@
-# Builds the module for unicycler.
 !include unicycler.yaml
 !include rcic-module.yaml
 ---
-- package: unicycler Module
+- package: unicycler module
   category: BIOTOOLS
   release: 4
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}/bin
     prereq: 
       - "{{build.modules}}"
       - pilon/{{versions.pilon}}
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

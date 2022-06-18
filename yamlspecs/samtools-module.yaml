@@ -1,13 +1,6 @@
-# Builds the module for samtools.
 !include samtools.yaml
 !include rcic-module.yaml
 ---
-- package: SAMTools Module
+- package: SAMTools module
   category: BIOTOOLS
   release: 3
-  module:
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

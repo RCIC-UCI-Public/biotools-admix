@@ -1,8 +1,7 @@
-# Builds the module for jsoncpp.
 !include jsoncpp.yaml
 !include rcic-module.yaml
 ---
-- package: jsoncpp Module
+- package: jsoncpp module
   category: LIBRARIES
   module:
     lib: lib64
@@ -10,6 +9,4 @@
       - LD_LIBRARY_PATH {{root}}/{{module.lib}}
       - PKG_CONFIG_PATH {{root}}/{{module.lib}}/pkgconfig
     prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"

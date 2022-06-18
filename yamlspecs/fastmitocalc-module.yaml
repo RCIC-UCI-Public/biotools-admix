@@ -1,8 +1,7 @@
-# Builds the module for fastmitocalc
 !include fastmitocalc.yaml
 !include rcic-module.yaml
 ---
-- package: fastmitocalc Module
+- package: fastmitocalc module
   category: BIOTOOLS
   module:
     setenv: 

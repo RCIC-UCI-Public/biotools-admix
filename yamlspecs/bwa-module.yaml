@@ -1,12 +1,6 @@
-# Builds the module for bwa.
 !include bwa.yaml
 !include rcic-module.yaml
 ---
-- package: BWA Burrows-Wheeler Aligner Module
+- package: BWA Burrows-Wheeler Aligner module
   category: BIOTOOLS
   release: 2
-  module:
-    prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires

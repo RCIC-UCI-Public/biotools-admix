@@ -1,0 +1,9 @@
+!include versions.yaml
+---
+bowtie2:
+  version: "2.4.1"
+  pymajor: "2"
+pysam:
+  pymajor: "2"
+pyvcf:
+  pymajor: "2"

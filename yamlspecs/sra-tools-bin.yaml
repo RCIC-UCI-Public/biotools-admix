@@ -1,9 +1,9 @@
-# This package is form binary distro
+# This package is from binary distro
 !include common.yaml
 ---
 - package: NCBI SRA toolkit
   name: sra-tools
-  version: "{{versions.sra_latest}}"
+  version: "{{versions.sra_bin}}"
   platform: "centos_linux64"
   vendor_source: https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/{{version}}/sratoolkit.{{version}}-{{platform}}.{{extension}}
   description: |
@@ -12,10 +12,10 @@
     Binary distribution precompiled by NCBI.
   src_dir: sratoolkit.{{version}}-{{platform}}
   build:
-    modules: ""
+    modules:
   install:
     installextra: CHANGES README*
     makeinstall: >
       mkdir -p $(ROOT){{root}};
       cp -P -r  bin example schema $(ROOT){{root}}
-  requires: ""
+  requires:

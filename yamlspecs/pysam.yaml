@@ -2,10 +2,10 @@
 ---
 - package: pysam 
   name: pysam 
-  pyversion: "{{versions.python}}"
-  pymajor: "{{versions.python_major}}"
+  pyversion: !ifeq "{{versions.pysam.pymajor}},2,{{versions.python}},{{versions.python3}}"
+  pymajor:   !ifeq "{{versions.pysam.pymajor}},2,{{versions.python_major}},{{versions.python3_major}}"
   baserpm: python_{{pyversion}}-{{name}}
-  version: "{{versions.pysam}}"
+  version: "{{versions.pysam.version}}"
   vendor_source: https://github.com/pysam-developers/pysam/archive/v{{version}}.{{extension}}
   description: |
     Pysam {{version}} is a python module that makes it easy to read and manipulate mapped short 
@@ -14,10 +14,10 @@
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - python/{{pyversion}}
-    pkgmake: python setup.py build
+    pkgmake: unset CPPFLAGS; python setup.py build
   install:
      makeinstall: >
-       python setup.py install --root $(ROOT)
+       unset CPPFLAGS; python setup.py install --root $(ROOT)
   files:
       - "{{pkg_defaults.app_path}}/python/{{pyversion}}/lib/python{{pymajor}}/site-packages/*"
   requires:

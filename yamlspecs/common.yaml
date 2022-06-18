@@ -1,16 +1,17 @@
+# common definitions to include in package yaml files
 !include rcic-package.yaml
 !include rpm.yaml
 ---
 - extension: tar.gz
   versions: !include versions.yaml
-  compiler: gcc
-  compiler_version: "{{versions.gcc}}"
+  compiler: "{{versions.compiler.name}}"
+  compiler_version: "{{versions.compiler.version}}"
+  pyversion: "{{versions.python3}}"
+  pymajor: "{{versions.python3_major}}"
+  pypath: "{{root}}/lib/python{{versions.python3_major}}/site-packages"
   build:
-    configure: echo
-    modules: 
+    modules:
       - "{{compiler}}/{{compiler_version}}"
-    pkgmake:
-    target: 
   extras:
   install:
      makeinstall: >

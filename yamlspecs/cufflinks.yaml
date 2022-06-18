@@ -3,7 +3,7 @@
 - package: cufflinks 
   name: cufflinks 
   version: "{{versions.cufflinks}}"
-  vendor_source: https://github.com/cole-trapnell-lab/{{name}}/archive/v{{version}}.{{extension}}
+  vendor_source: https://github.com/cole-trapnell-lab/{{name}}/archive/refs/tags/v{{version}}.{{extension}}
   release: 3
   description: |
     Cufflinks {{version}} assembles transcripts, estimates their abundances, 
@@ -22,13 +22,18 @@
        --with-bam=$$samtools__PREFIX 
        --with-eigen=$$EIGEN_HOME       
        --with-zlib=/usr/lib64
+       --prefix={{root}}
     modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - boost/{{versions.boost_archaic}}/{{compiler}}.{{compiler_version}}
+      - boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}
       - eigen/{{versions.eigen}}
       - htslib/{{versions.htslib}}
       - samtools/{{versions.samtools}}
-    pkgmake: export LDFLAGS=\"-L$$samtools__PREFIX/lib -L$$BOOST_HOME/lib $$htslib__LDFLAGS -lbam -lboost_system -lst -lhts\"; make -j 8 
+    pkgmake: >
+      sed -i 's%boost/tr1%boost/%' ./src/biascorrection.h;
+      unset MAKEFLAGS;
+      export LDFLAGS=\"-L$$samtools__PREFIX/lib -L$$BOOST_HOME/lib $$htslib__LDFLAGS -lbam -lboost_system -lst -lhts\"; 
+      make -j 8
   extras: AUTHORS LICENSE MANUAL* ../cufflinks-configure.sh
   requires:
     - "{{compiler}}_{{compiler_version}}"

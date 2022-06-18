@@ -1,8 +1,7 @@
-# Builds the module for ncbi blast.
 !include ncbi-blast.yaml
 !include rcic-module.yaml
 ---
-- package: ncbi blast Module
+- package: ncbi-blast module
   shortname: ncbiblast
   category: BIOTOOLS
   release: 2
@@ -17,6 +16,3 @@
     prereq: 
       - "{{build.modules}}"
       - edirect/{{versions.edirect}}
-    requires:
-      - "{{module.prereq}}"
-      - *ModuleCompiler_requires

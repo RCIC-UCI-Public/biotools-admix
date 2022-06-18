@@ -1,15 +1,12 @@
-# Builds the module for freebayes.
 !include freebayes.yaml
 !include rcic-module.yaml
 ---
-- package: freebayes Module
+- package: freebayes module
   category: BIOTOOLS
   release: 2
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}/bin
     prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"

@@ -1,15 +1,9 @@
-# Builds the module for stitch.
 !include stitch.yaml
 !include rcic-module.yaml
 ---
-- package: stitch Module
+- package: stitch module
   category: BIOTOOLS
   release: 2
   module:
     prepend_path:
       - PATH {{root}}
-    prereq: 
-      - "{{build.modules}}"
-    requires:
-      - "{{module.prereq}}"
-      - *Requires

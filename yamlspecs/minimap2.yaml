@@ -2,8 +2,8 @@
 ---
 - package: minimap2
   name: minimap2 
-  release: 2
-  version: "{{versions.minimap2}}"
+  version: "{{versions.minimap2.version}}"
+  release: "{{versions.minimap2.release}}"
   vendor_source: https://github.com/lh3/minimap2/archive/v{{version}}.{{extension}}
   k8dir: k8-{{versions.k8}}
   k8dist: k8-{{versions.k8}}.tar.bz2
@@ -12,8 +12,8 @@
     minimap2 {{version}} is a versatile sequence alignment program that aligns DNA or mRNA 
     sequences against a large reference database. Includes paftools.js and k8 javascript shell
   build:
-    configure: echo no configure required
     pkgmake: >
+      sed -i  's/man \.\/minimap2\.1/man minimap2/g' main.c;
       make;
       python setup.py build
     modules: 
@@ -21,10 +21,12 @@
       - python/{{versions.python3}}
   install:
     makeinstall: >
-      mkdir $(ROOT){{root}}/bin;
+      mkdir -p $(ROOT){{root}}/bin;
+      mkdir -p $(ROOT){{root}}/share/man/man1;
       $(INSTALL) -m 755 {{name}} $(ROOT){{root}}/bin;
       $(INSTALL) -m 755 misc/paftools.js $(ROOT){{root}}/bin;
-      python setup.py install --root $(ROOT);
+      $(INSTALL) -m 644 {{name}}.1 $(ROOT){{root}}/share/man/man1;
+      python setup.py install --root $(ROOT) --prefix {{root}};
       if [ ! -f $(REDHAT.ROOT)/sources/{{k8dist}} ]; then wget -O $(REDHAT.ROOT)/sources/{{k8dist}} {{k8url}}; fi ;
       tar jxf $(REDHAT.ROOT)/sources/{{k8dist}};
       $(INSTALL) -m 755 {{k8dir}}/k8-Linux $(ROOT){{root}}/bin/k8
@@ -35,4 +37,4 @@
     - "python_{{versions.python3}}"
   files:
     - "{{parent}}"
-    - "{{pkg_defaults.app_path}}/python/{{versions.python3}}"
+  rpmBuildIdLinks: "none"

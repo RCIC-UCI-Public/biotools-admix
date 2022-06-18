@@ -13,18 +13,19 @@
   mpi: "{{versions.mpi.name}}"
   mpi_version: "{{versions.mpi.version}}"
   build:
-    configure_args: -DCMAKE_INSTALL_PREFIX={{root}} -DMKLFFT=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON ..
+    configure_args: -DCMAKE_INSTALL_PREFIX={{root}} -DMKLFFT=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DCUDA=OFF ..
     pkgmake: >
       mkdir {{builddir}};
       cd {{builddir}};
       export CPATH="$${CPATH:+$$CPATH:}$${MKLROOT}/include/fftw";
       cmake {{build.configure_args}}; 
       make -j 8
-    modules: 
-      - "{{compiler}}/{{compiler_version}}"
+    base_modules: 
       - "{{mpi}}/{{mpi_version}}/{{compiler}}.{{compiler_version}}"
       - "mkl/{{versions.mkl}}" 
-      - foundation
+    modules: 
+      - "{{build.base_modules}}"
+      - foundation/{{versions.foundation}}
   install:
     makeinstall: >
       cd {{builddir}};

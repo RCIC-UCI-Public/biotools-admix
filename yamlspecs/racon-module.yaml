@@ -1,15 +1,12 @@
-# Builds the module for racon.
 !include racon.yaml
 !include rcic-module.yaml
 ---
-- package: racon Module
+- package: racon module
   category: BIOTOOLS
   release: 2
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}/bin
     prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"
