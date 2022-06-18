@@ -1,6 +1,7 @@
 !include packages.yaml
 ---
 versions: versions-latest.yaml
+bootstrap:
 build:
   - bwa
   - bwa-module
