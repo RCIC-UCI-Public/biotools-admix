@@ -16,7 +16,6 @@ bootstrap:
   - pilon-module
   - bowtie2
   - bowtie2-module
-  - rrbgen
   - samtools
   - samtools-module
   - jsoncpp
