@@ -56,7 +56,6 @@ bootstrap:
   - pilon-module
   - bowtie2
   - bowtie2-module
-  - rrbgen
   - samtools
   - samtools-module
   - jsoncpp
@@ -156,6 +155,7 @@ sets:
 # - sra-tools
 # - mapDamage
 # - stitch
+# - rrbgen - prereq for stitch
 # - qtltools
 # - smoldyn
 # - relion
