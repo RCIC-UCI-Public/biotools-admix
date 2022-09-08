@@ -3,6 +3,7 @@
 - package: cutadapt 
   name: cutadapt 
   version: "{{versions.cutadapt}}"
+  release: "2"
   vendor_source: https://files.pythonhosted.org/packages/{{versions.cutadapt_hash}}/{{name}}-{{version}}.{{extension}}
   description: |
     Cutadapt {{version}} finds and removes adapter sequences, primers, poly-A tails
@@ -12,11 +13,10 @@
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - python/{{pyversion}}
-    pkgmake: python setup.py build
+    pkgmake:
   install:
      makeinstall: >
-       mkdir $(ROOT){{root}};
-       python setup.py install --root $(ROOT) --prefix {{root}}
+       pip install --root $(ROOT) --prefix {{root}} ../{{src_tarball}}
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - python_{{pyversion}} 
