@@ -146,6 +146,7 @@ sets:
   - latest
   - py2
   - centos8
+  - updates
 
 # These packages  and their modules were removed as unused. keep for reference
 # - gatk-classic
