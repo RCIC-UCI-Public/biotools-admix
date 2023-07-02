@@ -37,6 +37,7 @@ system:
   - fltk-devel
   - ruby
   - !ifeq "{{site.os_release}},8,java-17-openjdk-devel,"
+  - gettext-devel
 bootstrap:
   - htslib
   - htslib-module
