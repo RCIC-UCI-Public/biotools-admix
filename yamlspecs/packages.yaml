@@ -122,8 +122,8 @@ build:
   - fastqc-module
   - freebayes
   - freebayes-module
-  - cufflinks
-  - cufflinks-module
+# - cufflinks
+# - cufflinks-module
   - macs
   - macs-module
   - bamtools
