@@ -53,8 +53,8 @@ bootstrap:
   - SPAdes-module
   - racon
   - racon-module
-  - pilon
-  - pilon-module
+# - pilon
+# - pilon-module
   - bowtie2
   - bowtie2-module
   - samtools
@@ -89,8 +89,8 @@ build:
   - gatk-module
   - kallisto
   - kallisto-module
-  - minimap2
-  - minimap2-module
+# - minimap2
+# - minimap2-module
   - ncbi-vdb
   - ncbi-vdb-module
   - picard-tools1
@@ -114,8 +114,8 @@ build:
   - repeatmasker-module
   - ucsc-tools
   - ucsc-tools-module
-  - unicycler
-  - unicycler-module
+# - unicycler
+# - unicycler-module
   - vcftools
   - vcftools-module
   - fastqc
@@ -130,8 +130,8 @@ build:
 # - bamtools-module
   - cutadapt
   - cutadapt-module
-  - meme
-  - meme-module
+# - meme
+# - meme-module
   - trinityrnaseq
   - trinityrnaseq-module
   - deeptools
