@@ -59,8 +59,8 @@ bootstrap:
   - bowtie2-module
   - samtools
   - samtools-module
-  - jsoncpp
-  - jsoncpp-module
+# - jsoncpp
+# - jsoncpp-module
   - yaggo
   - jellyfish
   - jellyfish-module
@@ -126,8 +126,8 @@ build:
 # - cufflinks-module
   - macs
   - macs-module
-  - bamtools
-  - bamtools-module
+# - bamtools
+# - bamtools-module
   - cutadapt
   - cutadapt-module
   - meme
