@@ -8,7 +8,9 @@
   description: |
     BCFtools {{version}} are meant as a faster replacement for most of the perl VCFtools
   build:
-    preconfigure: autoreconf
+    preconfigure: >
+       /usr/lib/rpm/redhat/redhat-annobin-plugin-select.sh;
+       autoreconf
     config8: export CFLAGS='-fpic -fplugin=annobin -fplugin-arg-annobin-disable'
     configure: if [ {{versions.os_release}} != 7 ]; then {{build.config8}}; fi; ./configure
     configure_args: --prefix={{root}} --enable-libgsl --enable-perl-filters --with-htslib=$$HTSLIB_HOME 
@@ -16,12 +18,15 @@
       - "{{compiler}}/{{compiler_version}}"
       - "htslib/{{versions.htslib}}"
       - "gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}"
+#     - "perl/{{versions.perl}}"
     pkgmake: unset MAKEFLAGS; make USE_GPL=1 prefix={{root}}; env | sort -d > jj
   extras: AUTHORS LICENSE README*
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
-       make prefix={{root}} DESTDIR=$(ROOT) install
+       make prefix={{root}} DESTDIR=$(ROOT) install;
+       module purge;
+       /usr/lib/rpm/redhat/redhat-annobin-plugin-select.sh
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}
@@ -30,3 +35,24 @@
     sysextras: *RpmExtras
     extras: >
       %undefine _annotated_build\n{{rpm.sysextras}} 
+
+# IMPORTANT
+# as of centos8 when redhat-rpm-config is installed
+# it configures  redhat-annobin-cc1 -> redhat-annobin-select-gcc-built-plugin
+# and this is picked by the system perl  when executing
+#     perl -MExtUtils::Embed -e ccopts
+#     perl -MExtUtils::Embed -e ldopts
+# The gcc-compiled annobin does not have gcc-annobin.so library, only annobin.so
+# therefor when using specifc gcc compiled annobin need to reconfigure  the link
+# which is done  via /usr/lib/rpm/redhat/redhat-annobin-plugin-select.sh
+#
+# 1. Before configure is run, the module is loaded then script is executed and the link
+#    is configured as redhat-annobin-cc1 -> redhat-annobin-select-annobin-built-plugin
+#
+# 2. After the compile is done, first unload the modules and rerun the script
+#    to return the link to the priginal state.
+#
+# Another option to deal with this is to use perl/5.30.0 or later in additions
+# to the  above modules. No need for reconfiguring of redhat-annobin-cc1 link
+# via script for this case.
+
