@@ -51,8 +51,8 @@ build:
   - pyvcf
   - star
   - star-module
-  - sra-tools-bin
-  - sra-tools-bin-module
+# - sra-tools-bin
+# - sra-tools-bin-module
   - ucsc-tools
   - ucsc-tools-module
   - unicycler
