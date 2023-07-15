@@ -51,8 +51,8 @@ bootstrap:
   - hmmer-module
   - SPAdes
   - SPAdes-module
-  - racon
-  - racon-module
+# - racon
+# - racon-module
 # - pilon
 # - pilon-module
   - bowtie2
