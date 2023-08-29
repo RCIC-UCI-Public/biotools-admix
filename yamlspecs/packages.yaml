@@ -51,10 +51,6 @@ bootstrap:
   - hmmer-module
   - SPAdes
   - SPAdes-module
-# - racon
-# - racon-module
-# - pilon
-# - pilon-module
   - bowtie2
   - bowtie2-module
   - samtools
@@ -108,30 +104,20 @@ build:
   - rsem-module
   - star
   - star-module
-# - sra-tools-bin
-# - sra-tools-bin-module
   - repeatmasker
   - repeatmasker-module
   - ucsc-tools
   - ucsc-tools-module
-# - unicycler
-# - unicycler-module
   - vcftools
   - vcftools-module
   - fastqc
   - fastqc-module
   - freebayes
   - freebayes-module
-# - cufflinks
-# - cufflinks-module
   - macs
   - macs-module
-# - bamtools
-# - bamtools-module
   - cutadapt
   - cutadapt-module
-# - meme
-# - meme-module
   - trinityrnaseq
   - trinityrnaseq-module
   - deeptools
@@ -144,10 +130,10 @@ manifest:
   - "{{bootstrap}}"
   - "{{build}}"
 sets:
-  - latest
   - py2
   - centos8
-  - updates
+  - group1
+  - group2
 
 # These packages  and their modules were removed as unused. keep for reference
 # - gatk-classic
@@ -165,3 +151,17 @@ sets:
 # - fastmitocalc
 # - sambamba
 # - bandage
+# - racon
+# - racon-module
+# - pilon
+# - pilon-module
+# - sra-tools-bin
+# - sra-tools-bin-module
+# - unicycler
+# - unicycler-module
+# - cufflinks
+# - cufflinks-module
+# - bamtools
+# - bamtools-module
+# - meme
+# - meme-module
