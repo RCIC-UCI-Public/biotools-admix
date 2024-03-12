@@ -1,0 +1,5 @@
+#only listing removed packages for reference
+---
+#bowtie2:
+#  version: "2.4.1"
+#  pymajor: "2"

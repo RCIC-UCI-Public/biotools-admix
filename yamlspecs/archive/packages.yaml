@@ -1,0 +1,55 @@
+# only listing removed packages
+bootstrap:
+# - SPAdes
+# - SPAdes-module
+# - jsoncpp
+# - jsoncpp-module
+# - yaggo
+# - jellyfish
+# - jellyfish-module
+build:
+# - bustools
+# - bustools-module
+# - kallisto
+# - kallisto-module
+# - minimap2
+# - minimap2-module
+# - picard-tools2
+# - picard-tools2-module
+# - bowtie
+# - bowtie-module
+# - ucsc-tools
+# - ucsc-tools-module
+# - freebayes
+# - freebayes-module
+# - trinityrnaseq
+# - trinityrnaseq-module
+# - gatk-classic
+# - vcflib
+# - vg
+# - transdecoder
+# - sra-tools
+# - mapDamage
+# - stitch
+# - rrbgen - prereq for stitch
+# - qtltools
+# - smoldyn
+# - relion
+# - gffread
+# - fastmitocalc
+# - sambamba
+# - bandage
+# - racon
+# - racon-module
+# - pilon
+# - pilon-module
+# - sra-tools-bin
+# - sra-tools-bin-module
+# - unicycler
+# - unicycler-module
+# - cufflinks
+# - cufflinks-module
+# - bamtools
+# - bamtools-module
+# - meme
+# - meme-module
