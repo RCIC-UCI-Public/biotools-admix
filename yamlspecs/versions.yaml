@@ -55,6 +55,5 @@ subread: "2.0.1"
 trimgalore: "0.6.6"
 text_soundex: "3.05"
 gsl: "2.6"
-lz4: "1.9.3"
 isal:
 libdeflate:
