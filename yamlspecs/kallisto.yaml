@@ -9,13 +9,14 @@
     generally of target sequences using high-throughput sequencing reads. It is based on 
     the novel idea of pseudoalignment for rapidly determining the compatibility of reads with 
     targets, without the need for alignment.
+  opt: !ifeq "{{versions.kallisto_large_kmer}},no,,-DMAX_KMER_SIZE=64"
   builddir: builddir
   build:
     pkgmake: >
       (cd ext/htslib; make print-version | grep -v make > version; sed -i 's/make print-version/cat version/' configure.ac);
       mkdir {{builddir}};
       cd {{builddir}};
-      cmake -DCMAKE_INSTALL_PREFIX={{root}} -DUSE_HDF5=ON ..;
+      cmake -DCMAKE_INSTALL_PREFIX={{root}} -DUSE_HDF5=ON {{opt}} ..;
       make VERBOSE=1
     base_modules: 
       - "{{compiler}}/{{compiler_version}}"

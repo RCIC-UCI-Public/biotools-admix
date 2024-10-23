@@ -21,6 +21,7 @@ libdeflate: "1.10"
 bedtools2: "2.30.0"
 gatk: "4.2.6.1"
 kallisto: "0.48.0"
+kallisto_large_kmer: no
 minimap2:
   version: "2.24"
   release: "1"

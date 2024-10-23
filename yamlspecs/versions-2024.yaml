@@ -8,4 +8,5 @@ minimap2:
   release: "1"
 hdf5: "1.14.1"
 kallisto: "0.51.1"
+kallisto_large_kmer: yes
 dorado: "0.8.2"
