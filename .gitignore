@@ -8,3 +8,5 @@ localrepo/
 yamlspecs/tmpbuild/
 yum.*
 .rpmmacros
+.cache/
+.wget-hsts
