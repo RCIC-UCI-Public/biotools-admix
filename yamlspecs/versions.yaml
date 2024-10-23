@@ -23,6 +23,7 @@ pysam:
   pymajor: "3"
 ncbiblast: "2.10.0"
 k8: "0.2.5"
+k8v: ""
 rsem: "1.3.3"
 star: "2.7.3a"
 star_alpha:

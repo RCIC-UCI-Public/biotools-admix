@@ -1,0 +1,24 @@
+!include common.yaml
+---
+- package: dorado 
+  name: dorado 
+  version: "{{versions.dorado}}"
+  cuda: "{{versions.cuda.name}}"
+  cuda_version: "{{versions.cuda.version}}"
+  vendor_source: https://cdn.oxfordnanoportal.com/software/analysis/dorado-{{version}}-linux-x64.{{extension}}
+  src_dir: "{{name}}-{{version}}-linux-x64"
+  description: |
+    Dorado {{version}} is a high-performance, easy-to-use, open source basecaller
+    for Oxford Nanopore reads. Installed from precompiled ditribution.
+    Must be run on GPU-enabled node. See https://github.com/nanoporetech/dorado.
+  addfile:
+    - filter-requires-{{name}}.sh
+  build:
+    modules:
+  install:
+    installextra:
+    makeinstall: >
+      mkdir -p $(ROOT){{root}};
+      cp -P -r bin lib $(ROOT){{root}}
+  rpmFilters: *filterRequires
+  requires:

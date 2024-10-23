@@ -123,3 +123,7 @@ a1225b4cf414a0535d59efc8d20a5ad2c72dc6f5  sources/transmute-2022.Linux.gz 1CrbAT
 e91d1e628c4e93db0ecbb035af2ec7f12a1ee61b  sources/xtract-2022.Linux.gz 1D0OtXP4oIIHizxE_rGPRpTAyMWXgZGqx
 a1a0ae6b605873780fc35e9f41012035f5b1543b  sources/sra-tools-3.0.0.tar.gz 1gAEjq80VsxvJCF23sc5Nw7CtgvPLJTTG
 4c004ae27eb1418d7c57e7706490f3853d4f2e26  sources/bowtie2-2.5.1.tar.gz
+6ed5494c52486a82b0d58351a6cdc8f1dbabf6ce  sources/minimap2-2.28.tar.gz
+bc0d6b9e20767da836fb7e7a8440b65c01438efd  sources/k8-1.2.tar.bz2
+8e7b5fc73e084a91a7e19020a7239cc45fa682c7  sources/kallisto-0.51.1.tar.gz
+a79ddbebaf5a3dfb79521a869fb4e5c344aa3b22  sources/dorado-0.8.2.tar.gz

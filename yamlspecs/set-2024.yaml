@@ -1,0 +1,13 @@
+!include packages.yaml
+---
+versions: versions-2024.yaml
+bootstrap:
+build:
+  - minimap2
+  - minimap2-module
+  - kallisto
+  - kallisto-module
+  - dorado
+  - dorado-module
+manifest:
+  - "{{build}}"
