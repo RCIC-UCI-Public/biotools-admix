@@ -127,3 +127,5 @@ a1a0ae6b605873780fc35e9f41012035f5b1543b  sources/sra-tools-3.0.0.tar.gz 1gAEjq8
 bc0d6b9e20767da836fb7e7a8440b65c01438efd  sources/k8-1.2.tar.bz2
 8e7b5fc73e084a91a7e19020a7239cc45fa682c7  sources/kallisto-0.51.1.tar.gz
 a79ddbebaf5a3dfb79521a869fb4e5c344aa3b22  sources/dorado-0.8.2.tar.gz
+7f367e0f03d4f56ca88d5f3a79435f196591fbce  sources/bcftools-1.21.tar.gz
+e9c49dda0ced11070973cf75cc0020fa946cf1a9  sources/htslib-1.21.tar.bz2

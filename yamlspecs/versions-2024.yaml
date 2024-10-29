@@ -10,3 +10,5 @@ hdf5: "1.14.1"
 kallisto: "0.51.1"
 kallisto_large_kmer: yes
 dorado: "0.8.2"
+htslib: "1.21"
+bcftools: "1.21"

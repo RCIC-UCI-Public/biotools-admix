@@ -9,5 +9,9 @@ build:
   - kallisto-module
   - dorado
   - dorado-module
+  - htslib
+  - htslib-module
+  - bcftools
+  - bcftools-module
 manifest:
   - "{{build}}"
