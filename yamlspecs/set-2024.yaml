@@ -2,6 +2,8 @@
 ---
 versions: versions-2024.yaml
 bootstrap:
+  - htslib
+  - htslib-module
 build:
   - minimap2
   - minimap2-module
@@ -9,8 +11,6 @@ build:
   - kallisto-module
   - dorado
   - dorado-module
-  - htslib
-  - htslib-module
   - bcftools
   - bcftools-module
 manifest:
