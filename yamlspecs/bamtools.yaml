@@ -20,7 +20,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - jsoncpp/{{versions.jsoncpp}}
     modules: 
-      - foundation/{{versions.foundation}}
+      - cmake/{{versions.cmake}}
       - "{{build.base_modules}}"
   install:
     makeinstall: >

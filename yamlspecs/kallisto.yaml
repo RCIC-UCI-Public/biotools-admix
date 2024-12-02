@@ -22,7 +22,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - "hdf5/{{versions.hdf5}}/{{compiler}}.{{compiler_version}}"
     modules: 
-      - foundation/{{versions.foundation}}
+      - cmake/{{versions.cmake}}
       - "{{build.base_modules}}"
   install:
     makeinstall: >

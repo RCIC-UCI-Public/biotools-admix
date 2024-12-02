@@ -22,7 +22,7 @@
       - "{{compiler}}/{{compiler_version}}"
       - "boost/{{versions.boost}}/{{compiler}}.{{compiler_version}}"
     modules: 
-      - foundation/{{versions.foundation}}
+      - cmake/{{versions.cmake}}
       - "{{build.base_modules}}"
     pkgmake: > 
       mkdir {{builddir}};
