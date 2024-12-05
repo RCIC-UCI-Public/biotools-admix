@@ -7,8 +7,6 @@ build:
   - bwa-module
   - star
   - star-module
-  - bowtie2
-  - bowtie2-module
   - sra-tools-bin
   - sra-tools-bin-module
 manifest:
