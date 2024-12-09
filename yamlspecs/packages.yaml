@@ -105,6 +105,8 @@ build:
   - trimgalore-module
   - freebayes
   - freebayes-module
+  - kallisto
+  - kallisto-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
