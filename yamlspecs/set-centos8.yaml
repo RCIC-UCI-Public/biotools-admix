@@ -29,6 +29,10 @@ bootstrap:
   - isal-module
   - libdeflate
   - libdeflate-module
+  - racon
+  - racon-module
+  - pilon
+  - pilon-module
 build:
   - bedtools2
   - bedtools2-module
@@ -59,3 +63,5 @@ build:
   - subread-module
   - trimgalore
   - trimgalore-module
+  - unicycler
+  - unicycler-module

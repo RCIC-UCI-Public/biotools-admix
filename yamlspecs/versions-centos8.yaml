@@ -39,3 +39,6 @@ cutadapt_hash: "c2/6e/f9d9671f2e5ee8683d6fc709eaf2184b05d8adc4861b41ac87133a5c23
 deeptools: "3.5.1"
 subread: "2.0.3"
 trimgalore: "0.6.7"
+racon: "1.5.0"
+pilon: "1.24"
+unicycler: "0.5.0"

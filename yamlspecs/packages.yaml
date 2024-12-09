@@ -70,16 +70,16 @@ build:
   - bedtools2-module
   - bwa
   - bwa-module
-  - tophat
-  - tophat-module
+# - tophat
+# - tophat-module
   - gatk
   - gatk-module
   - ncbi-vdb
   - ncbi-vdb-module
   - picard-tools1
   - picard-tools1-module
-  - fastp
-  - fastp-module
+# - fastp
+# - fastp-module
   - salmon
   - salmon-module
   - pyvcf
@@ -103,6 +103,8 @@ build:
   - subread-module
   - trimgalore
   - trimgalore-module
+  - freebayes
+  - freebayes-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
