@@ -13,5 +13,7 @@ build:
   - dorado-module
   - bcftools
   - bcftools-module
+  - picard-tools2
+  - picard-tools2-module
 manifest:
   - "{{build}}"

@@ -12,3 +12,5 @@ kallisto_large_kmer: yes
 dorado: "0.8.2"
 htslib: "1.21"
 bcftools: "1.21"
+picard_tools2: "3.3.0"
+picard_java: "17"

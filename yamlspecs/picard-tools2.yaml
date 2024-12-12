@@ -16,10 +16,11 @@
   extras: README* LICENSE*
   install:
      makeinstall: >
+       sed -i 's/4.0.0-rc.1/4.1.1/' build.gradle;
        mkdir -p $(ROOT){{root}};
        export GRADLE_USER_HOME=`pwd`/.gradle;
        mkdir .git;
-       ./gradlew --no-daemon shadowJar;
+       echo "yes" | ./gradlew --no-daemon shadowJar;
        $(INSTALL) -m 0644 build/libs/picard.jar  $(ROOT){{root}}
   requires:
     - jre-{{versions.picard_java}}
