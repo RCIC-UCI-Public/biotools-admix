@@ -5,5 +5,3 @@ bootstrap:
 build:
   - bowtie2
   - bowtie2-module
-manifest:
-  - "{{build}}"

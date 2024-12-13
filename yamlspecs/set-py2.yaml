@@ -5,5 +5,3 @@ bootstrap:
 build:
   - pysam
   - pyvcf
-manifest:
-  - "{{build}}"

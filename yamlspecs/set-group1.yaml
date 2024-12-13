@@ -9,5 +9,3 @@ build:
   - star-module
   - sra-tools-bin
   - sra-tools-bin-module
-manifest:
-  - "{{build}}"
