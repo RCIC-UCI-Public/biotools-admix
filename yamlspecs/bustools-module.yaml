@@ -3,7 +3,7 @@
 ---
 - package: bustools module
   category: BIOTOOLS
-  release: 2
+  release: 1
   module:
     prereq:
       - "{{build.base_modules}}"

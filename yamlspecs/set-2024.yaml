@@ -15,3 +15,5 @@ build:
   - bcftools-module
   - picard-tools2
   - picard-tools2-module
+  - bustools
+  - bustools-module

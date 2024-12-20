@@ -107,6 +107,8 @@ build:
   - freebayes-module
   - kallisto
   - kallisto-module
+  - bustools
+  - bustools-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
