@@ -1,0 +1,7 @@
+!include packages.yaml
+---
+versions: versions-2025.yaml
+bootstrap:
+build:
+  - dorado
+  - dorado-module

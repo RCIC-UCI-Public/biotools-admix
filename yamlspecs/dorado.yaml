@@ -22,3 +22,4 @@
       cp -P -r bin lib $(ROOT){{root}}
   rpmFilters: *filterRequires
   requires:
+  rpmBuildIdLinks: "none"
