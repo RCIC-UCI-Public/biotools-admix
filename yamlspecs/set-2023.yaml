@@ -1,6 +1,6 @@
 !include packages.yaml
 ---
-versions: versions-group1.yaml
+versions: versions-2023.yaml
 bootstrap:
 build:
   - bwa
@@ -9,3 +9,5 @@ build:
   - star-module
   - sra-tools-bin
   - sra-tools-bin-module
+  - bowtie2
+  - bowtie2-module

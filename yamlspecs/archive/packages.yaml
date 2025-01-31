@@ -53,3 +53,7 @@ build:
 # - bamtools-module
 # - meme
 # - meme-module
+# - tophat
+# - tophat-module
+# - fastp
+# - fastp-module

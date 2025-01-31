@@ -1,7 +1,0 @@
-!include packages.yaml
----
-versions: versions-group2.yaml
-bootstrap:
-build:
-  - bowtie2
-  - bowtie2-module

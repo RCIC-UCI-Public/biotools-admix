@@ -70,16 +70,12 @@ build:
   - bedtools2-module
   - bwa
   - bwa-module
-# - tophat
-# - tophat-module
   - gatk
   - gatk-module
   - ncbi-vdb
   - ncbi-vdb-module
   - picard-tools1
   - picard-tools1-module
-# - fastp
-# - fastp-module
   - salmon
   - salmon-module
   - pyvcf
@@ -115,7 +111,6 @@ manifest:
 sets:
   - py2
   - centos8
-  - group1
-  - group2
+  - "2023"
   - "2024"
   - "2025"

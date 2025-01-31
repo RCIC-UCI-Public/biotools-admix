@@ -40,3 +40,5 @@
 # gffread: "0.12.4"
 # fastmitocalc: "1.0"
 # bandage: "0.8.1"
+#tophat: "2.1.1"
+#fastp: "0.20.0"
