@@ -1,5 +1,6 @@
 !include site.yaml
 ---
+admix: biotools-admix
 java_classic: "1.7.0"
 boost_archaic: "1.50.0"
 boost: "1.66.0"
