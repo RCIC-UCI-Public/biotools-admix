@@ -38,3 +38,6 @@
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - "boost_{{versions.boost}}_{{compiler}}_{{compiler_version}}"
+  provides:
+    - libtbb.so.12()(64bit)
+    - libtbbbind_2_0.so.3()(64bit)
