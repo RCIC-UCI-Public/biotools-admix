@@ -4,7 +4,7 @@
   name: repeatmasker 
   release: "6"
   version: "{{versions.repeatmasker}}"
-  vendor_source: http://www.repeatmasker.org/RepeatMasker-{{version}}.{{extension}}
+  vendor_source: http://www.repeatmasker.org/RepeatMasker/RepeatMasker-{{version}}.{{extension}}
   src_dir: RepeatMasker
   addfile: 
     - filter-requires-{{name}}.sh
@@ -21,6 +21,7 @@
       - hmmer/{{versions.hmmer}}
   rmConfigOpt: -trf_prgm $$TRF_HOME/bin/trf -hmmer_dir $$HMMER_HOME/bin -rmblast_dir $$BLAST_HOME/bin -default_search_engine nhmmer
   install:
+    bind: !eval "'bindfs' if {{versions.os_release}} >= 9 else 'mount --bind'"
     makeinstall: >
       echo "{{versions.perl}}" > ../PERLVERSION;
       mkdir -p $(ROOT){{root}};
@@ -28,7 +29,7 @@
       sed -i '/\.*maskFile.pl/d' configure;
       sed -i 's%/usr/local/bin/perl%/usr/bin/env perl%' *.pm util/*;
       $(TAR) cf - . | (cd $(ROOT){{root}}; tar xf -);
-      mount --bind $(ROOT){{root}} {{root}};
+      {{install.bind}} $(ROOT){{root}} {{root}};
       (pushd {{root}}; perl ./configure {{rmConfigOpt}}; popd);
       umount {{root}};
       rm -rf {{root}};
