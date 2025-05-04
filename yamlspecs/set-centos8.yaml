@@ -33,6 +33,7 @@ bootstrap:
   - racon-module
   - pilon
   - pilon-module
+  - Text-Soundex
 build:
   - bedtools2
   - bedtools2-module
@@ -65,3 +66,5 @@ build:
   - trimgalore-module
   - unicycler
   - unicycler-module
+  - repeatmasker
+  - repeatmasker-module

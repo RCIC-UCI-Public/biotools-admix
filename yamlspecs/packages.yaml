@@ -45,8 +45,6 @@ bootstrap:
   - trf-module
   - edirect
   - edirect-module
-  - ncbi-blast
-  - ncbi-blast-module
   - hmmer
   - hmmer-module
   - bowtie2
@@ -60,11 +58,9 @@ bootstrap:
   - numpydoc
   - plotly
   - deeptoolsintervals
-  - Text-Soundex
-  - bcftools
-  - bcftools-module
-  - ncbi-ngs
-  - ncbi-ngs-module 
+# bcftools does not build
+# - bcftools
+# - bcftools-module
 build:
   - bedtools2
   - bedtools2-module
@@ -72,19 +68,16 @@ build:
   - bwa-module
   - gatk
   - gatk-module
-  - ncbi-vdb
-  - ncbi-vdb-module
   - picard-tools1
   - picard-tools1-module
-  - salmon
-  - salmon-module
+# does not build
+# - salmon
+# - salmon-module
   - pyvcf
   - rsem
   - rsem-module
   - star
   - star-module
-  - repeatmasker
-  - repeatmasker-module
   - vcftools
   - vcftools-module
   - fastqc
