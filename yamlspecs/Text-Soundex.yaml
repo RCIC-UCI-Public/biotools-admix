@@ -20,6 +20,7 @@
       - "perl/{{versions.perl}}"
   install:
     makeinstall: >
+      echo "{{versions.perl}}" > ../PERLVERSION;
       $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install
   files: "{{root}}"
   requires:
