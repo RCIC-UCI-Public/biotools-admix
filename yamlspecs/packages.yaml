@@ -38,6 +38,9 @@ system:
   - ruby
   - !ifeq "{{site.os_release}},8,java-17-openjdk-devel,"
   - gettext-devel
+  # this is needed by dorado, provides 2 libraries
+  # to install need to have RPM epel-release RPM 
+  - libaec
 bootstrap:
   - htslib
   - htslib-module
