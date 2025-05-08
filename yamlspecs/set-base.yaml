@@ -1,0 +1,72 @@
+!include packages.yaml
+---
+versions: versions.yaml
+bootstrap:
+  - htslib
+  - htslib-module
+  - trf
+  - trf-module
+  - edirect
+  - edirect-module
+  - ncbi-blast
+  - ncbi-blast-module
+  - hmmer
+  - hmmer-module
+  - bowtie2
+  - bowtie2-module
+  - samtools
+  - samtools-module
+  - pysam
+  - py2bit
+  - pyBigWig
+  - sphinx
+  - numpydoc
+  - plotly
+  - deeptoolsintervals
+  - Text-Soundex
+# bcftools does not build
+# - bcftools
+# - bcftools-module
+  - ncbi-ngs
+  - ncbi-ngs-module
+build:
+  - bedtools2
+  - bedtools2-module
+  - bwa
+  - bwa-module
+  - gatk
+  - gatk-module
+  - ncbi-vdb
+  - ncbi-vdb-module
+  - picard-tools1
+  - picard-tools1-module
+# does not build
+# - salmon
+# - salmon-module
+  - pyvcf
+  - rsem
+  - rsem-module
+  - star
+  - star-module
+  - vcftools
+  - vcftools-module
+  - repeatmasker
+  - repeatmasker-module
+  - fastqc
+  - fastqc-module
+  - macs
+  - macs-module
+  - cutadapt
+  - cutadapt-module
+  - deeptools
+  - deeptools-module
+  - subread
+  - subread-module
+  - trimgalore
+  - trimgalore-module
+  - freebayes
+  - freebayes-module
+  - kallisto
+  - kallisto-module
+  - bustools
+  - bustools-module
