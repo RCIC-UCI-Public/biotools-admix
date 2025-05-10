@@ -38,7 +38,7 @@ system:
   - fltk-devel
   - ruby
   - gettext-devel
-  - !eval "'java-17-openjdk-sevel' if {{site.os_release}} >= 8 else ''"
+  - !eval "'java-17-openjdk-devel' if {{site.os_release}} >= 8 else ''"
   - !eval "'perl-ExtUtils-Embed' if {{site.os_release}} >= 9 else ''"
   # this is needed by dorado, provides 2 libraries
   # to install need to have RPM epel-release RPM 
