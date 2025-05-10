@@ -1,4 +1,5 @@
 site: !include site.yaml
+enablerepo: "epel"
 system:
   - autoconf
   - boost-devel
@@ -36,8 +37,9 @@ system:
   - libXmu-devel
   - fltk-devel
   - ruby
-  - !ifeq "{{site.os_release}},8,java-17-openjdk-devel,"
   - gettext-devel
+  - !eval "'java-17-openjdk-sevel' if {site.os_release}} >= 8 else ''"
+  - !eval "'perl-ExtUtils-Embed' if {site.os_release}} >= 9 else ''"
   # this is needed by dorado, provides 2 libraries
   # to install need to have RPM epel-release RPM 
   - libaec
