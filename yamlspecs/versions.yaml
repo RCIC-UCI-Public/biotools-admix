@@ -60,7 +60,7 @@ libdeflate:
 freebayes: "1.3.2"
 kallisto: "0.46.2"
 kallisto_large_kmer: no
-bustools: "0.40.0"
+#bustools: "0.40.0"
 # NOTE reset the following to earlier versions that were for OS 8 base build
 compiler:
   name: gcc
