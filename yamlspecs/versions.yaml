@@ -10,7 +10,8 @@ bcftools: "1.10.2"
 bowtie2:
   version: "2.4.1"
   pymajor: "3"
-gatk: "4.1.9.0"
+# disable per security vulnerability in log4j v.2.5
+#gatk: "4.1.9.0"
 picard_tools1: "1.87"
 picard_java: "1.8.0"
 salmon: "1.2.1"

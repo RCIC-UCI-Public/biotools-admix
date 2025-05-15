@@ -5,3 +5,5 @@ bootstrap:
 build:
   - dorado
   - dorado-module
+  - gatk
+  - gatk-module

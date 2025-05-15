@@ -2,3 +2,4 @@
 !include updates8.yaml
 ---
 dorado: "0.9.1"
+gatk: "4.6.2.0"

@@ -34,8 +34,9 @@ build:
   - bedtools2-module
   - bwa
   - bwa-module
-  - gatk
-  - gatk-module
+# disable per security vulnerability in log4j v.2.5
+# - gatk
+# - gatk-module
   - ncbi-vdb
   - ncbi-vdb-module
   - picard-tools1
