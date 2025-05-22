@@ -7,7 +7,7 @@
   version: "{{versions.numpydoc}}"
   vendor_source: https://github.com/numpy/numpydoc/archive/refs/tags/v{{version}}.{{extension}}
   description: |
-    Numpydoc {{version}} is a Sphinx extension to support docstrings in Numpy format
+    Numpydoc is a Sphinx extension to support docstrings in Numpy format
   build:
     modules: 
       - python/{{pyversion}}

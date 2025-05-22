@@ -7,7 +7,8 @@
   extension: zip
   vendor_source: https://sourceforge.net/projects/picard/files/picard-tools/{{version}}/picard-tools-{{version}}.{{extension}}
   description: >
-    Picard-tools {{version}}  
+    Picard-tools is a set of Java command line tools for
+    manipulating high-throughput sequencing data and formats.
   build:
     modules: 
       - java/{{versions.picard_java}}

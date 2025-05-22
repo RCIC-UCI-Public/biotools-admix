@@ -8,8 +8,7 @@
   version: "{{versions.pysam.version}}"
   vendor_source: https://github.com/pysam-developers/pysam/archive/v{{version}}.{{extension}}
   description: |
-    Pysam {{version}} is a python module that makes it easy to read and manipulate mapped short 
-    read sequence data stored in SAM/BAM files. It is a lightweight wrapper of the htslib C-API.  
+    Pysam is a python module for reading and manipulating files in the SAM/BAM format.
   build:
     modules: 
       - "{{compiler}}/{{compiler_version}}"

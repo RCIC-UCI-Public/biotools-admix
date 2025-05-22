@@ -8,9 +8,8 @@
   src_dir: deeptools_intervals-{{version}}
   vendor_source: https://github.com/deeptools/deeptools_intervals/archive/{{version}}.{{extension}}
   description: |
-    Deeptoolsintervals {{version}} is a python library for constructing 
-    interval trees with associated exon/annotation information. 
-    Prerequisite for deepTools
+    Deeptoolsintervals is a python library for constructing
+    interval trees with associated exon/annotation information.
   build:
     modules: 
       - python/{{pyversion}}

@@ -6,7 +6,7 @@
   vendor_source: https://github.com/s-andrews/FastQC/archive/v{{version}}.{{extension}}
   src_dir: FastQC-{{version}}
   description: |
-    FastQC {{version}} is a program designed to spot potential problems in high througput
+    FastQC is a program designed to spot potential problems in high througput
     sequencing datasets. It runs a set of analyses on one or more raw sequence
     files in fastq or bam format and produces a report which summarises the results.
   build:

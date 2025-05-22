@@ -6,8 +6,7 @@
   release: 3
   vendor_source: https://github.com/pezmaster31/{{name}}/archive/v{{version}}.{{extension}}
   description: |
-    BamTools {{version}} provides both a programmer's API and an 
-    end-user's toolkit for handling BAM files.
+    BamTools provides an API and a toolkit for handling BAM files.
   builddir: builddir
   build:
     pkgmake: >

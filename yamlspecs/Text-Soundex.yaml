@@ -10,7 +10,7 @@
     - filter-requires-{{name}}.sh
     - filter-provides-{{name}}.sh
   description: |
-    Text::Soundex perl module {{version}} provides implementation of the soundex algorithm.  
+    Text::Soundex perl module provides implementation of the soundex algorithm.
   build:
     configure: >
       export PERL_MM_USE_DEFAULT=true; 

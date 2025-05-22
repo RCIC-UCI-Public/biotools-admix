@@ -5,10 +5,10 @@
   version: "{{versions.trf}}"
   vendor_source:
   description: |
-    Tandem Repeats Finder (TRF) is a program to analyze DNA sequences
+    Tandem Repeats Finder (TRF) is a program to analyze DNA sequences.
     http://tandem.bu.edu/trf/trf.html. Prerequisite for RepeateMasker
     See LICENSE at http://tandem.bu.edu/trf/trf.license.html
-    Built from binary distribution.
+    The RPM is built from binary distribution.
   build:
     modules:
   install:

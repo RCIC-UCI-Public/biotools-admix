@@ -6,7 +6,7 @@
   distro: "{{version}}"
   vendor_source: https://github.com/lh3/bwa/archive/{{distro}}.{{extension}}
   description: >
-    Burrow-Wheeler Aligner {{version}}. 
+    Burrow-Wheeler Aligner
   extras: COPYING README*
   install:
      makeinstall: >

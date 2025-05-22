@@ -8,7 +8,7 @@
   vendor_source: https://cdn.oxfordnanoportal.com/software/analysis/dorado-{{version}}-linux-x64.{{extension}}
   src_dir: "{{name}}-{{version}}-linux-x64"
   description: |
-    Dorado {{version}} is a high-performance, easy-to-use, open source basecaller
+    Dorado is a high-performance and easy-to-use basecaller
     for Oxford Nanopore reads. Installed from precompiled ditribution.
     Must be run on GPU-enabled node. See https://github.com/nanoporetech/dorado.
   addfile:

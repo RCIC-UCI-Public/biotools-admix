@@ -5,8 +5,7 @@
   version: "{{versions.fastp}}"
   vendor_source: https://github.com/OpenGene/fastp/archive/v{{version}}.{{extension}}
   description: |
-    FastP {{version}}. An ultra-fast all-in-one FASTQ preprocessor 
-    (QC/adapters/trimming/filtering/splitting/merging...)
+    FastP is an ultra-fast all-in-one FASTQ preprocessor.
   extras: LICENSE README*
   adddirs: !ifeq "{{version}},0.20.0,,$$isal__PREFIX/lib $$libdeflate__PREFIX/lib"
   build:

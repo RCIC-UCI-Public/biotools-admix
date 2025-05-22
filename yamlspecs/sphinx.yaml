@@ -7,9 +7,8 @@
   version: "{{versions.sphinx}}"
   vendor_source: https://github.com/sphinx-doc/sphinx/archive/v{{version}}.{{extension}}
   description: |
-    Sphinx {{version}} is a tool that makes it easy to create intelligent
-    and beautiful documentation for Python projects (or other documents
-    consisting of multiple reStructuredText sources)
+    Sphinx is a tool that makes it easy to create intelligent
+    and beautiful documentation for Python projects.
   build:
     modules: 
       - python/{{pyversion}}

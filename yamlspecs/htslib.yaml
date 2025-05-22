@@ -6,8 +6,8 @@
   extension: tar.bz2
   vendor_source: https://github.com/samtools/htslib/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
   description: |
-    HTSLIB {{version}} implements a generalized BAM index, 
-    with file extension csi (coordinate-sorted index)
+    HTSLIB is a C library for reading/writing high-throughput sequencing data.
+    It implements a generalized BAM index with file extension csi (coordinate-sorted index).
   build:
     preconfigure: autoreconf
     configure: ./configure 

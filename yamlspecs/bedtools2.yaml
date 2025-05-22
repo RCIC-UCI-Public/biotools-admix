@@ -5,10 +5,11 @@
   version: "{{versions.bedtools2}}"
   vendor_source: https://github.com/arq5x/bedtools2/archive/v{{version}}.{{extension}}
   description: |
-    bedtools2 {{version}} utilities are a swiss-army knife of tools for a wide-range of genomics 
-    analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the 
-    genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle 
-    genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF
+    Bedtools2 utilities are a swiss-army knife of tools for a wide-range
+    of genomics analysis tasks. The most widely-used tools enable genome
+    arithmetic, that is, set theory on the genome. For example, bedtools
+    allows one to intersect, merge, count, complement, and shuffle genomic
+    intervals from multiple files in widely-used genomic file formats.
   build:
     pkgmake: make USE_RAND=1 prefix={{root}} 
   install:

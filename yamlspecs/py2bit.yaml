@@ -8,8 +8,7 @@
   version: "{{versions.py2bit}}"
   vendor_source: https://github.com/deeptools/py2bit/archive/{{version}}.{{extension}}
   description: |
-    Py2bit {{version}} A python extension, written in C, for quick access to 
-    2bit files. The extension uses lib2bit for file access. 
+    Py2bit is a python extension for quick access to 2bit files.
   build:
     modules: 
       - python/{{pyversion}}

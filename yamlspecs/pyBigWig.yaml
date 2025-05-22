@@ -8,9 +8,7 @@
   version: "{{versions.pyBigWig}}"
   vendor_source: https://github.com/deeptools/pyBigWig/archive/{{version}}.{{extension}}
   description: |
-    PyBigWig {{version}} A python extension, written in C, for quick access to 
-    bigBed files and access to and creation of bigWig files. This extension 
-    uses libBigWig for local and remote file access. 
+    PyBigWig ia a python extension for quick access to bigBed and bigWig files.
   build:
     modules: 
       - python/{{pyversion}}

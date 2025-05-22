@@ -6,7 +6,7 @@
   src_dir: "{{package}}-{{version}}"
   vendor_source: https://github.com/FelixKrueger/TrimGalore/archive/{{version}}.{{extension}}
   description: |
-    TrimGalore {{version}} is a a Perl wrapper around tools Cutadapt and FastQC
+    TrimGalore is a a Perl wrapper around tools Cutadapt and FastQC.
   build:
     modules:
   extras: LICENSE README*

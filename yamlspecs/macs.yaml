@@ -8,11 +8,11 @@
   version: "{{versions.macs}}"
   vendor_source: https://github.com/macs3-project/MACS/archive/v{{version}}.{{extension}}
   description: |
-     Model-based Analysis of ChIP-Seq (MACS) {{version}}, for identifying 
-     transcript factor binding sites. MACS captures the influence of genome 
-     complexity to evaluate the significance of enriched ChIP regions and MACS 
-     improves the spatial resolution of binding sites through combining the 
-     information of both sequencing tag position and orientation.
+     MACS - Model-based Analysis of ChIP-Seq for identifying transcript
+     factor binding sites. MACS captures the influence of genome complexity
+     to evaluate the significance of enriched ChIP regions and MACS improves
+     the spatial resolution of binding sites through combining the information
+     of both sequencing tag position and orientation.
   build:
     modules: 
       - python/{{pyversion}}

@@ -7,11 +7,12 @@
   ngs_major: "{{versions.ngs_major}}"
   vendor_source: https://github.com/ncbi/ngs/archive/{{version}}.{{extension}}
   description: |
-    NGS is a new, domain-specific API for accessing reads, alignments and pileups produced 
-    from Next Generation Sequencing. The API itself is independent from any particular 
-    back-end implementation, and supports use of multiple back-ends simultaneously. It 
-    also provides a library for building new back-end engines. The engine for accessing 
-    SRA data is contained within the sister repository https://github.com/ncbi/ncbi-vdb
+    NGS sdk binding from NCBI. It is a new domain-specific API for accessing
+    reads alignments and pileups produced from Next Generation Sequencing.
+    The API itself is independent from any particular back-end implementation,
+    and supports use of multiple back-ends simultaneously. It also provides a
+    library for building new back-end engines. The engine for accessing SRA
+    data is contained within the sister repository https://github.com/ncbi/ncbi-vdb
   src_dir: ngs-{{version}}
   build:
     configure: ./configure --prefix={{root}} --build-prefix=./builddir

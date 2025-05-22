@@ -14,7 +14,7 @@
     - !ifeq "{{version}},2020,,transmute-{{version}}.Linux.gz"
   src_dir: "{{name}}"
   description: |
-    Edirect {{version}} are commandline tools to Entrez tools. 
+    Entrez Direct (EDirect) toolkit for accessing the NCBI databases.
     We assign version based on a time stamp of the newest file in the distro
     as the NCBI tar.gz files have no versioning. See 
     https://www.ncbi.nlm.nih.gov/books/NBK179288/

@@ -7,7 +7,8 @@
   vdb_major: "{{versions.vdb_major}}"
   vendor_source: https://github.com/ncbi/ncbi-vdb/archive/{{version}}.{{extension}}
   description: |
-    NCBI vdb package
+    VDB is the SRA Toolkit and SDK from NCBI. It is a collection of
+    tools and libraries for using data in the INSDC Sequence Read Archives.
   builddir: builddir
   opt_prefix: --prefix={{root}} --build-prefix=./{{builddir}}
   opt_prereq: --with-ngs-sdk-prefix=$$NGS_HOME --with-ngs-java-prefix=$$NGS_HOME/jar/ngs-java.jar --with-hdf5-prefix=$$HDF5_HOME 

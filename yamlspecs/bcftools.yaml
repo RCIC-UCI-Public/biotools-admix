@@ -6,7 +6,7 @@
   vendor_source: https://github.com/samtools/bcftools/archive/{{version}}.{{extension}}
   release: 3
   description: |
-    BCFtools {{version}} are meant as a faster replacement for most of the perl VCFtools
+    BCFtools are meant as a faster replacement for most of the perl VCFtools
   addfile:
     - filter-requires-{{name}}.sh
   build:

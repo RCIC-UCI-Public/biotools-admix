@@ -5,10 +5,11 @@
   version: "{{versions.bustools}}"
   vendor_source: https://github.com/BUStools/bustools/archive/v{{version}}.{{extension}}
   description: |
-    bustools {{version}} is a program for manipulating BUS files for single cell RNA-Seq datasets. It 
-    can be used to error correct barcodes, collapse UMIs, produce gene count or transcript compatibility 
-    count matrices, and is useful for many other tasks. See the kallisto | bustools website for examples 
-    and instructions on how to use bustools as part of a single-cell RNA-seq workflow.
+    Bustools is a program for manipulating BUS files for single cell RNA-Seq datasets.
+    It can be used to error correct barcodes, collapse UMIs, produce gene count or
+    transcript compatibility count matrices, and is useful for many other tasks.
+    See the kallisto and bustools website for examples and instructions on how
+    to use bustools as part of a single-cell RNA-seq workflow.
   builddir: builddir
   build:
     pkgmake: >

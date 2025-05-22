@@ -7,7 +7,7 @@
   extension: zip
   vendor_source: https://github.com/broadinstitute/gatk/releases/download/{{version}}/{{name}}-{{version}}.{{extension}}
   description: >
-    GATK {{version}}. Genome Analysis Toolkit 
+    GATK is a Genome Analysis Toolkit.
   build:
     modules: 
       - java/{{versions.java}}

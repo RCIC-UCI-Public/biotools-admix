@@ -7,9 +7,9 @@
   vendor_source: https://github.com/broadinstitute/picard/archive/{{version}}.{{extension}}
   src_dir: picard-{{version}}
   description: |
-    Picard-tools {{version}} is a set of Java command line tools for
-    manipulating high-throughput sequencing (HTS) data and formats.
-    To run these tools use an alias 'picard'
+    Picard-tools is a set of Java command line tools for
+    manipulating high-throughput sequencing data and formats.
+    To run these tools use an alias 'picard'.
   build:
     modules: 
       - java/{{versions.picard_java}}

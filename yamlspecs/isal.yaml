@@ -5,8 +5,7 @@
   version: "{{versions.isal}}"
   vendor_source: https://github.com/intel/isa-l/archive/refs/tags/v{{version}}.{{extension}}
   description: |
-    ISA-L {{version}} is a collection of optimized low-level functions 
-    targeting storage applications. ISA-L includes
+    ISA-L is a collection of optimized low-level functions targeting storage applications.
   src_dir: isa-l-{{version}}
   build:
     preconfigure: ./autogen.sh

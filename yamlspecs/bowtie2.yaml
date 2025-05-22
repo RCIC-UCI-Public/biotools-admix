@@ -11,7 +11,7 @@
   parent: "{{pkg_defaults.app_path}}/{{name}}{{addname}}"
   vendor_source: https://github.com/BenLangmead/bowtie2/archive/v{{version}}.tar.gz
   description: >
-    bowtie2 {{version}}  
+    Bowtie2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.
   addfile: 
     - filter-requires-{{name}}.sh
     - filter-provides-{{name}}.sh

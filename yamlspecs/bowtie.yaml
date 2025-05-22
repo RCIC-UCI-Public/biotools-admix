@@ -6,7 +6,7 @@
   extension: zip
   vendor_source: https://sourceforge.net/projects/bowtie-bio/files/bowtie/{{version}}/bowtie-src-x86_64.{{extension}}
   description: |
-    Bowtie {{version}} Bowtie is an ultrafast, memory-efficient short read aligner.
+    Bowtie is an ultrafast  and memory-efficient short read aligner.
     It aligns short DNA sequences (reads) to the human genome at a rate of over 25
     million 35-bp reads per hour. Bowtie indexes the genome with a Burrows-Wheeler
     index to keep its memory footprint small, typically about 2.2 GB for the human

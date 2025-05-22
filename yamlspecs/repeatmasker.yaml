@@ -10,8 +10,9 @@
     - filter-requires-{{name}}.sh
     - filter-provides-{{name}}.sh
   description: |
-    RepeatMasker {{version}} is a program that screens DNA sequences for interspersed
-    repeats and low complexity DNA sequences. See http://www.repeatmasker.org
+    RepeatMasker is a program for screening DNA sequences.
+    It screens DNA sequences for interspersed repeats and low
+    complexity DNA sequences. See http://www.repeatmasker.org
   build:
     modules: 
       - perl/{{versions.perl}}

@@ -7,9 +7,9 @@
   platform: "centos_linux64"
   vendor_source: https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/{{version}}/sratoolkit.{{version}}-{{platform}}.{{extension}}
   description: |
-    The SRA Toolkit and SDK from NCBI is a collection of tools and 
-    libraries for using data in the INSDC Sequence Read Archives.
-    Binary distribution precompiled by NCBI.
+    The SRA Toolkit and SDK from NCBI. It is a collection of tools
+    and libraries for using data in the INSDC Sequence Read Archives.
+    RPM is built from the binary distribution precompiled by NCBI.
   src_dir: sratoolkit.{{version}}-{{platform}}
   build:
     modules:

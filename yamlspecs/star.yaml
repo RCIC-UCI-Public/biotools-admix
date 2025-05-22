@@ -9,8 +9,9 @@
   src_tarball: "{{name}}{{src_sep}}{{version}}{{alpha}}.{{extension}}"
   vendor_source: https://github.com/alexdobin/STAR/archive/{{version}}{{alpha}}.{{extension}}
   description: |
-    STAR {{version}} - Spliced Transcripts Alignment to a Reference 
-    Copyright Alexander Dobin, 2009-2019 https://www.ncbi.nlm.nih.gov/pubmed/23104886
+    STAR is a Spliced Transcripts Alignment to a Reference.
+    It is a fast RNA-Seq read mapper with support for
+    splice-junction and fusion read detection.
   builddir: source
   build:
     pkgmake: > 

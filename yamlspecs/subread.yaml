@@ -6,8 +6,8 @@
   src_dir: "{{name}}-{{version}}-source"
   vendor_source: https://sourceforge.net/projects/subread/files/subread-{{version}}/{{name}}-{{version}}-source.{{extension}}
   description: |
-    The Subread {{version}} is a toolkit for processing next-gen sequencing data.
-    The Subread is developed in The Walter and Eliza Hall Institute of Medical
+    The Subread is a toolkit for processing next-gen sequencing data.
+    It is developed in The Walter and Eliza Hall Institute of Medical
     Research, Melbourne, Australia. See http://bioinf.wehi.edu.au/subread-package
   build:
     pkgmake: > 

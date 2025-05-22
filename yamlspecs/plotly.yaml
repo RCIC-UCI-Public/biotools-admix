@@ -8,7 +8,7 @@
   vendor_source: https://github.com/plotly/plotly.py/archive/v{{version}}.{{extension}}
   src_dir: "{{name}}.py-{{version}}"
   description: |
-    Plotly {{version}} is an interactive, open-source, and browser-based graphing library for Python
+    Plotly is a browser-based graphing library for Python
   opt: !ifeq "{{version}},4.14.1,,--skip-npm"
   build:
     modules: 

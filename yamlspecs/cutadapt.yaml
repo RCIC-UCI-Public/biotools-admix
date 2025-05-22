@@ -6,8 +6,8 @@
   release: "2"
   vendor_source: https://files.pythonhosted.org/packages/{{versions.cutadapt_hash}}/{{name}}-{{version}}.{{extension}}
   description: |
-    Cutadapt {{version}} finds and removes adapter sequences, primers, poly-A tails
-    and other types of unwanted sequence from your high-throughput sequencing reads. 
+    Cutadapt finds and removes different types
+    of unwanted sequence from sequencing reads.
   builddir: source
   build:
     modules: 

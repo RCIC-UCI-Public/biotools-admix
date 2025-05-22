@@ -6,10 +6,10 @@
   builddir: build
   vendor_source: https://github.com/open-source-parsers/{{name}}/archive/{{version}}.{{extension}}
   description: |
-    JsonCpp {{version}} is a C++ library that allows manipulating JSON values,
-    including serialization and deserialization to and from strings. It can
-    also preserve existing comment in unserialization/serialization steps,
-    making it a convenient format to store user input files
+    JsonCpp is a C++ library that allows manipulating JSON values. It
+    includes serialization and deserialization to and from strings, and
+    it can also preserve existing comment in unserialization/serialization
+    steps, making it a convenient format to store user input files.
   build:
     base_modules: 
       - "{{compiler}}/{{compiler_version}}"

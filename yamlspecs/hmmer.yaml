@@ -5,9 +5,10 @@
   version: "{{versions.hmmer}}"
   vendor_source: http://eddylab.org/software/hmmer/{{name}}-{{version}}.{{extension}}
   description: |
-    HMMER {{version}} is used for searching sequence databases for sequence homologs, and for making 
+    HMMER is a biosequence analysis using profile hidden Markov models.
+    It is used for searching sequence databases for sequence homologs and for making
     sequence alignments. It implements methods using probabilistic models called profile 
-    hidden Markov models (profile HMMs)    
+    hidden Markov models (profile HMMs).
   build:
     configure: ./configure --prefix={{root}}
     pkgmake: make 

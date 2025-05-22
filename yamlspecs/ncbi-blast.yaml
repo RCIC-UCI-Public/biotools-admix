@@ -11,8 +11,8 @@
   src_dir: "{{name}}-{{version}}{{suffix}}"
   src_tarball: "{{src_dir}}.{{extension}}"
   description: |
-    BLAST (Basic Local Alignment Search Tool) command line applications developed 
-    at the National Center for Biotechnology Information (NCBI).
+    BLAST (Basic Local Alignment Search Tool) command line applications from NCBI.
+    Developed at the National Center for Biotechnology Information.
     https://www.ncbi.nlm.nih.gov/books/NBK279690/
   build:
     patchfile: "{{rmblastpatch}}"

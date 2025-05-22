@@ -9,8 +9,9 @@
   k8dist: k8-{{versions.k8}}.tar.bz2
   k8url: https://github.com/attractivechaos/k8/releases/download/{{versions.k8v}}{{versions.k8}}/{{k8dist}}
   description: |
-    minimap2 {{version}} is a versatile sequence alignment program that aligns DNA or mRNA 
-    sequences against a large reference database. Includes paftools.js and k8 javascript shell
+    Minimap2 is a versatile sequence alignment program.
+    It aligns DNA or mRNA sequences against a large reference
+    database. Includes paftools.js and k8 javascript shell.
   build:
     pkgmake: >
       sed -i  's/man \.\/minimap2\.1/man minimap2/g' main.c;
