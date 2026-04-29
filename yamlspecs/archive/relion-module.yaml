@@ -1,9 +1,0 @@
-!include relion.yaml
-!include rcic-module.yaml
----
-- package: relion module
-  category: BIOTOOLS
-  module:
-    setenv:
-    prereq: 
-      - "{{build.base_modules}}"

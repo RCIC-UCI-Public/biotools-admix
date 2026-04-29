@@ -1,9 +1,0 @@
-!include vg.yaml
-!include rcic-module.yaml
----
-- package: vg module
-  category: BIOTOOLS
-  release: 2
-  module:
-    prereq:
-      - "{{build.base_modules}}"

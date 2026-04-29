@@ -1,9 +1,0 @@
-!include stitch.yaml
-!include rcic-module.yaml
----
-- package: stitch module
-  category: BIOTOOLS
-  release: 2
-  module:
-    prepend_path:
-      - PATH {{root}}
