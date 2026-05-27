@@ -7,3 +7,5 @@ build:
   - dorado-module
   - gatk
   - gatk-module
+  - vcftools
+  - vcftools-module
