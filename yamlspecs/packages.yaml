@@ -1,4 +1,5 @@
-site: !include site.yaml
+---
+# EPEL provides libaec RPM needed when building dorado
 enablerepo: "epel"
 system:
   - autoconf
@@ -15,11 +16,9 @@ system:
   - jansson-devel
   - libffi-devel
   - lz4-devel
-  - !ifeq "{{site.os_release}},7,lz4-static,"
   - cairo-devel
   - perl-Archive-Tar
   - perl-IO-Zlib
-  - !ifeq "{{site.os_release}},7,perl-Package-Constants,"
   - perl-LWP-Protocol-https
   - perl-XML-Simple 
   - perl-ExtUtils-Embed
@@ -38,11 +37,9 @@ system:
   - fltk-devel
   - ruby
   - gettext-devel
-  - !eval "'java-17-openjdk-devel' if {{site.os_release}} >= 8 else ''"
-  - !eval "'perl-ExtUtils-Embed' if {{site.os_release}} >= 9 else ''"
+  - !OScmp "<,10,java-17-openjdk-devel,"
+  - perl-ExtUtils-Embed
   - nasm
-  # this is needed by dorado, provides 2 libraries
-  # to install need to have RPM epel-release RPM 
   - libaec
 bootstrap:
 build:
